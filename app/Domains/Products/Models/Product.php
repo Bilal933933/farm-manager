@@ -5,7 +5,9 @@ namespace App\Domains\Products\Models;
 use App\Domains\Products\Enums\ProductCategory;
 use App\Domains\Products\Enums\ProductStatus;
 use App\Domains\Products\Enums\ProductUnit;
+use App\Domains\StockMovements\Models\StockMovement;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
@@ -35,4 +37,9 @@ class Product extends Model
         'status' => 'نشط',
         'display_order' => 0,
     ];
+
+    public function stockMovements(): HasMany
+    {
+        return $this->hasMany(StockMovement::class);
+    }
 }

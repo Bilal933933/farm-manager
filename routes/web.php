@@ -3,6 +3,7 @@
 use App\Domains\Lands\Http\Controllers\LandController;
 use App\Domains\Parties\Http\Controllers\PartyController;
 use App\Domains\Products\Http\Controllers\ProductController;
+use App\Domains\StockMovements\Http\Controllers\StockMovementController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -22,6 +23,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('parties', PartyController::class);
 
     Route::resource('products', ProductController::class);
+
+    Route::get('stock', [StockMovementController::class, 'index'])->name('stock.index');
+    Route::post('stock', [StockMovementController::class, 'store'])->name('stock.store');
 });
 
 require __DIR__.'/settings.php';
