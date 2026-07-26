@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Domains\Products\Models;
+
+use App\Domains\Products\Enums\ProductCategory;
+use App\Domains\Products\Enums\ProductStatus;
+use App\Domains\Products\Enums\ProductUnit;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Product extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'code',
+        'name',
+        'category',
+        'unit',
+        'status',
+        'display_order',
+        'notes',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'category' => ProductCategory::class,
+            'unit' => ProductUnit::class,
+            'status' => ProductStatus::class,
+        ];
+    }
+
+    protected $attributes = [
+        'status' => 'نشط',
+        'display_order' => 0,
+    ];
+}
