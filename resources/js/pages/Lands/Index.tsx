@@ -21,7 +21,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import StatusBadge from '@/Components/Lands/StatusBadge';
+import StatusBadge from '@/components/Lands/StatusBadge';
 
 interface Land {
   id: number;
@@ -57,7 +57,6 @@ function StatCard({ icon: Icon, label, value }: { icon: React.ComponentType<{ cl
 export default function Index({ lands }: IndexProps) {
   const activeCount = lands.filter((l) => l.status === 'نشط').length;
   const totalContracts = lands.reduce((sum, l) => sum + (l.contracts?.length ?? 0), 0);
-  const totalSeasons = lands.reduce((sum, l) => sum + (l.seasons?.length ?? 0), 0);
 
   function destroy(land: Land) {
     router.delete(route('lands.destroy', land.id));

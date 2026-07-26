@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import PartyForm from '@/Components/Parties/PartyForm';
+import PartyForm from '@/components/Parties/PartyForm';
 
 interface Party {
   id: number;

@@ -21,7 +21,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import StatusBadge from '@/Components/Lands/StatusBadge';
+import StatusBadge from '@/components/Lands/StatusBadge';
 
 interface Party {
   id: number;

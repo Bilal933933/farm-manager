@@ -1,137 +1,120 @@
-import { Form, Head, usePage } from '@inertiajs/react';
-import { Link } from '@inertiajs/react';
-import ProfileController from '@/actions/App/Http/Controllers/Settings/ProfileController';
+import { type BreadcrumbItem, type SharedData } from '@/types';
+import { Transition } from '@headlessui/react';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
+import { FormEventHandler } from 'react';
+
 import DeleteUser from '@/components/delete-user';
-import Heading from '@/components/heading';
+import HeadingSmall from '@/components/heading-small';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { edit } from '@/routes/profile';
-import { send } from '@/routes/verification';
-import type { Auth } from '@/types';
+import AppLayout from '@/layouts/app-layout';
+import SettingsLayout from '@/layouts/settings/layout';
 
-type PageProps = {
-    auth: Auth;
-};
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Profile settings',
+        href: '/settings/profile',
+    },
+];
 
-export default function Profile({
-    mustVerifyEmail,
-    status,
-}: {
-    mustVerifyEmail: boolean;
-    status?: string;
-}) {
-    const { auth } = usePage<PageProps>().props;
+export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
+    const { auth } = usePage<SharedData>().props;
+
+    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
+        name: auth.user.name,
+        email: auth.user.email,
+    });
+
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+
+        patch(route('profile.update'));
+    };
 
     return (
-        <>
-            <Head title="إعدادات الملف الشخصي" />
+        <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title="Profile settings" />
 
-            <h1 className="sr-only">إعدادات الملف الشخصي</h1>
+            <SettingsLayout>
+                <div className="space-y-6">
+                    <HeadingSmall title="Profile information" description="Update your name and email address" />
 
-            <div className="space-y-6">
-                <Heading
-                    variant="small"
-                    title="الملف الشخصي"
-                    description="تحديث الاسم والبريد الإلكتروني"
-                />
+                    <form onSubmit={submit} className="space-y-6">
+                        <div className="grid gap-2">
+                            <Label htmlFor="name">Name</Label>
 
-                <Form
-                    {...ProfileController.update.form()}
-                    options={{
-                        preserveScroll: true,
-                    }}
-                    className="space-y-6"
-                >
-                    {({ processing, errors }) => (
-                        <>
-                            <div className="grid gap-2">
-                                <Label htmlFor="name">الاسم</Label>
+                            <Input
+                                id="name"
+                                className="mt-1 block w-full"
+                                value={data.name}
+                                onChange={(e) => setData('name', e.target.value)}
+                                required
+                                autoComplete="name"
+                                placeholder="Full name"
+                            />
 
-                                <Input
-                                    id="name"
-                                    className="mt-1 block w-full"
-                                    defaultValue={auth.user.name}
-                                    name="name"
-                                    required
-                                    autoComplete="name"
-                                    placeholder="الاسم الكامل"
-                                />
+                            <InputError className="mt-2" message={errors.name} />
+                        </div>
 
-                                <InputError
-                                    className="mt-2"
-                                    message={errors.name}
-                                />
-                            </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="email">Email address</Label>
 
-                            <div className="grid gap-2">
-                                <Label htmlFor="email">البريد الإلكتروني</Label>
+                            <Input
+                                id="email"
+                                type="email"
+                                className="mt-1 block w-full"
+                                value={data.email}
+                                onChange={(e) => setData('email', e.target.value)}
+                                required
+                                autoComplete="username"
+                                placeholder="Email address"
+                            />
 
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    className="mt-1 block w-full"
-                                    defaultValue={auth.user.email}
-                                    name="email"
-                                    required
-                                    autoComplete="username"
-                                    placeholder="البريد الإلكتروني"
-                                />
+                            <InputError className="mt-2" message={errors.email} />
+                        </div>
 
-                                <InputError
-                                    className="mt-2"
-                                    message={errors.email}
-                                />
-                            </div>
+                        {mustVerifyEmail && auth.user.email_verified_at === null && (
+                            <div>
+                                <p className="mt-2 text-sm text-neutral-800">
+                                    Your email address is unverified.
+                                    <Link
+                                        href={route('verification.send')}
+                                        method="post"
+                                        as="button"
+                                        className="rounded-md text-sm text-neutral-600 underline hover:text-neutral-900 focus:ring-2 focus:ring-offset-2 focus:outline-hidden"
+                                    >
+                                        Click here to re-send the verification email.
+                                    </Link>
+                                </p>
 
-                            {mustVerifyEmail &&
-                                auth.user.email_verified_at === null && (
-                                    <div>
-                                    <p className="-mt-4 text-sm text-muted-foreground">
-                                        بريدك الإلكتروني غير مؤكد.{' '}
-                                        <Link
-                                            href={send()}
-                                            as="button"
-                                            className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
-                                        >
-                                            اضغط هنا لإعادة إرسال رابط التأكيد.
-                                        </Link>
-                                    </p>
-
-                                    {status ===
-                                        'verification-link-sent' && (
-                                        <div className="mt-2 text-sm font-medium text-green-600">
-                                            تم إرسال رابط تأكيد جديد إلى بريدك
-                                            الإلكتروني.
-                                        </div>
-                                    )}
+                                {status === 'verification-link-sent' && (
+                                    <div className="mt-2 text-sm font-medium text-green-600">
+                                        A new verification link has been sent to your email address.
                                     </div>
                                 )}
-
-                            <div className="flex items-center gap-4">
-                                <Button
-                                    disabled={processing}
-                                    data-test="update-profile-button"
-                                >
-                                    حفظ
-                                </Button>
                             </div>
-                        </>
-                    )}
-                </Form>
-            </div>
+                        )}
 
-            <DeleteUser />
-        </>
+                        <div className="flex items-center gap-4">
+                            <Button disabled={processing}>Save</Button>
+
+                            <Transition
+                                show={recentlySuccessful}
+                                enter="transition ease-in-out"
+                                enterFrom="opacity-0"
+                                leave="transition ease-in-out"
+                                leaveTo="opacity-0"
+                            >
+                                <p className="text-sm text-neutral-600">Saved</p>
+                            </Transition>
+                        </div>
+                    </form>
+                </div>
+
+                <DeleteUser />
+            </SettingsLayout>
+        </AppLayout>
     );
 }
-
-Profile.layout = {
-    breadcrumbs: [
-        {
-            title: 'إعدادات الملف الشخصي',
-            href: edit(),
-        },
-    ],
-};

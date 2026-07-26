@@ -11,9 +11,9 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/Components/Lands/StatusBadge';
-import SeasonFormDialog from '@/Components/Lands/SeasonFormDialog';
-import ContractFormDialog from '@/Components/Lands/ContractFormDialog';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import SeasonFormDialog from '@/components/Lands/SeasonFormDialog';
+import ContractFormDialog from '@/components/Lands/ContractFormDialog';
 
 interface Season {
   id: number;

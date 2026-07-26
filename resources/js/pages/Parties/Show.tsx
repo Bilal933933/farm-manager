@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/Components/Lands/StatusBadge';
+import StatusBadge from '@/components/Lands/StatusBadge';
 
 interface Land {
   id: number;
