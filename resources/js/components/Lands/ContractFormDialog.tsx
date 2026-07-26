@@ -1,0 +1,137 @@
+import { useForm } from '@inertiajs/react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { CONTRACT_TYPES } from '@/lib/landEnums';
+import type { ReactNode } from 'react';
+
+interface Contract {
+  id?: number;
+  type?: string;
+  start_date?: string;
+  end_date?: string;
+  amount?: string;
+  notes?: string;
+}
+
+interface ContractFormDialogProps {
+  landId: number;
+  contract?: Contract | null;
+  trigger: ReactNode;
+}
+
+export default function ContractFormDialog({ landId, contract = null, trigger }: ContractFormDialogProps) {
+  const isEditing = Boolean(contract);
+
+  const { data, setData, post, put, processing, errors, reset } = useForm({
+    land_id: landId,
+    type: contract?.type ?? 'إيجار',
+    start_date: contract?.start_date ?? '',
+    end_date: contract?.end_date ?? '',
+    amount: contract?.amount ?? '',
+    notes: contract?.notes ?? '',
+  });
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (isEditing) {
+      put(route('lands.contracts.update', contract!.id), { onSuccess: () => reset() });
+    } else {
+      post(route('lands.contracts.store'), { onSuccess: () => reset() });
+    }
+  }
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogContent dir="rtl" className="sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>{isEditing ? 'تعديل العقد' : 'إضافة عقد جديد'}</DialogTitle>
+        </DialogHeader>
+
+        <form onSubmit={submit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="contract_type">نوع العقد</Label>
+            <Select value={data.type} onValueChange={(v) => setData('type', v)}>
+              <SelectTrigger id="contract_type">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {CONTRACT_TYPES.map((t) => (
+                  <SelectItem key={t.value} value={t.value}>
+                    {t.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.type && <p className="text-sm text-rose-600">{errors.type}</p>}
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="start_date">تاريخ البداية</Label>
+              <Input
+                id="start_date"
+                type="date"
+                value={data.start_date}
+                onChange={(e) => setData('start_date', e.target.value)}
+              />
+              {errors.start_date && <p className="text-sm text-rose-600">{errors.start_date}</p>}
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="end_date">تاريخ الانتهاء (اختياري)</Label>
+              <Input
+                id="end_date"
+                type="date"
+                value={data.end_date}
+                onChange={(e) => setData('end_date', e.target.value)}
+              />
+              {errors.end_date && <p className="text-sm text-rose-600">{errors.end_date}</p>}
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="amount">القيمة</Label>
+            <Input
+              id="amount"
+              type="number"
+              step="0.01"
+              min="0"
+              className="font-mono"
+              value={data.amount}
+              onChange={(e) => setData('amount', e.target.value)}
+            />
+            {errors.amount && <p className="text-sm text-rose-600">{errors.amount}</p>}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="contract_notes">ملاحظات</Label>
+            <Textarea id="contract_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+          </div>
+
+          <DialogFooter>
+            <Button type="submit" disabled={processing} className="bg-emerald-700 hover:bg-emerald-800">
+              {isEditing ? 'حفظ التعديلات' : 'إضافة العقد'}
+            </Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
+}
