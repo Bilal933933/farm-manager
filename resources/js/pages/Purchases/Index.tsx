@@ -1,16 +1,12 @@
 import { Head, Link } from '@inertiajs/react';
-import { Plus, ShoppingCart } from 'lucide-react';
+import { Eye, Plus, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
 import { Card } from '@/components/ui/card';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import StatusBadge from '@/components/Lands/StatusBadge';
 
 interface Party {
@@ -53,12 +49,12 @@ export default function Index({ purchases }: IndexProps) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-right">التاريخ</TableHead>
-              <TableHead className="text-right">المورد</TableHead>
-              <TableHead className="text-right">نوع الدفع</TableHead>
-              <TableHead className="text-right">عدد الأصناف</TableHead>
-              <TableHead className="text-right">الإجمالي</TableHead>
-              <TableHead className="text-left">إجراءات</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">التاريخ</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">المورد</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-center">نوع الدفع</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-center">عدد الأصناف</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-center">الإجمالي</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-left w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -71,22 +67,26 @@ export default function Index({ purchases }: IndexProps) {
               </TableRow>
             )}
             {purchases.map((p) => (
-              <TableRow key={p.id}>
+              <TableRow key={p.id} className="hover:bg-stone-50 transition-colors even:bg-stone-50/50">
                 <TableCell className="font-mono"><DateDisplay date={p.date} /></TableCell>
                 <TableCell className="font-medium">
                   <Link href={route('purchases.show', p.id)} className="hover:text-emerald-700 hover:underline">
                     {p.party?.name ?? '—'}
                   </Link>
                 </TableCell>
-                <TableCell>
-                  <StatusBadge value={p.payment_type} />
+                <TableCell className="text-center">
+                  <div className="inline-flex justify-center">
+                    <StatusBadge value={p.payment_type} />
+                  </div>
                 </TableCell>
-                <TableCell className="font-mono">{p.items_count}</TableCell>
-                <TableCell className="font-mono">{p.items_total.toFixed(2)}</TableCell>
+                <TableCell className="font-mono text-center tabular-nums">{p.items_count}</TableCell>
+                <TableCell className="font-mono text-center tabular-nums">{p.items_total.toFixed(2)}</TableCell>
                 <TableCell className="text-left">
-                  <Button variant="ghost" size="sm" asChild>
-                    <Link href={route('purchases.show', p.id)}>عرض</Link>
-                  </Button>
+                  <ActionsMenu
+                    actions={[
+                      { label: 'عرض', icon: Eye, href: route('purchases.show', p.id) },
+                    ]}
+                  />
                 </TableCell>
               </TableRow>
             ))}

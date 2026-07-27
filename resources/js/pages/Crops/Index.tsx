@@ -1,27 +1,9 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { Plus, Sprout } from 'lucide-react';
+import { Carrot, Eye, Leaf, Pencil, Plus, Sprout, Trash2, Wheat } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
-import StatusBadge from '@/components/Lands/StatusBadge';
 
 interface Crop {
   id: number;
@@ -35,11 +17,50 @@ interface IndexProps {
   crops: Crop[];
 }
 
-export default function Index({ crops }: IndexProps) {
-  function destroy(crop: Crop) {
-    router.delete(route('crops.destroy', crop.id));
+function getCategoryIcon(category: string) {
+  switch (category) {
+    case 'خضروات':
+      return Carrot;
+    case 'محاصيل حقلية':
+      return Wheat;
+    case 'فاكهة':
+      return Sprout;
+    default:
+      return Leaf;
   }
+}
 
+function getCategoryColor(category: string) {
+  switch (category) {
+    case 'خضروات':
+      return 'bg-orange-50 border-orange-200 hover:border-orange-300';
+    case 'محاصيل حقلية':
+      return 'bg-amber-50 border-amber-200 hover:border-amber-300';
+    case 'فاكهة':
+      return 'bg-rose-50 border-rose-200 hover:border-rose-300';
+    case 'أعلاف':
+      return 'bg-green-50 border-green-200 hover:border-green-300';
+    default:
+      return 'bg-stone-50 border-stone-200 hover:border-stone-300';
+  }
+}
+
+function getIconColor(category: string) {
+  switch (category) {
+    case 'خضروات':
+      return 'text-orange-600';
+    case 'محاصيل حقلية':
+      return 'text-amber-600';
+    case 'فاكهة':
+      return 'text-rose-600';
+    case 'أعلاف':
+      return 'text-green-600';
+    default:
+      return 'text-stone-600';
+  }
+}
+
+export default function Index({ crops }: IndexProps) {
   return (
     <div dir="rtl" className="space-y-6 p-6">
       <Head title="المحاصيل" />
@@ -57,74 +78,84 @@ export default function Index({ crops }: IndexProps) {
         </Button>
       </div>
 
-      <Card className="border-stone-200">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="text-right">الاسم</TableHead>
-              <TableHead className="text-right">التصنيف</TableHead>
-              <TableHead className="text-right">الوحدة</TableHead>
-              <TableHead className="text-right">الموسم المعتاد</TableHead>
-              <TableHead className="text-left">إجراءات</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {crops.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={5} className="py-16 text-center text-stone-500">
-                  <Sprout className="mx-auto mb-3 h-10 w-10 text-stone-300" />
-                  لا توجد محاصيل مسجّلة بعد. ابدأ بإضافة أول محصول.
-                </TableCell>
-              </TableRow>
-            )}
-            {crops.map((crop) => (
-              <TableRow key={crop.id}>
-                <TableCell className="font-medium">
-                  <Link href={route('crops.show', crop.id)} className="hover:text-emerald-700 hover:underline">
-                    {crop.name}
-                  </Link>
-                </TableCell>
-                <TableCell>
-                  <StatusBadge value={crop.category} />
-                </TableCell>
-                <TableCell className="font-mono">{crop.unit}</TableCell>
-                <TableCell>{crop.typical_season || '—'}</TableCell>
-                <TableCell className="text-left">
-                  <div className="flex justify-start gap-2">
-                    <Button variant="ghost" size="sm" asChild>
-                      <Link href={route('crops.edit', crop.id)}>تعديل</Link>
-                    </Button>
-                    <AlertDialog>
-                      <AlertDialogTrigger asChild>
-                        <Button variant="ghost" size="sm" className="text-rose-600 hover:text-rose-700">
-                          حذف
-                        </Button>
-                      </AlertDialogTrigger>
-                      <AlertDialogContent dir="rtl">
-                        <AlertDialogHeader>
-                          <AlertDialogTitle>حذف "{crop.name}"؟</AlertDialogTitle>
-                          <AlertDialogDescription>
-                            لن يمكن الحذف إذا كان المحصول مرتبطًا بموسم زراعي.
-                          </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                          <AlertDialogCancel>تراجع</AlertDialogCancel>
-                          <AlertDialogAction
-                            onClick={() => destroy(crop)}
-                            className="bg-rose-600 hover:bg-rose-700"
-                          >
-                            حذف
-                          </AlertDialogAction>
-                        </AlertDialogFooter>
-                      </AlertDialogContent>
-                    </AlertDialog>
+      {crops.length === 0 ? (
+        <Card className="border-stone-200 py-16">
+          <div className="text-center text-stone-500">
+            <Sprout className="mx-auto mb-3 h-10 w-10 text-stone-300" />
+            لا توجد محاصيل مسجّلة بعد. ابدأ بإضافة أول محصول.
+          </div>
+        </Card>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {crops.map((crop) => {
+            const CategoryIcon = getCategoryIcon(crop.category);
+            const cardColor = getCategoryColor(crop.category);
+            const iconColor = getIconColor(crop.category);
+            const isVegetable = crop.category === 'خضروات';
+
+            return (
+              <Card
+                key={crop.id}
+                className={`${cardColor} border-2 transition-all hover:shadow-md ${isVegetable ? 'ring-2 ring-orange-200 hover:ring-orange-300' : ''}`}
+              >
+                <div className="p-5">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className={`p-3 rounded-xl ${isVegetable ? 'bg-orange-100' : 'bg-white/50'}`}>
+                      <CategoryIcon className={`h-6 w-6 ${iconColor}`} />
+                    </div>
+                    <ActionsMenu
+                      actions={[
+                        { label: 'عرض', icon: Eye, href: route('crops.show', crop.id) },
+                        { label: 'تعديل', icon: Pencil, href: route('crops.edit', crop.id) },
+                        {
+                          label: 'حذف', icon: Trash2, variant: 'danger',
+                          delete: {
+                            itemName: crop.name,
+                            onDelete: () => router.delete(route('crops.destroy', crop.id)),
+                            description: 'لن يمكن الحذف إذا كان المحصول مرتبطًا بموسم زراعي.',
+                          },
+                        },
+                      ]}
+                    />
                   </div>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Card>
+
+                  <Link href={route('crops.show', crop.id)} className="block">
+                    <h3 className="text-lg font-semibold text-stone-900 hover:text-emerald-700 transition-colors mb-2">
+                      {crop.name}
+                    </h3>
+                  </Link>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-stone-500">التصنيف</span>
+                      <StatusBadge value={crop.category} />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-stone-500">الوحدة</span>
+                      <span className="text-sm font-mono font-medium text-stone-700">{crop.unit}</span>
+                    </div>
+                    {crop.typical_season && (
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-stone-500">الموسم</span>
+                        <span className="text-sm font-medium text-stone-700">{crop.typical_season}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {isVegetable && (
+                    <div className="mt-3 pt-3 border-t border-orange-200/50">
+                      <span className="inline-flex items-center text-xs font-medium text-orange-700 bg-orange-100 px-2 py-1 rounded-full">
+                        <Carrot className="h-3 w-3 ms-1" />
+                        خضروات
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

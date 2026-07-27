@@ -54,6 +54,13 @@ class ProductController extends Controller
 
     public function show(Product $product): Response
     {
+        $product->load(['stockMovements' => fn ($q) => $q->with('reference')->latest('movement_date')->latest('created_at')]);
+
+        $product->stock_balance = (float) $product->stockMovements
+            ->where('type', MovementType::In->value)->sum('quantity')
+            - (float) $product->stockMovements
+                ->where('type', MovementType::Out->value)->sum('quantity');
+
         return Inertia::render('Products/Show', [
             'product' => $product,
         ]);

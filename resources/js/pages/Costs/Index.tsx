@@ -1,11 +1,9 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { MoreHorizontal, Plus, ListOrdered, Wallet } from 'lucide-react';
+import { Eye, Pencil, Plus, ListOrdered, Trash2, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
-import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
@@ -21,10 +19,6 @@ function fmt(n: number) {
 }
 
 export default function Index({ costs, summary }: IndexProps) {
-  function destroy(c: CostData) {
-    router.delete(route('costs.destroy', c.id));
-  }
-
   return (
     <div dir="rtl" className="space-y-6 p-6">
       <Head title="التكاليف" />
@@ -71,12 +65,12 @@ export default function Index({ costs, summary }: IndexProps) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-right">التاريخ</TableHead>
-              <TableHead className="text-right">الأرض</TableHead>
-              <TableHead className="text-right">النوع</TableHead>
-              <TableHead className="text-right">البيان</TableHead>
-              <TableHead className="text-left font-mono tabular-nums">المبلغ</TableHead>
-              <TableHead className="w-16 text-center">إجراءات</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">التاريخ</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">الأرض</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">النوع</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">البيان</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-left font-mono tabular-nums">المبلغ</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-left w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -87,31 +81,26 @@ export default function Index({ costs, summary }: IndexProps) {
                 </TableCell>
               </TableRow>
             ) : costs.data.map((c) => (
-              <TableRow key={c.id}>
+              <TableRow key={c.id} className="hover:bg-stone-50 transition-colors even:bg-stone-50/50">
                 <TableCell><DateDisplay date={c.date} /></TableCell>
                 <TableCell>{c.land?.name ?? '—'}</TableCell>
                 <TableCell>{c.type}</TableCell>
                 <TableCell className="max-w-xs truncate">{c.description}</TableCell>
                 <TableCell className="text-left font-mono tabular-nums text-amber-700">{fmt(c.amount)}</TableCell>
-                <TableCell className="text-center">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8">
-                        <MoreHorizontal className="h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem asChild>
-                        <Link href={route('costs.show', c.id)}>عرض</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link href={route('costs.edit', c.id)}>تعديل</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="text-rose-600 focus:text-rose-700" onClick={() => destroy(c)}>
-                        حذف
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                <TableCell className="text-left whitespace-nowrap">
+                  <ActionsMenu
+                    actions={[
+                      { label: 'عرض', icon: Eye, href: route('costs.show', c.id) },
+                      { label: 'تعديل', icon: Pencil, href: route('costs.edit', c.id) },
+                      {
+                        label: 'حذف', icon: Trash2, variant: 'danger',
+                        delete: {
+                          itemName: c.description,
+                          onDelete: () => router.delete(route('costs.destroy', c.id)),
+                        },
+                      },
+                    ]}
+                  />
                 </TableCell>
               </TableRow>
             ))}

@@ -13,6 +13,7 @@ export interface Season {
   harvest_date?: string;
   expected_cost?: string;
   status: string;
+  notes?: string;
   harvests?: { id: number; date: string; quantity: string }[];
 }
 

@@ -4,6 +4,7 @@ namespace App\Domains\Purchases\Actions;
 
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
+use App\Domains\Products\Models\Product;
 use App\Domains\Purchases\Models\Purchase;
 use App\Domains\StockMovements\Actions\RecordMovement;
 use App\Domains\StockMovements\Enums\MovementReason;
@@ -43,10 +44,15 @@ class CreatePurchase
                     'type' => MovementType::In->value,
                     'reason' => MovementReason::Purchase->value,
                     'quantity' => $item['quantity'],
+                    'unit_price' => $item['unit_price'],
                     'movement_date' => $data['date'],
                     'reference_type' => Purchase::class,
                     'reference_id' => $purchase->id,
                 ]);
+
+                Product::withoutTimestamps(fn () => Product::where('id', $item['product_id'])->update([
+                    'last_purchase_price' => $item['unit_price'],
+                ]));
             }
 
             if ($data['payment_type'] === 'آجل') {

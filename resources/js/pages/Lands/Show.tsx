@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Head, Deferred } from '@inertiajs/react';
+import { useState } from 'react';
 import ActiveSeasonCard from '@/components/Lands/ActiveSeasonCard';
 import KpiCards from '@/components/Lands/KpiCards';
 import LandHeader from '@/components/Lands/LandHeader';
@@ -29,8 +29,14 @@ interface ShowProps {
 }
 
 function getCropName(s: Season): string {
-  if (typeof s.crop === 'string') return s.crop;
-  if (s.crop && typeof s.crop === 'object' && 'name' in s.crop) return (s.crop as Crop).name;
+  if (typeof s.crop === 'string') {
+return s.crop;
+}
+
+  if (s.crop && typeof s.crop === 'object' && 'name' in s.crop) {
+return (s.crop as Crop).name;
+}
+
   return 'موسم';
 }
 

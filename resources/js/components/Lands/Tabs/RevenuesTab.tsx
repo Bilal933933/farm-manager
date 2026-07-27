@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
 import { Search } from 'lucide-react';
+import { useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
 import { Input } from '@/components/ui/input';
@@ -24,7 +24,10 @@ const nh = `${numCell} ${h}`;
 
 export default function RevenuesTab({ sales, selectedSeasonId = null }: Props) {
   const filtered = useMemo(() => {
-    if (selectedSeasonId === null) return sales;
+    if (selectedSeasonId === null) {
+return sales;
+}
+
     return sales.filter((s) => s.harvest?.land_season_id === selectedSeasonId);
   }, [sales, selectedSeasonId]);
 
@@ -36,8 +39,8 @@ export default function RevenuesTab({ sales, selectedSeasonId = null }: Props) {
       <div className="flex items-center gap-4">
         <div className="mr-auto">
           <div className="relative">
-            <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
-            <Input placeholder="بحث..." className="w-56 pr-9 text-sm" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+            <Input placeholder="بحث..." className="w-56 pl-9 text-sm" />
           </div>
         </div>
       </div>

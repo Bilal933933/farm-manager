@@ -22,6 +22,7 @@ class Product extends Model
         'unit',
         'status',
         'display_order',
+        'last_purchase_price',
         'notes',
     ];
 
@@ -31,6 +32,7 @@ class Product extends Model
             'category' => ProductCategory::class,
             'unit' => ProductUnit::class,
             'status' => ProductStatus::class,
+            'last_purchase_price' => 'decimal:2',
         ];
     }
 

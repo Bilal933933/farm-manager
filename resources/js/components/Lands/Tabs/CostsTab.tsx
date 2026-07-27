@@ -1,8 +1,10 @@
-import { useMemo } from 'react';
 import { router } from '@inertiajs/react';
-import { Package, Plus, Search } from 'lucide-react';
+import { Package, Pencil, Plus, Search, Trash2 } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import ConsumeStockDialog from '@/components/Lands/ConsumeStockDialog';
 import CostFormDialog from '@/components/Lands/CostFormDialog';
+import NotesDialog from '@/components/Lands/NotesDialog';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
@@ -22,17 +24,22 @@ interface Props {
 }
 
 function fmt(n: number) {
- return n.toLocaleString() 
+  return n.toLocaleString()
 }
 
 const cell = 'text-right';
 const numCell = 'font-mono text-right tabular-nums';
-const h = 'text-right text-stone-600 font-semibold bg-stone-100 border-b-2 border-stone-200';
+const h = 'text-right font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
 export default function CostsTab({ costs, landId, selectedSeasonId = null, activeSeasonId = null, seasons = [], products = [] }: Props) {
+  const [editingCost, setEditingCost] = useState<CostData | null>(null);
+
   const filtered = useMemo(() => {
-    if (selectedSeasonId === null) return costs;
+    if (selectedSeasonId === null) {
+return costs;
+}
+
     return costs.filter((c) =>
       c.land_season_id === selectedSeasonId ||
       (c.land_season_id === null && selectedSeasonId === activeSeasonId),
@@ -40,10 +47,6 @@ export default function CostsTab({ costs, landId, selectedSeasonId = null, activ
   }, [costs, selectedSeasonId, activeSeasonId]);
 
   const totalAmount = filtered.reduce((s, c) => s + c.amount, 0);
-
-  function deleteCost(c: CostData) {
- router.delete(route('lands.costs.destroy', c.id)) 
-}
 
   return (
     <div className="space-y-4">
@@ -62,8 +65,8 @@ export default function CostsTab({ costs, landId, selectedSeasonId = null, activ
         )}
         <div className="mr-auto">
           <div className="relative">
-            <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
-            <Input placeholder="بحث..." className="w-56 pr-9 text-sm" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+            <Input placeholder="بحث..." className="w-56 pl-9 text-sm" />
           </div>
         </div>
       </div>
@@ -75,10 +78,10 @@ export default function CostsTab({ costs, landId, selectedSeasonId = null, activ
               <TableHead className={h}>التاريخ</TableHead>
               <TableHead className={h}>المحصول</TableHead>
               <TableHead className={h}>النوع</TableHead>
-              <TableHead className={h}>البيان</TableHead>
+              <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-16">البيان</TableHead>
               <TableHead className={nh}>المبلغ</TableHead>
-              <TableHead className={h}>ملاحظات</TableHead>
-              <TableHead className="text-center font-semibold text-stone-600 bg-stone-100 border-b-2 border-stone-200">إجراءات</TableHead>
+              <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-16">ملاحظات</TableHead>
+              <TableHead className={h}>إجراءات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -91,14 +94,41 @@ export default function CostsTab({ costs, landId, selectedSeasonId = null, activ
                 <TableCell className={cell}><DateDisplay date={c.date} /></TableCell>
                 <TableCell className={cell}>{c.crop_name}</TableCell>
                 <TableCell className={cell}>{c.type}</TableCell>
-                <TableCell className={cell}>{c.description}</TableCell>
+                <TableCell className={cell}>
+                  <NotesDialog text={c.description} title="البيان" />
+                </TableCell>
                 <TableCell className={`${numCell} text-amber-700`}>{fmt(c.amount)}</TableCell>
-                <TableCell className={cell}>{c.notes || '—'}</TableCell>
                 <TableCell className="text-center">
-                  <div className="inline-flex items-center gap-0.5">
-                    <CostFormDialog landId={landId} cost={c} seasons={seasons} trigger={<Button variant="ghost" size="sm">تعديل</Button>} />
-                    <Button variant="ghost" size="sm" className="text-rose-600 hover:text-rose-700" onClick={() => deleteCost(c)}>حذف</Button>
-                  </div>
+                  {c.notes ? <NotesDialog text={c.notes} title="ملاحظات" /> : <span className="text-stone-300">—</span>}
+                </TableCell>
+                <TableCell className="text-left whitespace-nowrap">
+                  <ActionsMenu
+                    actions={[
+                      {
+                        label: 'تعديل', icon: Pencil,
+                        onClick: () => setEditingCost(c),
+                      },
+                      {
+                        label: 'حذف', icon: Trash2, variant: 'danger',
+                        delete: {
+                          itemName: c.description,
+                          onDelete: () => router.delete(route('lands.costs.destroy', c.id)),
+                        },
+                      },
+                    ]}
+                  />
+                  <CostFormDialog
+                    landId={landId}
+                    cost={editingCost}
+                    seasons={seasons}
+                    open={editingCost?.id === c.id}
+                    onOpenChange={(open) => {
+ if (!open) {
+setEditingCost(null);
+} 
+}}
+                    trigger={<span />}
+                  />
                 </TableCell>
               </TableRow>
             ))}

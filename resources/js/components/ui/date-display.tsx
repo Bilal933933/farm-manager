@@ -71,6 +71,7 @@ function DateDisplay({
     <time
       dateTime={d.toISOString()}
       title={titleFormatter.format(d)}
+      dir="auto"
       className={cn('font-mono', className)}
       {...props}
     >

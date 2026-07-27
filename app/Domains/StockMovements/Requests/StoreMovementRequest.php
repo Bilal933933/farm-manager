@@ -23,6 +23,18 @@ class StoreMovementRequest extends FormRequest
             'quantity' => ['required', 'numeric', 'min:0.01'],
             'unit_price' => ['nullable', 'numeric', 'min:0'],
             'movement_date' => ['required', 'date'],
+            'land_id' => [
+                'nullable',
+                'required_if:type,خارج',
+                'required_if:reason,صرف',
+                'exists:lands,id',
+            ],
+            'land_season_id' => [
+                'nullable',
+                'required_if:type,خارج',
+                'required_if:reason,صرف',
+                'exists:land_seasons,id',
+            ],
             'notes' => ['nullable', 'string'],
         ];
     }

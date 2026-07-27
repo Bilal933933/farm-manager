@@ -2,6 +2,7 @@
 
 namespace App\Domains\StockMovements\Http\Controllers;
 
+use App\Domains\Lands\Models\Land;
 use App\Domains\Products\Models\Product;
 use App\Domains\StockMovements\Actions\ConsumeProductForSeason;
 use App\Domains\StockMovements\Actions\RecordMovement;
@@ -32,9 +33,14 @@ class StockMovementController extends Controller
             ->orderBy('name')
             ->get();
 
+        $lands = Land::with(['seasons' => function ($q) {
+            $q->whereIn('status', ['نشط', 'قادم'])->orderBy('planting_date', 'desc');
+        }])->orderBy('name')->get();
+
         return Inertia::render('StockMovements/Index', [
             'movements' => $movements,
             'products' => $products,
+            'lands' => $lands,
         ]);
     }
 

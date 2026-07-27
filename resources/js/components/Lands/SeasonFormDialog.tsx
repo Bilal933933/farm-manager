@@ -1,5 +1,5 @@
-import { type ReactNode } from 'react';
 import { useForm } from '@inertiajs/react';
+import type {ReactNode} from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
@@ -11,19 +11,18 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { SEASON_STATUSES } from '@/lib/landEnums';
+import type { Crop, Season } from '@/types';
 
-interface Crop { id: number; name: string }
-
-interface Season {
-  id?: number;
-  crop_id?: number | null;
-  cultivated_area?: string;
-  crop?: string;
-  planting_date?: string;
-  harvest_date?: string;
-  expected_cost?: string;
-  status?: string;
-  notes?: string;
+interface SeasonFormData {
+  land_id: number;
+  crop_id: string;
+  cultivated_area: string;
+  crop: string;
+  planting_date: string;
+  harvest_date: string;
+  expected_cost: string;
+  status: string;
+  notes: string;
 }
 
 interface SeasonFormDialogProps {
@@ -31,21 +30,26 @@ interface SeasonFormDialogProps {
   season?: Season | null;
   trigger: ReactNode;
   crops: Crop[];
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 function toDateInputValue(dateStr?: string): string {
-  if (!dateStr) return '';
+  if (!dateStr) {
+return '';
+}
+
   return dateStr.split('T')[0];
 }
 
-export default function SeasonFormDialog({ landId, season = null, trigger, crops }: SeasonFormDialogProps) {
+export default function SeasonFormDialog({ landId, season = null, trigger, crops, open, onOpenChange }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
   const initialCrop = season?.crop && typeof season.crop === 'object'
     ? (season.crop as { name?: string }).name ?? ''
     : String(season?.crop ?? '');
 
-  const { data, setData, post, put, processing, errors, reset } = useForm({
+  const { data, setData, post, put, processing, errors, reset } = useForm<SeasonFormData>({
     land_id: landId,
     crop_id: String(season?.crop_id ?? ''),
     cultivated_area: season?.cultivated_area ?? '',
@@ -68,7 +72,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent dir="rtl" className="sm:max-w-lg">
         <DialogHeader>

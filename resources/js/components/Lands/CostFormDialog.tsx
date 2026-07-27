@@ -11,9 +11,11 @@ interface Props {
   cost?: CostData | null;
   trigger: ReactNode;
   seasons?: { id: number; name: string }[];
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
-export default function CostFormDialog({ landId, cost = null, trigger, seasons = [] }: Props) {
+export default function CostFormDialog({ landId, cost = null, trigger, seasons = [], open, onOpenChange }: Props) {
   const isEditing = Boolean(cost);
 
   const { data, setData, post, put, processing, errors, reset } = useForm({
@@ -37,7 +39,7 @@ export default function CostFormDialog({ landId, cost = null, trigger, seasons =
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent dir="rtl" className="sm:max-w-lg">
         <DialogHeader>

@@ -1,8 +1,10 @@
 import { Link, router } from '@inertiajs/react';
-import { Plus, Search } from 'lucide-react';
+import { Pencil, Plus, Search, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 import HarvestFormDialog from '@/components/Harvests/HarvestFormDialog';
 import SeasonFormDialog from '@/components/Lands/SeasonFormDialog';
 import StatusBadge from '@/components/Lands/StatusBadge';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
@@ -15,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import type { Crop, Land, Season, SeasonStats } from '@/types';
+import type { Crop, Season, SeasonStats } from '@/types';
 
 interface Props {
   seasons: Season[]; seasonStats: Record<number, SeasonStats>;
@@ -44,13 +46,11 @@ function fmt(n: number) {
 
 const cell = 'text-right';
 const numCell = 'font-mono text-right tabular-nums';
-const h = 'text-right text-stone-600 font-semibold bg-stone-100 border-b-2 border-stone-200';
+const h = 'text-right font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
 export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Props) {
-  function deleteSeason(s: Season) {
- router.delete(route('lands.seasons.destroy', s.id)) 
-}
+  const [editingSeason, setEditingSeason] = useState<Season | null>(null);
 
   return (
     <div className="space-y-4">
@@ -62,8 +62,8 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
         } />
         <div className="mr-auto">
           <div className="relative">
-            <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
-            <Input placeholder="بحث..." className="w-56 pr-9 text-sm" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+            <Input placeholder="بحث..." className="w-56 pl-9 text-sm" />
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
               <TableHead className={nh}>التكلفة</TableHead>
               <TableHead className={nh}>الربح</TableHead>
               <TableHead className={h}>الحالة</TableHead>
-              <TableHead className="text-center font-semibold text-stone-600 bg-stone-100 border-b-2 border-stone-200">إجراءات</TableHead>
+              <TableHead className="text-left font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -100,7 +100,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
               return (
                 <TableRow key={s.id} className="border-b border-stone-100 last:border-b-0">
                   <TableCell className={cell}>
-                    <Link href={route('lands.seasons.show', [landId, s.id])} className="font-medium text-emerald-700 hover:underline">
+                    <Link href={route('lands.seasons.show', { land: landId, season: s.id })} className="font-medium text-emerald-700 hover:underline">
                       {getCropName(s)}
                     </Link>
                   </TableCell>
@@ -113,12 +113,39 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
                     {profit !== 0 ? fmt(profit) : '—'}
                   </TableCell>
                   <TableCell className={cell}><StatusBadge value={s.status} /></TableCell>
-                  <TableCell className="text-center">
-                    <div className="inline-flex items-center gap-0.5">
-                      <HarvestFormDialog landSeasonId={s.id} trigger={<Button size="sm" className="bg-amber-500 text-white hover:bg-amber-600">🌾 حصاد</Button>} />
-                      <SeasonFormDialog landId={landId} season={s as any} crops={crops} trigger={<Button variant="ghost" size="sm">تعديل</Button>} />
-                      <Button variant="ghost" size="sm" className="text-rose-600 hover:text-rose-700" onClick={() => deleteSeason(s)}>حذف</Button>
-                    </div>
+                  <TableCell className="text-left whitespace-nowrap">
+                    <HarvestFormDialog landSeasonId={s.id} trigger={
+                      <Button size="sm" className="bg-amber-500 text-white hover:bg-amber-600 px-2 h-9">
+                        🌾
+                      </Button>
+                    } />
+                    <ActionsMenu
+                      actions={[
+                        {
+                          label: 'تعديل', icon: Pencil,
+                          onClick: () => setEditingSeason(s),
+                        },
+                        {
+                          label: 'حذف', icon: Trash2, variant: 'danger',
+                          delete: {
+                            itemName: getCropName(s),
+                            onDelete: () => router.delete(route('lands.seasons.destroy', s.id)),
+                          },
+                        },
+                      ]}
+                    />
+                    <SeasonFormDialog
+                      landId={landId}
+                      season={editingSeason}
+                      crops={crops}
+                      open={editingSeason?.id === s.id}
+                      onOpenChange={(open) => {
+ if (!open) {
+setEditingSeason(null);
+} 
+}}
+                      trigger={<span />}
+                    />
                   </TableCell>
                 </TableRow>
               );

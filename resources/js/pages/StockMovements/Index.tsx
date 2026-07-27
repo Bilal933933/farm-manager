@@ -1,4 +1,5 @@
 import { Head, router, useForm } from '@inertiajs/react';
+import { useMemo } from 'react';
 import { ArrowDownUp, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
@@ -43,12 +44,19 @@ interface StockMovement {
   product: Product | null;
 }
 
+interface LandOption {
+  id: number;
+  name: string;
+  seasons: { id: number; crop: string; planting_date: string }[];
+}
+
 interface IndexProps {
   movements: Record<string, StockMovement[]>;
   products: Product[];
+  lands: LandOption[];
 }
 
-export default function Index({ movements, products }: IndexProps) {
+export default function Index({ movements, products, lands }: IndexProps) {
   const { data, setData, post, processing, errors, reset } = useForm({
     product_id: '',
     type: '',
@@ -56,8 +64,20 @@ export default function Index({ movements, products }: IndexProps) {
     quantity: '',
     unit_price: '',
     movement_date: new Date().toISOString().slice(0, 10),
+    land_id: '',
+    land_season_id: '',
     notes: '',
   });
+
+  const showLandSeason = data.type === 'خارج' && data.reason === 'صرف';
+
+  const selectedLandSeasons = useMemo(() => {
+    if (!data.land_id) return [];
+
+    const land = lands.find((l) => l.id.toString() === data.land_id);
+
+    return land?.seasons ?? [];
+  }, [lands, data.land_id]);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -144,6 +164,49 @@ export default function Index({ movements, products }: IndexProps) {
                   {errors.reason && <p className="text-sm text-rose-600">{errors.reason}</p>}
                 </div>
               </div>
+
+              {showLandSeason && (
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="land_id">الأرض</Label>
+                    <Select
+                      value={data.land_id}
+                      onValueChange={(v) => {
+ setData('land_id', v); setData('land_season_id', '');
+}}
+                    >
+                      <SelectTrigger id="land_id">
+                        <SelectValue placeholder="اختر الأرض" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {lands.map((l) => (
+                          <SelectItem key={l.id} value={l.id.toString()}>{l.name}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {errors.land_id && <p className="text-sm text-rose-600">{errors.land_id}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="land_season_id">الموسم</Label>
+                    <Select
+                      value={data.land_season_id}
+                      onValueChange={(v) => setData('land_season_id', v)}
+                      disabled={!data.land_id}
+                    >
+                      <SelectTrigger id="land_season_id">
+                        <SelectValue placeholder={data.land_id ? 'اختر الموسم' : 'اختر الأرض أولاً'} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {selectedLandSeasons.map((s) => (
+                          <SelectItem key={s.id} value={s.id.toString()}>{s.crop} — {s.planting_date}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {errors.land_season_id && <p className="text-sm text-rose-600">{errors.land_season_id}</p>}
+                  </div>
+                </div>
+              )}
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">

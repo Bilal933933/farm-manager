@@ -34,6 +34,8 @@ interface ContractFormDialogProps {
   landId: number;
   contract?: Contract | null;
   trigger: ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 function toDateInputValue(dateStr?: string): string {
@@ -41,7 +43,7 @@ function toDateInputValue(dateStr?: string): string {
   return dateStr.split('T')[0];
 }
 
-export default function ContractFormDialog({ landId, contract = null, trigger }: ContractFormDialogProps) {
+export default function ContractFormDialog({ landId, contract = null, trigger, open, onOpenChange }: ContractFormDialogProps) {
   const isEditing = Boolean(contract);
 
   const { data, setData, post, put, processing, errors, reset } = useForm({
@@ -63,7 +65,7 @@ export default function ContractFormDialog({ landId, contract = null, trigger }:
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent dir="rtl" className="sm:max-w-lg">
         <DialogHeader>

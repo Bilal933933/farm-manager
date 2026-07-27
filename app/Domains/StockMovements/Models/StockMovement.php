@@ -2,6 +2,8 @@
 
 namespace App\Domains\StockMovements\Models;
 
+use App\Domains\Lands\Models\Land;
+use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Products\Models\Product;
 use App\Domains\StockMovements\Enums\MovementReason;
 use App\Domains\StockMovements\Enums\MovementType;
@@ -13,6 +15,8 @@ class StockMovement extends Model
 {
     protected $fillable = [
         'product_id',
+        'land_id',
+        'land_season_id',
         'type',
         'reason',
         'quantity',
@@ -42,5 +46,15 @@ class StockMovement extends Model
     public function reference(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function land(): BelongsTo
+    {
+        return $this->belongsTo(Land::class);
+    }
+
+    public function landSeason(): BelongsTo
+    {
+        return $this->belongsTo(LandSeason::class);
     }
 }
