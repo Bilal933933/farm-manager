@@ -2,6 +2,8 @@
 
 namespace App\Domains\Sales\Actions;
 
+use App\Domains\Lands\Actions\CalculateSeasonFinancials;
+use App\Domains\Lands\Models\Harvest;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
 use App\Domains\Sales\Models\Sale;
@@ -11,6 +13,7 @@ class CreateSale
 {
     public function __construct(
         private RecordLedgerEntry $recordLedgerEntry,
+        private CalculateSeasonFinancials $calculateSeasonFinancials,
     ) {}
 
     public function execute(array $data): Sale
@@ -29,6 +32,11 @@ class CreateSale
                 'reference_type' => Sale::class,
                 'reference_id' => $sale->id,
             ]);
+
+            $harvest = Harvest::find($data['harvest_id']);
+            if ($harvest?->land_season_id) {
+                $this->calculateSeasonFinancials->forSeason($harvest->landSeason);
+            }
 
             return $sale;
         });

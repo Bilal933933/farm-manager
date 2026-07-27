@@ -12,7 +12,7 @@ class LandSeason extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'crop', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'status', 'notes'];
+    protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'crop', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'actual_revenue', 'actual_profit', 'status', 'notes'];
 
     protected function casts(): array
     {
@@ -21,6 +21,8 @@ class LandSeason extends Model
             'harvest_date' => 'date',
             'expected_cost' => 'decimal:2',
             'actual_cost' => 'decimal:2',
+            'actual_revenue' => 'decimal:2',
+            'actual_profit' => 'decimal:2',
             'cultivated_area' => 'decimal:2',
         ];
     }
