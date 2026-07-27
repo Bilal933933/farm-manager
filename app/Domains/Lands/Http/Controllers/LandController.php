@@ -80,9 +80,13 @@ class LandController extends Controller
             ->with(['party', 'harvest.landSeason.crop'])
             ->orderBy('date', 'desc')
             ->get()
-            ->map(fn ($s) => array_merge($s->toArray(), [
-                'unit' => $s->harvest?->landSeason?->crop?->unit?->value,
-            ]));
+            ->map(function ($s) {
+                $crop = $s->harvest?->landSeason?->relationLoaded('crop') ? $s->harvest->landSeason->getRelation('crop') : null;
+
+                return array_merge($s->toArray(), [
+                    'unit' => $crop?->unit?->value,
+                ]);
+            });
 
         $costsBySeason = $land->seasons->map(fn ($s) => [
             'season_id' => $s->id,
