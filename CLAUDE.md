@@ -76,15 +76,19 @@ Harvest
 | Lands | إدارة الأراضي (المساحة، الموقع، الحدود، سند الملكية) |
 | Parties | الأشخاص والجهات (موردين، مزارعين، ملاك) |
 | PartyRoles | ربط الأطراف بالأدوار (مورد/مزارع/مالك) |
-| Products | كتالوج الأصناف — اكتمل |
-| StockMovements | حركات المخزون (دخول/خروج) — اكتمل |
+| Products | مستلزمات التشغيل (سماد، مبيد، بذور...) — اكتمل |
+| StockMovements | حركات المخزون — اكتمل |
 | Purchases | فواتير الشراء + تكامل StockMovements — اكتمل |
 | Payments | مدفوعات ومقبوضات (دفع/قبض) — اكتمل |
-| Ledger | سجل مالي يُولَّد تلقائيًا من Purchases وPayments — اكتمل |
-| Balance Services | خدمات حساب الأرصدة — قادم |
+| Ledger | سجل مالي يُولَّد تلقائيًا — اكتمل |
+| Crops | المحاصيل الزراعية (أرز، قمح، بطيخ...) — اكتمل |
+| SeasonCrops | ربط المحصول بالموسم — قادم |
+| Harvests | ناتج الحصاد — بعدها |
+| Sales | بيع المحصول — بعدها |
+| Dashboard | لوحة التحكم — لاحقًا |
 | Reports | التقارير — لاحقًا |
 
-**ترتيب البناء:** Lands → Parties → Products → StockMovements → Purchases → Payments → Ledger ← (نحن هنا) → Balance Services
+**ترتيب البناء:** Lands → Parties → Products → StockMovements → Purchases → Payments → Ledger → Crops ← (نحن هنا) → SeasonCrops → Harvests → Sales
 
 ## قرارات قاعدة البيانات (نهائية، لا تُغيَّر بدون نقاش)
 

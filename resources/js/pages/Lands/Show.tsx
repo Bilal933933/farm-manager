@@ -1,5 +1,5 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { ArrowRight, Pencil, Plus } from 'lucide-react';
+import { ArrowRight, Harvest, Pencil, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -14,15 +14,32 @@ import {
 import StatusBadge from '@/components/Lands/StatusBadge';
 import SeasonFormDialog from '@/components/Lands/SeasonFormDialog';
 import ContractFormDialog from '@/components/Lands/ContractFormDialog';
+import HarvestFormDialog from '@/components/Harvests/HarvestFormDialog';
+import { useState } from 'react';
+
+interface Crop {
+  id: number;
+  name: string;
+}
+
+interface HarvestItem {
+  id: number;
+  date: string;
+  quantity: string;
+}
 
 interface Season {
   id: number;
+  crop_id: number | null;
+  crop_obj?: Crop | null;
+  cultivated_area: string | null;
   crop: string;
   planting_date: string;
   harvest_date: string | null;
   expected_cost: string | null;
   actual_cost: string | null;
   status: string;
+  harvests?: HarvestItem[];
 }
 
 interface Contract {
@@ -47,9 +64,10 @@ interface Land {
 
 interface ShowProps {
   land: Land;
+  crops: Crop[];
 }
 
-export default function Show({ land }: ShowProps) {
+export default function Show({ land, crops }: ShowProps) {
   function deleteSeason(season: Season) {
     router.delete(route('lands.seasons.destroy', season.id));
   }
@@ -59,7 +77,7 @@ export default function Show({ land }: ShowProps) {
   }
 
   return (
-    <div dir="rtl" className="mx-auto max-w-4xl space-y-6 p-6">
+    <div dir="rtl" className="mx-auto max-w-5xl space-y-6 p-6">
       <Head title={land.name} />
 
       <Link
@@ -102,6 +120,7 @@ export default function Show({ land }: ShowProps) {
           <div className="flex justify-start">
             <SeasonFormDialog
               landId={land.id}
+              crops={crops}
               trigger={
                 <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
                   <Plus className="ms-2 h-4 w-4" />
@@ -116,10 +135,10 @@ export default function Show({ land }: ShowProps) {
               <TableHeader>
                 <TableRow>
                   <TableHead className="text-right">المحصول</TableHead>
+                  <TableHead className="text-right">المساحة</TableHead>
                   <TableHead className="text-right">الزراعة</TableHead>
                   <TableHead className="text-right">الحصاد</TableHead>
                   <TableHead className="text-right">التكلفة المتوقعة</TableHead>
-                  <TableHead className="text-right">التكلفة الفعلية</TableHead>
                   <TableHead className="text-right">الحالة</TableHead>
                   <TableHead className="text-left">إجراءات</TableHead>
                 </TableRow>
@@ -132,35 +151,48 @@ export default function Show({ land }: ShowProps) {
                     </TableCell>
                   </TableRow>
                 )}
-                {(land.seasons ?? []).map((season) => (
-                  <TableRow key={season.id}>
-                    <TableCell className="font-medium">{season.crop}</TableCell>
-                    <TableCell className="font-mono">{season.planting_date}</TableCell>
-                    <TableCell className="font-mono">{season.harvest_date || '—'}</TableCell>
-                    <TableCell className="font-mono">{season.expected_cost ?? '—'}</TableCell>
-                    <TableCell className="font-mono">{season.actual_cost ?? '—'}</TableCell>
-                    <TableCell>
-                      <StatusBadge value={season.status} />
-                    </TableCell>
-                    <TableCell className="text-left">
-                      <div className="flex justify-start gap-2">
-                        <SeasonFormDialog
-                          landId={land.id}
-                          season={season}
-                          trigger={<Button variant="ghost" size="sm">تعديل</Button>}
-                        />
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="text-rose-600 hover:text-rose-700"
-                          onClick={() => deleteSeason(season)}
-                        >
-                          حذف
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {(land.seasons ?? []).map((season) => {
+                  const cropName = season.crop_obj?.name || season.crop;
+                  const totalHarvest = (season.harvests ?? []).reduce((s, h) => s + parseFloat(h.quantity), 0);
+
+                  return (
+                    <TableRow key={season.id}>
+                      <TableCell className="font-medium">{cropName}</TableCell>
+                      <TableCell className="font-mono">{season.cultivated_area || '—'}</TableCell>
+                      <TableCell className="font-mono">{season.planting_date}</TableCell>
+                      <TableCell className="font-mono">{season.harvest_date || '—'}</TableCell>
+                      <TableCell className="font-mono">{season.expected_cost ?? '—'}</TableCell>
+                      <TableCell>
+                        <StatusBadge value={season.status} />
+                      </TableCell>
+                      <TableCell className="text-left">
+                        <div className="flex justify-start gap-2">
+                          {totalHarvest > 0 && (
+                            <span className="font-mono text-xs text-stone-500 self-center">حصاد: {totalHarvest}</span>
+                          )}
+                          <HarvestFormDialog
+                            landSeasonId={season.id}
+                            trigger={<Button variant="ghost" size="sm">حصاد</Button>}
+                          />
+                          <SeasonFormDialog
+                            landId={land.id}
+                            season={season}
+                            crops={crops}
+                            trigger={<Button variant="ghost" size="sm">تعديل</Button>}
+                          />
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="text-rose-600 hover:text-rose-700"
+                            onClick={() => deleteSeason(season)}
+                          >
+                            حذف
+                          </Button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           </Card>

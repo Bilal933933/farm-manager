@@ -2,6 +2,7 @@
 
 namespace App\Domains\Lands\Http\Controllers;
 
+use App\Domains\Crops\Models\Crop;
 use App\Domains\Lands\Actions\CreateLand;
 use App\Domains\Lands\Actions\CreateLandContract;
 use App\Domains\Lands\Actions\CreateLandSeason;
@@ -48,10 +49,11 @@ class LandController extends Controller
 
     public function show(Land $land): Response
     {
-        $land->load(['seasons', 'contracts']);
+        $land->load(['seasons.crop', 'seasons.harvests', 'contracts']);
 
         return Inertia::render('Lands/Show', [
             'land' => $land,
+            'crops' => Crop::orderBy('name')->get(),
         ]);
     }
 

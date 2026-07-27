@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid, Map, Package, ScrollText, ShoppingCart, SquareStack, Users, Wallet } from 'lucide-react';
+import { BookOpen, DollarSign, FolderGit2, LayoutGrid, Map, Package, ScrollText, ShoppingCart, Sprout, SquareStack, Users, Wallet } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -56,6 +56,16 @@ const mainNavItems: NavItem[] = [
         title: 'السجل المالي',
         href: '/ledger',
         icon: ScrollText,
+    },
+    {
+        title: 'المحاصيل',
+        href: '/crops',
+        icon: Sprout,
+    },
+    {
+        title: 'المبيعات',
+        href: '/sales',
+        icon: DollarSign,
     },
 ];
 

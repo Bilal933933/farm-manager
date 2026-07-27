@@ -21,8 +21,15 @@ import {
 import { SEASON_STATUSES } from '@/lib/landEnums';
 import type { ReactNode } from 'react';
 
+interface Crop {
+  id: number;
+  name: string;
+}
+
 interface Season {
   id?: number;
+  crop_id?: number | null;
+  cultivated_area?: string;
   crop?: string;
   planting_date?: string;
   harvest_date?: string;
@@ -36,13 +43,16 @@ interface SeasonFormDialogProps {
   landId: number;
   season?: Season | null;
   trigger: ReactNode;
+  crops: Crop[];
 }
 
-export default function SeasonFormDialog({ landId, season = null, trigger }: SeasonFormDialogProps) {
+export default function SeasonFormDialog({ landId, season = null, trigger, crops }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
   const { data, setData, post, put, processing, errors, reset } = useForm({
     land_id: landId,
+    crop_id: String(season?.crop_id ?? ''),
+    cultivated_area: season?.cultivated_area ?? '',
     crop: season?.crop ?? '',
     planting_date: season?.planting_date ?? '',
     harvest_date: season?.harvest_date ?? '',
@@ -70,10 +80,36 @@ export default function SeasonFormDialog({ landId, season = null, trigger }: Sea
         </DialogHeader>
 
         <form onSubmit={submit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="crop">المحصول</Label>
-            <Input id="crop" value={data.crop} onChange={(e) => setData('crop', e.target.value)} placeholder="مثال: قمح" />
-            {errors.crop && <p className="text-sm text-rose-600">{errors.crop}</p>}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="crop_id">المحصول</Label>
+              <Select value={data.crop_id} onValueChange={(v) => setData('crop_id', v)}>
+                <SelectTrigger id="crop_id">
+                  <SelectValue placeholder="اختر المحصول" />
+                </SelectTrigger>
+                <SelectContent>
+                  {crops.map((c) => (
+                    <SelectItem key={c.id} value={String(c.id)}>
+                      {c.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {errors.crop_id && <p className="text-sm text-rose-600">{errors.crop_id}</p>}
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="cultivated_area">المساحة المزروعة</Label>
+              <Input
+                id="cultivated_area"
+                type="number"
+                step="0.01"
+                min="0"
+                className="font-mono"
+                value={data.cultivated_area}
+                onChange={(e) => setData('cultivated_area', e.target.value)}
+              />
+              {errors.cultivated_area && <p className="text-sm text-rose-600">{errors.cultivated_area}</p>}
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">

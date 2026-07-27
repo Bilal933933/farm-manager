@@ -17,7 +17,9 @@ class StoreLandSeasonRequest extends FormRequest
     {
         return [
             'land_id' => ['required', 'exists:lands,id'],
-            'crop' => ['required', 'string', 'max:255'],
+            'crop_id' => ['nullable', 'exists:crops,id'],
+            'cultivated_area' => ['nullable', 'numeric', 'min:0'],
+            'crop' => ['nullable', 'string', 'max:255'],
             'planting_date' => ['required', 'date'],
             'harvest_date' => ['nullable', 'date', 'after_or_equal:planting_date'],
             'expected_cost' => ['nullable', 'numeric', 'min:0'],
