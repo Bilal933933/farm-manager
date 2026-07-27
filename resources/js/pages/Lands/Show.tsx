@@ -35,7 +35,7 @@ interface Season {
   crop_id?: number | null;
   crop_obj?: Crop | null;
   cultivated_area?: string;
-  crop: string;
+  crop: string | Crop;
   planting_date: string;
   harvest_date?: string;
   expected_cost?: string;
@@ -79,6 +79,13 @@ interface ShowProps {
   seasonStats: Record<number, SeasonStats>;
   overallSales: number;
   overallCosts: number;
+}
+
+function getCropName(season: Season): string {
+  if (season.crop_obj?.name) return season.crop_obj.name;
+  if (typeof season.crop === 'string') return season.crop;
+  if (season.crop && typeof season.crop === 'object' && 'name' in (season.crop as object)) return (season.crop as Crop).name;
+  return '—';
 }
 
 export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts }: ShowProps) {
@@ -140,7 +147,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
               <div>
                 <p className="text-xs text-stone-500">المحصول</p>
                 <p className="font-semibold text-stone-900">
-                  {activeSeason.crop_obj?.name || activeSeason.crop || '—'}
+                  {getCropName(activeSeason)}
                 </p>
               </div>
               <div>
@@ -263,7 +270,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                   </TableRow>
                 )}
                 {(land.seasons ?? []).map((season) => {
-                  const cropName = season.crop_obj?.name || season.crop;
+                  const cropName = getCropName(season);
                   const stats = seasonStats[season.id];
                   const totalHarvest = stats?.total_harvest ?? 0;
                   const totalSales = stats?.total_sales ?? 0;
@@ -295,7 +302,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                           />
                           <SeasonFormDialog
                             landId={land.id}
-                            season={season}
+                            season={season as any}
                             crops={crops}
                             trigger={<Button variant="ghost" size="sm">تعديل</Button>}
                           />
