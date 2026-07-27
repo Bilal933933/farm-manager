@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Domains\Harvests\Actions\RecordHarvest;
+use App\Domains\Lands\Actions\RecordHarvest;
 use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Actions\RecordPayment;
@@ -66,8 +66,9 @@ class DemoFarmSeeder extends Seeder
         $harvest = $recordHarvest->execute([
             'land_season_id' => $season->id,
             'date' => '2026-06-20',
+            'name' => 'حصاد البطيخ الأحمر - الدورة الصيفية',
             'quantity' => 230,
-            'notes' => 'حصاد الموسم الصيفي - بطيخ أحمر درجة أولى',
+            'notes' => 'بطيخ أحمر درجة أولى',
         ]);
 
         // ---------------------------------------------------------------

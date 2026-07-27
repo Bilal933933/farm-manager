@@ -1,5 +1,7 @@
+import { useMemo } from 'react';
 import { router } from '@inertiajs/react';
-import { Plus, Search } from 'lucide-react';
+import { Package, Plus, Search } from 'lucide-react';
+import ConsumeStockDialog from '@/components/Lands/ConsumeStockDialog';
 import CostFormDialog from '@/components/Lands/CostFormDialog';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -8,9 +10,16 @@ import { Input } from '@/components/ui/input';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import type { CostData } from '@/types';
+import type { CostData, StockProductOption } from '@/types';
 
-interface Props { costs: CostData[]; landId: number; seasons?: { id: number; name: string }[] }
+interface Props {
+  costs: CostData[];
+  landId: number;
+  selectedSeasonId?: number | null;
+  activeSeasonId?: number | null;
+  seasons?: { id: number; name: string }[];
+  products?: StockProductOption[];
+}
 
 function fmt(n: number) {
  return n.toLocaleString() 
@@ -21,8 +30,16 @@ const numCell = 'font-mono text-right tabular-nums';
 const h = 'text-right text-stone-600 font-semibold bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
-export default function CostsTab({ costs, landId, seasons = [] }: Props) {
-  const totalAmount = costs.reduce((s, c) => s + c.amount, 0);
+export default function CostsTab({ costs, landId, selectedSeasonId = null, activeSeasonId = null, seasons = [], products = [] }: Props) {
+  const filtered = useMemo(() => {
+    if (selectedSeasonId === null) return costs;
+    return costs.filter((c) =>
+      c.land_season_id === selectedSeasonId ||
+      (c.land_season_id === null && selectedSeasonId === activeSeasonId),
+    );
+  }, [costs, selectedSeasonId, activeSeasonId]);
+
+  const totalAmount = filtered.reduce((s, c) => s + c.amount, 0);
 
   function deleteCost(c: CostData) {
  router.delete(route('lands.costs.destroy', c.id)) 
@@ -36,6 +53,13 @@ export default function CostsTab({ costs, landId, seasons = [] }: Props) {
             <Plus className="ms-2 h-4 w-4" /> إضافة تكلفة
           </Button>
         } />
+        {products.length > 0 && (
+          <ConsumeStockDialog products={products} seasons={seasons} trigger={
+            <Button size="sm" variant="outline" className="border-emerald-700 text-emerald-700 hover:bg-emerald-50">
+              <Package className="ms-2 h-4 w-4" /> صرف من المخزون
+            </Button>
+          } />
+        )}
         <div className="mr-auto">
           <div className="relative">
             <Search className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
@@ -58,11 +82,11 @@ export default function CostsTab({ costs, landId, seasons = [] }: Props) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {costs.length === 0 ? (
+            {filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={7} className="py-12 text-center text-stone-500">لا توجد تكاليف مسجّلة.</TableCell>
               </TableRow>
-            ) : costs.map((c) => (
+            ) : filtered.map((c) => (
               <TableRow key={c.id} className="border-b border-stone-100 last:border-b-0">
                 <TableCell className={cell}><DateDisplay date={c.date} /></TableCell>
                 <TableCell className={cell}>{c.crop_name}</TableCell>
@@ -79,7 +103,7 @@ export default function CostsTab({ costs, landId, seasons = [] }: Props) {
               </TableRow>
             ))}
           </TableBody>
-          {costs.length > 0 && (
+          {filtered.length > 0 && (
             <tfoot>
               <TableRow className="border-t-2 border-stone-300 bg-stone-50 font-semibold">
                 <TableCell colSpan={4} className={cell}>الإجمالي</TableCell>

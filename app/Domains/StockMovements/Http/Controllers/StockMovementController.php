@@ -3,8 +3,10 @@
 namespace App\Domains\StockMovements\Http\Controllers;
 
 use App\Domains\Products\Models\Product;
+use App\Domains\StockMovements\Actions\ConsumeProductForSeason;
 use App\Domains\StockMovements\Actions\RecordMovement;
 use App\Domains\StockMovements\Models\StockMovement;
+use App\Domains\StockMovements\Requests\ConsumeStockRequest;
 use App\Domains\StockMovements\Requests\StoreMovementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -38,5 +40,12 @@ class StockMovementController extends Controller
         $action->execute($request->validated());
 
         return redirect()->route('stock.index');
+    }
+
+    public function consume(ConsumeStockRequest $request, ConsumeProductForSeason $action): RedirectResponse
+    {
+        $action->execute($request->validated());
+
+        return redirect()->back();
     }
 }

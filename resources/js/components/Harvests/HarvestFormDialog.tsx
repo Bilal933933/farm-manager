@@ -22,6 +22,7 @@ export default function HarvestFormDialog({ landSeasonId, trigger }: HarvestForm
   const { data, setData, post, processing, errors, reset } = useForm({
     land_season_id: landSeasonId,
     date: '',
+    name: '',
     quantity: '',
     notes: '',
   });
@@ -40,7 +41,18 @@ export default function HarvestFormDialog({ landSeasonId, trigger }: HarvestForm
         </DialogHeader>
 
         <form onSubmit={submit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="harvest_name">اسم الحصاد</Label>
+            <Input
+              id="harvest_name"
+              value={data.name}
+              onChange={(e) => setData('name', e.target.value)}
+              placeholder="مثال: حصاد البطيخ الأحمر - الدورة الصيفية"
+            />
+            {errors.name && <p className="text-sm text-rose-600">{errors.name}</p>}
+          </div>
+
+          <div className="grid grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="harvest_date">التاريخ</Label>
               <Input
@@ -63,6 +75,10 @@ export default function HarvestFormDialog({ landSeasonId, trigger }: HarvestForm
                 onChange={(e) => setData('quantity', e.target.value)}
               />
               {errors.quantity && <p className="text-sm text-rose-600">{errors.quantity}</p>}
+            </div>
+            <div className="space-y-2">
+              <Label>الوحدة</Label>
+              <p className="pt-2 text-sm text-stone-500">طن</p>
             </div>
           </div>
 

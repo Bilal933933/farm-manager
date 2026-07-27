@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domains\Harvests\Requests;
+namespace App\Domains\Lands\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -16,6 +16,7 @@ class StoreHarvestRequest extends FormRequest
         return [
             'land_season_id' => ['required', 'exists:land_seasons,id'],
             'date' => ['required', 'date'],
+            'name' => ['required', 'string', 'max:500'],
             'quantity' => ['required', 'numeric', 'min:0.01'],
             'notes' => ['nullable', 'string'],
         ];

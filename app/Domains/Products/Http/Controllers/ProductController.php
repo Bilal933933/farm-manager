@@ -8,6 +8,7 @@ use App\Domains\Products\Actions\UpdateProduct;
 use App\Domains\Products\Models\Product;
 use App\Domains\Products\Requests\StoreProductRequest;
 use App\Domains\Products\Requests\UpdateProductRequest;
+use App\Domains\StockMovements\Enums\MovementType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
@@ -18,9 +19,14 @@ class ProductController extends Controller
     public function index(): Response
     {
         $products = Product::query()
+            ->withSum(['stockMovements as stock_in' => fn ($q) => $q->where('type', MovementType::In->value)], 'quantity')
+            ->withSum(['stockMovements as stock_out' => fn ($q) => $q->where('type', MovementType::Out->value)], 'quantity')
             ->orderBy('display_order')
             ->orderBy('name')
-            ->get();
+            ->get()
+            ->map(fn (Product $product) => array_merge($product->toArray(), [
+                'stock_balance' => (float) ($product->stock_in ?? 0) - (float) ($product->stock_out ?? 0),
+            ]));
 
         return Inertia::render('Products/Index', [
             'products' => $products,

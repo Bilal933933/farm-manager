@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Domains\Harvests\Models;
+namespace App\Domains\Lands\Models;
 
-use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Sales\Models\Sale;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +12,7 @@ class Harvest extends Model
     protected $fillable = [
         'land_season_id',
         'date',
+        'name',
         'quantity',
         'notes',
     ];

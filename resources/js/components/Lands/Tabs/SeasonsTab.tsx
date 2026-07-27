@@ -1,4 +1,4 @@
-import { router } from '@inertiajs/react';
+import { Link, router } from '@inertiajs/react';
 import { Plus, Search } from 'lucide-react';
 import HarvestFormDialog from '@/components/Harvests/HarvestFormDialog';
 import SeasonFormDialog from '@/components/Lands/SeasonFormDialog';
@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import type { Crop, Season, SeasonStats } from '@/types';
+import type { Crop, Land, Season, SeasonStats } from '@/types';
 
 interface Props {
   seasons: Season[]; seasonStats: Record<number, SeasonStats>;
@@ -99,7 +99,11 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
 
               return (
                 <TableRow key={s.id} className="border-b border-stone-100 last:border-b-0">
-                  <TableCell className={cell}>{getCropName(s)}</TableCell>
+                  <TableCell className={cell}>
+                    <Link href={route('lands.seasons.show', [landId, s.id])} className="font-medium text-emerald-700 hover:underline">
+                      {getCropName(s)}
+                    </Link>
+                  </TableCell>
                   <TableCell className={cell}>{s.cultivated_area || '—'}</TableCell>
                   <TableCell className={cell}><DateDisplay date={s.planting_date} /></TableCell>
                   <TableCell className={numCell}>{harvest > 0 ? harvest : '—'}</TableCell>
@@ -111,7 +115,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
                   <TableCell className={cell}><StatusBadge value={s.status} /></TableCell>
                   <TableCell className="text-center">
                     <div className="inline-flex items-center gap-0.5">
-                      <HarvestFormDialog landSeasonId={s.id} trigger={<Button variant="ghost" size="sm">حصاد</Button>} />
+                      <HarvestFormDialog landSeasonId={s.id} trigger={<Button size="sm" className="bg-amber-500 text-white hover:bg-amber-600">🌾 حصاد</Button>} />
                       <SeasonFormDialog landId={landId} season={s as any} crops={crops} trigger={<Button variant="ghost" size="sm">تعديل</Button>} />
                       <Button variant="ghost" size="sm" className="text-rose-600 hover:text-rose-700" onClick={() => deleteSeason(s)}>حذف</Button>
                     </div>

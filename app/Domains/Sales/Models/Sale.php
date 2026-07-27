@@ -2,7 +2,7 @@
 
 namespace App\Domains\Sales\Models;
 
-use App\Domains\Harvests\Models\Harvest;
+use App\Domains\Lands\Models\Harvest;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Sales\Enums\SaleType;
 use App\Domains\StockMovements\Models\StockMovement;

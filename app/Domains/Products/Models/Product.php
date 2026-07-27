@@ -5,6 +5,7 @@ namespace App\Domains\Products\Models;
 use App\Domains\Products\Enums\ProductCategory;
 use App\Domains\Products\Enums\ProductStatus;
 use App\Domains\Products\Enums\ProductUnit;
+use App\Domains\StockMovements\Enums\MovementType;
 use App\Domains\StockMovements\Models\StockMovement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -41,5 +42,18 @@ class Product extends Model
     public function stockMovements(): HasMany
     {
         return $this->hasMany(StockMovement::class);
+    }
+
+    public function stockBalance(): float
+    {
+        $in = $this->stockMovements()
+            ->where('type', MovementType::In->value)
+            ->sum('quantity');
+
+        $out = $this->stockMovements()
+            ->where('type', MovementType::Out->value)
+            ->sum('quantity');
+
+        return (float) $in - (float) $out;
     }
 }

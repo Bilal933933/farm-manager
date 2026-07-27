@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Domains\Harvests\Http\Controllers;
+namespace App\Domains\Lands\Http\Controllers;
 
-use App\Domains\Harvests\Actions\RecordHarvest;
-use App\Domains\Harvests\Requests\StoreHarvestRequest;
+use App\Domains\Lands\Actions\RecordHarvest;
+use App\Domains\Lands\Requests\StoreHarvestRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 

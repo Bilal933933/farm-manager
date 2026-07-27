@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domains\Harvests\Actions;
+namespace App\Domains\Lands\Actions;
 
-use App\Domains\Harvests\Models\Harvest;
+use App\Domains\Lands\Models\Harvest;
 
 class RecordHarvest
 {

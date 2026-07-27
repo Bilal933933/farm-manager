@@ -2,7 +2,7 @@
 
 namespace App\Domains\Sales\Http\Controllers;
 
-use App\Domains\Harvests\Models\Harvest;
+use App\Domains\Lands\Models\Harvest;
 use App\Domains\Lands\Models\Land;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Sales\Actions\CreateSale;

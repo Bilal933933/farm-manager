@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
@@ -7,7 +8,10 @@ import {
 } from '@/components/ui/table';
 import type { SaleData } from '@/types';
 
-interface Props { sales: SaleData[] }
+interface Props {
+  sales: SaleData[];
+  selectedSeasonId?: number | null;
+}
 
 function fmt(n: number) {
  return n.toLocaleString() 
@@ -18,9 +22,14 @@ const numCell = 'font-mono text-right tabular-nums';
 const h = 'text-right text-stone-600 font-semibold bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
-export default function RevenuesTab({ sales }: Props) {
-  const totalQty = sales.reduce((s, sl) => s + Number(sl.quantity || 0), 0);
-  const totalAmount = sales.reduce((s, sl) => s + (sl.total || 0), 0);
+export default function RevenuesTab({ sales, selectedSeasonId = null }: Props) {
+  const filtered = useMemo(() => {
+    if (selectedSeasonId === null) return sales;
+    return sales.filter((s) => s.harvest?.land_season_id === selectedSeasonId);
+  }, [sales, selectedSeasonId]);
+
+  const totalQty = filtered.reduce((s, sl) => s + Number(sl.quantity || 0), 0);
+  const totalAmount = filtered.reduce((s, sl) => s + (sl.total || 0), 0);
 
   return (
     <div className="space-y-4">
@@ -46,11 +55,11 @@ export default function RevenuesTab({ sales }: Props) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {sales.length === 0 ? (
+            {filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-12 text-center text-stone-500">لا توجد مبيعات مسجّلة.</TableCell>
               </TableRow>
-            ) : sales.map((s) => (
+            ) : filtered.map((s) => (
               <TableRow key={s.id} className="border-b border-stone-100 last:border-b-0">
                 <TableCell className={cell}><DateDisplay date={s.date} /></TableCell>
                 <TableCell className={numCell}>{s.quantity}</TableCell>
@@ -61,7 +70,7 @@ export default function RevenuesTab({ sales }: Props) {
               </TableRow>
             ))}
           </TableBody>
-          {sales.length > 0 && (
+          {filtered.length > 0 && (
             <tfoot>
               <TableRow className="border-t-2 border-stone-300 bg-stone-50 font-semibold">
                 <TableCell className={cell}>الإجمالي</TableCell>

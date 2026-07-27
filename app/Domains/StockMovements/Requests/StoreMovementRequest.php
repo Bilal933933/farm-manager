@@ -21,6 +21,7 @@ class StoreMovementRequest extends FormRequest
             'type' => ['required', Rule::enum(MovementType::class)],
             'reason' => ['required', Rule::enum(MovementReason::class)],
             'quantity' => ['required', 'numeric', 'min:0.01'],
+            'unit_price' => ['nullable', 'numeric', 'min:0'],
             'movement_date' => ['required', 'date'],
             'notes' => ['nullable', 'string'],
         ];

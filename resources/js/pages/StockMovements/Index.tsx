@@ -37,6 +37,7 @@ interface StockMovement {
   type: string;
   reason: string;
   quantity: string;
+  unit_price: string | null;
   movement_date: string;
   notes: string | null;
   product: Product | null;
@@ -53,6 +54,7 @@ export default function Index({ movements, products }: IndexProps) {
     type: '',
     reason: '',
     quantity: '',
+    unit_price: '',
     movement_date: new Date().toISOString().slice(0, 10),
     notes: '',
   });
@@ -143,19 +145,34 @@ export default function Index({ movements, products }: IndexProps) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="quantity">الكمية</Label>
-                  <Input
-                    id="quantity"
-                    type="number"
-                    step="0.01"
-                    min="0.01"
-                    className="font-mono"
-                    value={data.quantity}
-                    onChange={(e) => setData('quantity', e.target.value)}
-                  />
-                  {errors.quantity && <p className="text-sm text-rose-600">{errors.quantity}</p>}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="quantity">الكمية</Label>
+                    <Input
+                      id="quantity"
+                      type="number"
+                      step="0.01"
+                      min="0.01"
+                      className="font-mono"
+                      value={data.quantity}
+                      onChange={(e) => setData('quantity', e.target.value)}
+                    />
+                    {errors.quantity && <p className="text-sm text-rose-600">{errors.quantity}</p>}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="unit_price">سعر الوحدة</Label>
+                    <Input
+                      id="unit_price"
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      className="font-mono"
+                      value={data.unit_price}
+                      onChange={(e) => setData('unit_price', e.target.value)}
+                    />
+                    {errors.unit_price && <p className="text-sm text-rose-600">{errors.unit_price}</p>}
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -169,7 +186,6 @@ export default function Index({ movements, products }: IndexProps) {
                   />
                   {errors.movement_date && <p className="text-sm text-rose-600">{errors.movement_date}</p>}
                 </div>
-              </div>
 
               <div className="space-y-2">
                 <Label htmlFor="notes">ملاحظات</Label>
@@ -233,6 +249,7 @@ export default function Index({ movements, products }: IndexProps) {
                     <TableHead className="text-right">النوع</TableHead>
                     <TableHead className="text-right">السبب</TableHead>
                     <TableHead className="text-right">الكمية</TableHead>
+                    <TableHead className="text-right">سعر الوحدة</TableHead>
                     <TableHead className="text-right">ملاحظات</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -245,6 +262,7 @@ export default function Index({ movements, products }: IndexProps) {
                       </TableCell>
                       <TableCell>{m.reason}</TableCell>
                       <TableCell className="font-mono">{m.quantity}</TableCell>
+                      <TableCell className="font-mono">{m.unit_price ? Number(m.unit_price).toLocaleString() : '—'}</TableCell>
                       <TableCell className="text-sm text-stone-500">{m.notes || '—'}</TableCell>
                     </TableRow>
                   ))}

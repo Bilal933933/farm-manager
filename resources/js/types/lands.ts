@@ -24,6 +24,14 @@ export interface SeasonStats {
   profit: number;
 }
 
+export interface StockProductOption {
+  id: number;
+  name: string;
+  unit: string;
+  category: string;
+  last_purchase_price: number | null;
+}
+
 export interface CostData {
   id: number;
   season_id?: number;

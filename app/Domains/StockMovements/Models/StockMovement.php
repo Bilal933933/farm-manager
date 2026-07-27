@@ -16,6 +16,7 @@ class StockMovement extends Model
         'type',
         'reason',
         'quantity',
+        'unit_price',
         'movement_date',
         'reference_type',
         'reference_id',
@@ -28,6 +29,7 @@ class StockMovement extends Model
             'type' => MovementType::class,
             'reason' => MovementReason::class,
             'quantity' => 'decimal:2',
+            'unit_price' => 'decimal:2',
             'movement_date' => 'date',
         ];
     }

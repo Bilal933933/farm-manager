@@ -20,6 +20,9 @@ use App\Domains\Lands\Requests\StoreLandContractRequest;
 use App\Domains\Lands\Requests\StoreLandRequest;
 use App\Domains\Lands\Requests\StoreLandSeasonRequest;
 use App\Domains\Lands\Requests\UpdateLandRequest;
+use App\Domains\Products\Enums\ProductStatus;
+use App\Domains\Products\Models\Product;
+use App\Domains\Purchases\Models\PurchaseItem;
 use App\Domains\Sales\Models\Sale;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -128,6 +131,25 @@ class LandController extends Controller
         $overallCosts = $costs->sum('amount');
         $totalHarvest = $land->seasons->sum(fn ($s) => (float) $s->harvests->sum('quantity'));
 
+        $products = Product::query()
+            ->where('status', ProductStatus::Active->value)
+            ->orderBy('display_order')
+            ->orderBy('name')
+            ->get(['id', 'name', 'unit', 'category'])
+            ->map(function (Product $product) {
+                $lastPurchasePrice = PurchaseItem::where('product_id', $product->id)
+                    ->latest('id')
+                    ->value('unit_price');
+
+                return [
+                    'id' => $product->id,
+                    'name' => $product->name,
+                    'unit' => $product->unit->value,
+                    'category' => $product->category->value,
+                    'last_purchase_price' => $lastPurchasePrice !== null ? (float) $lastPurchasePrice : null,
+                ];
+            });
+
         return Inertia::render('Lands/Show', [
             'land' => $land,
             'crops' => Crop::orderBy('name')->get(),
@@ -138,6 +160,7 @@ class LandController extends Controller
             'totalHarvest' => (float) $totalHarvest,
             'sales' => $sales,
             'costs' => $costs,
+            'products' => $products,
         ]);
     }
 
@@ -202,5 +225,61 @@ class LandController extends Controller
         $action->execute($season);
 
         return redirect()->back();
+    }
+
+    public function showSeason(Land $land, LandSeason $season): Response
+    {
+        $season->load(['crop', 'harvests.sales', 'costs']);
+
+        $harvests = $season->harvests->map(fn ($h) => [
+            'id' => $h->id,
+            'name' => $h->name,
+            'date' => $h->date->toDateString(),
+            'quantity' => (float) $h->quantity,
+            'sold_quantity' => (float) $h->sales->sum('quantity'),
+            'remaining' => (float) $h->quantity - (float) $h->sales->sum('quantity'),
+            'notes' => $h->notes,
+        ]);
+
+        $totalHarvest = (float) $season->harvests->sum('quantity');
+        $totalSoldQty = (float) $season->harvests->flatMap->sales->sum('quantity');
+        $totalSales = (float) $season->harvests->flatMap->sales->sum(fn ($s) => $s->quantity * $s->unit_price);
+        $totalCost = (float) $season->costs->sum('amount');
+
+        $costs = $season->costs->map(fn ($c) => [
+            'id' => $c->id,
+            'type' => $c->type,
+            'description' => $c->description,
+            'amount' => (float) $c->amount,
+            'date' => $c->date->toDateString(),
+            'notes' => $c->notes,
+        ]);
+
+        $sales = $season->harvests->flatMap->sales->map(fn ($s) => [
+            'id' => $s->id,
+            'date' => $s->date->toDateString(),
+            'quantity' => (float) $s->quantity,
+            'unit_price' => (float) $s->unit_price,
+            'total' => (float) $s->quantity * (float) $s->unit_price,
+            'party' => $s->party?->only(['id', 'name']),
+            'payment_type' => $s->payment_type,
+            'notes' => $s->notes,
+        ])->sortByDesc('date')->values();
+
+        return Inertia::render('Lands/SeasonShow', [
+            'land' => $land->only(['id', 'name']),
+            'season' => $season,
+            'crop_name' => $season->relationLoaded('crop') && $season->getRelation('crop') ? $season->getRelation('crop')->name : $season->getAttribute('crop'),
+            'harvests' => $harvests,
+            'costs' => $costs,
+            'sales' => $sales,
+            'stats' => [
+                'total_harvest' => $totalHarvest,
+                'total_sold_qty' => $totalSoldQty,
+                'total_sales' => $totalSales,
+                'total_cost' => $totalCost,
+                'profit' => $totalSales - $totalCost,
+            ],
+        ]);
     }
 }

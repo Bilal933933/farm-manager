@@ -1,8 +1,8 @@
 <?php
 
 use App\Domains\Crops\Http\Controllers\CropController;
-use App\Domains\Harvests\Http\Controllers\HarvestController;
 use App\Domains\Lands\Http\Controllers\CostController;
+use App\Domains\Lands\Http\Controllers\HarvestController;
 use App\Domains\Lands\Http\Controllers\LandController;
 use App\Domains\Ledger\Http\Controllers\LedgerController;
 use App\Domains\Parties\Http\Controllers\PartyController;
@@ -24,6 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('lands/contracts/{contract}', [LandController::class, 'destroyContract'])->name('lands.contracts.destroy');
 
     Route::post('lands/seasons', [LandController::class, 'storeSeason'])->name('lands.seasons.store');
+    Route::get('lands/{land}/seasons/{season}', [LandController::class, 'showSeason'])->name('lands.seasons.show');
     Route::put('lands/seasons/{season}', [LandController::class, 'updateSeason'])->name('lands.seasons.update');
     Route::delete('lands/seasons/{season}', [LandController::class, 'destroySeason'])->name('lands.seasons.destroy');
 
@@ -35,6 +36,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('stock', [StockMovementController::class, 'index'])->name('stock.index');
     Route::post('stock', [StockMovementController::class, 'store'])->name('stock.store');
+    Route::post('stock/consume', [StockMovementController::class, 'consume'])->name('stock.consume');
+    Route::post('stock/consume', [StockMovementController::class, 'consume'])->name('stock.consume');
 
     Route::resource('purchases', PurchaseController::class)->only(['index', 'create', 'store', 'show']);
 

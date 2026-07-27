@@ -31,6 +31,7 @@ interface Product {
   unit: string;
   status: string;
   display_order: number;
+  stock_balance: number;
 }
 
 interface IndexProps {
@@ -67,6 +68,7 @@ export default function Index({ products }: IndexProps) {
               <TableHead className="text-right">الاسم</TableHead>
               <TableHead className="text-right">التصنيف</TableHead>
               <TableHead className="text-right">الوحدة</TableHead>
+              <TableHead className="text-right font-mono">الكمية</TableHead>
               <TableHead className="text-right">الحالة</TableHead>
               <TableHead className="text-left">إجراءات</TableHead>
             </TableRow>
@@ -74,7 +76,7 @@ export default function Index({ products }: IndexProps) {
           <TableBody>
             {products.length === 0 && (
               <TableRow>
-                <TableCell colSpan={6} className="py-16 text-center text-stone-500">
+                <TableCell colSpan={7} className="py-16 text-center text-stone-500">
                   <Package className="mx-auto mb-3 h-10 w-10 text-stone-300" />
                   لا يوجد منتجات مسجّلة بعد. ابدأ بإضافة أول منتج.
                 </TableCell>
@@ -94,6 +96,13 @@ export default function Index({ products }: IndexProps) {
                   <StatusBadge value={product.category} />
                 </TableCell>
                 <TableCell className="font-mono">{product.unit}</TableCell>
+                <TableCell className="font-mono text-left tabular-nums">
+                  {product.stock_balance > 0 ? (
+                    <span className="text-emerald-700">{product.stock_balance.toLocaleString()}</span>
+                  ) : (
+                    <span className="text-stone-400">0</span>
+                  )}
+                </TableCell>
                 <TableCell>
                   <StatusBadge value={product.status} />
                 </TableCell>
