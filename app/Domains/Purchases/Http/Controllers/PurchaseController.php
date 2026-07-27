@@ -22,6 +22,7 @@ class PurchaseController extends Controller
             ->get()
             ->map(function ($purchase) {
                 $purchase->setAttribute('items_count', $purchase->items->count());
+                $purchase->setAttribute('items_total', $purchase->items->sum(fn ($item) => $item->quantity * $item->unit_price));
 
                 return $purchase;
             });

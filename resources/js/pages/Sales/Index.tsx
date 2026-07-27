@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Table,
@@ -74,7 +75,7 @@ export default function Index({ sales }: IndexProps) {
               <TableRow key={sale.id}>
                 <TableCell className="font-mono">
                   <Link href={route('sales.show', sale.id)} className="hover:text-emerald-700 hover:underline">
-                    {sale.date}
+                    <DateDisplay date={sale.date} />
                   </Link>
                 </TableCell>
                 <TableCell>{sale.harvest?.land_season?.crop?.name || '—'}</TableCell>

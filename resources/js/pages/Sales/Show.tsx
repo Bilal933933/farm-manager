@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { DateDisplay } from '@/components/ui/date-display';
 
 interface Sale {
   id: number;
@@ -49,7 +50,7 @@ export default function Show({ sale }: ShowProps) {
           <div className="grid grid-cols-2 gap-6">
             <div>
               <p className="text-sm text-stone-500">التاريخ</p>
-              <p className="font-mono text-stone-900">{sale.date}</p>
+              <DateDisplay date={sale.date} className="text-stone-900" />
             </div>
             <div>
               <p className="text-sm text-stone-500">المشتري</p>

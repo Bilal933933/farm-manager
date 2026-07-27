@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
@@ -82,7 +83,7 @@ export default function Show({ purchase }: ShowProps) {
             </div>
             <div>
               <span className="text-stone-400">التاريخ: </span>
-              <span className="font-mono">{purchase.date}</span>
+              <DateDisplay date={purchase.date} />
             </div>
             <div>
               <span className="text-stone-400">نوع الدفع: </span>
@@ -152,7 +153,7 @@ export default function Show({ purchase }: ShowProps) {
               <TableBody>
                 {purchase.stockMovements.map((m) => (
                   <TableRow key={m.id}>
-                    <TableCell className="font-mono">{m.movement_date}</TableCell>
+                    <TableCell className="font-mono"><DateDisplay date={m.movement_date} /></TableCell>
                     <TableCell>
                       <StatusBadge value={m.type} toneMap={TYPE_TONE} />
                     </TableCell>

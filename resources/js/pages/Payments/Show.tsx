@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { DateDisplay } from '@/components/ui/date-display';
 import StatusBadge from '@/components/Lands/StatusBadge';
 import { TYPE_TONE } from '@/lib/paymentEnums';
 
@@ -47,7 +48,7 @@ export default function Show({ payment }: ShowProps) {
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
               <span className="text-stone-400">التاريخ: </span>
-              <span className="font-mono">{payment.date}</span>
+              <DateDisplay date={payment.date} />
             </div>
             <div>
               <span className="text-stone-400">المبلغ: </span>

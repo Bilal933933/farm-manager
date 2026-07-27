@@ -18,12 +18,7 @@ class SaleController extends Controller
     {
         $sales = Sale::with(['party', 'harvest.landSeason.land', 'harvest.landSeason.crop'])
             ->orderBy('date', 'desc')
-            ->get()
-            ->map(function ($sale) {
-                $sale->setAttribute('total', $sale->quantity * $sale->unit_price);
-
-                return $sale;
-            });
+            ->get();
 
         return Inertia::render('Sales/Index', [
             'sales' => $sales,

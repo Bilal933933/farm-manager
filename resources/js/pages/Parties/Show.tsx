@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight, Pencil } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Table,
@@ -116,8 +117,8 @@ export default function Show({ party }: ShowProps) {
                   <TableCell>
                     <StatusBadge value={contract.type} />
                   </TableCell>
-                  <TableCell className="font-mono">{contract.start_date}</TableCell>
-                  <TableCell className="font-mono">{contract.end_date || '—'}</TableCell>
+                  <TableCell className="font-mono"><DateDisplay date={contract.start_date} /></TableCell>
+                  <TableCell className="font-mono">{contract.end_date ? <DateDisplay date={contract.end_date} /> : '—'}</TableCell>
                   <TableCell className="font-mono">{contract.amount}</TableCell>
                 </TableRow>
               ))}

@@ -1,5 +1,6 @@
 import { useForm } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -64,7 +65,7 @@ export default function SaleForm({ harvests, parties }: SaleFormProps) {
             <SelectContent>
               {harvests.map((h) => (
                 <SelectItem key={h.id} value={String(h.id)}>
-                  {h.date} — {h.quantity} ({h.land_season?.land?.name || ''} / {h.land_season?.crop?.name || ''})
+                  <DateDisplay date={h.date} /> — {h.quantity} ({h.land_season?.land?.name || ''} / {h.land_season?.crop?.name || ''})
                 </SelectItem>
               ))}
             </SelectContent>

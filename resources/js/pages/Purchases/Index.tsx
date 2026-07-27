@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { Plus, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Card } from '@/components/ui/card';
 import {
   Table,
@@ -71,7 +72,7 @@ export default function Index({ purchases }: IndexProps) {
             )}
             {purchases.map((p) => (
               <TableRow key={p.id}>
-                <TableCell className="font-mono">{p.date}</TableCell>
+                <TableCell className="font-mono"><DateDisplay date={p.date} /></TableCell>
                 <TableCell className="font-medium">
                   <Link href={route('purchases.show', p.id)} className="hover:text-emerald-700 hover:underline">
                     {p.party?.name ?? '—'}

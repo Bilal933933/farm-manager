@@ -1,6 +1,7 @@
 import { Head, router, useForm } from '@inertiajs/react';
 import { ArrowDownUp, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Dialog,
@@ -238,7 +239,7 @@ export default function Index({ movements, products }: IndexProps) {
                 <TableBody>
                   {productMovements.map((m) => (
                     <TableRow key={m.id}>
-                      <TableCell className="font-mono">{m.movement_date}</TableCell>
+                      <TableCell className="font-mono"><DateDisplay date={m.movement_date} /></TableCell>
                       <TableCell>
                         <StatusBadge value={m.type} toneMap={TYPE_TONE} />
                       </TableCell>

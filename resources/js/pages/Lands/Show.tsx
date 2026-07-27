@@ -1,6 +1,7 @@
 import { Head, Link, router } from '@inertiajs/react';
 import { ArrowRight, Harvest, Pencil, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { DateDisplay } from '@/components/ui/date-display';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
@@ -159,8 +160,8 @@ export default function Show({ land, crops }: ShowProps) {
                     <TableRow key={season.id}>
                       <TableCell className="font-medium">{cropName}</TableCell>
                       <TableCell className="font-mono">{season.cultivated_area || '—'}</TableCell>
-                      <TableCell className="font-mono">{season.planting_date}</TableCell>
-                      <TableCell className="font-mono">{season.harvest_date || '—'}</TableCell>
+                      <TableCell className="font-mono"><DateDisplay date={season.planting_date} /></TableCell>
+                      <TableCell className="font-mono">{season.harvest_date ? <DateDisplay date={season.harvest_date} /> : '—'}</TableCell>
                       <TableCell className="font-mono">{season.expected_cost ?? '—'}</TableCell>
                       <TableCell>
                         <StatusBadge value={season.status} />
@@ -235,8 +236,8 @@ export default function Show({ land, crops }: ShowProps) {
                     <TableCell>
                       <StatusBadge value={contract.type} />
                     </TableCell>
-                    <TableCell className="font-mono">{contract.start_date}</TableCell>
-                    <TableCell className="font-mono">{contract.end_date || '—'}</TableCell>
+                    <TableCell className="font-mono"><DateDisplay date={contract.start_date} /></TableCell>
+                    <TableCell className="font-mono">{contract.end_date ? <DateDisplay date={contract.end_date} /> : '—'}</TableCell>
                     <TableCell className="font-mono">{contract.amount}</TableCell>
                     <TableCell className="text-left">
                       <div className="flex justify-start gap-2">

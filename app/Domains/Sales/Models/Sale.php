@@ -25,6 +25,8 @@ class Sale extends Model
         'notes',
     ];
 
+    protected $appends = ['total'];
+
     protected function casts(): array
     {
         return [
@@ -33,6 +35,11 @@ class Sale extends Model
             'unit_price' => 'decimal:2',
             'payment_type' => SaleType::class,
         ];
+    }
+
+    public function getTotalAttribute(): float
+    {
+        return (float) ($this->quantity * $this->unit_price);
     }
 
     public function harvest(): BelongsTo

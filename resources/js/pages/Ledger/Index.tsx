@@ -1,6 +1,7 @@
 import { Head } from '@inertiajs/react';
 import { BookOpen } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { DateDisplay } from '@/components/ui/date-display';
 import {
   Table,
   TableBody,
@@ -62,7 +63,7 @@ export default function Index({ entries }: IndexProps) {
             )}
             {entries.map((entry) => (
               <TableRow key={entry.id}>
-                <TableCell className="font-mono">{entry.date}</TableCell>
+                <TableCell className="font-mono"><DateDisplay date={entry.date} /></TableCell>
                 <TableCell className="max-w-xs truncate">{entry.description}</TableCell>
                 <TableCell className="font-medium">{entry.party?.name ?? '—'}</TableCell>
                 <TableCell>
