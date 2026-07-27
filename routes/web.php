@@ -1,6 +1,7 @@
 <?php
 
 use App\Domains\Lands\Http\Controllers\LandController;
+use App\Domains\Ledger\Http\Controllers\LedgerController;
 use App\Domains\Parties\Http\Controllers\PartyController;
 use App\Domains\Payments\Http\Controllers\PaymentController;
 use App\Domains\Products\Http\Controllers\ProductController;
@@ -32,6 +33,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('purchases', PurchaseController::class)->only(['index', 'create', 'store', 'show']);
 
     Route::resource('payments', PaymentController::class)->only(['index', 'create', 'store', 'show']);
+
+    Route::get('ledger', [LedgerController::class, 'index'])->name('ledger.index');
 });
 
 require __DIR__.'/settings.php';

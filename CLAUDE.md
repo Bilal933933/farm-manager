@@ -78,12 +78,13 @@ Harvest
 | PartyRoles | ربط الأطراف بالأدوار (مورد/مزارع/مالك) |
 | Products | كتالوج الأصناف — اكتمل |
 | StockMovements | حركات المخزون (دخول/خروج) — اكتمل |
-| Purchases | فواتير الشراء مع تكامل تلقائي مع StockMovements — اكتمل |
+| Purchases | فواتير الشراء + تكامل StockMovements — اكتمل |
 | Payments | مدفوعات ومقبوضات (دفع/قبض) — اكتمل |
-| Ledger | دفتر الأستاذ — يُولَّد تلقائيًا — قادم |
+| Ledger | سجل مالي يُولَّد تلقائيًا من Purchases وPayments — اكتمل |
+| Balance Services | خدمات حساب الأرصدة — قادم |
 | Reports | التقارير — لاحقًا |
 
-**ترتيب البناء:** Lands → Parties → Products → StockMovements → Purchases → Payments ← (نحن هنا) → Ledger
+**ترتيب البناء:** Lands → Parties → Products → StockMovements → Purchases → Payments → Ledger ← (نحن هنا) → Balance Services
 
 ## قرارات قاعدة البيانات (نهائية، لا تُغيَّر بدون نقاش)
 

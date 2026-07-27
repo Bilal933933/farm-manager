@@ -2,6 +2,8 @@
 
 namespace App\Domains\Purchases\Actions;
 
+use App\Domains\Ledger\Actions\RecordLedgerEntry;
+use App\Domains\Ledger\Enums\LedgerDirection;
 use App\Domains\Purchases\Models\Purchase;
 use App\Domains\StockMovements\Actions\RecordMovement;
 use App\Domains\StockMovements\Enums\MovementReason;
@@ -12,6 +14,7 @@ class CreatePurchase
 {
     public function __construct(
         private RecordMovement $recordMovement,
+        private RecordLedgerEntry $recordLedgerEntry,
     ) {}
 
     public function execute(array $data): Purchase
@@ -24,6 +27,8 @@ class CreatePurchase
                 'notes' => $data['notes'] ?? null,
             ]);
 
+            $itemsTotal = 0;
+
             foreach ($data['items'] as $item) {
                 $purchaseItem = $purchase->items()->create([
                     'product_id' => $item['product_id'],
@@ -31,12 +36,26 @@ class CreatePurchase
                     'unit_price' => $item['unit_price'],
                 ]);
 
+                $itemsTotal += $item['quantity'] * $item['unit_price'];
+
                 $this->recordMovement->execute([
                     'product_id' => $item['product_id'],
                     'type' => MovementType::In->value,
                     'reason' => MovementReason::Purchase->value,
                     'quantity' => $item['quantity'],
                     'movement_date' => $data['date'],
+                    'reference_type' => Purchase::class,
+                    'reference_id' => $purchase->id,
+                ]);
+            }
+
+            if ($data['payment_type'] === 'آجل') {
+                $this->recordLedgerEntry->execute([
+                    'date' => $data['date'],
+                    'direction' => LedgerDirection::Credit->value,
+                    'amount' => $itemsTotal,
+                    'description' => 'مشتريات آجلة فاتورة #'.$purchase->id,
+                    'party_id' => $data['party_id'],
                     'reference_type' => Purchase::class,
                     'reference_id' => $purchase->id,
                 ]);
