@@ -19,8 +19,10 @@ use App\Domains\Lands\Requests\StoreLandContractRequest;
 use App\Domains\Lands\Requests\StoreLandRequest;
 use App\Domains\Lands\Requests\StoreLandSeasonRequest;
 use App\Domains\Lands\Requests\UpdateLandRequest;
+use App\Domains\Sales\Models\Sale;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -51,9 +53,36 @@ class LandController extends Controller
     {
         $land->load(['seasons.crop', 'seasons.harvests', 'contracts']);
 
+        $activeSeason = $land->seasons->firstWhere('status', 'نشط');
+
+        $stats = [];
+        foreach ($land->seasons as $season) {
+            $totalHarvest = $season->harvests->sum('quantity');
+            $harvestIds = $season->harvests->pluck('id');
+            $totalSales = Sale::whereIn('harvest_id', $harvestIds)->sum(DB::raw('quantity * unit_price'));
+            $totalSoldQty = Sale::whereIn('harvest_id', $harvestIds)->sum('quantity');
+
+            $stats[$season->id] = [
+                'total_harvest' => (float) $totalHarvest,
+                'total_sales' => (float) $totalSales,
+                'total_sold_qty' => (float) $totalSoldQty,
+                'total_cost' => (float) ($season->actual_cost ?? $season->expected_cost ?? 0),
+            ];
+
+            $stats[$season->id]['profit'] = $stats[$season->id]['total_sales'] - $stats[$season->id]['total_cost'];
+        }
+
+        $allHarvestIds = $land->seasons->flatMap->harvests->pluck('id');
+        $overallSales = Sale::whereIn('harvest_id', $allHarvestIds)->sum(DB::raw('quantity * unit_price'));
+        $overallCosts = $land->seasons->sum(fn ($s) => (float) ($s->actual_cost ?? $s->expected_cost ?? 0));
+
         return Inertia::render('Lands/Show', [
             'land' => $land,
             'crops' => Crop::orderBy('name')->get(),
+            'activeSeason' => $activeSeason,
+            'seasonStats' => $stats,
+            'overallSales' => (float) $overallSales,
+            'overallCosts' => (float) $overallCosts,
         ]);
     }
 

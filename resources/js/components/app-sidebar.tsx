@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, DollarSign, FolderGit2, LayoutGrid, Map, Package, ScrollText, ShoppingCart, Sprout, SquareStack, Users, Wallet } from 'lucide-react';
+import { BookOpen, DollarSign, FolderGit2, LayoutGrid, Map, Package, ScrollText, ShoppingCart, Sprout, SquareStack, Users, Wallet, Tractor, Building2, Warehouse } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -14,62 +14,39 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
-import type { NavItem } from '@/types';
+import type { NavGroup } from '@/types';
 
-const mainNavItems: NavItem[] = [
+const navGroups: NavGroup[] = [
     {
-        title: 'لوحة التحكم',
-        href: dashboard(),
-        icon: LayoutGrid,
+        label: 'التشغيل الزراعي',
+        icon: Tractor,
+        items: [
+            { title: 'الأراضي', href: '/lands', icon: Map },
+            { title: 'المحاصيل', href: '/crops', icon: Sprout },
+            { title: 'المبيعات', href: '/sales', icon: DollarSign },
+        ],
     },
     {
-        title: 'الأراضي',
-        href: '/lands',
-        icon: Map,
+        label: 'المخزون',
+        icon: Warehouse,
+        items: [
+            { title: 'المنتجات', href: '/products', icon: Package },
+            { title: 'الحركات', href: '/stock', icon: SquareStack },
+        ],
     },
     {
-        title: 'الأطراف',
-        href: '/parties',
-        icon: Users,
-    },
-    {
-        title: 'المنتجات',
-        href: '/products',
-        icon: Package,
-    },
-    {
-        title: 'المخزون',
-        href: '/stock',
-        icon: SquareStack,
-    },
-    {
-        title: 'المشتريات',
-        href: '/purchases',
-        icon: ShoppingCart,
-    },
-    {
-        title: 'المدفوعات',
-        href: '/payments',
-        icon: Wallet,
-    },
-    {
-        title: 'السجل المالي',
-        href: '/ledger',
-        icon: ScrollText,
-    },
-    {
-        title: 'المحاصيل',
-        href: '/crops',
-        icon: Sprout,
-    },
-    {
-        title: 'المبيعات',
-        href: '/sales',
-        icon: DollarSign,
+        label: 'الحسابات',
+        icon: Building2,
+        items: [
+            { title: 'الأطراف', href: '/parties', icon: Users },
+            { title: 'المشتريات', href: '/purchases', icon: ShoppingCart },
+            { title: 'المدفوعات', href: '/payments', icon: Wallet },
+            { title: 'السجل المالي', href: '/ledger', icon: ScrollText },
+        ],
     },
 ];
 
-const footerNavItems: NavItem[] = [
+const footerNavItems = [
     {
         title: 'المستودع',
         href: 'https://github.com/laravel/react-starter-kit',
@@ -98,7 +75,18 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain
+                    groups={[
+                        {
+                            label: 'الرئيسية',
+                            icon: LayoutGrid,
+                            items: [
+                                { title: 'لوحة التحكم', href: dashboard(), icon: LayoutGrid },
+                            ],
+                        },
+                        ...navGroups,
+                    ]}
+                />
             </SidebarContent>
 
             <SidebarFooter>
