@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, DollarSign, FolderGit2, LayoutGrid, Map, Package, ScrollText, ShoppingCart, Sprout, SquareStack, Users, Wallet, Tractor, Building2, Warehouse } from 'lucide-react';
+import { BookOpen, DollarSign, FolderGit2, LayoutGrid, Map, Package, Receipt, ScrollText, ShoppingCart, Sprout, SquareStack, Users, Wallet, Tractor, Building2, Warehouse } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -23,6 +23,7 @@ const navGroups: NavGroup[] = [
         items: [
             { title: 'الأراضي', href: '/lands', icon: Map },
             { title: 'المحاصيل', href: '/crops', icon: Sprout },
+            { title: 'التكاليف', href: '/costs', icon: Receipt },
             { title: 'المبيعات', href: '/sales', icon: DollarSign },
         ],
     },

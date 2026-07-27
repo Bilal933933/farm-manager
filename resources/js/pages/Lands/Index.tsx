@@ -1,66 +1,17 @@
-import { Head, Link, router } from '@inertiajs/react';
-import { Plus, Sprout, FileText, Layers } from 'lucide-react';
+import { Head, Link } from '@inertiajs/react';
+import { FileText, Layers, Plus, Sprout } from 'lucide-react';
+import LandTableRow from '@/components/Lands/LandTableRow';
+import StatCard from '@/components/Lands/StatCard';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
-import StatusBadge from '@/components/Lands/StatusBadge';
+import type { Land } from '@/types';
 
-interface Land {
-  id: number;
-  name: string;
-  location: string | null;
-  area: string;
-  area_unit: string;
-  status: string;
-  seasons?: unknown[];
-  contracts?: unknown[];
-}
-
-interface IndexProps {
-  lands: Land[];
-}
-
-function StatCard({ icon: Icon, label, value }: { icon: React.ComponentType<{ className?: string }>; label: string; value: number }) {
-  return (
-    <Card className="border-stone-200">
-      <CardContent className="flex items-center gap-4 p-5">
-        <div className="rounded-lg bg-emerald-50 p-2.5 text-emerald-700">
-          <Icon className="h-5 w-5" />
-        </div>
-        <div>
-          <p className="text-2xl font-semibold font-mono leading-none">{value}</p>
-          <p className="mt-1 text-sm text-stone-500">{label}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-export default function Index({ lands }: IndexProps) {
+export default function Index({ lands }: { lands: Land[] }) {
   const activeCount = lands.filter((l) => l.status === 'نشط').length;
   const totalContracts = lands.reduce((sum, l) => sum + (l.contracts?.length ?? 0), 0);
-
-  function destroy(land: Land) {
-    router.delete(route('lands.destroy', land.id));
-  }
 
   return (
     <div dir="rtl" className="space-y-6 p-6">
@@ -99,61 +50,14 @@ export default function Index({ lands }: IndexProps) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {lands.length === 0 && (
+            {lands.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={7} className="py-10 text-center text-stone-500">
                   لا توجد أراضٍ مسجّلة بعد. ابدأ بإضافة أول أرض.
                 </TableCell>
               </TableRow>
-            )}
-            {lands.map((land) => (
-              <TableRow key={land.id}>
-                <TableCell className="font-medium">
-                  <Link href={route('lands.show', land.id)} className="hover:text-emerald-700 hover:underline">
-                    {land.name}
-                  </Link>
-                </TableCell>
-                <TableCell className="text-stone-500">{land.location || '—'}</TableCell>
-                <TableCell className="font-mono">
-                  {land.area} {land.area_unit}
-                </TableCell>
-                <TableCell>
-                  <StatusBadge value={land.status} />
-                </TableCell>
-                <TableCell className="font-mono">{land.seasons?.length ?? 0}</TableCell>
-                <TableCell className="font-mono">{land.contracts?.length ?? 0}</TableCell>
-                <TableCell className="text-left">
-                  <div className="flex justify-start gap-2">
-                    <Button variant="ghost" size="sm" asChild>
-                      <Link href={route('lands.edit', land.id)}>تعديل</Link>
-                    </Button>
-                    <AlertDialog>
-                      <AlertDialogTrigger asChild>
-                        <Button variant="ghost" size="sm" className="text-rose-600 hover:text-rose-700">
-                          حذف
-                        </Button>
-                      </AlertDialogTrigger>
-                      <AlertDialogContent dir="rtl">
-                        <AlertDialogHeader>
-                          <AlertDialogTitle>حذف "{land.name}"؟</AlertDialogTitle>
-                          <AlertDialogDescription>
-                            سيتم نقل هذه الأرض إلى سلة المحذوفات. يمكن استرجاعها لاحقاً إذا لزم الأمر.
-                          </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                          <AlertDialogCancel>تراجع</AlertDialogCancel>
-                          <AlertDialogAction
-                            onClick={() => destroy(land)}
-                            className="bg-rose-600 hover:bg-rose-700"
-                          >
-                            حذف
-                          </AlertDialogAction>
-                        </AlertDialogFooter>
-                      </AlertDialogContent>
-                    </AlertDialog>
-                  </div>
-                </TableCell>
-              </TableRow>
+            ) : lands.map((land) => (
+              <LandTableRow key={land.id} land={land} />
             ))}
           </TableBody>
         </Table>

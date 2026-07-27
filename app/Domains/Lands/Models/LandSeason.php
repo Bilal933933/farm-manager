@@ -40,4 +40,9 @@ class LandSeason extends Model
     {
         return $this->hasMany(Harvest::class);
     }
+
+    public function costs(): HasMany
+    {
+        return $this->hasMany(Cost::class);
+    }
 }

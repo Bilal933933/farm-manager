@@ -5,6 +5,7 @@ namespace App\Domains\Lands\Models;
 use Database\Factories\LandFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Land extends Model
@@ -21,13 +22,18 @@ class Land extends Model
         ];
     }
 
-    public function contracts()
+    public function contracts(): HasMany
     {
         return $this->hasMany(LandContract::class);
     }
 
-    public function seasons()
+    public function seasons(): HasMany
     {
         return $this->hasMany(LandSeason::class);
+    }
+
+    public function costs(): HasMany
+    {
+        return $this->hasMany(Cost::class);
     }
 }

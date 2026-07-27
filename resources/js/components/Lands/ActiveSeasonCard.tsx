@@ -1,28 +1,22 @@
 import { Sprout } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
-import StatusBadge from '@/components/Lands/StatusBadge';
-
-interface Crop {
-  id: number;
-  name: string;
-}
-
-interface Season {
-  id: number;
-  crop_obj?: Crop | null;
-  cultivated_area?: string;
-  crop: string | Crop;
-  planting_date: string;
-  harvest_date?: string;
-  expected_cost?: string;
-  status: string;
-}
+import type { Crop, Season } from '@/types';
 
 function getCropName(season: Season): string {
-  if (season.crop_obj?.name) return season.crop_obj.name;
-  if (typeof season.crop === 'string') return season.crop;
-  if (season.crop && typeof season.crop === 'object' && 'name' in season.crop) return (season.crop as Crop).name;
+  if (season.crop_obj?.name) {
+return season.crop_obj.name;
+}
+
+  if (typeof season.crop === 'string') {
+return season.crop;
+}
+
+  if (season.crop && typeof season.crop === 'object' && 'name' in season.crop) {
+return (season.crop as Crop).name;
+}
+
   return '—';
 }
 
@@ -32,7 +26,9 @@ interface ActiveSeasonCardProps {
 }
 
 export default function ActiveSeasonCard({ activeSeason, areaUnit }: ActiveSeasonCardProps) {
-  if (!activeSeason) return null;
+  if (!activeSeason) {
+return null;
+}
 
   return (
     <Card className="border-emerald-200 bg-emerald-50/50">

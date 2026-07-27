@@ -1,19 +1,12 @@
 import { Link } from '@inertiajs/react';
 import { ArrowRight, Pencil } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import StatusBadge from '@/components/Lands/StatusBadge';
+import type { Land } from '@/types';
 
 interface LandHeaderProps {
-  land: {
-    id: number;
-    name: string;
-    location: string | null;
-    area: string;
-    area_unit: string;
-    status: string;
-    notes: string | null;
-  };
+  land: Land;
 }
 
 export default function LandHeader({ land }: LandHeaderProps) {

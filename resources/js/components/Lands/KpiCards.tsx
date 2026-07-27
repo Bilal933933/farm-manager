@@ -1,51 +1,20 @@
-import { Sprout, DollarSign, TrendingUp, CircleDollarSign } from 'lucide-react';
+import { TrendingUp, DollarSign, CircleDollarSign, Sprout } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-
-interface SeasonStats {
-  total_harvest: number;
-  total_sales: number;
-  total_sold_qty: number;
-  total_cost: number;
-  profit: number;
-}
+import type { SeasonStats } from '@/types';
 
 interface KpiCardsProps {
-  seasonStats: Record<number, SeasonStats> | undefined;
-  overallSales: number;
-  overallCosts: number;
+  stats?: SeasonStats | null;
 }
 
-export default function KpiCards({ seasonStats, overallSales, overallCosts }: KpiCardsProps) {
-  const totalHarvest = seasonStats
-    ? Object.values(seasonStats).reduce((s, st) => s + st.total_harvest, 0)
-    : 0;
-  const overallProfit = overallSales - overallCosts;
-
+export default function KpiCards({ stats }: KpiCardsProps) {
   const cards = [
+    { label: 'إجمالي الحصاد', value: stats?.total_harvest ?? 0, icon: TrendingUp, iconClass: 'text-emerald-600' },
+    { label: 'إجمالي المبيعات', value: stats?.total_sales ?? 0, icon: DollarSign, iconClass: 'text-blue-600' },
+    { label: 'إجمالي التكاليف', value: stats?.total_cost ?? 0, icon: CircleDollarSign, iconClass: 'text-amber-600' },
     {
-      label: 'إجمالي الحصاد',
-      value: totalHarvest.toLocaleString(),
-      icon: TrendingUp,
-      iconClass: 'text-emerald-600',
-    },
-    {
-      label: 'إجمالي المبيعات',
-      value: overallSales.toLocaleString(),
-      icon: DollarSign,
-      iconClass: 'text-blue-600',
-    },
-    {
-      label: 'إجمالي التكاليف',
-      value: overallCosts.toLocaleString(),
-      icon: CircleDollarSign,
-      iconClass: 'text-amber-600',
-    },
-    {
-      label: 'صافي الربح',
-      value: overallProfit.toLocaleString(),
-      icon: Sprout,
-      iconClass: overallProfit >= 0 ? 'text-emerald-600' : 'text-rose-600',
-      valueClass: overallProfit >= 0 ? 'text-emerald-700' : 'text-rose-700',
+      label: 'صافي الربح', value: stats?.profit ?? 0, icon: Sprout,
+      iconClass: (stats?.profit ?? 0) >= 0 ? 'text-emerald-600' : 'text-rose-600',
+      valueClass: (stats?.profit ?? 0) >= 0 ? 'text-emerald-700' : 'text-rose-700',
     },
   ];
 
@@ -57,8 +26,8 @@ export default function KpiCards({ seasonStats, overallSales, overallCosts }: Kp
             <card.icon className={`h-8 w-8 shrink-0 ${card.iconClass}`} />
             <div className="min-w-0">
               <p className="truncate text-xs text-stone-500">{card.label}</p>
-              <p className={`mt-0.5 text-xl font-bold ${card.valueClass ?? 'text-stone-900'}`}>
-                {card.value}
+              <p className={`mt-0.5 text-xl font-bold ${(card as any).valueClass ?? 'text-stone-900'}`}>
+                {card.value.toLocaleString()}
               </p>
             </div>
           </CardContent>

@@ -1,8 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import SaleForm from '@/components/Sales/SaleForm';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface Harvest {
   id: number;
@@ -16,17 +15,16 @@ interface Harvest {
   };
 }
 
-interface Party {
-  id: number;
-  name: string;
-}
+interface Party { id: number; name: string }
+interface Land { id: number; name: string }
 
 interface CreateProps {
   harvests: Harvest[];
   parties: Party[];
+  lands: Land[];
 }
 
-export default function Create({ harvests, parties }: CreateProps) {
+export default function Create({ harvests, parties, lands }: CreateProps) {
   return (
     <div dir="rtl" className="mx-auto max-w-2xl space-y-6 p-6">
       <Head title="إضافة بيع" />
@@ -43,7 +41,7 @@ export default function Create({ harvests, parties }: CreateProps) {
 
       <Card className="border-stone-200">
         <CardContent className="p-6">
-          <SaleForm harvests={harvests} parties={parties} />
+          <SaleForm harvests={harvests} parties={parties} lands={lands} />
         </CardContent>
       </Card>
     </div>

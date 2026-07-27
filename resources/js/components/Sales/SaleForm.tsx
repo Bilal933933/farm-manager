@@ -1,16 +1,12 @@
 import { useForm } from '@inertiajs/react';
+import { useMemo } from 'react';
 import { Button } from '@/components/ui/button';
-import { DateDisplay } from '@/components/ui/date-display';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { SALE_TYPES } from '@/lib/saleEnums';
 
 interface Harvest {
@@ -25,18 +21,19 @@ interface Harvest {
   };
 }
 
-interface Party {
-  id: number;
-  name: string;
-}
+interface Party { id: number; name: string }
+interface LandOption { id: number; name: string }
 
 interface SaleFormProps {
   harvests: Harvest[];
   parties: Party[];
+  lands: LandOption[];
 }
 
-export default function SaleForm({ harvests, parties }: SaleFormProps) {
+export default function SaleForm({ harvests, parties, lands }: SaleFormProps) {
   const { data, setData, post, processing, errors } = useForm({
+    land_id: '',
+    land_season_id: '',
     harvest_id: '',
     party_id: '',
     quantity: '',
@@ -53,19 +50,85 @@ export default function SaleForm({ harvests, parties }: SaleFormProps) {
 
   const total = parseFloat(data.quantity || '0') * parseFloat(data.unit_price || '0');
 
+  const seasons = useMemo(() => {
+    const seen = new Set<number>();
+
+    return harvests
+      .filter((h) => !data.land_id || h.land_season.land.id.toString() === data.land_id)
+      .filter((h) => {
+        if (seen.has(h.land_season.id)) {
+return false;
+}
+
+        seen.add(h.land_season.id);
+
+        return true;
+      })
+      .map((h) => ({
+        id: h.land_season.id,
+        name: `${h.land_season.crop?.name ?? '—'} — ${h.date}`,
+      }));
+  }, [harvests, data.land_id]);
+
+  const filteredHarvests = harvests.filter((h) => {
+    if (data.land_id && h.land_season.land.id.toString() !== data.land_id) {
+return false;
+}
+
+    if (data.land_season_id && h.land_season.id.toString() !== data.land_season_id) {
+return false;
+}
+
+    return true;
+  });
+
   return (
     <form onSubmit={submit} className="space-y-4">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="land_id">الأرض</Label>
+          <Select value={data.land_id} onValueChange={(v) => {
+ setData('land_id', v); setData('land_season_id', ''); setData('harvest_id', ''); 
+}}>
+            <SelectTrigger id="land_id">
+              <SelectValue placeholder="اختر الأرض" />
+            </SelectTrigger>
+            <SelectContent>
+              {lands.map((l) => (
+                <SelectItem key={l.id} value={l.id.toString()}>{l.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="land_season_id">الموسم</Label>
+          <Select value={data.land_season_id} onValueChange={(v) => {
+ setData('land_season_id', v); setData('harvest_id', ''); 
+}}>
+            <SelectTrigger id="land_season_id">
+              <SelectValue placeholder="اختر الموسم" />
+            </SelectTrigger>
+            <SelectContent>
+              {seasons.map((s) => (
+                <SelectItem key={s.id} value={s.id.toString()}>{s.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="harvest_id">الحصاد</Label>
           <Select value={data.harvest_id} onValueChange={(v) => setData('harvest_id', v)}>
             <SelectTrigger id="harvest_id">
-              <SelectValue placeholder="اختر الحصاد" />
+              <SelectValue placeholder={data.land_id ? 'اختر الحصاد' : 'اختر الأرض أولاً'} />
             </SelectTrigger>
             <SelectContent>
-              {harvests.map((h) => (
+              {filteredHarvests.map((h) => (
                 <SelectItem key={h.id} value={String(h.id)}>
-                  <DateDisplay date={h.date} /> — {h.quantity} ({h.land_season?.land?.name || ''} / {h.land_season?.crop?.name || ''})
+                  {h.date} — {h.quantity} ({h.land_season?.crop?.name || '—'})
                 </SelectItem>
               ))}
             </SelectContent>

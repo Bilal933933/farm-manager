@@ -12,6 +12,7 @@ use App\Domains\Lands\Actions\DeleteLandSeason;
 use App\Domains\Lands\Actions\UpdateLand;
 use App\Domains\Lands\Actions\UpdateLandContract;
 use App\Domains\Lands\Actions\UpdateLandSeason;
+use App\Domains\Lands\Models\Cost;
 use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
@@ -51,9 +52,12 @@ class LandController extends Controller
 
     public function show(Land $land): Response
     {
-        $land->load(['seasons.crop', 'seasons.harvests', 'contracts']);
+        $land->load(['contracts']);
+        $land->load(['seasons.crop', 'seasons.harvests', 'seasons.costs']);
 
         $activeSeason = $land->seasons->firstWhere('status', 'نشط');
+
+        $directCostSum = Cost::where('land_id', $land->id)->whereNull('land_season_id')->sum('amount');
 
         $stats = [];
         foreach ($land->seasons as $season) {
@@ -62,11 +66,17 @@ class LandController extends Controller
             $totalSales = Sale::whereIn('harvest_id', $harvestIds)->sum(DB::raw('quantity * unit_price'));
             $totalSoldQty = Sale::whereIn('harvest_id', $harvestIds)->sum('quantity');
 
+            $totalCost = $season->costs->sum('amount');
+
+            if ($activeSeason && $season->id === $activeSeason->id) {
+                $totalCost += $directCostSum;
+            }
+
             $stats[$season->id] = [
                 'total_harvest' => (float) $totalHarvest,
                 'total_sales' => (float) $totalSales,
                 'total_sold_qty' => (float) $totalSoldQty,
-                'total_cost' => (float) ($season->actual_cost ?? $season->expected_cost ?? 0),
+                'total_cost' => (float) $totalCost,
             ];
 
             $stats[$season->id]['profit'] = $stats[$season->id]['total_sales'] - $stats[$season->id]['total_cost'];
@@ -74,7 +84,6 @@ class LandController extends Controller
 
         $allHarvestIds = $land->seasons->flatMap->harvests->pluck('id');
         $overallSales = Sale::whereIn('harvest_id', $allHarvestIds)->sum(DB::raw('quantity * unit_price'));
-        $overallCosts = $land->seasons->sum(fn ($s) => (float) ($s->actual_cost ?? $s->expected_cost ?? 0));
 
         $sales = Sale::whereIn('harvest_id', $allHarvestIds)
             ->with(['party', 'harvest.landSeason.crop'])
@@ -88,13 +97,36 @@ class LandController extends Controller
                 ]);
             });
 
-        $costsBySeason = $land->seasons->map(fn ($s) => [
+        $seasonCosts = $land->seasons->flatMap(fn ($s) => $s->costs->map(fn ($c) => [
+            'id' => $c->id,
             'season_id' => $s->id,
             'crop_name' => $s->relationLoaded('crop') && $s->getRelation('crop') ? $s->getRelation('crop')->name : $s->getAttribute('crop'),
-            'expected_cost' => (float) ($s->expected_cost ?? 0),
-            'actual_cost' => (float) ($s->actual_cost ?? 0),
-            'status' => $s->status,
+            'type' => $c->type,
+            'description' => $c->description,
+            'amount' => (float) $c->amount,
+            'date' => $c->date->toDateString(),
+            'notes' => $c->notes,
+            'land_id' => $c->land_id,
+            'land_season_id' => $c->land_season_id,
+        ]));
+
+        $directCosts = Cost::where('land_id', $land->id)->whereNull('land_season_id')->with('crop')->get()->map(fn ($c) => [
+            'id' => $c->id,
+            'season_id' => null,
+            'crop_name' => $c->crop?->name ?? '—',
+            'type' => $c->type,
+            'description' => $c->description,
+            'amount' => (float) $c->amount,
+            'date' => $c->date->toDateString(),
+            'notes' => $c->notes,
+            'land_id' => $c->land_id,
+            'land_season_id' => null,
         ]);
+
+        $costs = $seasonCosts->concat($directCosts)->sortByDesc('date')->values();
+
+        $overallCosts = $costs->sum('amount');
+        $totalHarvest = $land->seasons->sum(fn ($s) => (float) $s->harvests->sum('quantity'));
 
         return Inertia::render('Lands/Show', [
             'land' => $land,
@@ -103,8 +135,9 @@ class LandController extends Controller
             'seasonStats' => $stats,
             'overallSales' => (float) $overallSales,
             'overallCosts' => (float) $overallCosts,
+            'totalHarvest' => (float) $totalHarvest,
             'sales' => $sales,
-            'costsBySeason' => $costsBySeason,
+            'costs' => $costs,
         ]);
     }
 

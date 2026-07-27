@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import LandForm from '@/components/Lands/LandForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Create() {
   const { data, setData, post, processing, errors } = useForm({

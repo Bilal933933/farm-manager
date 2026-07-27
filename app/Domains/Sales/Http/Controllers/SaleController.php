@@ -3,6 +3,7 @@
 namespace App\Domains\Sales\Http\Controllers;
 
 use App\Domains\Harvests\Models\Harvest;
+use App\Domains\Lands\Models\Land;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Sales\Actions\CreateSale;
 use App\Domains\Sales\Models\Sale;
@@ -33,6 +34,7 @@ class SaleController extends Controller
 
         return Inertia::render('Sales/Create', [
             'harvests' => $harvests,
+            'lands' => Land::orderBy('name')->get(['id', 'name']),
             'parties' => Party::orderBy('name')->get(),
         ]);
     }

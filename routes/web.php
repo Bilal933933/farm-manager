@@ -2,6 +2,7 @@
 
 use App\Domains\Crops\Http\Controllers\CropController;
 use App\Domains\Harvests\Http\Controllers\HarvestController;
+use App\Domains\Lands\Http\Controllers\CostController;
 use App\Domains\Lands\Http\Controllers\LandController;
 use App\Domains\Ledger\Http\Controllers\LedgerController;
 use App\Domains\Parties\Http\Controllers\PartyController;
@@ -25,6 +26,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('lands/seasons', [LandController::class, 'storeSeason'])->name('lands.seasons.store');
     Route::put('lands/seasons/{season}', [LandController::class, 'updateSeason'])->name('lands.seasons.update');
     Route::delete('lands/seasons/{season}', [LandController::class, 'destroySeason'])->name('lands.seasons.destroy');
+
+    Route::resource('costs', CostController::class);
 
     Route::resource('parties', PartyController::class);
 

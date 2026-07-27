@@ -1,30 +1,18 @@
 import { useForm } from '@inertiajs/react';
+import type { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
+} from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { Textarea } from '@/components/ui/textarea';
 import { SEASON_STATUSES } from '@/lib/landEnums';
-import type { ReactNode } from 'react';
 
-interface Crop {
-  id: number;
-  name: string;
-}
+interface Crop { id: number; name: string }
 
 interface Season {
   id?: number;
@@ -34,7 +22,6 @@ interface Season {
   planting_date?: string;
   harvest_date?: string;
   expected_cost?: string;
-  actual_cost?: string;
   status?: string;
   notes?: string;
 }
@@ -57,13 +44,13 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
     planting_date: season?.planting_date ?? '',
     harvest_date: season?.harvest_date ?? '',
     expected_cost: season?.expected_cost ?? '',
-    actual_cost: season?.actual_cost ?? '',
     status: season?.status ?? 'قادم',
     notes: season?.notes ?? '',
   });
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
+
     if (isEditing) {
       put(route('lands.seasons.update', season!.id), { onSuccess: () => reset() });
     } else {
@@ -135,31 +122,17 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="expected_cost">التكلفة المتوقعة</Label>
-              <Input
-                id="expected_cost"
-                type="number"
-                step="0.01"
-                className="font-mono"
-                value={data.expected_cost}
-                onChange={(e) => setData('expected_cost', e.target.value)}
-              />
-              {errors.expected_cost && <p className="text-sm text-rose-600">{errors.expected_cost}</p>}
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="actual_cost">التكلفة الفعلية</Label>
-              <Input
-                id="actual_cost"
-                type="number"
-                step="0.01"
-                className="font-mono"
-                value={data.actual_cost}
-                onChange={(e) => setData('actual_cost', e.target.value)}
-              />
-              {errors.actual_cost && <p className="text-sm text-rose-600">{errors.actual_cost}</p>}
-            </div>
+          <div className="space-y-2">
+            <Label htmlFor="expected_cost">التكلفة المتوقعة</Label>
+            <Input
+              id="expected_cost"
+              type="number"
+              step="0.01"
+              className="font-mono"
+              value={data.expected_cost}
+              onChange={(e) => setData('expected_cost', e.target.value)}
+            />
+            {errors.expected_cost && <p className="text-sm text-rose-600">{errors.expected_cost}</p>}
           </div>
 
           <div className="space-y-2">
