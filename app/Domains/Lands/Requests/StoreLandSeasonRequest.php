@@ -14,6 +14,13 @@ class StoreLandSeasonRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'crop_id' => $this->crop_id ?: null,
+        ]);
+    }
+
     public function rules(): array
     {
         return [
@@ -33,7 +40,9 @@ class StoreLandSeasonRequest extends FormRequest
                     }
 
                     $landId = $this->input('land_id');
-                    $seasonId = $this->route('season')?->id;
+
+                    $seasonParam = $this->route('season');
+                    $seasonId = $seasonParam instanceof LandSeason ? $seasonParam->id : $seasonParam;
 
                     $query = LandSeason::where('land_id', $landId)
                         ->where('status', SeasonStatus::Active->value);

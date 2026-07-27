@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Head } from '@inertiajs/react';
+import { Head, Deferred } from '@inertiajs/react';
 import ActiveSeasonCard from '@/components/Lands/ActiveSeasonCard';
 import KpiCards from '@/components/Lands/KpiCards';
 import LandHeader from '@/components/Lands/LandHeader';
@@ -15,15 +15,17 @@ import type { CostData, Crop, Land, SaleData, Season, SeasonStats, StockProductO
 
 interface ShowProps {
   land: Land;
-  crops: Crop[];
+  crops?: Crop[];
   activeSeason: Season | null;
-  seasonStats: Record<number, SeasonStats>;
+  seasonStats?: Record<number, SeasonStats>;
   overallSales: number;
   overallCosts: number;
   totalHarvest: number;
-  sales: SaleData[];
-  costs: CostData[];
-  products: StockProductOption[];
+  sales?: SaleData[];
+  costs?: CostData[];
+  products?: StockProductOption[];
+  costsCount: number;
+  revenuesCount: number;
 }
 
 function getCropName(s: Season): string {
@@ -32,11 +34,11 @@ function getCropName(s: Season): string {
   return 'موسم';
 }
 
-export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products }: ShowProps) {
+export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount }: ShowProps) {
   const [selectedSeasonId, setSelectedSeasonId] = useState<number | null>(activeSeason?.id ?? null);
 
   const seasons = (land.seasons ?? []);
-  const selectedStats = selectedSeasonId && seasonStats[selectedSeasonId] ? seasonStats[selectedSeasonId] : null;
+  const selectedStats = selectedSeasonId && seasonStats?.[selectedSeasonId] ? seasonStats[selectedSeasonId] : null;
 
   return (
     <div dir="rtl" className="space-y-6 p-6">
@@ -77,28 +79,49 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
       <Tabs defaultValue="seasons">
         <TabsList>
           <TabsTrigger value="seasons">المواسم الزراعية ({seasons.length})</TabsTrigger>
-          <TabsTrigger value="costs">التكاليف ({costs.length})</TabsTrigger>
-          <TabsTrigger value="revenues">الإيرادات ({sales.length})</TabsTrigger>
+          <TabsTrigger value="costs">التكاليف ({costsCount})</TabsTrigger>
+          <TabsTrigger value="revenues">الإيرادات ({revenuesCount})</TabsTrigger>
           <TabsTrigger value="contracts">العقود ({land.contracts?.length ?? 0})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="seasons">
-          <SeasonsTab seasons={seasons} seasonStats={seasonStats} crops={crops} landId={land.id} />
+          <Deferred data={['crops', 'seasonStats']} fallback={
+            <div className="flex items-center justify-center py-16 text-stone-400">
+              <div className="ms-2 h-6 w-6 animate-spin rounded-full border-2 border-emerald-600 border-t-transparent" />
+              جاري تحميل المواسم...
+            </div>
+          }>
+            <SeasonsTab seasons={seasons} seasonStats={seasonStats!} crops={crops!} landId={land.id} />
+          </Deferred>
         </TabsContent>
 
         <TabsContent value="costs">
-          <CostsTab
-            costs={costs}
-            landId={land.id}
-            selectedSeasonId={selectedSeasonId}
-            activeSeasonId={activeSeason?.id ?? null}
-            seasons={seasons.map((s) => ({ id: s.id, name: getCropName(s) }))}
-            products={products}
-          />
+          <Deferred data={['costs', 'products']} fallback={
+            <div className="flex items-center justify-center py-16 text-stone-400">
+              <div className="ms-2 h-6 w-6 animate-spin rounded-full border-2 border-emerald-600 border-t-transparent" />
+              جاري تحميل التكاليف...
+            </div>
+          }>
+            <CostsTab
+              costs={costs!}
+              landId={land.id}
+              selectedSeasonId={selectedSeasonId}
+              activeSeasonId={activeSeason?.id ?? null}
+              seasons={seasons.map((s) => ({ id: s.id, name: getCropName(s) }))}
+              products={products!}
+            />
+          </Deferred>
         </TabsContent>
 
         <TabsContent value="revenues">
-          <RevenuesTab sales={sales} selectedSeasonId={selectedSeasonId} />
+          <Deferred data="sales" fallback={
+            <div className="flex items-center justify-center py-16 text-stone-400">
+              <div className="ms-2 h-6 w-6 animate-spin rounded-full border-2 border-emerald-600 border-t-transparent" />
+              جاري تحميل الإيرادات...
+            </div>
+          }>
+            <RevenuesTab sales={sales!} selectedSeasonId={selectedSeasonId} />
+          </Deferred>
         </TabsContent>
 
         <TabsContent value="contracts">

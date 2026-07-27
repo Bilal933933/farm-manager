@@ -1,5 +1,5 @@
+import { type ReactNode } from 'react';
 import { useForm } from '@inertiajs/react';
-import type { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
@@ -33,6 +33,11 @@ interface SeasonFormDialogProps {
   crops: Crop[];
 }
 
+function toDateInputValue(dateStr?: string): string {
+  if (!dateStr) return '';
+  return dateStr.split('T')[0];
+}
+
 export default function SeasonFormDialog({ landId, season = null, trigger, crops }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
@@ -41,8 +46,8 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
     crop_id: String(season?.crop_id ?? ''),
     cultivated_area: season?.cultivated_area ?? '',
     crop: season?.crop ?? '',
-    planting_date: season?.planting_date ?? '',
-    harvest_date: season?.harvest_date ?? '',
+    planting_date: toDateInputValue(season?.planting_date),
+    harvest_date: toDateInputValue(season?.harvest_date),
     expected_cost: season?.expected_cost ?? '',
     status: season?.status ?? 'قادم',
     notes: season?.notes ?? '',

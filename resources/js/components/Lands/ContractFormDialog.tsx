@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react';
 import { useForm } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,7 +20,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { CONTRACT_TYPES } from '@/lib/landEnums';
-import type { ReactNode } from 'react';
 
 interface Contract {
   id?: number;
@@ -36,14 +36,19 @@ interface ContractFormDialogProps {
   trigger: ReactNode;
 }
 
+function toDateInputValue(dateStr?: string): string {
+  if (!dateStr) return '';
+  return dateStr.split('T')[0];
+}
+
 export default function ContractFormDialog({ landId, contract = null, trigger }: ContractFormDialogProps) {
   const isEditing = Boolean(contract);
 
   const { data, setData, post, put, processing, errors, reset } = useForm({
     land_id: landId,
     type: contract?.type ?? 'إيجار',
-    start_date: contract?.start_date ?? '',
-    end_date: contract?.end_date ?? '',
+    start_date: toDateInputValue(contract?.start_date),
+    end_date: toDateInputValue(contract?.end_date),
     amount: contract?.amount ?? '',
     notes: contract?.notes ?? '',
   });

@@ -13,6 +13,7 @@ use App\Domains\Lands\Actions\UpdateLand;
 use App\Domains\Lands\Actions\UpdateLandContract;
 use App\Domains\Lands\Actions\UpdateLandSeason;
 use App\Domains\Lands\Models\Cost;
+use App\Domains\Lands\Models\Harvest;
 use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
@@ -55,112 +56,133 @@ class LandController extends Controller
 
     public function show(Land $land): Response
     {
-        $land->load(['contracts']);
-        $land->load(['seasons.crop', 'seasons.harvests', 'seasons.costs']);
+        $land->load(['contracts', 'seasons.crop']);
 
         $activeSeason = $land->seasons->firstWhere('status', 'نشط');
 
-        $directCostSum = Cost::where('land_id', $land->id)->whereNull('land_season_id')->sum('amount');
+        $allSeasonIds = $land->seasons->pluck('id');
+        $totalHarvest = (float) Harvest::whereIn('land_season_id', $allSeasonIds)->sum('quantity');
 
-        $stats = [];
-        foreach ($land->seasons as $season) {
-            $totalHarvest = $season->harvests->sum('quantity');
-            $harvestIds = $season->harvests->pluck('id');
-            $totalSales = Sale::whereIn('harvest_id', $harvestIds)->sum(DB::raw('quantity * unit_price'));
-            $totalSoldQty = Sale::whereIn('harvest_id', $harvestIds)->sum('quantity');
+        $directCostSum = (float) Cost::where('land_id', $land->id)->whereNull('land_season_id')->sum('amount');
+        $seasonCostSum = (float) Cost::whereIn('land_season_id', $allSeasonIds)->sum('amount');
+        $overallCosts = $directCostSum + $seasonCostSum;
 
-            $totalCost = $season->costs->sum('amount');
+        $allHarvestIds = Harvest::whereIn('land_season_id', $allSeasonIds)->pluck('id');
+        $overallSales = (float) Sale::whereIn('harvest_id', $allHarvestIds)->sum(DB::raw('quantity * unit_price'));
 
-            if ($activeSeason && $season->id === $activeSeason->id) {
-                $totalCost += $directCostSum;
-            }
-
-            $stats[$season->id] = [
-                'total_harvest' => (float) $totalHarvest,
-                'total_sales' => (float) $totalSales,
-                'total_sold_qty' => (float) $totalSoldQty,
-                'total_cost' => (float) $totalCost,
-            ];
-
-            $stats[$season->id]['profit'] = $stats[$season->id]['total_sales'] - $stats[$season->id]['total_cost'];
-        }
-
-        $allHarvestIds = $land->seasons->flatMap->harvests->pluck('id');
-        $overallSales = Sale::whereIn('harvest_id', $allHarvestIds)->sum(DB::raw('quantity * unit_price'));
-
-        $sales = Sale::whereIn('harvest_id', $allHarvestIds)
-            ->with(['party', 'harvest.landSeason.crop'])
-            ->orderBy('date', 'desc')
-            ->get()
-            ->map(function ($s) {
-                $crop = $s->harvest?->landSeason?->relationLoaded('crop') ? $s->harvest->landSeason->getRelation('crop') : null;
-
-                return array_merge($s->toArray(), [
-                    'unit' => $crop?->unit?->value,
-                ]);
-            });
-
-        $seasonCosts = $land->seasons->flatMap(fn ($s) => $s->costs->map(fn ($c) => [
-            'id' => $c->id,
-            'season_id' => $s->id,
-            'crop_name' => $s->relationLoaded('crop') && $s->getRelation('crop') ? $s->getRelation('crop')->name : $s->getAttribute('crop'),
-            'type' => $c->type,
-            'description' => $c->description,
-            'amount' => (float) $c->amount,
-            'date' => $c->date->toDateString(),
-            'notes' => $c->notes,
-            'land_id' => $c->land_id,
-            'land_season_id' => $c->land_season_id,
-        ]));
-
-        $directCosts = Cost::where('land_id', $land->id)->whereNull('land_season_id')->with('crop')->get()->map(fn ($c) => [
-            'id' => $c->id,
-            'season_id' => null,
-            'crop_name' => $c->crop?->name ?? '—',
-            'type' => $c->type,
-            'description' => $c->description,
-            'amount' => (float) $c->amount,
-            'date' => $c->date->toDateString(),
-            'notes' => $c->notes,
-            'land_id' => $c->land_id,
-            'land_season_id' => null,
-        ]);
-
-        $costs = $seasonCosts->concat($directCosts)->sortByDesc('date')->values();
-
-        $overallCosts = $costs->sum('amount');
-        $totalHarvest = $land->seasons->sum(fn ($s) => (float) $s->harvests->sum('quantity'));
-
-        $products = Product::query()
-            ->where('status', ProductStatus::Active->value)
-            ->orderBy('display_order')
-            ->orderBy('name')
-            ->get(['id', 'name', 'unit', 'category'])
-            ->map(function (Product $product) {
-                $lastPurchasePrice = PurchaseItem::where('product_id', $product->id)
-                    ->latest('id')
-                    ->value('unit_price');
-
-                return [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'unit' => $product->unit->value,
-                    'category' => $product->category->value,
-                    'last_purchase_price' => $lastPurchasePrice !== null ? (float) $lastPurchasePrice : null,
-                ];
-            });
+        $costsCount = Cost::where('land_id', $land->id)->count();
+        $revenuesCount = Sale::whereIn('harvest_id', $allHarvestIds)->count();
 
         return Inertia::render('Lands/Show', [
             'land' => $land,
-            'crops' => Crop::orderBy('name')->get(),
             'activeSeason' => $activeSeason,
-            'seasonStats' => $stats,
-            'overallSales' => (float) $overallSales,
-            'overallCosts' => (float) $overallCosts,
-            'totalHarvest' => (float) $totalHarvest,
-            'sales' => $sales,
-            'costs' => $costs,
-            'products' => $products,
+            'overallSales' => $overallSales,
+            'overallCosts' => $overallCosts,
+            'totalHarvest' => $totalHarvest,
+            'costsCount' => $costsCount,
+            'revenuesCount' => $revenuesCount,
+
+            'crops' => Inertia::defer(fn () => Crop::orderBy('name')->get(), 'seasons'),
+
+            'seasonStats' => Inertia::defer(function () use ($land): array {
+                $land->load(['seasons.crop', 'seasons.harvests', 'seasons.costs']);
+
+                $directCostSum = Cost::where('land_id', $land->id)->whereNull('land_season_id')->sum('amount');
+                $stats = [];
+
+                foreach ($land->seasons as $season) {
+                    $totalHarvest = $season->harvests->sum('quantity');
+                    $harvestIds = $season->harvests->pluck('id');
+                    $totalSales = Sale::whereIn('harvest_id', $harvestIds)->sum(DB::raw('quantity * unit_price'));
+                    $totalSoldQty = Sale::whereIn('harvest_id', $harvestIds)->sum('quantity');
+                    $totalCost = $season->costs->sum('amount');
+
+                    if ($season->status === 'نشط') {
+                        $totalCost += $directCostSum;
+                    }
+
+                    $stats[$season->id] = [
+                        'total_harvest' => (float) $totalHarvest,
+                        'total_sales' => (float) $totalSales,
+                        'total_sold_qty' => (float) $totalSoldQty,
+                        'total_cost' => (float) $totalCost,
+                        'profit' => (float) $totalSales - $totalCost,
+                    ];
+                }
+
+                return $stats;
+            }, 'seasons'),
+
+            'costs' => Inertia::defer(function () use ($land) {
+                $land->load(['seasons.costs']);
+
+                $seasonCosts = $land->seasons->flatMap(fn ($s) => $s->costs->map(fn ($c) => [
+                    'id' => $c->id,
+                    'season_id' => $s->id,
+                    'crop_name' => $s->relationLoaded('crop') && $s->getRelation('crop') ? $s->getRelation('crop')->name : $s->getAttribute('crop'),
+                    'type' => $c->type,
+                    'description' => $c->description,
+                    'amount' => (float) $c->amount,
+                    'date' => $c->date->toDateString(),
+                    'notes' => $c->notes,
+                    'land_id' => $c->land_id,
+                    'land_season_id' => $c->land_season_id,
+                ]));
+
+                $directCosts = Cost::where('land_id', $land->id)->whereNull('land_season_id')->with('crop')->get()->map(fn ($c) => [
+                    'id' => $c->id,
+                    'season_id' => null,
+                    'crop_name' => $c->crop?->name ?? '—',
+                    'type' => $c->type,
+                    'description' => $c->description,
+                    'amount' => (float) $c->amount,
+                    'date' => $c->date->toDateString(),
+                    'notes' => $c->notes,
+                    'land_id' => $c->land_id,
+                    'land_season_id' => null,
+                ]);
+
+                return $seasonCosts->concat($directCosts)->sortByDesc('date')->values();
+            }, 'costs'),
+
+            'products' => Inertia::defer(function () {
+                return Product::query()
+                    ->where('status', ProductStatus::Active->value)
+                    ->orderBy('display_order')
+                    ->orderBy('name')
+                    ->get(['id', 'name', 'unit', 'category'])
+                    ->map(function (Product $product) {
+                        $lastPurchasePrice = PurchaseItem::where('product_id', $product->id)
+                            ->latest('id')
+                            ->value('unit_price');
+
+                        return [
+                            'id' => $product->id,
+                            'name' => $product->name,
+                            'unit' => $product->unit->value,
+                            'category' => $product->category->value,
+                            'last_purchase_price' => $lastPurchasePrice !== null ? (float) $lastPurchasePrice : null,
+                        ];
+                    });
+            }, 'costs'),
+
+            'sales' => Inertia::defer(function () use ($land) {
+                $land->load(['seasons.harvests.sales']);
+
+                $allHarvestIds = $land->seasons->flatMap->harvests->pluck('id');
+
+                return Sale::whereIn('harvest_id', $allHarvestIds)
+                    ->with(['party', 'harvest.landSeason.crop'])
+                    ->orderBy('date', 'desc')
+                    ->get()
+                    ->map(function ($s) {
+                        $crop = $s->harvest?->landSeason?->relationLoaded('crop') ? $s->harvest->landSeason->getRelation('crop') : null;
+
+                        return array_merge($s->toArray(), [
+                            'unit' => $crop?->unit?->value,
+                        ]);
+                    });
+            }, 'revenues'),
         ]);
     }
 
