@@ -77,9 +77,12 @@ class LandController extends Controller
         $overallCosts = $land->seasons->sum(fn ($s) => (float) ($s->actual_cost ?? $s->expected_cost ?? 0));
 
         $sales = Sale::whereIn('harvest_id', $allHarvestIds)
-            ->with(['party', 'harvest.landSeason'])
+            ->with(['party', 'harvest.landSeason.crop'])
             ->orderBy('date', 'desc')
-            ->get();
+            ->get()
+            ->map(fn ($s) => array_merge($s->toArray(), [
+                'unit' => $s->harvest?->landSeason?->crop?->unit?->value,
+            ]));
 
         $costsBySeason = $land->seasons->map(fn ($s) => [
             'season_id' => $s->id,

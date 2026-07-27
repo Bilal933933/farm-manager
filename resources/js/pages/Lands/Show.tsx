@@ -74,6 +74,7 @@ interface SaleData {
   quantity: string;
   unit_price: string;
   total: number;
+  unit?: string;
   party: { id: number; name: string } | null;
   harvest: { land_season_id: number; landSeason?: { id: number } } | null;
 }
@@ -308,6 +309,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                 <TableRow>
                   <TableHead className={headCell}>التاريخ</TableHead>
                   <TableHead className={numHead}>الكمية</TableHead>
+                  <TableHead className={numHead}>الوحدة</TableHead>
                   <TableHead className={numHead}>سعر الوحدة</TableHead>
                   <TableHead className={numHead}>الإجمالي</TableHead>
                   <TableHead className={headCell}>المشتري</TableHead>
@@ -316,7 +318,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
               <TableBody>
                 {sales.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={5} className="py-12 text-center text-stone-500">
+                    <TableCell colSpan={6} className="py-12 text-center text-stone-500">
                       لا توجد مبيعات مسجّلة.
                     </TableCell>
                   </TableRow>
@@ -325,6 +327,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                     <TableRow key={s.id} className="border-b border-stone-100 last:border-b-0">
                       <TableCell className={cell}><DateDisplay date={s.date} /></TableCell>
                       <TableCell className={numCell}>{s.quantity}</TableCell>
+                      <TableCell className={cell}>{s.unit || '—'}</TableCell>
                       <TableCell className={numCell}>{s.unit_price}</TableCell>
                       <TableCell className={`${numCell} text-emerald-700`}>{fmt(s.total || 0)}</TableCell>
                       <TableCell className={cell}>{s.party?.name || '—'}</TableCell>
@@ -337,6 +340,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                   <TableRow className="border-t-2 border-stone-300 bg-stone-50 font-semibold">
                     <TableCell className={cell}>الإجمالي</TableCell>
                     <TableCell className={numCell}>{fmt(totalSalesQty)}</TableCell>
+                    <TableCell className={cell}>—</TableCell>
                     <TableCell className={numCell}>—</TableCell>
                     <TableCell className={`${numCell} text-emerald-700`}>{fmt(totalSalesAmount)}</TableCell>
                     <TableCell />
