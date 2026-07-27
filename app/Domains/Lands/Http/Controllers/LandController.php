@@ -76,6 +76,19 @@ class LandController extends Controller
         $overallSales = Sale::whereIn('harvest_id', $allHarvestIds)->sum(DB::raw('quantity * unit_price'));
         $overallCosts = $land->seasons->sum(fn ($s) => (float) ($s->actual_cost ?? $s->expected_cost ?? 0));
 
+        $sales = Sale::whereIn('harvest_id', $allHarvestIds)
+            ->with(['party', 'harvest.landSeason'])
+            ->orderBy('date', 'desc')
+            ->get();
+
+        $costsBySeason = $land->seasons->map(fn ($s) => [
+            'season_id' => $s->id,
+            'crop_name' => $s->relationLoaded('crop') && $s->getRelation('crop') ? $s->getRelation('crop')->name : $s->getAttribute('crop'),
+            'expected_cost' => (float) ($s->expected_cost ?? 0),
+            'actual_cost' => (float) ($s->actual_cost ?? 0),
+            'status' => $s->status,
+        ]);
+
         return Inertia::render('Lands/Show', [
             'land' => $land,
             'crops' => Crop::orderBy('name')->get(),
@@ -83,6 +96,8 @@ class LandController extends Controller
             'seasonStats' => $stats,
             'overallSales' => (float) $overallSales,
             'overallCosts' => (float) $overallCosts,
+            'sales' => $sales,
+            'costsBySeason' => $costsBySeason,
         ]);
     }
 

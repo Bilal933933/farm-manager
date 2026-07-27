@@ -79,6 +79,26 @@ interface ShowProps {
   seasonStats: Record<number, SeasonStats>;
   overallSales: number;
   overallCosts: number;
+  sales: SaleData[];
+  costsBySeason: CostData[];
+}
+
+interface SaleData {
+  id: number;
+  date: string;
+  quantity: string;
+  unit_price: string;
+  total: number;
+  party: { id: number; name: string } | null;
+  harvest: { land_season_id: number; landSeason?: { id: number } } | null;
+}
+
+interface CostData {
+  season_id: number;
+  crop_name: string;
+  expected_cost: number;
+  actual_cost: number;
+  status: string;
 }
 
 function getCropName(season: Season): string {
@@ -88,7 +108,7 @@ function getCropName(season: Season): string {
   return '—';
 }
 
-export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts }: ShowProps) {
+export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, sales, costsBySeason }: ShowProps) {
   function deleteSeason(season: Season) {
     router.delete(route('lands.seasons.destroy', season.id));
   }
@@ -229,6 +249,8 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
       <Tabs defaultValue="seasons">
         <TabsList>
           <TabsTrigger value="seasons">المواسم الزراعية ({land.seasons?.length ?? 0})</TabsTrigger>
+          <TabsTrigger value="costs">التكاليف</TabsTrigger>
+          <TabsTrigger value="revenues">الإيرادات</TabsTrigger>
           <TabsTrigger value="contracts">العقود ({land.contracts?.length ?? 0})</TabsTrigger>
         </TabsList>
 
@@ -319,6 +341,76 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                     </TableRow>
                   );
                 })}
+              </TableBody>
+            </Table>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="costs" className="space-y-4">
+          <Card className="border-stone-200">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-right">الموسم</TableHead>
+                  <TableHead className="text-right">المحصول</TableHead>
+                  <TableHead className="text-right">التكلفة المتوقعة</TableHead>
+                  <TableHead className="text-right">التكلفة الفعلية</TableHead>
+                  <TableHead className="text-right">الحالة</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {costsBySeason.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={5} className="py-8 text-center text-stone-500">
+                      لا توجد تكاليف مسجّلة.
+                    </TableCell>
+                  </TableRow>
+                )}
+                {costsBySeason.map((cost) => (
+                  <TableRow key={cost.season_id}>
+                    <TableCell className="font-medium">{cost.crop_name}</TableCell>
+                    <TableCell className="font-medium">{cost.crop_name}</TableCell>
+                    <TableCell className="font-mono">{cost.expected_cost > 0 ? cost.expected_cost.toLocaleString() : '—'}</TableCell>
+                    <TableCell className="font-mono">{cost.actual_cost > 0 ? cost.actual_cost.toLocaleString() : '—'}</TableCell>
+                    <TableCell>
+                      <StatusBadge value={cost.status} />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="revenues" className="space-y-4">
+          <Card className="border-stone-200">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-right">التاريخ</TableHead>
+                  <TableHead className="text-right">الكمية</TableHead>
+                  <TableHead className="text-right">سعر الوحدة</TableHead>
+                  <TableHead className="text-right">الإجمالي</TableHead>
+                  <TableHead className="text-right">المشتري</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sales.length === 0 && (
+                  <TableRow>
+                    <TableCell colSpan={5} className="py-8 text-center text-stone-500">
+                      لا توجد مبيعات مسجّلة.
+                    </TableCell>
+                  </TableRow>
+                )}
+                {sales.map((sale) => (
+                  <TableRow key={sale.id}>
+                    <TableCell className="font-mono"><DateDisplay date={sale.date} /></TableCell>
+                    <TableCell className="font-mono">{sale.quantity}</TableCell>
+                    <TableCell className="font-mono">{sale.unit_price}</TableCell>
+                    <TableCell className="font-mono text-emerald-700">{Number(sale.total || 0).toLocaleString()}</TableCell>
+                    <TableCell>{sale.party?.name || '—'}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </Card>
