@@ -9,12 +9,15 @@ use App\Domains\Crops\Models\Crop;
 use App\Domains\Crops\Requests\StoreCropRequest;
 use App\Domains\Crops\Requests\UpdateCropRequest;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class CropController extends Controller
 {
+    use ToastResponse;
+
     public function index(): Response
     {
         $crops = Crop::orderBy('name')->get();
@@ -31,7 +34,14 @@ class CropController extends Controller
 
     public function store(StoreCropRequest $request, CreateCrop $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إضافة المحصول بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إضافة المحصول');
+            report($e);
+        }
 
         return redirect()->route('crops.index');
     }
@@ -52,14 +62,28 @@ class CropController extends Controller
 
     public function update(UpdateCropRequest $request, Crop $crop, UpdateCrop $action): RedirectResponse
     {
-        $action->execute($crop, $request->validated());
+        try {
+            $action->execute($crop, $request->validated());
+
+            $this->success('تم تحديث المحصول بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث المحصول');
+            report($e);
+        }
 
         return redirect()->route('crops.index');
     }
 
     public function destroy(Crop $crop, DeleteCrop $action): RedirectResponse
     {
-        $action->execute($crop);
+        try {
+            $action->execute($crop);
+
+            $this->success('تم حذف المحصول بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف المحصول');
+            report($e);
+        }
 
         return redirect()->route('crops.index');
     }

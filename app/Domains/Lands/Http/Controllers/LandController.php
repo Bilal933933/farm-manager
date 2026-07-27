@@ -26,6 +26,7 @@ use App\Domains\Products\Models\Product;
 use App\Domains\Purchases\Models\PurchaseItem;
 use App\Domains\Sales\Models\Sale;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -33,6 +34,8 @@ use Inertia\Response;
 
 class LandController extends Controller
 {
+    use ToastResponse;
+
     public function index(): Response
     {
         $lands = Land::with(['seasons', 'contracts'])->get();
@@ -49,7 +52,14 @@ class LandController extends Controller
 
     public function store(StoreLandRequest $request, CreateLand $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إنشاء الأرض بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إنشاء الأرض');
+            report($e);
+        }
 
         return redirect()->route('lands.index');
     }
@@ -195,56 +205,112 @@ class LandController extends Controller
 
     public function update(UpdateLandRequest $request, Land $land, UpdateLand $action): RedirectResponse
     {
-        $action->execute($land, $request->validated());
+        try {
+            $action->execute($land, $request->validated());
+
+            $this->success('تم تحديث الأرض بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث الأرض');
+            report($e);
+        }
 
         return redirect()->route('lands.index');
     }
 
     public function destroy(Land $land, DeleteLand $action): RedirectResponse
     {
-        $action->execute($land);
+        try {
+            $action->execute($land);
+
+            $this->success('تم حذف الأرض بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف الأرض');
+            report($e);
+        }
 
         return redirect()->route('lands.index');
     }
 
     public function storeContract(StoreLandContractRequest $request, CreateLandContract $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إضافة العقد بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إضافة العقد');
+            report($e);
+        }
 
         return redirect()->back();
     }
 
     public function updateContract(StoreLandContractRequest $request, LandContract $contract, UpdateLandContract $action): RedirectResponse
     {
-        $action->execute($contract, $request->validated());
+        try {
+            $action->execute($contract, $request->validated());
+
+            $this->success('تم تحديث العقد بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث العقد');
+            report($e);
+        }
 
         return redirect()->back();
     }
 
     public function destroyContract(LandContract $contract, DeleteLandContract $action): RedirectResponse
     {
-        $action->execute($contract);
+        try {
+            $action->execute($contract);
+
+            $this->success('تم حذف العقد بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف العقد');
+            report($e);
+        }
 
         return redirect()->back();
     }
 
     public function storeSeason(StoreLandSeasonRequest $request, CreateLandSeason $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إضافة الموسم بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إضافة الموسم');
+            report($e);
+        }
 
         return redirect()->back();
     }
 
     public function updateSeason(StoreLandSeasonRequest $request, LandSeason $season, UpdateLandSeason $action): RedirectResponse
     {
-        $action->execute($season, $request->validated());
+        try {
+            $action->execute($season, $request->validated());
+
+            $this->success('تم تحديث الموسم بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث الموسم');
+            report($e);
+        }
 
         return redirect()->back();
     }
 
     public function destroySeason(LandSeason $season, DeleteLandSeason $action): RedirectResponse
     {
-        $action->execute($season);
+        try {
+            $action->execute($season);
+
+            $this->success('تم حذف الموسم بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف الموسم');
+            report($e);
+        }
 
         return redirect()->back();
     }

@@ -16,8 +16,17 @@ class StoreLandSeasonRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
+        $crop = $this->crop;
+
+        if (is_array($crop)) {
+            $crop = $crop['name'] ?? null;
+        } elseif (is_object($crop)) {
+            $crop = $crop->name ?? null;
+        }
+
         $this->merge([
             'crop_id' => $this->crop_id ?: null,
+            'crop' => is_string($crop) ? $crop : (is_null($crop) ? null : (string) $crop),
         ]);
     }
 

@@ -9,6 +9,7 @@ use App\Domains\StockMovements\Models\StockMovement;
 use App\Domains\StockMovements\Requests\ConsumeStockRequest;
 use App\Domains\StockMovements\Requests\StoreMovementRequest;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -16,6 +17,8 @@ use Inertia\Response;
 
 class StockMovementController extends Controller
 {
+    use ToastResponse;
+
     public function index(Request $request): Response
     {
         $movements = StockMovement::with('product')
@@ -37,14 +40,28 @@ class StockMovementController extends Controller
 
     public function store(StoreMovementRequest $request, RecordMovement $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم تسجيل حركة المخزون بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تسجيل حركة المخزون');
+            report($e);
+        }
 
         return redirect()->route('stock.index');
     }
 
     public function consume(ConsumeStockRequest $request, ConsumeProductForSeason $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم صرف المنتج بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء صرف المنتج');
+            report($e);
+        }
 
         return redirect()->back();
     }

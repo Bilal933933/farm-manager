@@ -7,12 +7,15 @@ use App\Domains\Payments\Actions\RecordPayment;
 use App\Domains\Payments\Models\Payment;
 use App\Domains\Payments\Requests\StorePaymentRequest;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class PaymentController extends Controller
 {
+    use ToastResponse;
+
     public function index(): Response
     {
         $payments = Payment::with('party')
@@ -34,7 +37,14 @@ class PaymentController extends Controller
 
     public function store(StorePaymentRequest $request, RecordPayment $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم تسجيل الدفعة بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تسجيل الدفعة');
+            report($e);
+        }
 
         return redirect()->route('payments.index');
     }

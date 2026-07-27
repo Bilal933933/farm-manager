@@ -14,12 +14,15 @@ use App\Domains\Lands\Requests\ListCostRequest;
 use App\Domains\Lands\Requests\StoreCostRequest;
 use App\Domains\Lands\Requests\UpdateCostRequest;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class CostController extends Controller
 {
+    use ToastResponse;
+
     public function index(ListCostRequest $request, ListCosts $action): Response
     {
         $filters = $request->validated();
@@ -59,7 +62,14 @@ class CostController extends Controller
 
     public function store(StoreCostRequest $request, CreateCost $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إضافة التكلفة بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إضافة التكلفة');
+            report($e);
+        }
 
         return redirect()->route('costs.index');
     }
@@ -87,14 +97,28 @@ class CostController extends Controller
 
     public function update(UpdateCostRequest $request, Cost $cost, UpdateCost $action): RedirectResponse
     {
-        $action->execute($cost, $request->validated());
+        try {
+            $action->execute($cost, $request->validated());
+
+            $this->success('تم تحديث التكلفة بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث التكلفة');
+            report($e);
+        }
 
         return redirect()->route('costs.index');
     }
 
     public function destroy(Cost $cost, DeleteCost $action): RedirectResponse
     {
-        $action->execute($cost);
+        try {
+            $action->execute($cost);
+
+            $this->success('تم حذف التكلفة بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف التكلفة');
+            report($e);
+        }
 
         return redirect()->route('costs.index');
     }

@@ -10,12 +10,15 @@ use App\Domains\Products\Requests\StoreProductRequest;
 use App\Domains\Products\Requests\UpdateProductRequest;
 use App\Domains\StockMovements\Enums\MovementType;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class ProductController extends Controller
 {
+    use ToastResponse;
+
     public function index(): Response
     {
         $products = Product::query()
@@ -40,7 +43,14 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request, CreateProduct $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إضافة المنتج بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إضافة المنتج');
+            report($e);
+        }
 
         return redirect()->route('products.index');
     }
@@ -61,14 +71,28 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product, UpdateProduct $action): RedirectResponse
     {
-        $action->execute($product, $request->validated());
+        try {
+            $action->execute($product, $request->validated());
+
+            $this->success('تم تحديث المنتج بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث المنتج');
+            report($e);
+        }
 
         return redirect()->route('products.index');
     }
 
     public function destroy(Product $product, DeleteProduct $action): RedirectResponse
     {
-        $action->execute($product);
+        try {
+            $action->execute($product);
+
+            $this->success('تم حذف المنتج بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف المنتج');
+            report($e);
+        }
 
         return redirect()->route('products.index');
     }

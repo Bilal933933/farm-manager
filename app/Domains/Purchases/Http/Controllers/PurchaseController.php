@@ -8,12 +8,15 @@ use App\Domains\Purchases\Actions\CreatePurchase;
 use App\Domains\Purchases\Models\Purchase;
 use App\Domains\Purchases\Requests\StorePurchaseRequest;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class PurchaseController extends Controller
 {
+    use ToastResponse;
+
     public function index(): Response
     {
         $purchases = Purchase::with('party', 'items.product')
@@ -47,7 +50,14 @@ class PurchaseController extends Controller
 
     public function store(StorePurchaseRequest $request, CreatePurchase $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم تسجيل المشتريات بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تسجيل المشتريات');
+            report($e);
+        }
 
         return redirect()->route('purchases.index');
     }

@@ -9,12 +9,15 @@ use App\Domains\Parties\Models\Party;
 use App\Domains\Parties\Requests\StorePartyRequest;
 use App\Domains\Parties\Requests\UpdatePartyRequest;
 use App\Http\Controllers\Controller;
+use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class PartyController extends Controller
 {
+    use ToastResponse;
+
     public function index(): Response
     {
         $parties = Party::withCount('contracts')->get();
@@ -31,7 +34,14 @@ class PartyController extends Controller
 
     public function store(StorePartyRequest $request, CreateParty $action): RedirectResponse
     {
-        $action->execute($request->validated());
+        try {
+            $action->execute($request->validated());
+
+            $this->success('تم إضافة الطرف بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء إضافة الطرف');
+            report($e);
+        }
 
         return redirect()->route('parties.index');
     }
@@ -54,14 +64,28 @@ class PartyController extends Controller
 
     public function update(UpdatePartyRequest $request, Party $party, UpdateParty $action): RedirectResponse
     {
-        $action->execute($party, $request->validated());
+        try {
+            $action->execute($party, $request->validated());
+
+            $this->success('تم تحديث الطرف بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء تحديث الطرف');
+            report($e);
+        }
 
         return redirect()->route('parties.index');
     }
 
     public function destroy(Party $party, DeleteParty $action): RedirectResponse
     {
-        $action->execute($party);
+        try {
+            $action->execute($party);
+
+            $this->success('تم حذف الطرف بنجاح');
+        } catch (\Throwable $e) {
+            $this->error('حدث خطأ أثناء حذف الطرف');
+            report($e);
+        }
 
         return redirect()->route('parties.index');
     }

@@ -41,11 +41,15 @@ function toDateInputValue(dateStr?: string): string {
 export default function SeasonFormDialog({ landId, season = null, trigger, crops }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
+  const initialCrop = season?.crop && typeof season.crop === 'object'
+    ? (season.crop as { name?: string }).name ?? ''
+    : String(season?.crop ?? '');
+
   const { data, setData, post, put, processing, errors, reset } = useForm({
     land_id: landId,
     crop_id: String(season?.crop_id ?? ''),
     cultivated_area: season?.cultivated_area ?? '',
-    crop: season?.crop ?? '',
+    crop: initialCrop,
     planting_date: toDateInputValue(season?.planting_date),
     harvest_date: toDateInputValue(season?.harvest_date),
     expected_cost: season?.expected_cost ?? '',
