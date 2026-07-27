@@ -2,6 +2,7 @@
 
 use App\Domains\Lands\Http\Controllers\LandController;
 use App\Domains\Parties\Http\Controllers\PartyController;
+use App\Domains\Payments\Http\Controllers\PaymentController;
 use App\Domains\Products\Http\Controllers\ProductController;
 use App\Domains\Purchases\Http\Controllers\PurchaseController;
 use App\Domains\StockMovements\Http\Controllers\StockMovementController;
@@ -29,6 +30,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('stock', [StockMovementController::class, 'store'])->name('stock.store');
 
     Route::resource('purchases', PurchaseController::class)->only(['index', 'create', 'store', 'show']);
+
+    Route::resource('payments', PaymentController::class)->only(['index', 'create', 'store', 'show']);
 });
 
 require __DIR__.'/settings.php';

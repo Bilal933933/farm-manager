@@ -4,6 +4,8 @@ namespace App\Domains\Purchases\Actions;
 
 use App\Domains\Purchases\Models\Purchase;
 use App\Domains\StockMovements\Actions\RecordMovement;
+use App\Domains\StockMovements\Enums\MovementReason;
+use App\Domains\StockMovements\Enums\MovementType;
 use Illuminate\Support\Facades\DB;
 
 class CreatePurchase
@@ -31,8 +33,8 @@ class CreatePurchase
 
                 $this->recordMovement->execute([
                     'product_id' => $item['product_id'],
-                    'type' => 'داخل',
-                    'reason' => 'شراء',
+                    'type' => MovementType::In->value,
+                    'reason' => MovementReason::Purchase->value,
                     'quantity' => $item['quantity'],
                     'movement_date' => $data['date'],
                     'reference_type' => Purchase::class,

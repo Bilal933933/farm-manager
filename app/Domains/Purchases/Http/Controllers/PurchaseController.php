@@ -21,7 +21,6 @@ class PurchaseController extends Controller
             ->orderBy('created_at', 'desc')
             ->get()
             ->map(function ($purchase) {
-                $purchase->setAttribute('items_total', $purchase->items->sum(fn ($i) => $i->quantity * $i->unit_price));
                 $purchase->setAttribute('items_count', $purchase->items->count());
 
                 return $purchase;
@@ -55,8 +54,6 @@ class PurchaseController extends Controller
     public function show(Purchase $purchase): Response
     {
         $purchase->load(['party', 'items.product', 'stockMovements']);
-
-        $purchase->setAttribute('items_total', $purchase->items->sum(fn ($i) => $i->quantity * $i->unit_price));
 
         return Inertia::render('Purchases/Show', [
             'purchase' => $purchase,

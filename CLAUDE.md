@@ -79,11 +79,11 @@ Harvest
 | Products | كتالوج الأصناف — اكتمل |
 | StockMovements | حركات المخزون (دخول/خروج) — اكتمل |
 | Purchases | فواتير الشراء مع تكامل تلقائي مع StockMovements — اكتمل |
-| Payments | سداد الموردين — قادم |
-| Ledger | ديون الأستاذ — يُولَّد تلقائيًا — بعدها |
+| Payments | مدفوعات ومقبوضات (دفع/قبض) — اكتمل |
+| Ledger | دفتر الأستاذ — يُولَّد تلقائيًا — قادم |
 | Reports | التقارير — لاحقًا |
 
-**ترتيب البناء:** Lands → Parties → Products → StockMovements → Purchases ← (نحن هنا) → Payments → Ledger
+**ترتيب البناء:** Lands → Parties → Products → StockMovements → Purchases → Payments ← (نحن هنا) → Ledger
 
 ## قرارات قاعدة البيانات (نهائية، لا تُغيَّر بدون نقاش)
 

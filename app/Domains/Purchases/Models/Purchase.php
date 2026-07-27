@@ -3,6 +3,7 @@
 namespace App\Domains\Purchases\Models;
 
 use App\Domains\Parties\Models\Party;
+use App\Domains\Purchases\Enums\PaymentType;
 use App\Domains\StockMovements\Models\StockMovement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,7 +26,13 @@ class Purchase extends Model
     {
         return [
             'date' => 'date',
+            'payment_type' => PaymentType::class,
         ];
+    }
+
+    public function getItemsTotalAttribute(): float
+    {
+        return $this->items->sum(fn ($i) => $i->quantity * $i->unit_price);
     }
 
     public function party(): BelongsTo
