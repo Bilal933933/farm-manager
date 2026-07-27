@@ -1,0 +1,4552 @@
+[
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 11727.75,
+        "date": "2022-03-05"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 19812.2,
+        "date": "2022-03-09"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 93 شيكارة",
+        "amount": 12589.33,
+        "date": "2022-03-13"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 50 شيكارة",
+        "amount": 10220.76,
+        "date": "2022-03-17"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 76 شيكارة",
+        "amount": 16035.11,
+        "date": "2022-03-21"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 35 لتر",
+        "amount": 5251.68,
+        "date": "2022-03-25"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 78 كجم",
+        "amount": 14177.66,
+        "date": "2022-03-30"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 47 لتر",
+        "amount": 12615.75,
+        "date": "2022-04-03"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2904.45,
+        "date": "2022-04-07"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 15 يوم",
+        "amount": 3880.1,
+        "date": "2022-04-11"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 47 يوم",
+        "amount": 3866.28,
+        "date": "2022-04-15"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 58 يوم",
+        "amount": 4811,
+        "date": "2022-04-19"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 38 يوم",
+        "amount": 3254.96,
+        "date": "2022-04-23"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 55",
+        "amount": 2653.28,
+        "date": "2022-04-27"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 2100.28,
+        "date": "2022-05-01"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 8 لتر",
+        "amount": 5863.2,
+        "date": "2022-05-05"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 6249.1,
+        "date": "2022-05-09"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 2071.16,
+        "date": "2022-05-13"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1649,
+        "date": "2022-05-17"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 708.4,
+        "date": "2022-05-22"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 6332.44,
+        "date": "2022-05-26"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4121.19,
+        "date": "2022-05-30"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1712.13,
+        "date": "2022-06-03"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3923.2,
+        "date": "2022-06-07"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 8790.88,
+        "date": "2022-06-11"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 9014.81,
+        "date": "2022-11-07"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 12924.36,
+        "date": "2022-11-14"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 13 شيكارة",
+        "amount": 23469.18,
+        "date": "2022-11-20"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 14 شيكارة",
+        "amount": 6127.03,
+        "date": "2022-11-26"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 12 شيكارة",
+        "amount": 11290.44,
+        "date": "2022-12-03"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 17 لتر",
+        "amount": 8403.85,
+        "date": "2022-12-09"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 68 كجم",
+        "amount": 9624.16,
+        "date": "2022-12-15"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 91 لتر",
+        "amount": 5889.6,
+        "date": "2022-12-22"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3274.08,
+        "date": "2022-12-28"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 22 يوم",
+        "amount": 3987.36,
+        "date": "2023-01-03"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 32 يوم",
+        "amount": 3964,
+        "date": "2023-01-10"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 94 يوم",
+        "amount": 4446.04,
+        "date": "2023-01-16"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 68 يوم",
+        "amount": 2420,
+        "date": "2023-01-23"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 58",
+        "amount": 1785.06,
+        "date": "2023-01-29"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 7363.2,
+        "date": "2023-02-04"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 17 لتر",
+        "amount": 4481.53,
+        "date": "2023-02-11"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 4372.06,
+        "date": "2023-02-17"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1837.52,
+        "date": "2023-02-23"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1058.94,
+        "date": "2023-03-02"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 910.52,
+        "date": "2023-03-08"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 6409.29,
+        "date": "2023-03-14"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4222.81,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1784.2,
+        "date": "2023-03-27"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2508.15,
+        "date": "2023-04-02"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 7606.83,
+        "date": "2023-04-09"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 12974.4,
+        "date": "2023-03-09"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 15306.24,
+        "date": "2023-03-13"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 26 شيكارة",
+        "amount": 13156.59,
+        "date": "2023-03-17"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 33 شيكارة",
+        "amount": 10334.4,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 51 شيكارة",
+        "amount": 19880.08,
+        "date": "2023-03-26"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 19 لتر",
+        "amount": 4695.18,
+        "date": "2023-03-30"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 98 كجم",
+        "amount": 9491.58,
+        "date": "2023-04-03"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 28 لتر",
+        "amount": 8521.1,
+        "date": "2023-04-07"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3533.88,
+        "date": "2023-04-11"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 13 يوم",
+        "amount": 4827.92,
+        "date": "2023-04-15"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 78 يوم",
+        "amount": 1571.82,
+        "date": "2023-04-19"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 24 يوم",
+        "amount": 4352.64,
+        "date": "2023-04-23"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 71 يوم",
+        "amount": 2947.84,
+        "date": "2023-04-28"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 45",
+        "amount": 2401.72,
+        "date": "2023-05-02"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5722.47,
+        "date": "2023-05-06"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 66 لتر",
+        "amount": 5833.06,
+        "date": "2023-05-10"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 4651.92,
+        "date": "2023-05-14"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1212.12,
+        "date": "2023-05-18"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 492.31,
+        "date": "2023-05-22"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 469.6,
+        "date": "2023-05-26"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 4944,
+        "date": "2023-05-30"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 7237.2,
+        "date": "2023-06-04"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 636.65,
+        "date": "2023-06-08"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2600.15,
+        "date": "2023-06-12"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 8832.27,
+        "date": "2023-06-16"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 9831.35,
+        "date": "2023-11-11"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 15822.4,
+        "date": "2023-11-18"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 96 شيكارة",
+        "amount": 10252.62,
+        "date": "2023-11-24"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 99 شيكارة",
+        "amount": 12001.99,
+        "date": "2023-12-01"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 14 شيكارة",
+        "amount": 14237.24,
+        "date": "2023-12-07"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 46 لتر",
+        "amount": 5523.34,
+        "date": "2023-12-14"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 12 كجم",
+        "amount": 4378.88,
+        "date": "2023-12-20"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 19 لتر",
+        "amount": 12477.27,
+        "date": "2023-12-26"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3311.6,
+        "date": "2024-01-02"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 39 يوم",
+        "amount": 5351.68,
+        "date": "2024-01-08"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 57 يوم",
+        "amount": 2891.21,
+        "date": "2024-01-15"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 72 يوم",
+        "amount": 7475.4,
+        "date": "2024-01-21"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 7 يوم",
+        "amount": 3243.24,
+        "date": "2024-01-28"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 32",
+        "amount": 4220.92,
+        "date": "2024-02-03"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 2928.24,
+        "date": "2024-02-09"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 27 لتر",
+        "amount": 3362.1,
+        "date": "2024-02-16"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3542.2,
+        "date": "2024-02-22"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 3038.07,
+        "date": "2024-02-29"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 710.64,
+        "date": "2024-03-06"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 579.39,
+        "date": "2024-03-12"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 10953.09,
+        "date": "2024-03-19"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4349.2,
+        "date": "2024-03-25"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1841.4,
+        "date": "2024-04-01"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3680,
+        "date": "2024-04-07"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 4726.4,
+        "date": "2024-04-14"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 18080.3,
+        "date": "2024-03-14"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 20368.06,
+        "date": "2024-03-18"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 74 شيكارة",
+        "amount": 16364.48,
+        "date": "2024-03-22"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 7 شيكارة",
+        "amount": 11800.32,
+        "date": "2024-03-26"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 94 شيكارة",
+        "amount": 13866.93,
+        "date": "2024-03-31"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 19 لتر",
+        "amount": 8284.8,
+        "date": "2024-04-04"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 97 كجم",
+        "amount": 6280.65,
+        "date": "2024-04-08"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 81 لتر",
+        "amount": 9766.46,
+        "date": "2024-04-12"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3631.88,
+        "date": "2024-04-16"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 31 يوم",
+        "amount": 4924.4,
+        "date": "2024-04-20"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 99 يوم",
+        "amount": 2159.52,
+        "date": "2024-04-24"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 97 يوم",
+        "amount": 7776.62,
+        "date": "2024-04-28"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 96 يوم",
+        "amount": 3098.25,
+        "date": "2024-05-03"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 73",
+        "amount": 2422.28,
+        "date": "2024-05-07"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 3876.12,
+        "date": "2024-05-11"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 28 لتر",
+        "amount": 7127.27,
+        "date": "2024-05-15"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 5318.01,
+        "date": "2024-05-19"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1190.98,
+        "date": "2024-05-23"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1284.28,
+        "date": "2024-05-27"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 797.28,
+        "date": "2024-05-31"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 4675.32,
+        "date": "2024-06-04"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 3593.67,
+        "date": "2024-06-09"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 998.4,
+        "date": "2024-06-13"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2564.05,
+        "date": "2024-06-17"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 12892.65,
+        "date": "2024-06-21"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 15819.72,
+        "date": "2022-03-05"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 18627.6,
+        "date": "2022-03-09"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 52 شيكارة",
+        "amount": 12840.13,
+        "date": "2022-03-13"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 67 شيكارة",
+        "amount": 9829.12,
+        "date": "2022-03-17"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 57 شيكارة",
+        "amount": 18545.24,
+        "date": "2022-03-21"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 28 لتر",
+        "amount": 6464.61,
+        "date": "2022-03-25"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 96 كجم",
+        "amount": 10726.17,
+        "date": "2022-03-30"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 55 لتر",
+        "amount": 8083.56,
+        "date": "2022-04-03"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 1825.12,
+        "date": "2022-04-07"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 64 يوم",
+        "amount": 4636.26,
+        "date": "2022-04-11"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 45 يوم",
+        "amount": 2127.42,
+        "date": "2022-04-15"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 6 يوم",
+        "amount": 5488.56,
+        "date": "2022-04-19"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 80 يوم",
+        "amount": 2617.68,
+        "date": "2022-04-23"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 41",
+        "amount": 3377,
+        "date": "2022-04-27"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5669.12,
+        "date": "2022-05-01"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 38 لتر",
+        "amount": 4800.64,
+        "date": "2022-05-05"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 5067.54,
+        "date": "2022-05-09"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1909,
+        "date": "2022-05-13"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1015.2,
+        "date": "2022-05-17"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 1020.39,
+        "date": "2022-05-22"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 7441.07,
+        "date": "2022-05-26"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 8615.82,
+        "date": "2022-05-30"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1582.53,
+        "date": "2022-06-03"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 4557.7,
+        "date": "2022-06-07"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 4599.14,
+        "date": "2022-06-11"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 11563.2,
+        "date": "2022-11-07"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 15178.68,
+        "date": "2022-11-14"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 53 شيكارة",
+        "amount": 14092.15,
+        "date": "2022-11-20"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 24 شيكارة",
+        "amount": 9716.35,
+        "date": "2022-11-26"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 88 شيكارة",
+        "amount": 9351.7,
+        "date": "2022-12-03"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 95 لتر",
+        "amount": 4662.4,
+        "date": "2022-12-09"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 70 كجم",
+        "amount": 9545.52,
+        "date": "2022-12-15"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 13 لتر",
+        "amount": 12179,
+        "date": "2022-12-22"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 4122.48,
+        "date": "2022-12-28"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 4 يوم",
+        "amount": 3177.3,
+        "date": "2023-01-03"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 62 يوم",
+        "amount": 2450.8,
+        "date": "2023-01-10"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 7 يوم",
+        "amount": 4346,
+        "date": "2023-01-16"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 26 يوم",
+        "amount": 4842.96,
+        "date": "2023-01-23"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 30",
+        "amount": 3249,
+        "date": "2023-01-29"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 4904.85,
+        "date": "2023-02-04"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 55 لتر",
+        "amount": 8035.56,
+        "date": "2023-02-11"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 4884.48,
+        "date": "2023-02-17"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1975.7,
+        "date": "2023-02-23"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1513.05,
+        "date": "2023-03-02"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 707.82,
+        "date": "2023-03-08"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 6200.31,
+        "date": "2023-03-14"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 5826.6,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1092.71,
+        "date": "2023-03-27"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 4982.4,
+        "date": "2023-04-02"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 11439.75,
+        "date": "2023-04-09"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 25938,
+        "date": "2023-03-09"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 17937.08,
+        "date": "2023-03-13"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 9 شيكارة",
+        "amount": 21473.64,
+        "date": "2023-03-17"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 64 شيكارة",
+        "amount": 10705.24,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 100 شيكارة",
+        "amount": 16200.8,
+        "date": "2023-03-26"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 70 لتر",
+        "amount": 5757.44,
+        "date": "2023-03-30"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 41 كجم",
+        "amount": 6495.22,
+        "date": "2023-04-03"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 14 لتر",
+        "amount": 10386.36,
+        "date": "2023-04-07"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2655.29,
+        "date": "2023-04-11"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 19 يوم",
+        "amount": 4414.2,
+        "date": "2023-04-15"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 63 يوم",
+        "amount": 4169.76,
+        "date": "2023-04-19"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 20 يوم",
+        "amount": 5227.44,
+        "date": "2023-04-23"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 32 يوم",
+        "amount": 4763.36,
+        "date": "2023-04-28"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 94",
+        "amount": 3150.1,
+        "date": "2023-05-02"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 7462.8,
+        "date": "2023-05-06"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 64 لتر",
+        "amount": 4157.24,
+        "date": "2023-05-10"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 2189.2,
+        "date": "2023-05-14"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1289,
+        "date": "2023-05-18"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1447.53,
+        "date": "2023-05-22"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 580,
+        "date": "2023-05-26"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 2685.6,
+        "date": "2023-05-30"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4970.88,
+        "date": "2023-06-04"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1371.33,
+        "date": "2023-06-08"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2556,
+        "date": "2023-06-12"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 5585,
+        "date": "2023-06-16"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 16260.62,
+        "date": "2023-11-11"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 9534.57,
+        "date": "2023-11-18"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 57 شيكارة",
+        "amount": 11283.8,
+        "date": "2023-11-24"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 26 شيكارة",
+        "amount": 4983.93,
+        "date": "2023-12-01"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 32 شيكارة",
+        "amount": 10608.23,
+        "date": "2023-12-07"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 18 لتر",
+        "amount": 9547.2,
+        "date": "2023-12-14"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 48 كجم",
+        "amount": 7397.24,
+        "date": "2023-12-20"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 75 لتر",
+        "amount": 5967.28,
+        "date": "2023-12-26"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2473.68,
+        "date": "2024-01-02"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 7 يوم",
+        "amount": 3902.4,
+        "date": "2024-01-08"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 15 يوم",
+        "amount": 4116.06,
+        "date": "2024-01-15"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 67 يوم",
+        "amount": 5387.45,
+        "date": "2024-01-21"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 52 يوم",
+        "amount": 3999.6,
+        "date": "2024-01-28"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 83",
+        "amount": 3066.63,
+        "date": "2024-02-03"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 7649.43,
+        "date": "2024-02-09"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 2 لتر",
+        "amount": 2806.92,
+        "date": "2024-02-16"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 5301.9,
+        "date": "2024-02-22"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 2701.92,
+        "date": "2024-02-29"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1546.65,
+        "date": "2024-03-06"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 594.26,
+        "date": "2024-03-12"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 7916.38,
+        "date": "2024-03-19"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4823.91,
+        "date": "2024-03-25"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1617.07,
+        "date": "2024-04-01"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3629.32,
+        "date": "2024-04-07"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 12772.27,
+        "date": "2024-04-14"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 21807.24,
+        "date": "2024-03-14"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 9798.8,
+        "date": "2024-03-18"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 72 شيكارة",
+        "amount": 16192,
+        "date": "2024-03-22"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 54 شيكارة",
+        "amount": 8040.61,
+        "date": "2024-03-26"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 42 شيكارة",
+        "amount": 10961,
+        "date": "2024-03-31"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 68 لتر",
+        "amount": 5561,
+        "date": "2024-04-04"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 72 كجم",
+        "amount": 8256.43,
+        "date": "2024-04-08"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 18 لتر",
+        "amount": 5716.22,
+        "date": "2024-04-12"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3899.92,
+        "date": "2024-04-16"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 10 يوم",
+        "amount": 4539.36,
+        "date": "2024-04-20"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 25 يوم",
+        "amount": 1843.19,
+        "date": "2024-04-24"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 34 يوم",
+        "amount": 7437.57,
+        "date": "2024-04-28"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 35 يوم",
+        "amount": 3396.12,
+        "date": "2024-05-03"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 45",
+        "amount": 2128.89,
+        "date": "2024-05-07"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5102.84,
+        "date": "2024-05-11"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 94 لتر",
+        "amount": 6083.5,
+        "date": "2024-05-15"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 2221.6,
+        "date": "2024-05-19"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 874.4,
+        "date": "2024-05-23"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 445.2,
+        "date": "2024-05-27"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 722.33,
+        "date": "2024-05-31"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 3630.51,
+        "date": "2024-06-04"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4390,
+        "date": "2024-06-09"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1118.7,
+        "date": "2024-06-13"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 4763.67,
+        "date": "2024-06-17"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 12997.26,
+        "date": "2024-06-21"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 25063.5,
+        "date": "2022-03-05"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 26715.5,
+        "date": "2022-03-09"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 88 شيكارة",
+        "amount": 15402.4,
+        "date": "2022-03-13"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 14 شيكارة",
+        "amount": 6586.05,
+        "date": "2022-03-17"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 83 شيكارة",
+        "amount": 14118.72,
+        "date": "2022-03-21"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 78 لتر",
+        "amount": 7347.35,
+        "date": "2022-03-25"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 97 كجم",
+        "amount": 7322.07,
+        "date": "2022-03-30"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 53 لتر",
+        "amount": 6869.5,
+        "date": "2022-04-03"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3051.6,
+        "date": "2022-04-07"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 88 يوم",
+        "amount": 4931.63,
+        "date": "2022-04-11"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 79 يوم",
+        "amount": 4556.51,
+        "date": "2022-04-15"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 70 يوم",
+        "amount": 9569.04,
+        "date": "2022-04-19"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 10 يوم",
+        "amount": 3655.16,
+        "date": "2022-04-23"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 59",
+        "amount": 2245.47,
+        "date": "2022-04-27"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5909.04,
+        "date": "2022-05-01"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 31 لتر",
+        "amount": 5854.85,
+        "date": "2022-05-05"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 5823.36,
+        "date": "2022-05-09"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1164,
+        "date": "2022-05-13"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1327,
+        "date": "2022-05-17"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 393.24,
+        "date": "2022-05-22"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 2725.68,
+        "date": "2022-05-26"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 2704.8,
+        "date": "2022-05-30"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1620.48,
+        "date": "2022-06-03"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2572.08,
+        "date": "2022-06-07"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 6935.04,
+        "date": "2022-06-11"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 16463.82,
+        "date": "2022-11-07"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 18985.12,
+        "date": "2022-11-14"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 44 شيكارة",
+        "amount": 11023.56,
+        "date": "2022-11-20"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 40 شيكارة",
+        "amount": 8638.35,
+        "date": "2022-11-26"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 79 شيكارة",
+        "amount": 17725.26,
+        "date": "2022-12-03"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 55 لتر",
+        "amount": 7015.87,
+        "date": "2022-12-09"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 85 كجم",
+        "amount": 7367.16,
+        "date": "2022-12-15"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 21 لتر",
+        "amount": 8459.88,
+        "date": "2022-12-22"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2043.9,
+        "date": "2022-12-28"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 55 يوم",
+        "amount": 6150.6,
+        "date": "2023-01-03"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 17 يوم",
+        "amount": 2489.13,
+        "date": "2023-01-10"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 97 يوم",
+        "amount": 5638.4,
+        "date": "2023-01-16"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 93 يوم",
+        "amount": 4601,
+        "date": "2023-01-23"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 48",
+        "amount": 2354.88,
+        "date": "2023-01-29"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 4226.24,
+        "date": "2023-02-04"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 85 لتر",
+        "amount": 4934.52,
+        "date": "2023-02-11"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3678.4,
+        "date": "2023-02-17"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1477.44,
+        "date": "2023-02-23"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1596.54,
+        "date": "2023-03-02"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 894.72,
+        "date": "2023-03-08"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 4932,
+        "date": "2023-03-14"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 7510.8,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1606,
+        "date": "2023-03-27"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3034.68,
+        "date": "2023-04-02"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 10631.5,
+        "date": "2023-04-09"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 25236.77,
+        "date": "2023-03-09"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 23989.68,
+        "date": "2023-03-13"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 97 شيكارة",
+        "amount": 8786.4,
+        "date": "2023-03-17"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 59 شيكارة",
+        "amount": 8759.2,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 26 شيكارة",
+        "amount": 16160.34,
+        "date": "2023-03-26"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 39 لتر",
+        "amount": 4660.04,
+        "date": "2023-03-30"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 28 كجم",
+        "amount": 7663.68,
+        "date": "2023-04-03"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 59 لتر",
+        "amount": 7442.81,
+        "date": "2023-04-07"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3497.4,
+        "date": "2023-04-11"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 28 يوم",
+        "amount": 4321.8,
+        "date": "2023-04-15"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 32 يوم",
+        "amount": 1656.68,
+        "date": "2023-04-19"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 33 يوم",
+        "amount": 9590.39,
+        "date": "2023-04-23"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 69 يوم",
+        "amount": 2161.16,
+        "date": "2023-04-28"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 6",
+        "amount": 3810.24,
+        "date": "2023-05-02"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5847.56,
+        "date": "2023-05-06"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 30 لتر",
+        "amount": 3088.26,
+        "date": "2023-05-10"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3982.16,
+        "date": "2023-05-14"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1562,
+        "date": "2023-05-18"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 959.2,
+        "date": "2023-05-22"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 705.12,
+        "date": "2023-05-26"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 7974.36,
+        "date": "2023-05-30"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 8168.4,
+        "date": "2023-06-04"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1078.7,
+        "date": "2023-06-08"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3520.32,
+        "date": "2023-06-12"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 8764.8,
+        "date": "2023-06-16"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 24618,
+        "date": "2023-11-11"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 23155.26,
+        "date": "2023-11-18"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 55 شيكارة",
+        "amount": 16051.36,
+        "date": "2023-11-24"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 22 شيكارة",
+        "amount": 9823.68,
+        "date": "2023-12-01"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 87 شيكارة",
+        "amount": 20268.27,
+        "date": "2023-12-07"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 100 لتر",
+        "amount": 3757.18,
+        "date": "2023-12-14"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 83 كجم",
+        "amount": 4908.96,
+        "date": "2023-12-20"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 8 لتر",
+        "amount": 6704.37,
+        "date": "2023-12-26"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3574.56,
+        "date": "2024-01-02"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 91 يوم",
+        "amount": 5648.31,
+        "date": "2024-01-08"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 42 يوم",
+        "amount": 1440.05,
+        "date": "2024-01-15"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 68 يوم",
+        "amount": 10071.6,
+        "date": "2024-01-21"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 26 يوم",
+        "amount": 5150.4,
+        "date": "2024-01-28"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 92",
+        "amount": 3670.8,
+        "date": "2024-02-03"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5366.79,
+        "date": "2024-02-09"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 47 لتر",
+        "amount": 3211.17,
+        "date": "2024-02-16"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 2569.4,
+        "date": "2024-02-22"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1121.12,
+        "date": "2024-02-29"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 738.92,
+        "date": "2024-03-06"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 286.9,
+        "date": "2024-03-12"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 8069.4,
+        "date": "2024-03-19"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 7519.44,
+        "date": "2024-03-25"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1630.7,
+        "date": "2024-04-01"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 4527.26,
+        "date": "2024-04-07"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 10811.9,
+        "date": "2024-04-14"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 23694.19,
+        "date": "2024-03-14"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 21244.52,
+        "date": "2024-03-18"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 88 شيكارة",
+        "amount": 14460.81,
+        "date": "2024-03-22"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 87 شيكارة",
+        "amount": 13134.94,
+        "date": "2024-03-26"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 17 شيكارة",
+        "amount": 9814.45,
+        "date": "2024-03-31"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 50 لتر",
+        "amount": 8753.64,
+        "date": "2024-04-04"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 11 كجم",
+        "amount": 8215.33,
+        "date": "2024-04-08"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 74 لتر",
+        "amount": 10684.65,
+        "date": "2024-04-12"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 4630.29,
+        "date": "2024-04-16"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 35 يوم",
+        "amount": 3892.96,
+        "date": "2024-04-20"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 10 يوم",
+        "amount": 2356.56,
+        "date": "2024-04-24"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 93 يوم",
+        "amount": 5331.7,
+        "date": "2024-04-28"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 13 يوم",
+        "amount": 2528.9,
+        "date": "2024-05-03"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 32",
+        "amount": 2178.9,
+        "date": "2024-05-07"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5559.68,
+        "date": "2024-05-11"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 19 لتر",
+        "amount": 7857.6,
+        "date": "2024-05-15"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 2544.46,
+        "date": "2024-05-19"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 941.4,
+        "date": "2024-05-23"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1534.08,
+        "date": "2024-05-27"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 688.08,
+        "date": "2024-05-31"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 10362.95,
+        "date": "2024-06-04"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 3872.2,
+        "date": "2024-06-09"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1314.78,
+        "date": "2024-06-13"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2252.7,
+        "date": "2024-06-17"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 6767.56,
+        "date": "2024-06-21"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 26965.51,
+        "date": "2022-03-05"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 16843.78,
+        "date": "2022-03-09"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 61 شيكارة",
+        "amount": 12352.08,
+        "date": "2022-03-13"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 39 شيكارة",
+        "amount": 6606.98,
+        "date": "2022-03-17"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 87 شيكارة",
+        "amount": 20249.18,
+        "date": "2022-03-21"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 89 لتر",
+        "amount": 7984.68,
+        "date": "2022-03-25"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 79 كجم",
+        "amount": 8308.62,
+        "date": "2022-03-30"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 42 لتر",
+        "amount": 12791.82,
+        "date": "2022-04-03"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 5472.32,
+        "date": "2022-04-07"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 73 يوم",
+        "amount": 6029.88,
+        "date": "2022-04-11"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 91 يوم",
+        "amount": 3148.7,
+        "date": "2022-04-15"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 28 يوم",
+        "amount": 10397.1,
+        "date": "2022-04-19"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 21 يوم",
+        "amount": 2852,
+        "date": "2022-04-23"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 35",
+        "amount": 2180.64,
+        "date": "2022-04-27"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 6309,
+        "date": "2022-05-01"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 79 لتر",
+        "amount": 4590.3,
+        "date": "2022-05-05"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 2377.98,
+        "date": "2022-05-09"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1333.26,
+        "date": "2022-05-13"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 2220.54,
+        "date": "2022-05-17"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 473.28,
+        "date": "2022-05-22"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 7886.4,
+        "date": "2022-05-26"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 2783.92,
+        "date": "2022-05-30"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1099.44,
+        "date": "2022-06-03"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2353.05,
+        "date": "2022-06-07"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 5268.45,
+        "date": "2022-06-11"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 25644.69,
+        "date": "2022-11-07"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 14504.68,
+        "date": "2022-11-14"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 72 شيكارة",
+        "amount": 7603.2,
+        "date": "2022-11-20"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 77 شيكارة",
+        "amount": 12800.74,
+        "date": "2022-11-26"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 39 شيكارة",
+        "amount": 15156.69,
+        "date": "2022-12-03"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 94 لتر",
+        "amount": 10685.52,
+        "date": "2022-12-09"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 62 كجم",
+        "amount": 6190.2,
+        "date": "2022-12-15"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 32 لتر",
+        "amount": 6933.42,
+        "date": "2022-12-22"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2829.12,
+        "date": "2022-12-28"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 30 يوم",
+        "amount": 4506.42,
+        "date": "2023-01-03"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 8 يوم",
+        "amount": 2385.39,
+        "date": "2023-01-10"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 74 يوم",
+        "amount": 5993.19,
+        "date": "2023-01-16"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 59 يوم",
+        "amount": 2807.84,
+        "date": "2023-01-23"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 63",
+        "amount": 2642.85,
+        "date": "2023-01-29"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 6129.98,
+        "date": "2023-02-04"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 77 لتر",
+        "amount": 5877.69,
+        "date": "2023-02-11"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3085.66,
+        "date": "2023-02-17"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 2167.13,
+        "date": "2023-02-23"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1213.25,
+        "date": "2023-03-02"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 1036.2,
+        "date": "2023-03-08"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 9480.96,
+        "date": "2023-03-14"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4583.04,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1324.8,
+        "date": "2023-03-27"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 5338.3,
+        "date": "2023-04-02"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 10930.52,
+        "date": "2023-04-09"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 28630.4,
+        "date": "2023-03-09"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 13755.7,
+        "date": "2023-03-13"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 19 شيكارة",
+        "amount": 10498.44,
+        "date": "2023-03-17"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 79 شيكارة",
+        "amount": 5911.84,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 40 شيكارة",
+        "amount": 11143.65,
+        "date": "2023-03-26"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 92 لتر",
+        "amount": 4360.72,
+        "date": "2023-03-30"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 78 كجم",
+        "amount": 5112.72,
+        "date": "2023-04-03"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 42 لتر",
+        "amount": 9365.6,
+        "date": "2023-04-07"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 4768.4,
+        "date": "2023-04-11"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 93 يوم",
+        "amount": 5423.25,
+        "date": "2023-04-15"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 40 يوم",
+        "amount": 2079.57,
+        "date": "2023-04-19"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 66 يوم",
+        "amount": 4139.52,
+        "date": "2023-04-23"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 59 يوم",
+        "amount": 4104.07,
+        "date": "2023-04-28"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 32",
+        "amount": 1946.74,
+        "date": "2023-05-02"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 6360.06,
+        "date": "2023-05-06"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 38 لتر",
+        "amount": 3525.65,
+        "date": "2023-05-10"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3737.8,
+        "date": "2023-05-14"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1788.48,
+        "date": "2023-05-18"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 583.8,
+        "date": "2023-05-22"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 429.4,
+        "date": "2023-05-26"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 6524.63,
+        "date": "2023-05-30"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 7732.56,
+        "date": "2023-06-04"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 951.6,
+        "date": "2023-06-08"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 4246.76,
+        "date": "2023-06-12"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 10795.68,
+        "date": "2023-06-16"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 26410.88,
+        "date": "2023-11-11"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 14226.4,
+        "date": "2023-11-18"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 57 شيكارة",
+        "amount": 18576.09,
+        "date": "2023-11-24"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 66 شيكارة",
+        "amount": 10078.34,
+        "date": "2023-12-01"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 42 شيكارة",
+        "amount": 16019.3,
+        "date": "2023-12-07"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 33 لتر",
+        "amount": 5855.52,
+        "date": "2023-12-14"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 27 كجم",
+        "amount": 6521.2,
+        "date": "2023-12-20"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 85 لتر",
+        "amount": 11912,
+        "date": "2023-12-26"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 4393.42,
+        "date": "2024-01-02"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 41 يوم",
+        "amount": 6692.04,
+        "date": "2024-01-08"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 58 يوم",
+        "amount": 3231.88,
+        "date": "2024-01-15"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 10 يوم",
+        "amount": 10394.4,
+        "date": "2024-01-21"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 76 يوم",
+        "amount": 2823.73,
+        "date": "2024-01-28"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 100",
+        "amount": 4045.65,
+        "date": "2024-02-03"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 6104,
+        "date": "2024-02-09"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 44 لتر",
+        "amount": 5629.56,
+        "date": "2024-02-16"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3753.09,
+        "date": "2024-02-22"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1292.72,
+        "date": "2024-02-29"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1127.16,
+        "date": "2024-03-06"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 1121.25,
+        "date": "2024-03-12"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 4194.28,
+        "date": "2024-03-19"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 5836.49,
+        "date": "2024-03-25"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 980.7,
+        "date": "2024-04-01"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 1639.2,
+        "date": "2024-04-07"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 12152.79,
+        "date": "2024-04-14"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 20991.74,
+        "date": "2024-03-14"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 17314.5,
+        "date": "2024-03-18"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 61 شيكارة",
+        "amount": 14028.77,
+        "date": "2024-03-22"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 59 شيكارة",
+        "amount": 8881.2,
+        "date": "2024-03-26"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 20 شيكارة",
+        "amount": 17668.14,
+        "date": "2024-03-31"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 28 لتر",
+        "amount": 6302.28,
+        "date": "2024-04-04"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 78 كجم",
+        "amount": 10586.08,
+        "date": "2024-04-08"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 98 لتر",
+        "amount": 12286,
+        "date": "2024-04-12"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 3890.43,
+        "date": "2024-04-16"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 17 يوم",
+        "amount": 4215.2,
+        "date": "2024-04-20"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 81 يوم",
+        "amount": 2742.95,
+        "date": "2024-04-24"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 82 يوم",
+        "amount": 6567.95,
+        "date": "2024-04-28"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 93 يوم",
+        "amount": 3355.92,
+        "date": "2024-05-03"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 15",
+        "amount": 3883.55,
+        "date": "2024-05-07"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 4224.1,
+        "date": "2024-05-11"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 15 لتر",
+        "amount": 5804.37,
+        "date": "2024-05-15"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3443.94,
+        "date": "2024-05-19"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 3025.24,
+        "date": "2024-05-23"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 811,
+        "date": "2024-05-27"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 932.23,
+        "date": "2024-05-31"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 4268.32,
+        "date": "2024-06-04"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4840,
+        "date": "2024-06-09"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1622.81,
+        "date": "2024-06-13"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 2902.8,
+        "date": "2024-06-17"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 10776.94,
+        "date": "2024-06-21"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 14210.22,
+        "date": "2022-03-05"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 19030.5,
+        "date": "2022-03-09"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 5 شيكارة",
+        "amount": 15428.4,
+        "date": "2022-03-13"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 50 شيكارة",
+        "amount": 13582.08,
+        "date": "2022-03-17"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 12 شيكارة",
+        "amount": 12969.72,
+        "date": "2022-03-21"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 81 لتر",
+        "amount": 10198.1,
+        "date": "2022-03-25"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 69 كجم",
+        "amount": 9001.2,
+        "date": "2022-03-30"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 52 لتر",
+        "amount": 14509.67,
+        "date": "2022-04-03"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2716.73,
+        "date": "2022-04-07"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 94 يوم",
+        "amount": 5858.62,
+        "date": "2022-04-11"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 97 يوم",
+        "amount": 2106.02,
+        "date": "2022-04-15"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 98 يوم",
+        "amount": 8737.76,
+        "date": "2022-04-19"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 87 يوم",
+        "amount": 2701.69,
+        "date": "2022-04-23"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 90",
+        "amount": 4317.32,
+        "date": "2022-04-27"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 6058.8,
+        "date": "2022-05-01"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 79 لتر",
+        "amount": 4144.35,
+        "date": "2022-05-05"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 4477.64,
+        "date": "2022-05-09"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1821.14,
+        "date": "2022-05-13"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1658.08,
+        "date": "2022-05-17"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 658.56,
+        "date": "2022-05-22"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 4102.65,
+        "date": "2022-05-26"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 2418.68,
+        "date": "2022-05-30"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 1249.92,
+        "date": "2022-06-03"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 4662.94,
+        "date": "2022-06-07"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 4662.9,
+        "date": "2022-06-11"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 14193.48,
+        "date": "2022-11-07"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 18266.6,
+        "date": "2022-11-14"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 92 شيكارة",
+        "amount": 15161.51,
+        "date": "2022-11-20"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 55 شيكارة",
+        "amount": 6640.2,
+        "date": "2022-11-26"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 95 شيكارة",
+        "amount": 14679.5,
+        "date": "2022-12-03"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 16 لتر",
+        "amount": 3718.92,
+        "date": "2022-12-09"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 77 كجم",
+        "amount": 8549.49,
+        "date": "2022-12-15"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 22 لتر",
+        "amount": 13386.8,
+        "date": "2022-12-22"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 4313.52,
+        "date": "2022-12-28"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 76 يوم",
+        "amount": 4960.56,
+        "date": "2023-01-03"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 49 يوم",
+        "amount": 3757.23,
+        "date": "2023-01-10"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 6 يوم",
+        "amount": 3919.02,
+        "date": "2023-01-16"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 85 يوم",
+        "amount": 3963.75,
+        "date": "2023-01-23"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 16",
+        "amount": 1290.33,
+        "date": "2023-01-29"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 7332.48,
+        "date": "2023-02-04"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 100 لتر",
+        "amount": 5916.75,
+        "date": "2023-02-11"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3963.44,
+        "date": "2023-02-17"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 1185.8,
+        "date": "2023-02-23"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 2188.41,
+        "date": "2023-03-02"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 906.2,
+        "date": "2023-03-08"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 9012.09,
+        "date": "2023-03-14"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 4417.84,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 746.46,
+        "date": "2023-03-27"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 5595.84,
+        "date": "2023-04-02"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 9206.14,
+        "date": "2023-04-09"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 23171.42,
+        "date": "2023-03-09"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 18946.89,
+        "date": "2023-03-13"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 52 شيكارة",
+        "amount": 11918.64,
+        "date": "2023-03-17"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 41 شيكارة",
+        "amount": 13252.54,
+        "date": "2023-03-21"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 81 شيكارة",
+        "amount": 12279.5,
+        "date": "2023-03-26"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 64 لتر",
+        "amount": 6474.83,
+        "date": "2023-03-30"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 32 كجم",
+        "amount": 6372.96,
+        "date": "2023-04-03"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 47 لتر",
+        "amount": 8791.35,
+        "date": "2023-04-07"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 2830.96,
+        "date": "2023-04-11"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 17 يوم",
+        "amount": 6142.2,
+        "date": "2023-04-15"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 13 يوم",
+        "amount": 3959.45,
+        "date": "2023-04-19"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 88 يوم",
+        "amount": 4728.6,
+        "date": "2023-04-23"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 19 يوم",
+        "amount": 4125.94,
+        "date": "2023-04-28"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 66",
+        "amount": 1645.26,
+        "date": "2023-05-02"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5957.82,
+        "date": "2023-05-06"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 55 لتر",
+        "amount": 5583.48,
+        "date": "2023-05-10"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 5629.14,
+        "date": "2023-05-14"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 2500.02,
+        "date": "2023-05-18"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 2024.6,
+        "date": "2023-05-22"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 985.36,
+        "date": "2023-05-26"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 8643.84,
+        "date": "2023-05-30"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 5154.24,
+        "date": "2023-06-04"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 988.82,
+        "date": "2023-06-08"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3100.8,
+        "date": "2023-06-12"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 12111.21,
+        "date": "2023-06-16"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 23724.94,
+        "date": "2023-11-11"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 21110.4,
+        "date": "2023-11-18"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 31 شيكارة",
+        "amount": 17030.29,
+        "date": "2023-11-24"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 37 شيكارة",
+        "amount": 10374.15,
+        "date": "2023-12-01"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 45 شيكارة",
+        "amount": 17052.83,
+        "date": "2023-12-07"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 48 لتر",
+        "amount": 11840.4,
+        "date": "2023-12-14"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 14 كجم",
+        "amount": 8125.15,
+        "date": "2023-12-20"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 86 لتر",
+        "amount": 15480.27,
+        "date": "2023-12-26"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 4566.1,
+        "date": "2024-01-02"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 13 يوم",
+        "amount": 3326.61,
+        "date": "2024-01-08"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 64 يوم",
+        "amount": 3930.15,
+        "date": "2024-01-15"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 28 يوم",
+        "amount": 6795.35,
+        "date": "2024-01-21"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 83 يوم",
+        "amount": 1842.6,
+        "date": "2024-01-28"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 66",
+        "amount": 3165.78,
+        "date": "2024-02-03"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 4619.14,
+        "date": "2024-02-09"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 35 لتر",
+        "amount": 4842.93,
+        "date": "2024-02-16"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 3735.78,
+        "date": "2024-02-22"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 2319.31,
+        "date": "2024-02-29"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 1362.86,
+        "date": "2024-03-06"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 578,
+        "date": "2024-03-12"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 8030.88,
+        "date": "2024-03-19"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 2639.68,
+        "date": "2024-03-25"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 2075.75,
+        "date": "2024-04-01"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 5020.56,
+        "date": "2024-04-07"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 9918.58,
+        "date": "2024-04-14"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "بذور",
+        "description": "بذور المحصول",
+        "amount": 22392,
+        "date": "2024-03-14"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد يوريا 46%d شيكارة",
+        "amount": 16266.9,
+        "date": "2024-03-18"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد نترات النشادر - 11 شيكارة",
+        "amount": 18303.33,
+        "date": "2024-03-22"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد سوبر فوسفات - 17 شيكارة",
+        "amount": 10739.92,
+        "date": "2024-03-26"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "أسمدة",
+        "description": "سماد مركب NPK - 98 شيكارة",
+        "amount": 20564.28,
+        "date": "2024-03-31"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشائش - 34 لتر",
+        "amount": 10324.4,
+        "date": "2024-04-04"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد فطريات - 59 كجم",
+        "amount": 11497.89,
+        "date": "2024-04-08"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "مبيدات",
+        "description": "مبيد حشرات - 56 لتر",
+        "amount": 8039.2,
+        "date": "2024-04-12"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تجهيز الأرض للزراعة",
+        "amount": 1989.04,
+        "date": "2024-04-16"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة زراعة - 45 يوم",
+        "amount": 5625.42,
+        "date": "2024-04-20"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة تسميد - 70 يوم",
+        "amount": 1609,
+        "date": "2024-04-24"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة حصاد - 28 يوم",
+        "amount": 7620.48,
+        "date": "2024-04-28"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "عمالة",
+        "description": "عمالة رش مبيدات - 79 يوم",
+        "amount": 5854.8,
+        "date": "2024-05-03"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "ري",
+        "description": "فواتير مياه الري - شهر 6",
+        "amount": 3637.76,
+        "date": "2024-05-07"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "ري",
+        "description": "صيانة شبكة الري",
+        "amount": 5454.96,
+        "date": "2024-05-11"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "ري",
+        "description": "وقود مضخات الري - 71 لتر",
+        "amount": 5007.35,
+        "date": "2024-05-15"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل المحصول إلى السوق",
+        "amount": 2403.8,
+        "date": "2024-05-19"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "نقل",
+        "description": "نقل مستلزمات الإنتاج",
+        "amount": 3223.8,
+        "date": "2024-05-23"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "خدمات",
+        "description": "كهرباء",
+        "amount": 761.25,
+        "date": "2024-05-27"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "خدمات",
+        "description": "هاتف وإنترنت",
+        "amount": 637.71,
+        "date": "2024-05-31"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة جرار زراعي",
+        "amount": 9282.8,
+        "date": "2024-06-04"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "صيانة",
+        "description": "صيانة مواتير الري",
+        "amount": 3359.88,
+        "date": "2024-06-09"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "أخرى",
+        "description": "مصاريف إدارية",
+        "amount": 542.36,
+        "date": "2024-06-13"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "أخرى",
+        "description": "تأمين على المحصول",
+        "amount": 3273.48,
+        "date": "2024-06-17"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "حصاد",
+        "description": "آلات حصاد - تأجير",
+        "amount": 12301.03,
+        "date": "2024-06-21"
+    },
+    {
+        "season_ref": "land_salam_2022_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2022-03-01"
+    },
+    {
+        "season_ref": "land_salam_2022_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2022-11-01"
+    },
+    {
+        "season_ref": "land_salam_2023_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2023-03-05"
+    },
+    {
+        "season_ref": "land_salam_2023_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2023-11-05"
+    },
+    {
+        "season_ref": "land_salam_2024_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2024-03-10"
+    },
+    {
+        "season_ref": "land_tar3a_2022_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 31350,
+        "date": "2022-03-01"
+    },
+    {
+        "season_ref": "land_tar3a_2022_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 31350,
+        "date": "2022-11-01"
+    },
+    {
+        "season_ref": "land_tar3a_2023_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 31350,
+        "date": "2023-03-05"
+    },
+    {
+        "season_ref": "land_tar3a_2023_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 31350,
+        "date": "2023-11-05"
+    },
+    {
+        "season_ref": "land_tar3a_2024_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 31350,
+        "date": "2024-03-10"
+    },
+    {
+        "season_ref": "land_nile_2022_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 60600,
+        "date": "2022-03-01"
+    },
+    {
+        "season_ref": "land_nile_2022_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 60600,
+        "date": "2022-11-01"
+    },
+    {
+        "season_ref": "land_nile_2023_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 60600,
+        "date": "2023-03-05"
+    },
+    {
+        "season_ref": "land_nile_2023_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 60600,
+        "date": "2023-11-05"
+    },
+    {
+        "season_ref": "land_nile_2024_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 60600,
+        "date": "2024-03-10"
+    },
+    {
+        "season_ref": "land_wadi_2022_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 99000,
+        "date": "2022-03-01"
+    },
+    {
+        "season_ref": "land_wadi_2022_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 99000,
+        "date": "2022-11-01"
+    },
+    {
+        "season_ref": "land_wadi_2023_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 99000,
+        "date": "2023-03-05"
+    },
+    {
+        "season_ref": "land_wadi_2023_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 99000,
+        "date": "2023-11-05"
+    },
+    {
+        "season_ref": "land_wadi_2024_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 99000,
+        "date": "2024-03-10"
+    },
+    {
+        "season_ref": "land_amal_2022_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2022-03-01"
+    },
+    {
+        "season_ref": "land_amal_2022_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2022-11-01"
+    },
+    {
+        "season_ref": "land_amal_2023_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2023-03-05"
+    },
+    {
+        "season_ref": "land_amal_2023_شتوي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2023-11-05"
+    },
+    {
+        "season_ref": "land_amal_2024_صيفي",
+        "type": "إيجار",
+        "description": "نصيب الموسم من الإيجار السنوي للأرض",
+        "amount": 43200,
+        "date": "2024-03-10"
+    }
+]

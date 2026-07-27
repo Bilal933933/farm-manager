@@ -1,0 +1,1602 @@
+[
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 43.1,
+        "unit_price": 4562,
+        "date": "2022-07-01",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 31.24,
+        "unit_price": 4877,
+        "date": "2022-07-03",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 53.38,
+        "unit_price": 3998,
+        "date": "2022-07-16",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 27.76,
+        "unit_price": 3777,
+        "date": "2022-07-03",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 71.38,
+        "unit_price": 4746,
+        "date": "2022-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 35.34,
+        "unit_price": 4286,
+        "date": "2022-07-11",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 108.14,
+        "unit_price": 4031,
+        "date": "2022-07-11",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 20.99,
+        "unit_price": 5067,
+        "date": "2022-07-11",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 43.45,
+        "unit_price": 4124,
+        "date": "2022-07-17",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 145.48,
+        "unit_price": 3603,
+        "date": "2022-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 39.49,
+        "unit_price": 4717,
+        "date": "2023-04-29",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 73.5,
+        "unit_price": 5021,
+        "date": "2023-05-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 39.37,
+        "unit_price": 3577,
+        "date": "2023-05-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 37.2,
+        "unit_price": 4592,
+        "date": "2023-05-23",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 169.48,
+        "unit_price": 5159,
+        "date": "2023-05-05",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 18.54,
+        "unit_price": 4433,
+        "date": "2023-07-05",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 20.39,
+        "unit_price": 4396,
+        "date": "2023-07-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 40.45,
+        "unit_price": 4398,
+        "date": "2023-07-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 15.02,
+        "unit_price": 4432,
+        "date": "2023-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 60.09,
+        "unit_price": 4964,
+        "date": "2023-07-20",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 31.78,
+        "unit_price": 3664,
+        "date": "2023-07-17",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 45,
+        "unit_price": 3839,
+        "date": "2023-07-18",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 37.46,
+        "unit_price": 4561,
+        "date": "2023-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 24.72,
+        "unit_price": 5073,
+        "date": "2023-07-22",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 48,
+        "unit_price": 4582,
+        "date": "2023-07-30",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 57.49,
+        "unit_price": 4786,
+        "date": "2024-05-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 31.76,
+        "unit_price": 4331,
+        "date": "2024-05-06",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 15.37,
+        "unit_price": 5110,
+        "date": "2024-05-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 12.76,
+        "unit_price": 3987,
+        "date": "2024-05-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 62.28,
+        "unit_price": 4815,
+        "date": "2024-05-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 96.24,
+        "unit_price": 4252,
+        "date": "2024-07-08",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 25.71,
+        "unit_price": 4870,
+        "date": "2024-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 52.78,
+        "unit_price": 5016,
+        "date": "2024-07-17",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 40.72,
+        "unit_price": 3536,
+        "date": "2024-07-13",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 95.01,
+        "unit_price": 4094,
+        "date": "2024-07-30",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 63.97,
+        "unit_price": 5069,
+        "date": "2024-07-19",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 36.42,
+        "unit_price": 4592,
+        "date": "2024-07-23",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 49.52,
+        "unit_price": 4140,
+        "date": "2024-07-21",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 18.27,
+        "unit_price": 3878,
+        "date": "2024-08-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 77.87,
+        "unit_price": 5108,
+        "date": "2024-07-30",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 18.32,
+        "unit_price": 4135,
+        "date": "2022-07-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 14.78,
+        "unit_price": 4801,
+        "date": "2022-07-09",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 27.5,
+        "unit_price": 3846,
+        "date": "2022-07-10",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 32.22,
+        "unit_price": 4523,
+        "date": "2022-07-03",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 59.84,
+        "unit_price": 5015,
+        "date": "2022-07-10",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 22.75,
+        "unit_price": 5146,
+        "date": "2022-07-10",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 58.9,
+        "unit_price": 4339,
+        "date": "2022-07-11",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 16.27,
+        "unit_price": 3788,
+        "date": "2022-07-17",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 32.66,
+        "unit_price": 5179,
+        "date": "2022-07-13",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 76.22,
+        "unit_price": 4371,
+        "date": "2022-08-09",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 18.87,
+        "unit_price": 3782,
+        "date": "2023-04-29",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 27.78,
+        "unit_price": 4167,
+        "date": "2023-05-09",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 31.52,
+        "unit_price": 4946,
+        "date": "2023-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 7.37,
+        "unit_price": 4626,
+        "date": "2023-05-11",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 59.61,
+        "unit_price": 4661,
+        "date": "2023-05-20",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 31.06,
+        "unit_price": 4490,
+        "date": "2023-07-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 55.33,
+        "unit_price": 4250,
+        "date": "2023-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 21.67,
+        "unit_price": 3802,
+        "date": "2023-07-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 30.72,
+        "unit_price": 4361,
+        "date": "2023-07-24",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 83.06,
+        "unit_price": 4742,
+        "date": "2023-07-20",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 80.54,
+        "unit_price": 4884,
+        "date": "2023-07-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 32.83,
+        "unit_price": 3691,
+        "date": "2023-07-14",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 13.59,
+        "unit_price": 4865,
+        "date": "2023-07-28",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 30.78,
+        "unit_price": 3879,
+        "date": "2023-08-07",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 79.14,
+        "unit_price": 4351,
+        "date": "2023-07-30",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 52.11,
+        "unit_price": 4993,
+        "date": "2024-05-04",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 47.86,
+        "unit_price": 3887,
+        "date": "2024-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 28.12,
+        "unit_price": 5100,
+        "date": "2024-05-21",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 22.26,
+        "unit_price": 4656,
+        "date": "2024-05-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 66.78,
+        "unit_price": 3879,
+        "date": "2024-06-04",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 16.17,
+        "unit_price": 3816,
+        "date": "2024-07-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 26.09,
+        "unit_price": 3593,
+        "date": "2024-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 12.03,
+        "unit_price": 5183,
+        "date": "2024-07-23",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 17.71,
+        "unit_price": 3623,
+        "date": "2024-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 62.78,
+        "unit_price": 4551,
+        "date": "2024-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 20.76,
+        "unit_price": 3786,
+        "date": "2024-07-19",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 50.25,
+        "unit_price": 4603,
+        "date": "2024-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 31.62,
+        "unit_price": 3974,
+        "date": "2024-07-21",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 8.45,
+        "unit_price": 4858,
+        "date": "2024-08-04",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 61.94,
+        "unit_price": 3549,
+        "date": "2024-07-30",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 118.3,
+        "unit_price": 4724,
+        "date": "2022-07-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 60.56,
+        "unit_price": 5044,
+        "date": "2022-07-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 62.85,
+        "unit_price": 3553,
+        "date": "2022-07-01",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 34.97,
+        "unit_price": 5083,
+        "date": "2022-07-23",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 104.92,
+        "unit_price": 4002,
+        "date": "2022-07-25",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 22.97,
+        "unit_price": 5166,
+        "date": "2022-07-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 48.32,
+        "unit_price": 4629,
+        "date": "2022-07-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 42.63,
+        "unit_price": 4582,
+        "date": "2022-07-17",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 11.39,
+        "unit_price": 5159,
+        "date": "2022-07-29",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 83.49,
+        "unit_price": 4568,
+        "date": "2022-07-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 102.14,
+        "unit_price": 3545,
+        "date": "2023-04-29",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 86.67,
+        "unit_price": 4293,
+        "date": "2023-05-03",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 19.36,
+        "unit_price": 4428,
+        "date": "2023-05-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 18.79,
+        "unit_price": 4148,
+        "date": "2023-05-07",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 137.82,
+        "unit_price": 4219,
+        "date": "2023-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 60.4,
+        "unit_price": 3906,
+        "date": "2023-07-05",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 24.07,
+        "unit_price": 4122,
+        "date": "2023-07-06",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 34.01,
+        "unit_price": 5199,
+        "date": "2023-07-09",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 13.66,
+        "unit_price": 4819,
+        "date": "2023-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 100.18,
+        "unit_price": 3932,
+        "date": "2023-07-25",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 105.34,
+        "unit_price": 4202,
+        "date": "2023-07-13",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 25.43,
+        "unit_price": 4663,
+        "date": "2023-07-24",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 18.72,
+        "unit_price": 3582,
+        "date": "2023-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 53.01,
+        "unit_price": 3531,
+        "date": "2023-08-03",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 98.46,
+        "unit_price": 4619,
+        "date": "2023-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 84.01,
+        "unit_price": 3779,
+        "date": "2024-05-02",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 35.88,
+        "unit_price": 5171,
+        "date": "2024-05-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 16.53,
+        "unit_price": 4539,
+        "date": "2024-05-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 38.73,
+        "unit_price": 5140,
+        "date": "2024-05-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 71.93,
+        "unit_price": 5089,
+        "date": "2024-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 70.33,
+        "unit_price": 5037,
+        "date": "2024-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 48.21,
+        "unit_price": 5006,
+        "date": "2024-07-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 26.04,
+        "unit_price": 4807,
+        "date": "2024-07-26",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 34.28,
+        "unit_price": 4565,
+        "date": "2024-07-17",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 63.66,
+        "unit_price": 3945,
+        "date": "2024-07-30",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 100.62,
+        "unit_price": 3772,
+        "date": "2024-07-19",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 89.22,
+        "unit_price": 4321,
+        "date": "2024-07-27",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 50.47,
+        "unit_price": 4703,
+        "date": "2024-08-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 59.05,
+        "unit_price": 4449,
+        "date": "2024-08-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 119.89,
+        "unit_price": 4629,
+        "date": "2024-08-09",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 229.25,
+        "unit_price": 5145,
+        "date": "2022-07-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 78.58,
+        "unit_price": 4374,
+        "date": "2022-07-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 62.75,
+        "unit_price": 4147,
+        "date": "2022-07-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 125.98,
+        "unit_price": 4120,
+        "date": "2022-07-23",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 293.94,
+        "unit_price": 3826,
+        "date": "2022-07-20",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 85.56,
+        "unit_price": 3668,
+        "date": "2022-07-11",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 40.1,
+        "unit_price": 4399,
+        "date": "2022-07-13",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 54.19,
+        "unit_price": 4298,
+        "date": "2022-07-14",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 48.04,
+        "unit_price": 4299,
+        "date": "2022-07-13",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 144.11,
+        "unit_price": 3611,
+        "date": "2022-07-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 85.37,
+        "unit_price": 4170,
+        "date": "2023-04-29",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 141.72,
+        "unit_price": 3802,
+        "date": "2023-05-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 77.03,
+        "unit_price": 3511,
+        "date": "2023-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 45.56,
+        "unit_price": 4183,
+        "date": "2023-05-19",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 152.52,
+        "unit_price": 3738,
+        "date": "2023-05-25",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 146.19,
+        "unit_price": 3649,
+        "date": "2023-07-04",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 86.96,
+        "unit_price": 4965,
+        "date": "2023-07-04",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 67.83,
+        "unit_price": 4159,
+        "date": "2023-07-06",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 26.45,
+        "unit_price": 5049,
+        "date": "2023-07-20",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 214.02,
+        "unit_price": 3577,
+        "date": "2023-07-10",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 140.46,
+        "unit_price": 3736,
+        "date": "2023-07-16",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 63.41,
+        "unit_price": 4849,
+        "date": "2023-07-16",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 153.44,
+        "unit_price": 5092,
+        "date": "2023-07-31",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 34.27,
+        "unit_price": 4040,
+        "date": "2023-07-30",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 277.27,
+        "unit_price": 3931,
+        "date": "2023-07-30",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 98.11,
+        "unit_price": 3592,
+        "date": "2024-05-06",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 129.66,
+        "unit_price": 4106,
+        "date": "2024-05-04",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 34.63,
+        "unit_price": 4372,
+        "date": "2024-05-06",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 27.94,
+        "unit_price": 3823,
+        "date": "2024-05-08",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 226.04,
+        "unit_price": 4985,
+        "date": "2024-05-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 66.61,
+        "unit_price": 4813,
+        "date": "2024-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 37.75,
+        "unit_price": 4354,
+        "date": "2024-07-17",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 40.77,
+        "unit_price": 5136,
+        "date": "2024-07-11",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 101.64,
+        "unit_price": 3842,
+        "date": "2024-07-21",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 197.31,
+        "unit_price": 3740,
+        "date": "2024-07-25",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 108.21,
+        "unit_price": 4224,
+        "date": "2024-07-17",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 58.51,
+        "unit_price": 3646,
+        "date": "2024-07-27",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 39.91,
+        "unit_price": 4226,
+        "date": "2024-07-27",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 44.01,
+        "unit_price": 4098,
+        "date": "2024-07-23",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 165.54,
+        "unit_price": 5134,
+        "date": "2024-08-04",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 26.48,
+        "unit_price": 4904,
+        "date": "2022-06-28",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 56.7,
+        "unit_price": 3944,
+        "date": "2022-06-29",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 33.74,
+        "unit_price": 4871,
+        "date": "2022-07-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 11.28,
+        "unit_price": 3673,
+        "date": "2022-07-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 75.48,
+        "unit_price": 4461,
+        "date": "2022-07-05",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 37.87,
+        "unit_price": 3629,
+        "date": "2022-07-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 10,
+        "unit_price": 4524,
+        "date": "2022-07-17",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 19.4,
+        "unit_price": 4958,
+        "date": "2022-07-17",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 6.17,
+        "unit_price": 4629,
+        "date": "2022-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 41.32,
+        "unit_price": 4590,
+        "date": "2022-08-09",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 34.09,
+        "unit_price": 4754,
+        "date": "2023-04-29",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 50.19,
+        "unit_price": 4930,
+        "date": "2023-05-05",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 28.47,
+        "unit_price": 4595,
+        "date": "2023-05-07",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 46.34,
+        "unit_price": 4541,
+        "date": "2023-05-11",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 103.15,
+        "unit_price": 4658,
+        "date": "2023-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 54.16,
+        "unit_price": 4135,
+        "date": "2023-07-04",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 11.56,
+        "unit_price": 4391,
+        "date": "2023-07-08",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 25.26,
+        "unit_price": 5143,
+        "date": "2023-07-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 14.34,
+        "unit_price": 5054,
+        "date": "2023-07-28",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 53.96,
+        "unit_price": 4556,
+        "date": "2023-07-25",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 60.61,
+        "unit_price": 4720,
+        "date": "2023-07-16",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 31.17,
+        "unit_price": 4676,
+        "date": "2023-07-18",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 13.72,
+        "unit_price": 4753,
+        "date": "2023-07-19",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 32.18,
+        "unit_price": 3564,
+        "date": "2023-08-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 78.8,
+        "unit_price": 5051,
+        "date": "2023-07-20",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 75.74,
+        "unit_price": 3952,
+        "date": "2024-05-07",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 35.23,
+        "unit_price": 4969,
+        "date": "2024-05-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 46.56,
+        "unit_price": 4558,
+        "date": "2024-05-06",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 18.66,
+        "unit_price": 4898,
+        "date": "2024-05-24",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 84.98,
+        "unit_price": 4103,
+        "date": "2024-06-04",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 45.63,
+        "unit_price": 3594,
+        "date": "2024-07-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 17.79,
+        "unit_price": 4224,
+        "date": "2024-07-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 20.24,
+        "unit_price": 4370,
+        "date": "2024-07-11",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 15.81,
+        "unit_price": 4635,
+        "date": "2024-08-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 83.03,
+        "unit_price": 4283,
+        "date": "2024-08-04",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 42.76,
+        "unit_price": 4021,
+        "date": "2024-07-22",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h2",
+        "party_name": "تاجر الخضار أحمد علي",
+        "quantity": 18.85,
+        "unit_price": 3860,
+        "date": "2024-07-29",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 15.45,
+        "unit_price": 4811,
+        "date": "2024-07-24",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 11.26,
+        "unit_price": 4275,
+        "date": "2024-08-04",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h2",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "quantity": 59.14,
+        "unit_price": 4743,
+        "date": "2024-08-09",
+        "payment_type": "آجل"
+    }
+]

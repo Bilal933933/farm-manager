@@ -1,0 +1,92 @@
+[
+    {
+        "land_ref": "land_salam",
+        "party_name": "مؤسسة الريان للأسمدة",
+        "type": "إيجار",
+        "start_date": "2022-01-01",
+        "end_date": "2024-12-31",
+        "amount": 64200,
+        "notes": "عقد إيجار أرض أرض السلام"
+    },
+    {
+        "land_ref": "land_salam",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "type": "إيجار",
+        "start_date": "2023-06-01",
+        "end_date": "2025-05-31",
+        "amount": 50400,
+        "notes": "عقد إيجار تكميلي"
+    },
+    {
+        "land_ref": "land_tar3a",
+        "party_name": "مؤسسة الريان للأسمدة",
+        "type": "إيجار",
+        "start_date": "2023-01-01",
+        "end_date": "2025-12-31",
+        "amount": 37600,
+        "notes": "عقد إيجار أرض أرض الترعة"
+    },
+    {
+        "land_ref": "land_tar3a",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "type": "إيجار",
+        "start_date": "2024-06-01",
+        "end_date": "2026-05-31",
+        "amount": 35200,
+        "notes": "عقد إيجار تكميلي"
+    },
+    {
+        "land_ref": "land_nile",
+        "party_name": "مؤسسة الريان للأسمدة",
+        "type": "إيجار",
+        "start_date": "2024-01-01",
+        "end_date": "2026-12-31",
+        "amount": 69000,
+        "notes": "عقد إيجار أرض أرض النيل"
+    },
+    {
+        "land_ref": "land_nile",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "type": "إيجار",
+        "start_date": "2025-06-01",
+        "end_date": "2027-05-31",
+        "amount": 63600,
+        "notes": "عقد إيجار تكميلي"
+    },
+    {
+        "land_ref": "land_wadi",
+        "party_name": "مؤسسة الريان للأسمدة",
+        "type": "إيجار",
+        "start_date": "2025-01-01",
+        "end_date": "2027-12-31",
+        "amount": 128800,
+        "notes": "عقد إيجار أرض مزرعة الوادي"
+    },
+    {
+        "land_ref": "land_wadi",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "type": "إيجار",
+        "start_date": "2026-06-01",
+        "end_date": "2028-05-31",
+        "amount": 95000,
+        "notes": "عقد إيجار تكميلي"
+    },
+    {
+        "land_ref": "land_amal",
+        "party_name": "مؤسسة الريان للأسمدة",
+        "type": "إيجار",
+        "start_date": "2026-01-01",
+        "end_date": "2028-12-31",
+        "amount": 46000,
+        "notes": "عقد إيجار أرض حقل الأمل"
+    },
+    {
+        "land_ref": "land_amal",
+        "party_name": "سوق الجملة بكفر الشيخ",
+        "type": "إيجار",
+        "start_date": "2027-06-01",
+        "end_date": "2029-05-31",
+        "amount": 42000,
+        "notes": "عقد إيجار تكميلي"
+    }
+]
