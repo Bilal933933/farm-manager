@@ -1,9 +1,8 @@
 import { Head, Link, router } from '@inertiajs/react';
-import { ArrowRight, Pencil, Plus, Sprout, DollarSign, TrendingUp, CircleDollarSign } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Table,
@@ -17,7 +16,9 @@ import StatusBadge from '@/components/Lands/StatusBadge';
 import SeasonFormDialog from '@/components/Lands/SeasonFormDialog';
 import ContractFormDialog from '@/components/Lands/ContractFormDialog';
 import HarvestFormDialog from '@/components/Harvests/HarvestFormDialog';
-import { useState } from 'react';
+import LandHeader from '@/components/Lands/LandHeader';
+import ActiveSeasonCard from '@/components/Lands/ActiveSeasonCard';
+import KpiCards from '@/components/Lands/KpiCards';
 
 interface Crop {
   id: number;
@@ -72,17 +73,6 @@ interface SeasonStats {
   profit: number;
 }
 
-interface ShowProps {
-  land: Land;
-  crops: Crop[];
-  activeSeason: Season | null;
-  seasonStats: Record<number, SeasonStats>;
-  overallSales: number;
-  overallCosts: number;
-  sales: SaleData[];
-  costsBySeason: CostData[];
-}
-
 interface SaleData {
   id: number;
   date: string;
@@ -101,6 +91,17 @@ interface CostData {
   status: string;
 }
 
+interface ShowProps {
+  land: Land;
+  crops: Crop[];
+  activeSeason: Season | null;
+  seasonStats: Record<number, SeasonStats>;
+  overallSales: number;
+  overallCosts: number;
+  sales: SaleData[];
+  costsBySeason: CostData[];
+}
+
 function getCropName(season: Season): string {
   if (season.crop_obj?.name) return season.crop_obj.name;
   if (typeof season.crop === 'string') return season.crop;
@@ -117,134 +118,13 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
     router.delete(route('lands.contracts.destroy', contract.id));
   }
 
-  const overallProfit = overallSales - overallCosts;
-
   return (
-    <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-6">
+    <div dir="rtl" className="space-y-6 p-6">
       <Head title={land.name} />
 
-      <Link
-        href={route('lands.index')}
-        className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800"
-      >
-        <ArrowRight className="h-4 w-4" />
-        العودة إلى الأراضي
-      </Link>
-
-      <Card className="border-stone-200">
-        <CardContent className="flex flex-wrap items-start justify-between gap-4 p-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-semibold text-stone-900">{land.name}</h1>
-              <StatusBadge value={land.status} />
-            </div>
-            <p className="text-sm text-stone-500">{land.location || 'لا يوجد موقع مسجّل'}</p>
-            <p className="font-mono text-sm text-stone-700">
-              المساحة: {land.area} {land.area_unit}
-            </p>
-            {land.notes && <p className="max-w-xl text-sm text-stone-500">{land.notes}</p>}
-          </div>
-          <Button variant="outline" asChild>
-            <Link href={route('lands.edit', land.id)}>
-              <Pencil className="ms-2 h-4 w-4" />
-              تعديل البيانات
-            </Link>
-          </Button>
-        </CardContent>
-      </Card>
-
-      {activeSeason && (
-        <Card className="border-emerald-200 bg-emerald-50/50">
-          <CardHeader className="pb-3">
-            <div className="flex items-center gap-2">
-              <Sprout className="h-5 w-5 text-emerald-700" />
-              <CardTitle className="text-emerald-900">الموسم الحالي</CardTitle>
-              <StatusBadge value={activeSeason.status} />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              <div>
-                <p className="text-xs text-stone-500">المحصول</p>
-                <p className="font-semibold text-stone-900">
-                  {getCropName(activeSeason)}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-stone-500">المساحة المزروعة</p>
-                <p className="font-mono font-semibold text-stone-900">
-                  {activeSeason.cultivated_area || '—'} {land.area_unit === 'دونم' ? 'دونم' : ''}
-                </p>
-              </div>
-              {activeSeason.planting_date && (
-                <div>
-                  <p className="text-xs text-stone-500">تاريخ الزراعة</p>
-                  <p className="font-mono font-semibold text-stone-900">
-                    <DateDisplay date={activeSeason.planting_date} />
-                  </p>
-                </div>
-              )}
-              {activeSeason.expected_cost && (
-                <div>
-                  <p className="text-xs text-stone-500">التكلفة المتوقعة</p>
-                  <p className="font-mono font-semibold text-stone-900">{activeSeason.expected_cost}</p>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        <Card className="border-stone-200">
-          <CardContent className="p-5">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-stone-500">إجمالي الحصاد</p>
-                <p className="mt-1 text-xl font-bold text-stone-900">
-                  {seasonStats && Object.values(seasonStats).reduce((s, st) => s + st.total_harvest, 0).toLocaleString()}
-                </p>
-              </div>
-              <TrendingUp className="h-8 w-8 text-emerald-600" />
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border-stone-200">
-          <CardContent className="p-5">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-stone-500">إجمالي المبيعات</p>
-                <p className="mt-1 text-xl font-bold text-stone-900">{overallSales.toLocaleString()}</p>
-              </div>
-              <DollarSign className="h-8 w-8 text-blue-600" />
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border-stone-200">
-          <CardContent className="p-5">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-stone-500">إجمالي التكاليف</p>
-                <p className="mt-1 text-xl font-bold text-stone-900">{overallCosts.toLocaleString()}</p>
-              </div>
-              <CircleDollarSign className="h-8 w-8 text-amber-600" />
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border-stone-200">
-          <CardContent className="p-5">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-stone-500">صافي الربح</p>
-                <p className={`mt-1 text-xl font-bold ${overallProfit >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                  {overallProfit.toLocaleString()}
-                </p>
-              </div>
-              <Sprout className={`h-8 w-8 ${overallProfit >= 0 ? 'text-emerald-600' : 'text-rose-600'}`} />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <LandHeader land={land} />
+      <ActiveSeasonCard activeSeason={activeSeason} areaUnit={land.area_unit} />
+      <KpiCards seasonStats={seasonStats} overallSales={overallSales} overallCosts={overallCosts} />
 
       <Tabs defaultValue="seasons">
         <TabsList>
@@ -314,10 +194,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                         <StatusBadge value={season.status} />
                       </TableCell>
                       <TableCell className="text-left">
-                        <div className="flex justify-start gap-2">
-                          {totalHarvest > 0 && (
-                            <span className="font-mono text-xs text-stone-500 self-center">{totalHarvest}</span>
-                          )}
+                        <div className="flex justify-start gap-1.5">
                           <HarvestFormDialog
                             landSeasonId={season.id}
                             trigger={<Button variant="ghost" size="sm">حصاد</Button>}
@@ -351,7 +228,6 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="text-right">الموسم</TableHead>
                   <TableHead className="text-right">المحصول</TableHead>
                   <TableHead className="text-right">التكلفة المتوقعة</TableHead>
                   <TableHead className="text-right">التكلفة الفعلية</TableHead>
@@ -361,14 +237,13 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
               <TableBody>
                 {costsBySeason.length === 0 && (
                   <TableRow>
-                    <TableCell colSpan={5} className="py-8 text-center text-stone-500">
+                    <TableCell colSpan={4} className="py-8 text-center text-stone-500">
                       لا توجد تكاليف مسجّلة.
                     </TableCell>
                   </TableRow>
                 )}
                 {costsBySeason.map((cost) => (
                   <TableRow key={cost.season_id}>
-                    <TableCell className="font-medium">{cost.crop_name}</TableCell>
                     <TableCell className="font-medium">{cost.crop_name}</TableCell>
                     <TableCell className="font-mono">{cost.expected_cost > 0 ? cost.expected_cost.toLocaleString() : '—'}</TableCell>
                     <TableCell className="font-mono">{cost.actual_cost > 0 ? cost.actual_cost.toLocaleString() : '—'}</TableCell>
@@ -457,7 +332,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
                     <TableCell className="font-mono">{contract.end_date ? <DateDisplay date={contract.end_date} /> : '—'}</TableCell>
                     <TableCell className="font-mono">{contract.amount}</TableCell>
                     <TableCell className="text-left">
-                      <div className="flex justify-start gap-2">
+                      <div className="flex justify-start gap-1.5">
                         <ContractFormDialog
                           landId={land.id}
                           contract={contract}
