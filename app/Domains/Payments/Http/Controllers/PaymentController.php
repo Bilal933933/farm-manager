@@ -37,14 +37,11 @@ class PaymentController extends Controller
 
     public function store(StorePaymentRequest $request, RecordPayment $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم تسجيل الدفعة بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تسجيل الدفعة');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم تسجيل الدفعة بنجاح',
+            'حدث خطأ أثناء تسجيل الدفعة',
+        );
 
         return redirect()->route('payments.index');
     }

@@ -40,28 +40,22 @@ class StockMovementController extends Controller
 
     public function store(StoreMovementRequest $request, RecordMovement $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم تسجيل حركة المخزون بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تسجيل حركة المخزون');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم تسجيل حركة المخزون بنجاح',
+            'حدث خطأ أثناء تسجيل حركة المخزون',
+        );
 
         return redirect()->route('stock.index');
     }
 
     public function consume(ConsumeStockRequest $request, ConsumeProductForSeason $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم صرف المنتج بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء صرف المنتج');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم صرف المنتج بنجاح',
+            'حدث خطأ أثناء صرف المنتج',
+        );
 
         return redirect()->back();
     }

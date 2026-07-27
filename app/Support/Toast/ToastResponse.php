@@ -15,4 +15,21 @@ trait ToastResponse
     {
         Inertia::flash('toast', ['type' => 'error', 'message' => $message]);
     }
+
+    public function executeWithToast(callable $action, string $successMessage, string $errorMessage): mixed
+    {
+        try {
+            $result = $action();
+
+            $this->success($successMessage);
+
+            return $result;
+        } catch (\Throwable $e) {
+            $this->error($errorMessage);
+
+            report($e);
+
+            return null;
+        }
+    }
 }

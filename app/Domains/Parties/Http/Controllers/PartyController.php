@@ -34,14 +34,11 @@ class PartyController extends Controller
 
     public function store(StorePartyRequest $request, CreateParty $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم إضافة الطرف بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء إضافة الطرف');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم إضافة الطرف بنجاح',
+            'حدث خطأ أثناء إضافة الطرف',
+        );
 
         return redirect()->route('parties.index');
     }
@@ -64,28 +61,22 @@ class PartyController extends Controller
 
     public function update(UpdatePartyRequest $request, Party $party, UpdateParty $action): RedirectResponse
     {
-        try {
-            $action->execute($party, $request->validated());
-
-            $this->success('تم تحديث الطرف بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تحديث الطرف');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($party, $request->validated()),
+            'تم تحديث الطرف بنجاح',
+            'حدث خطأ أثناء تحديث الطرف',
+        );
 
         return redirect()->route('parties.index');
     }
 
     public function destroy(Party $party, DeleteParty $action): RedirectResponse
     {
-        try {
-            $action->execute($party);
-
-            $this->success('تم حذف الطرف بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء حذف الطرف');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($party),
+            'تم حذف الطرف بنجاح',
+            'حدث خطأ أثناء حذف الطرف',
+        );
 
         return redirect()->route('parties.index');
     }

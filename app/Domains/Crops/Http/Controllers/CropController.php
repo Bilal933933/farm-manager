@@ -34,14 +34,11 @@ class CropController extends Controller
 
     public function store(StoreCropRequest $request, CreateCrop $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم إضافة المحصول بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء إضافة المحصول');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم إضافة المحصول بنجاح',
+            'حدث خطأ أثناء إضافة المحصول',
+        );
 
         return redirect()->route('crops.index');
     }
@@ -62,28 +59,22 @@ class CropController extends Controller
 
     public function update(UpdateCropRequest $request, Crop $crop, UpdateCrop $action): RedirectResponse
     {
-        try {
-            $action->execute($crop, $request->validated());
-
-            $this->success('تم تحديث المحصول بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تحديث المحصول');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($crop, $request->validated()),
+            'تم تحديث المحصول بنجاح',
+            'حدث خطأ أثناء تحديث المحصول',
+        );
 
         return redirect()->route('crops.index');
     }
 
     public function destroy(Crop $crop, DeleteCrop $action): RedirectResponse
     {
-        try {
-            $action->execute($crop);
-
-            $this->success('تم حذف المحصول بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء حذف المحصول');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($crop),
+            'تم حذف المحصول بنجاح',
+            'حدث خطأ أثناء حذف المحصول',
+        );
 
         return redirect()->route('crops.index');
     }

@@ -43,14 +43,11 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request, CreateProduct $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم إضافة المنتج بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء إضافة المنتج');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم إضافة المنتج بنجاح',
+            'حدث خطأ أثناء إضافة المنتج',
+        );
 
         return redirect()->route('products.index');
     }
@@ -71,28 +68,22 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product, UpdateProduct $action): RedirectResponse
     {
-        try {
-            $action->execute($product, $request->validated());
-
-            $this->success('تم تحديث المنتج بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تحديث المنتج');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($product, $request->validated()),
+            'تم تحديث المنتج بنجاح',
+            'حدث خطأ أثناء تحديث المنتج',
+        );
 
         return redirect()->route('products.index');
     }
 
     public function destroy(Product $product, DeleteProduct $action): RedirectResponse
     {
-        try {
-            $action->execute($product);
-
-            $this->success('تم حذف المنتج بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء حذف المنتج');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($product),
+            'تم حذف المنتج بنجاح',
+            'حدث خطأ أثناء حذف المنتج',
+        );
 
         return redirect()->route('products.index');
     }

@@ -50,14 +50,11 @@ class PurchaseController extends Controller
 
     public function store(StorePurchaseRequest $request, CreatePurchase $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم تسجيل المشتريات بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تسجيل المشتريات');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم تسجيل المشتريات بنجاح',
+            'حدث خطأ أثناء تسجيل المشتريات',
+        );
 
         return redirect()->route('purchases.index');
     }

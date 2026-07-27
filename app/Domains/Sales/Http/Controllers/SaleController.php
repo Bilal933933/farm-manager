@@ -44,14 +44,11 @@ class SaleController extends Controller
 
     public function store(StoreSaleRequest $request, CreateSale $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم تسجيل البيع بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تسجيل البيع');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم تسجيل البيع بنجاح',
+            'حدث خطأ أثناء تسجيل البيع',
+        );
 
         return redirect()->route('sales.index');
     }

@@ -62,14 +62,11 @@ class CostController extends Controller
 
     public function store(StoreCostRequest $request, CreateCost $action): RedirectResponse
     {
-        try {
-            $action->execute($request->validated());
-
-            $this->success('تم إضافة التكلفة بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء إضافة التكلفة');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($request->validated()),
+            'تم إضافة التكلفة بنجاح',
+            'حدث خطأ أثناء إضافة التكلفة',
+        );
 
         return redirect()->route('costs.index');
     }
@@ -97,28 +94,22 @@ class CostController extends Controller
 
     public function update(UpdateCostRequest $request, Cost $cost, UpdateCost $action): RedirectResponse
     {
-        try {
-            $action->execute($cost, $request->validated());
-
-            $this->success('تم تحديث التكلفة بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء تحديث التكلفة');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($cost, $request->validated()),
+            'تم تحديث التكلفة بنجاح',
+            'حدث خطأ أثناء تحديث التكلفة',
+        );
 
         return redirect()->route('costs.index');
     }
 
     public function destroy(Cost $cost, DeleteCost $action): RedirectResponse
     {
-        try {
-            $action->execute($cost);
-
-            $this->success('تم حذف التكلفة بنجاح');
-        } catch (\Throwable $e) {
-            $this->error('حدث خطأ أثناء حذف التكلفة');
-            report($e);
-        }
+        $this->executeWithToast(
+            fn () => $action->execute($cost),
+            'تم حذف التكلفة بنجاح',
+            'حدث خطأ أثناء حذف التكلفة',
+        );
 
         return redirect()->route('costs.index');
     }
