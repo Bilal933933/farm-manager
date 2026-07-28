@@ -3,6 +3,7 @@
 namespace App\Domains\Lands\Models;
 
 use App\Domains\Crops\Models\Crop;
+use App\Domains\Parties\Models\Party;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,7 +15,7 @@ class LandSeason extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'crop', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'actual_revenue', 'actual_profit', 'status', 'notes'];
+    protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'crop', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'actual_revenue', 'actual_profit', 'status', 'notes', 'farmer_id', 'farmer_contract_id'];
 
     protected function casts(): array
     {
@@ -37,6 +38,16 @@ class LandSeason extends Model
     public function crop(): BelongsTo
     {
         return $this->belongsTo(Crop::class);
+    }
+
+    public function farmer(): BelongsTo
+    {
+        return $this->belongsTo(Party::class, 'farmer_id');
+    }
+
+    public function farmerContract(): BelongsTo
+    {
+        return $this->belongsTo(LandContract::class, 'farmer_contract_id');
     }
 
     public function harvests(): HasMany

@@ -61,7 +61,9 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
     if (contractId) {
       const contract = contracts.find((c) => c.id === Number(contractId));
       if (contract) {
-        setData('type', contract.type === 'إيجار' ? 'قبض' : 'دفع');
+        if (contract.type === 'مؤجر') setData('type', 'دفع');
+        else if (contract.type === 'مستأجر') setData('type', 'قبض');
+        else setData('type', '');
       }
     }
   }

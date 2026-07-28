@@ -19,11 +19,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { CONTRACT_TYPES } from '@/lib/landEnums';
+import { CONTRACT_TYPES, SETTLEMENT_TYPES } from '@/lib/landEnums';
 
 interface Contract {
   id?: number;
   type?: string;
+  settlement_type?: string | null;
+  share_percentage?: string | null;
   start_date?: string;
   end_date?: string;
   amount?: string;
@@ -51,12 +53,16 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
   const { data, setData, post, put, processing, errors, reset } = useForm({
     land_id: landId,
     party_id: contract?.party_id?.toString() ?? '',
-    type: contract?.type ?? 'إيجار',
+    type: contract?.type ?? 'مؤجر',
+    settlement_type: contract?.settlement_type ?? '',
+    share_percentage: contract?.share_percentage ?? '',
     start_date: toDateInputValue(contract?.start_date),
     end_date: toDateInputValue(contract?.end_date),
     amount: contract?.amount ?? '',
     notes: contract?.notes ?? '',
   });
+
+  const isFarmerContract = data.type === 'مزارع';
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -109,6 +115,44 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
             </Select>
             {errors.type && <p className="text-sm text-rose-600">{errors.type}</p>}
           </div>
+
+          {isFarmerContract && (
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="settlement_type">نوع التسوية</Label>
+                <Select value={data.settlement_type} onValueChange={(v) => setData('settlement_type', v)}>
+                  <SelectTrigger id="settlement_type">
+                    <SelectValue placeholder="اختر..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {SETTLEMENT_TYPES.map((t) => (
+                      <SelectItem key={t.value} value={t.value}>
+                        {t.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {errors.settlement_type && <p className="text-sm text-rose-600">{errors.settlement_type}</p>}
+              </div>
+
+              {data.settlement_type === 'نسبة' && (
+                <div className="space-y-2">
+                  <Label htmlFor="share_percentage">نسبة المزارع (%)</Label>
+                  <Input
+                    id="share_percentage"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    max="100"
+                    className="font-mono"
+                    value={data.share_percentage}
+                    onChange={(e) => setData('share_percentage', e.target.value)}
+                  />
+                  {errors.share_percentage && <p className="text-sm text-rose-600">{errors.share_percentage}</p>}
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">

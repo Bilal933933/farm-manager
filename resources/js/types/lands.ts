@@ -14,6 +14,8 @@ export interface Season {
   expected_cost?: string;
   status: string;
   notes?: string;
+  farmer_id?: number | null;
+  farmer?: { id: number; name: string } | null;
   harvests?: { id: number; date: string; quantity: string }[];
 }
 
@@ -47,6 +49,7 @@ export interface CostData {
   land?: { id: number; name: string } | null;
   land_season?: { id: number } | null;
   crop?: { id: number; name: string } | null;
+  borne_by?: string;
 }
 
 export interface SaleData {
@@ -63,6 +66,8 @@ export interface SaleData {
 export interface Contract {
   id: number;
   type: string;
+  settlement_type?: string | null;
+  share_percentage?: string | null;
   start_date: string;
   end_date?: string;
   amount: string;

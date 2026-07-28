@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Domains\Lands\Actions\RecordHarvest;
+use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
+use App\Domains\Parties\Enums\PartyCategory;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Actions\RecordPayment;
 use App\Domains\Products\Models\Product;
@@ -62,6 +64,15 @@ class DemoFarmSeeder extends Seeder
         $season = LandSeason::with('land')
             ->whereHas('land', fn ($q) => $q->where('name', 'أرض السلام'))
             ->first();
+
+        $farmer = Party::where('category', PartyCategory::Farmer->value)->first();
+        $farmerContract = LandContract::where('type', 'مزارع')->first();
+        if ($farmer && $season) {
+            $season->update([
+                'farmer_id' => $farmer->id,
+                'farmer_contract_id' => $farmerContract?->id,
+            ]);
+        }
 
         $harvest = $recordHarvest->execute([
             'land_season_id' => $season->id,

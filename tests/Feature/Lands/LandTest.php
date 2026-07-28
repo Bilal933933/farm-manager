@@ -125,7 +125,7 @@ test('contract can be stored for a land', function () {
 
     $this->post(route('lands.contracts.store'), [
         'land_id' => $land->id,
-        'type' => 'إيجار',
+        'type' => 'مؤجر',
         'start_date' => '2025-01-01',
         'end_date' => '2027-12-31',
         'amount' => 150000,

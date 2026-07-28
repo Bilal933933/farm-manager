@@ -19,6 +19,8 @@ class LandContract extends Model
         'land_id',
         'party_id',
         'type',
+        'settlement_type',
+        'share_percentage',
         'start_date',
         'end_date',
         'amount',
@@ -33,6 +35,7 @@ class LandContract extends Model
             'start_date' => 'date',
             'end_date' => 'date',
             'amount' => 'decimal:2',
+            'share_percentage' => 'decimal:2',
         ];
     }
 

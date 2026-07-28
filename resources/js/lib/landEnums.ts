@@ -9,8 +9,20 @@ export const LAND_STATUSES = [
 ];
 
 export const CONTRACT_TYPES = [
-  { value: 'إيجار', label: 'إيجار' },
-  { value: 'تملك', label: 'تملك' },
+  { value: 'مؤجر', label: 'مؤجر' },
+  { value: 'مستأجر', label: 'مستأجر' },
+  { value: 'مزارع', label: 'مزارع' },
+];
+
+export const SETTLEMENT_TYPES = [
+  { value: 'ثابت', label: 'مبلغ ثابت' },
+  { value: 'نسبة', label: 'نسبة من الإنتاج' },
+];
+
+export const COST_BORNE_BY = [
+  { value: 'مشترك', label: 'مشترك' },
+  { value: 'مزارع', label: 'المزارع' },
+  { value: 'مالك', label: 'المالك' },
 ];
 
 export const SEASON_STATUSES = [
@@ -24,6 +36,7 @@ export const STATUS_TONE: Record<string, string> = {
   'متوقف': 'stone',
   'قادم': 'amber',
   'منتهي': 'stone',
-  'إيجار': 'sky',
-  'تملك': 'violet',
+  'مؤجر': 'sky',
+  'مستأجر': 'violet',
+  'مزارع': 'amber',
 };

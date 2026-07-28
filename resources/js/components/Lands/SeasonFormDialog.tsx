@@ -13,6 +13,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { SEASON_STATUSES } from '@/lib/landEnums';
 import type { Crop, Season } from '@/types';
 
+interface Farmer {
+  id: number;
+  name: string;
+}
+
 interface SeasonFormData {
   land_id: number;
   crop_id: string;
@@ -23,6 +28,7 @@ interface SeasonFormData {
   expected_cost: string;
   status: string;
   notes: string;
+  farmer_id: string;
 }
 
 interface SeasonFormDialogProps {
@@ -30,6 +36,7 @@ interface SeasonFormDialogProps {
   season?: Season | null;
   trigger: ReactNode;
   crops: Crop[];
+  farmers?: Farmer[];
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
@@ -42,7 +49,7 @@ return '';
   return dateStr.split('T')[0];
 }
 
-export default function SeasonFormDialog({ landId, season = null, trigger, crops, open, onOpenChange }: SeasonFormDialogProps) {
+export default function SeasonFormDialog({ landId, season = null, trigger, crops, farmers, open, onOpenChange }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
   const initialCrop = season?.crop && typeof season.crop === 'object'
@@ -59,6 +66,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
     expected_cost: season?.expected_cost ?? '',
     status: season?.status ?? 'قادم',
     notes: season?.notes ?? '',
+    farmer_id: String(season?.farmer_id ?? ''),
   });
 
   function submit(e: React.FormEvent) {
@@ -146,6 +154,21 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
               onChange={(e) => setData('expected_cost', e.target.value)}
             />
             {errors.expected_cost && <p className="text-sm text-rose-600">{errors.expected_cost}</p>}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="farmer_id">المزارع (اختياري)</Label>
+            <Select value={data.farmer_id} onValueChange={(v) => setData('farmer_id', v)}>
+              <SelectTrigger id="farmer_id">
+                <SelectValue placeholder="اختر المزارع" />
+              </SelectTrigger>
+              <SelectContent>
+                {farmers?.map((f) => (
+                  <SelectItem key={f.id} value={String(f.id)}>{f.name}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.farmer_id && <p className="text-sm text-rose-600">{errors.farmer_id}</p>}
           </div>
 
           <div className="space-y-2">

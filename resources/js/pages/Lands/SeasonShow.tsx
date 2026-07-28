@@ -27,12 +27,13 @@ interface SaleData {
 
 interface Props {
   land: { id: number; name: string };
-  season: { id: number; status: string; planting_date: string; harvest_date: string | null; cultivated_area: string | null; notes: string | null };
+  season: { id: number; status: string; planting_date: string; harvest_date: string | null; cultivated_area: string | null; notes: string | null; farmer?: { id: number; name: string } | null };
   crop_name: string;
   harvests: HarvestData[];
   costs: CostData[];
   sales: SaleData[];
   stats: { total_harvest: number; total_sold_qty: number; total_sales: number; total_cost: number; profit: number };
+  farmers: { id: number; name: string }[];
 }
 
 const cell = 'text-right';
@@ -42,7 +43,7 @@ const nh = `${numCell} ${h}`;
 
 function fmt(n: number) { return n.toLocaleString() }
 
-export default function SeasonShow({ land, season, crop_name, harvests, costs, sales, stats }: Props) {
+export default function SeasonShow({ land, season, crop_name, harvests, costs, sales, stats, farmers }: Props) {
   return (
     <div dir="rtl" className="space-y-6 p-6">
       <Head title={`${crop_name} - ${land.name}`} />
@@ -57,7 +58,7 @@ export default function SeasonShow({ land, season, crop_name, harvests, costs, s
             <StatusBadge value={season.status} />
           </div>
           <p className="mt-0.5 text-sm text-stone-500">
-            {land.name} — زراعة: <DateDisplay date={season.planting_date} />
+            {land.name}{season.farmer ? <> | مزارع: {season.farmer.name}</> : null} — زراعة: <DateDisplay date={season.planting_date} />
             {season.harvest_date && <> | حصاد متوقع: <DateDisplay date={season.harvest_date} /></>}
           </p>
         </div>

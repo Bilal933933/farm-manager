@@ -19,9 +19,14 @@ import {
 } from '@/components/ui/table';
 import type { Crop, Season, SeasonStats } from '@/types';
 
+interface Farmer {
+  id: number;
+  name: string;
+}
+
 interface Props {
   seasons: Season[]; seasonStats: Record<number, SeasonStats>;
-  crops: Crop[]; landId: number;
+  crops: Crop[]; farmers?: Farmer[]; landId: number;
 }
 
 function getCropName(s: Season): string {
@@ -49,13 +54,13 @@ const numCell = 'font-mono text-right tabular-nums';
 const h = 'text-right font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
-export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Props) {
+export default function SeasonsTab({ seasons, seasonStats, crops, farmers, landId }: Props) {
   const [editingSeason, setEditingSeason] = useState<Season | null>(null);
 
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <SeasonFormDialog landId={landId} crops={crops} trigger={
+        <SeasonFormDialog landId={landId} crops={crops} farmers={farmers} trigger={
           <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
             <Plus className="ms-2 h-4 w-4" /> إضافة موسم
           </Button>
@@ -74,6 +79,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
             <TableRow>
               <TableHead className={h}>المحصول</TableHead>
               <TableHead className={h}>المساحة</TableHead>
+              <TableHead className={h}>المزارع</TableHead>
               <TableHead className={h}>الزراعة</TableHead>
               <TableHead className={nh}>الحصاد</TableHead>
               <TableHead className={nh}>المبيعات</TableHead>
@@ -86,7 +92,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
           <TableBody>
             {seasons.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={9} className="py-12 text-center text-stone-500">
+                <TableCell colSpan={10} className="py-12 text-center text-stone-500">
                   لا توجد مواسم مسجّلة لهذه الأرض بعد.
                 </TableCell>
               </TableRow>
@@ -105,6 +111,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
                     </Link>
                   </TableCell>
                   <TableCell className={cell}>{s.cultivated_area || '—'}</TableCell>
+                  <TableCell className={cell}>{s.farmer?.name || '—'}</TableCell>
                   <TableCell className={cell}><DateDisplay date={s.planting_date} /></TableCell>
                   <TableCell className={numCell}>{harvest > 0 ? harvest : '—'}</TableCell>
                   <TableCell className={numCell}>{salesTotal > 0 ? fmt(salesTotal) : '—'}</TableCell>
@@ -138,6 +145,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, landId }: Prop
                       landId={landId}
                       season={editingSeason}
                       crops={crops}
+                      farmers={farmers}
                       open={editingSeason?.id === s.id}
                       onOpenChange={(open) => {
  if (!open) {

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->decimal('actual_profit', 12, 2)->nullable()->after('actual_revenue');
             $table->string('status', 50)->default('قادم');
             $table->text('notes')->nullable();
+            $table->unsignedBigInteger('farmer_id')->nullable();
+            $table->foreignId('farmer_contract_id')->nullable()->constrained('land_contracts')->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

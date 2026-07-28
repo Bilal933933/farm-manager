@@ -5,6 +5,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { COST_BORNE_BY } from '@/lib/landEnums';
 
 const COST_TYPES = ['بذور', 'أسمدة', 'عمالة', 'ري', 'مبيدات', 'حصاد', 'نقل', 'إيجار', 'خدمات', 'صيانة', 'أخرى'];
 
@@ -18,6 +19,7 @@ interface CostFormData {
   amount: string;
   date: string;
   notes: string;
+  borne_by?: string;
 }
 
 interface CostFormProps {
@@ -66,6 +68,21 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
             </SelectContent>
           </Select>
           {errors.type && <p className="text-sm text-rose-600">{errors.type}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="borne_by">يتحملها</Label>
+          <Select value={data.borne_by ?? 'مشترك'} onValueChange={(v) => setData('borne_by', v)}>
+            <SelectTrigger id="borne_by">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {COST_BORNE_BY.map((t) => (
+                <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {errors.borne_by && <p className="text-sm text-rose-600">{errors.borne_by}</p>}
         </div>
 
         <div className="space-y-2">

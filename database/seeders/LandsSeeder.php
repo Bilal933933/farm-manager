@@ -200,7 +200,19 @@ class LandsSeeder extends Seeder
         }
 
         // ──────────────────────────────────────
-        // 7. Recalculate all season financials
+        // 7. Assign farmers to seasons
+        // ──────────────────────────────────────
+        $farmerContract = $contractByRef['ctr_farmer_wadi'] ?? null;
+        if ($farmerContract) {
+            LandSeason::where('land_id', $landByRef['land_wadi']->id)
+                ->update([
+                    'farmer_id' => $farmerContract->party_id,
+                    'farmer_contract_id' => $farmerContract->id,
+                ]);
+        }
+
+        // ──────────────────────────────────────
+        // 8. Recalculate all season financials
         // ──────────────────────────────────────
         foreach ($seasonByRef as $season) {
             $calculateSeasonFinancials->forSeason($season);

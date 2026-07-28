@@ -27,6 +27,7 @@ interface ShowProps {
   costsCount: number;
   revenuesCount: number;
   parties?: { id: number; name: string; type: string; phone: string | null }[];
+  farmers?: { id: number; name: string }[];
 }
 
 function getCropName(s: Season): string {
@@ -41,7 +42,7 @@ return (s.crop as Crop).name;
   return 'موسم';
 }
 
-export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount, parties }: ShowProps) {
+export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount, parties, farmers }: ShowProps) {
   const [selectedSeasonId, setSelectedSeasonId] = useState<number | null>(activeSeason?.id ?? null);
 
   const seasons = (land.seasons ?? []);
@@ -92,13 +93,13 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
         </TabsList>
 
         <TabsContent value="seasons">
-          <Deferred data={['crops', 'seasonStats']} fallback={
+          <Deferred data={['crops', 'seasonStats', 'farmers']} fallback={
             <div className="flex items-center justify-center py-16 text-stone-400">
               <div className="ms-2 h-6 w-6 animate-spin rounded-full border-2 border-emerald-600 border-t-transparent" />
               جاري تحميل المواسم...
             </div>
           }>
-            <SeasonsTab seasons={seasons} seasonStats={seasonStats!} crops={crops!} landId={land.id} />
+            <SeasonsTab seasons={seasons} seasonStats={seasonStats!} crops={crops!} farmers={farmers} landId={land.id} />
           </Deferred>
         </TabsContent>
 

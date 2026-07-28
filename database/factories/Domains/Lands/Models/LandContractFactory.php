@@ -24,17 +24,26 @@ class LandContractFactory extends Factory
         ];
     }
 
-    public function lease(): static
+    public function lessor(): static
     {
         return $this->state(fn (array $attributes) => [
-            'type' => ContractType::Lease->value,
+            'type' => ContractType::Lessor->value,
         ]);
     }
 
-    public function ownership(): static
+    public function tenant(): static
     {
         return $this->state(fn (array $attributes) => [
-            'type' => ContractType::Ownership->value,
+            'type' => ContractType::Tenant->value,
+        ]);
+    }
+
+    public function farmer(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => ContractType::Farmer->value,
+            'settlement_type' => 'نسبة',
+            'share_percentage' => 25,
         ]);
     }
 }

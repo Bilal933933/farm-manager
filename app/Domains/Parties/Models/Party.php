@@ -3,6 +3,7 @@
 namespace App\Domains\Parties\Models;
 
 use App\Domains\Lands\Models\LandContract;
+use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Enums\PartyCategory;
 use App\Domains\Payments\Models\Payment;
 use App\Domains\Purchases\Models\Purchase;
@@ -53,5 +54,10 @@ class Party extends Model
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+
+    public function farmedSeasons()
+    {
+        return $this->hasMany(LandSeason::class, 'farmer_id');
     }
 }

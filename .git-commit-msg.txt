@@ -1,0 +1,11 @@
+﻿تحسين إدارة العقود والتكاليف والمواسم مع الربط بالمدفوعات والأطراف
+
+- إضافة contract_type (إيجار/مشاركة/مزارعة) مع enum وإصلاح الـ Request
+- ربط LandContract بـ Party (landLord) عبر party_id
+- إضافة حقل remaining للعقود وتحديثه عند تسجيل/تعديل دفعة
+- إضافة product_id للتكاليف وربطها بـ FormDialog
+- تحسين SeasonFormDialog مع اختيار العقد
+- إضافة دوال العلاقات في Party و LandSeason
+- تحديث بيانات Seeders: parties.json, contracts.json, payments.json
+- إضافة DemoFarmSeeder وربط العقود بالأطراف في LandsSeeder
+- إضافة seeding للـ land_contracts وتحديث LandContractFactory

@@ -27,8 +27,9 @@ interface CreateProps {
 }
 
 export default function Create({ parties, contracts, initialPartyId = '', initialContractId = '' }: CreateProps) {
-  const initialType = initialContractId
-    ? contracts.find((c) => c.id === Number(initialContractId))?.type === 'إيجار' ? 'قبض' : 'دفع'
+  const initialContract = initialContractId ? contracts.find((c) => c.id === Number(initialContractId)) : null;
+  const initialType = initialContract
+    ? initialContract.type === 'مؤجر' ? 'دفع' : initialContract.type === 'مستأجر' ? 'قبض' : ''
     : '';
 
   const { data, setData, post, processing, errors } = useForm({

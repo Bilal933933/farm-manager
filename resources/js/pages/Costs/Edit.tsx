@@ -14,6 +14,7 @@ export default function Edit({ cost, lands, seasons }: EditProps) {
     amount: cost.amount.toString(),
     date: cost.date,
     notes: cost.notes ?? '',
+    borne_by: cost.borne_by ?? 'مشترك',
     land_id: cost.land?.id?.toString() ?? cost.land_id?.toString() ?? '',
     land_season_id: cost.land_season?.id?.toString() ?? cost.land_season_id?.toString() ?? '',
   });

@@ -13,6 +13,8 @@ return new class extends Migration
             $table->foreignId('land_id')->constrained()->cascadeOnDelete();
             $table->foreignId('party_id')->nullable()->index();
             $table->string('type', 50);
+            $table->string('settlement_type', 20)->nullable();
+            $table->decimal('share_percentage', 5, 2)->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->decimal('amount', 12, 2)->default(0);

@@ -13,6 +13,7 @@ export default function Create({ lands, seasons }: CreateProps) {
     land_id: lands[0]?.id?.toString() ?? '',
     land_season_id: '',
     type: 'أخرى',
+    borne_by: 'مشترك',
     description: '',
     amount: '',
     date: '',

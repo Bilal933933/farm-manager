@@ -18,6 +18,7 @@ class UpdateCostRequest extends FormRequest
         return [
             'land_id' => ['required', 'exists:lands,id'],
             'land_season_id' => ['required', 'exists:land_seasons,id'],
+            'borne_by' => ['nullable', 'string', 'in:مشترك,مزارع,مالك'],
             'type' => ['required', Rule::enum(CostType::class)],
             'description' => ['required', 'string', 'max:1000'],
             'amount' => ['required', 'numeric', 'min:0'],

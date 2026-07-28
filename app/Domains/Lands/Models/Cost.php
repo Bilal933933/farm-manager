@@ -14,7 +14,7 @@ class Cost extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['land_id', 'land_season_id', 'crop_id', 'product_id', 'quantity', 'type', 'description', 'amount', 'date', 'notes'];
+    protected $fillable = ['land_id', 'land_season_id', 'crop_id', 'product_id', 'quantity', 'borne_by', 'type', 'description', 'amount', 'date', 'notes'];
 
     protected function casts(): array
     {

@@ -67,5 +67,15 @@ class PartiesSeeder extends Seeder
             'address' => 'القاهرة - مدينة نصر',
             'notes' => 'شركة استثمار زراعي - مالكة أرض النيل ومزرعة الوادي وحقل الأمل',
         ]);
+
+        // Farmers
+        Party::create([
+            'name' => 'الحاج محمود عبدالله',
+            'type' => PartyType::Individual->value,
+            'category' => PartyCategory::Farmer->value,
+            'phone' => '01001112233',
+            'address' => 'كفر الشيخ - مركز بيلا - ناحية السلام',
+            'notes' => 'مزارع رئيسي - يعمل في أرض السلام وأرض الترعة',
+        ]);
     }
 }
