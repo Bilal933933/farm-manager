@@ -7,12 +7,14 @@ use App\Domains\Products\Enums\ProductStatus;
 use App\Domains\Products\Enums\ProductUnit;
 use App\Domains\StockMovements\Enums\MovementType;
 use App\Domains\StockMovements\Models\StockMovement;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [

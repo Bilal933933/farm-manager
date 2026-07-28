@@ -5,6 +5,7 @@ namespace App\Domains\Purchases\Models;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Purchases\Enums\PaymentType;
 use App\Domains\StockMovements\Models\StockMovement;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Purchase extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [

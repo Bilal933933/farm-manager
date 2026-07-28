@@ -11,6 +11,7 @@ use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Actions\RecordPayment;
+use App\Domains\Products\Models\Product;
 use App\Domains\Sales\Actions\CreateSale;
 use Illuminate\Database\Seeder;
 
@@ -42,6 +43,9 @@ class LandsSeeder extends Seeder
         }
 
         $partyByName = Party::pluck('id', 'name');
+
+        // Map product names to IDs (for costs)
+        $productByName = Product::pluck('id', 'name');
 
         // ──────────────────────────────────────
         // 1. Lands
@@ -130,9 +134,23 @@ class LandsSeeder extends Seeder
                 if (! $season) {
                     continue;
                 }
+
+                $cropId = null;
+                if (! empty($item['crop_ref'])) {
+                    $cropId = $cropByName[$item['crop_ref']] ?? null;
+                }
+
+                $productId = null;
+                if (! empty($item['product_ref'])) {
+                    $productId = $productByName[$item['product_ref']] ?? null;
+                }
+
                 $insert[] = [
                     'land_id' => $season->land_id,
                     'land_season_id' => $season->id,
+                    'crop_id' => $cropId,
+                    'product_id' => $productId,
+                    'quantity' => $item['qty'] ?? null,
                     'type' => $item['type'],
                     'description' => $item['description'],
                     'amount' => $item['amount'],

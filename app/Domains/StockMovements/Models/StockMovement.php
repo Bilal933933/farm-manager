@@ -7,12 +7,15 @@ use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Products\Models\Product;
 use App\Domains\StockMovements\Enums\MovementReason;
 use App\Domains\StockMovements\Enums\MovementType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class StockMovement extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'product_id',
         'land_id',

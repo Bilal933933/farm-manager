@@ -3,11 +3,14 @@
 namespace App\Domains\Purchases\Models;
 
 use App\Domains\Products\Models\Product;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PurchaseItem extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'purchase_id',
         'product_id',

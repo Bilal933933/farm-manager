@@ -4,12 +4,15 @@ namespace App\Domains\Ledger\Models;
 
 use App\Domains\Ledger\Enums\LedgerDirection;
 use App\Domains\Parties\Models\Party;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class LedgerEntry extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'date',
         'direction',

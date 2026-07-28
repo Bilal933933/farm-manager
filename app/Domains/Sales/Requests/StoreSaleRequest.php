@@ -25,6 +25,7 @@ class StoreSaleRequest extends FormRequest
             'date' => ['required', 'date'],
             'payment_type' => ['required', Rule::enum(SaleType::class)],
             'notes' => ['nullable', 'string'],
+            'screenshot' => ['nullable', 'file', 'mimes:jpg,jpeg,png,gif,webp', 'max:5120'],
         ];
     }
 

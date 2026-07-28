@@ -1,5 +1,5 @@
 import { Head, Link } from '@inertiajs/react';
-import { ArrowRight, FileText, Wallet, ShoppingCart } from 'lucide-react';
+import { ArrowRight, FileText, Wallet, ShoppingCart, Store, Truck } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import PartyHeader from './Components/PartyHeader';
 import PartyFinancialSummary from './Components/PartyFinancialSummary';
@@ -27,8 +27,15 @@ export default function Show({ party, summary }: ShowProps) {
 
   const defaultTab = showContracts ? 'contracts' : showPayments ? 'payments' : showPurchases ? 'purchases' : 'sales';
 
+  const tabs = [
+    { key: 'contracts', label: 'العقود', icon: FileText, count: contractsCount, visible: showContracts },
+    { key: 'payments', label: 'المدفوعات', icon: Wallet, count: paymentsCount, visible: showPayments },
+    { key: 'purchases', label: 'المشتريات', icon: Store, count: purchasesCount, visible: showPurchases },
+    { key: 'sales', label: 'المبيعات', icon: Truck, count: salesCount, visible: showSales },
+  ].filter((t) => t.visible);
+
   return (
-    <div dir="rtl" className="mx-auto max-w-4xl space-y-6 p-6">
+    <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
       <Head title={party.name} />
 
       <Link
@@ -43,64 +50,25 @@ export default function Show({ party, summary }: ShowProps) {
       <PartyFinancialSummary summary={summary} />
 
       <Tabs defaultValue={defaultTab} dir="rtl" className="w-full">
-        <TabsList className="w-full justify-start bg-stone-100 p-1 rounded-lg gap-0">
-          {showContracts && (
-            <TabsTrigger
-              value="contracts"
-              className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
-            >
-              <FileText className="h-4 w-4" />
-              العقود
-              {contractsCount > 0 && (
-                <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
-                  {contractsCount}
-                </span>
-              )}
-            </TabsTrigger>
-          )}
-          {showPayments && (
-            <TabsTrigger
-              value="payments"
-              className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
-            >
-              <Wallet className="h-4 w-4" />
-              المدفوعات
-              {paymentsCount > 0 && (
-                <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
-                  {paymentsCount}
-                </span>
-              )}
-            </TabsTrigger>
-          )}
-          {showPurchases && (
-            <TabsTrigger
-              value="purchases"
-              className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
-            >
-              <ShoppingCart className="h-4 w-4" />
-              المشتريات
-              {purchasesCount > 0 && (
-                <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
-                  {purchasesCount}
-                </span>
-              )}
-            </TabsTrigger>
-          )}
-          {showSales && (
-            <TabsTrigger
-              value="sales"
-              className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
-            >
-              <ShoppingCart className="h-4 w-4" />
-              المبيعات
-              {salesCount > 0 && (
-                <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
-                  {salesCount}
-                </span>
-              )}
-            </TabsTrigger>
-          )}
-        </TabsList>
+        <div className="sticky top-0 z-10 -mx-4 sm:-mx-6 px-4 sm:px-6 pb-0.5 bg-white/95 backdrop-blur-sm">
+          <TabsList className="w-full justify-start bg-stone-100 p-1 rounded-xl gap-1">
+            {tabs.map((tab) => (
+              <TabsTrigger
+                key={tab.key}
+                value={tab.key}
+                className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-lg px-4 py-2 text-sm transition-all"
+              >
+                <tab.icon className="h-4 w-4" />
+                <span className="hidden sm:inline">{tab.label}</span>
+                {tab.count > 0 && (
+                  <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-600 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-700">
+                    {tab.count}
+                  </span>
+                )}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
 
         {showContracts && (
           <TabsContent value="contracts" className="mt-6">

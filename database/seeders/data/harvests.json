@@ -4,279 +4,279 @@
         "season_ref": "land_salam_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 1",
         "date": "2022-06-25",
-        "quantity": 224.35
+        "quantity": 248.88
     },
     {
         "ref": "land_salam_2022_صيفي_h2",
         "season_ref": "land_salam_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 2",
         "date": "2022-07-05",
-        "quantity": 290.02
+        "quantity": 159.12
     },
     {
         "ref": "land_salam_2022_شتوي_h1",
         "season_ref": "land_salam_2022_شتوي",
         "name": "حصاد قمح صلب - شتوي 2022",
         "date": "2023-04-25",
-        "quantity": 287.28
+        "quantity": 292.24
     },
     {
         "ref": "land_salam_2023_صيفي_h1",
         "season_ref": "land_salam_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 1",
         "date": "2023-06-30",
-        "quantity": 169.69
+        "quantity": 232.2
     },
     {
         "ref": "land_salam_2023_صيفي_h2",
         "season_ref": "land_salam_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 2",
         "date": "2023-07-10",
-        "quantity": 308.1
+        "quantity": 314.1
     },
     {
         "ref": "land_salam_2023_شتوي_h1",
         "season_ref": "land_salam_2023_شتوي",
         "name": "حصاد قمح صلب - شتوي 2023",
         "date": "2024-04-30",
-        "quantity": 203.3
+        "quantity": 256.61
     },
     {
         "ref": "land_salam_2024_صيفي_h1",
         "season_ref": "land_salam_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 1",
         "date": "2024-07-05",
-        "quantity": 268.92
+        "quantity": 180.18
     },
     {
         "ref": "land_salam_2024_صيفي_h2",
         "season_ref": "land_salam_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 2",
         "date": "2024-07-15",
-        "quantity": 336.65
+        "quantity": 276.28
     },
     {
         "ref": "land_tar3a_2022_صيفي_h1",
         "season_ref": "land_tar3a_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 1",
         "date": "2022-06-25",
-        "quantity": 219.86
+        "quantity": 141.7
     },
     {
         "ref": "land_tar3a_2022_صيفي_h2",
         "season_ref": "land_tar3a_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 2",
         "date": "2022-07-05",
-        "quantity": 225.68
+        "quantity": 141.7
     },
     {
         "ref": "land_tar3a_2022_شتوي_h1",
         "season_ref": "land_tar3a_2022_شتوي",
         "name": "حصاد قمح صلب - شتوي 2022",
         "date": "2023-04-25",
-        "quantity": 193.33
+        "quantity": 236.16
     },
     {
         "ref": "land_tar3a_2023_صيفي_h1",
         "season_ref": "land_tar3a_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 1",
         "date": "2023-06-30",
-        "quantity": 185.64
+        "quantity": 152.37
     },
     {
         "ref": "land_tar3a_2023_صيفي_h2",
         "season_ref": "land_tar3a_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 2",
         "date": "2023-07-10",
-        "quantity": 187
+        "quantity": 192.24
     },
     {
         "ref": "land_tar3a_2023_شتوي_h1",
         "season_ref": "land_tar3a_2023_شتوي",
         "name": "حصاد قمح صلب - شتوي 2023",
         "date": "2024-04-30",
-        "quantity": 196.08
+        "quantity": 158.31
     },
     {
         "ref": "land_tar3a_2024_صيفي_h1",
         "season_ref": "land_tar3a_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 1",
         "date": "2024-07-05",
-        "quantity": 207.19
+        "quantity": 149.78
     },
     {
         "ref": "land_tar3a_2024_صيفي_h2",
         "season_ref": "land_tar3a_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 2",
         "date": "2024-07-15",
-        "quantity": 217.16
+        "quantity": 125.5
     },
     {
         "ref": "land_nile_2022_صيفي_h1",
         "season_ref": "land_nile_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 1",
         "date": "2022-06-25",
-        "quantity": 207.9
+        "quantity": 338
     },
     {
         "ref": "land_nile_2022_صيفي_h2",
         "season_ref": "land_nile_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 2",
         "date": "2022-07-05",
-        "quantity": 356.9
+        "quantity": 240.12
     },
     {
         "ref": "land_nile_2022_شتوي_h1",
         "season_ref": "land_nile_2022_شتوي",
         "name": "حصاد قمح صلب - شتوي 2022",
         "date": "2023-04-25",
-        "quantity": 301.74
+        "quantity": 326.31
     },
     {
         "ref": "land_nile_2023_صيفي_h1",
         "season_ref": "land_nile_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 1",
         "date": "2023-06-30",
-        "quantity": 228.9
+        "quantity": 418.2
     },
     {
         "ref": "land_nile_2023_صيفي_h2",
         "season_ref": "land_nile_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 2",
         "date": "2023-07-10",
-        "quantity": 292.95
+        "quantity": 376.13
     },
     {
         "ref": "land_nile_2023_شتوي_h1",
         "season_ref": "land_nile_2023_شتوي",
         "name": "حصاد قمح صلب - شتوي 2023",
         "date": "2024-04-30",
-        "quantity": 231.84
+        "quantity": 263.34
     },
     {
         "ref": "land_nile_2024_صيفي_h1",
         "season_ref": "land_nile_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 1",
         "date": "2024-07-05",
-        "quantity": 320.03
+        "quantity": 248.63
     },
     {
         "ref": "land_nile_2024_صيفي_h2",
         "season_ref": "land_nile_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 2",
         "date": "2024-07-15",
-        "quantity": 377.4
+        "quantity": 207.83
     },
     {
         "ref": "land_wadi_2022_صيفي_h1",
         "season_ref": "land_wadi_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 1",
         "date": "2022-06-25",
-        "quantity": 561.2
+        "quantity": 801.35
     },
     {
         "ref": "land_wadi_2022_صيفي_h2",
         "season_ref": "land_wadi_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 2",
         "date": "2022-07-05",
-        "quantity": 667
+        "quantity": 500.55
     },
     {
         "ref": "land_wadi_2022_شتوي_h1",
         "season_ref": "land_wadi_2022_شتوي",
         "name": "حصاد قمح صلب - شتوي 2022",
         "date": "2023-04-25",
-        "quantity": 645.98
+        "quantity": 521.68
     },
     {
         "ref": "land_wadi_2023_صيفي_h1",
         "season_ref": "land_wadi_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 1",
         "date": "2023-06-30",
-        "quantity": 758.25
+        "quantity": 330.05
     },
     {
         "ref": "land_wadi_2023_صيفي_h2",
         "season_ref": "land_wadi_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 2",
         "date": "2023-07-10",
-        "quantity": 562.5
+        "quantity": 508.4
     },
     {
         "ref": "land_wadi_2023_شتوي_h1",
         "season_ref": "land_wadi_2023_شتوي",
         "name": "حصاد قمح صلب - شتوي 2023",
         "date": "2024-04-30",
-        "quantity": 600.6
+        "quantity": 756.8
     },
     {
         "ref": "land_wadi_2024_صيفي_h1",
         "season_ref": "land_wadi_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 1",
         "date": "2024-07-05",
-        "quantity": 550.25
+        "quantity": 789.6
     },
     {
         "ref": "land_wadi_2024_صيفي_h2",
         "season_ref": "land_wadi_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 2",
         "date": "2024-07-15",
-        "quantity": 347.9
+        "quantity": 615.7
     },
     {
         "ref": "land_amal_2022_صيفي_h1",
         "season_ref": "land_amal_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 1",
         "date": "2022-06-25",
-        "quantity": 122.4
+        "quantity": 268.73
     },
     {
         "ref": "land_amal_2022_صيفي_h2",
         "season_ref": "land_amal_2022_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2022 - الدورة 2",
         "date": "2022-07-05",
-        "quantity": 189.6
+        "quantity": 206.36
     },
     {
         "ref": "land_amal_2022_شتوي_h1",
         "season_ref": "land_amal_2022_شتوي",
         "name": "حصاد قمح صلب - شتوي 2022",
         "date": "2023-04-25",
-        "quantity": 189.36
+        "quantity": 248.4
     },
     {
         "ref": "land_amal_2023_صيفي_h1",
         "season_ref": "land_amal_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 1",
         "date": "2023-06-30",
-        "quantity": 169.84
+        "quantity": 148.19
     },
     {
         "ref": "land_amal_2023_صيفي_h2",
         "season_ref": "land_amal_2023_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2023 - الدورة 2",
         "date": "2023-07-10",
-        "quantity": 164.56
+        "quantity": 142.35
     },
     {
         "ref": "land_amal_2023_شتوي_h1",
         "season_ref": "land_amal_2023_شتوي",
         "name": "حصاد قمح صلب - شتوي 2023",
         "date": "2024-04-30",
-        "quantity": 279.45
+        "quantity": 202.5
     },
     {
         "ref": "land_amal_2024_صيفي_h1",
         "season_ref": "land_amal_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 1",
         "date": "2024-07-05",
-        "quantity": 138.55
+        "quantity": 220.22
     },
     {
         "ref": "land_amal_2024_صيفي_h2",
         "season_ref": "land_amal_2024_صيفي",
         "name": "حصاد بطيخ أحمر - صيفي 2024 - الدورة 2",
         "date": "2024-07-15",
-        "quantity": 192.95
+        "quantity": 235.62
     }
 ]

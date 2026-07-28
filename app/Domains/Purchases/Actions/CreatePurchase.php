@@ -48,6 +48,8 @@ class CreatePurchase
                     'movement_date' => $data['date'],
                     'reference_type' => Purchase::class,
                     'reference_id' => $purchase->id,
+                    'land_id' => $data['land_id'] ?? null,
+                    'land_season_id' => $data['land_season_id'] ?? null,
                 ]);
 
                 Product::withoutTimestamps(fn () => Product::where('id', $item['product_id'])->update([

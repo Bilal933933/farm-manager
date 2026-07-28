@@ -3,12 +3,15 @@
 namespace App\Domains\Lands\Models;
 
 use App\Domains\Sales\Models\Sale;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Harvest extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'land_season_id',
         'date',

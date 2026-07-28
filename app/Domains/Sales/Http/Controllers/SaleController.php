@@ -20,7 +20,7 @@ class SaleController extends Controller
 
     public function index(): Response
     {
-        $sales = Sale::with(['party', 'harvest.landSeason.land', 'harvest.landSeason.crop'])
+        $sales = Sale::with(['party', 'harvest.landSeason.land', 'harvest.landSeason.crop', 'attachments'])
             ->orderBy('date', 'desc')
             ->get();
 
@@ -55,7 +55,7 @@ class SaleController extends Controller
 
     public function show(Sale $sale): Response
     {
-        $sale->load(['party', 'harvest.landSeason.land', 'harvest.landSeason.crop']);
+        $sale->load(['party', 'harvest.landSeason.land', 'harvest.landSeason.crop', 'attachments']);
 
         return Inertia::render('Sales/Show', [
             'sale' => $sale,

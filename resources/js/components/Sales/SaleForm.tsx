@@ -1,5 +1,5 @@
 import { useForm } from '@inertiajs/react';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -41,7 +41,9 @@ export default function SaleForm({ harvests, parties, lands }: SaleFormProps) {
     date: '',
     payment_type: 'نقدي',
     notes: '',
+    screenshot: null as File | null,
   });
+  const fileRef = useRef<HTMLInputElement>(null);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -222,6 +224,30 @@ return false;
       <div className="space-y-2">
         <Label htmlFor="sale_notes">ملاحظات</Label>
         <Textarea id="sale_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="screenshot">اسكرين شوت (اختياري)</Label>
+        <div className="flex items-center gap-3">
+          <Input
+            id="screenshot"
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            className="cursor-pointer file:cursor-pointer"
+            onChange={(e) => setData('screenshot', e.target.files?.[0] ?? null)}
+          />
+          {data.screenshot && (
+            <button
+              type="button"
+              onClick={() => { setData('screenshot', null); if (fileRef.current) fileRef.current.value = ''; }}
+              className="text-sm text-rose-600 hover:text-rose-700 shrink-0"
+            >
+              إزالة
+            </button>
+          )}
+        </div>
+        {errors.screenshot && <p className="text-sm text-rose-600">{errors.screenshot}</p>}
       </div>
 
       <Button type="submit" disabled={processing} className="w-full bg-emerald-700 hover:bg-emerald-800">

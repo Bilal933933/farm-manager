@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { Eye } from 'lucide-react';
+import { Eye, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
 import {
@@ -44,8 +44,11 @@ export default function PartyContractsTable({ contracts }: Props) {
           <TableBody>
             {contracts.length === 0 && (
               <TableRow>
-                <TableCell colSpan={7} className="py-12 text-center text-stone-400">
-                  لا توجد عقود مرتبطة بهذا الطرف بعد.
+                <TableCell colSpan={7} className="py-16 text-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <FileText className="h-8 w-8 text-stone-300" />
+                    <span className="text-sm text-stone-400">لا توجد عقود مرتبطة بهذا الطرف بعد.</span>
+                  </div>
                 </TableCell>
               </TableRow>
             )}

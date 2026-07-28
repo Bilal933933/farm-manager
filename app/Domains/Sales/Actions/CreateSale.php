@@ -7,6 +7,7 @@ use App\Domains\Lands\Models\Harvest;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
 use App\Domains\Sales\Models\Sale;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 
 class CreateSale
@@ -33,6 +34,8 @@ class CreateSale
                 'reference_id' => $sale->id,
             ]);
 
+            $this->handleScreenshot($data, $sale);
+
             $harvest = Harvest::find($data['harvest_id']);
             if ($harvest?->land_season_id) {
                 $this->calculateSeasonFinancials->forSeason($harvest->landSeason);
@@ -40,5 +43,23 @@ class CreateSale
 
             return $sale;
         });
+    }
+
+    private function handleScreenshot(array $data, Sale $sale): void
+    {
+        if (! isset($data['screenshot']) || ! ($data['screenshot'] instanceof UploadedFile)) {
+            return;
+        }
+
+        $file = $data['screenshot'];
+        $filename = 'sale-'.$sale->id.'-'.time().'.'.$file->getClientOriginalExtension();
+        $path = $file->storeAs('attachments', $filename, 'public');
+
+        $sale->attachments()->create([
+            'filename' => $filename,
+            'path' => $path,
+            'mime_type' => $file->getMimeType(),
+            'size' => $file->getSize(),
+        ]);
     }
 }

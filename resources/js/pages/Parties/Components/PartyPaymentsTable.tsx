@@ -1,3 +1,4 @@
+import { Wallet } from 'lucide-react';
 import { DateDisplay } from '@/components/ui/date-display';
 import {
   Table,
@@ -39,8 +40,11 @@ export default function PartyPaymentsTable({ payments }: Props) {
           <TableBody>
             {payments.length === 0 && (
               <TableRow>
-                <TableCell colSpan={4} className="py-12 text-center text-stone-400">
-                  لا توجد مدفوعات مرتبطة بهذا الطرف بعد.
+                <TableCell colSpan={4} className="py-16 text-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <Wallet className="h-8 w-8 text-stone-300" />
+                    <span className="text-sm text-stone-400">لا توجد مدفوعات مرتبطة بهذا الطرف بعد.</span>
+                  </div>
                 </TableCell>
               </TableRow>
             )}

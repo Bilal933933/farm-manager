@@ -3,6 +3,7 @@
 namespace App\Domains\Lands\Models;
 
 use App\Domains\Crops\Models\Crop;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class LandSeason extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'crop', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'actual_revenue', 'actual_profit', 'status', 'notes'];

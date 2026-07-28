@@ -2,10 +2,12 @@
 
 namespace App\Domains\Sales\Models;
 
+use App\Concerns\Attachable;
 use App\Domains\Lands\Models\Harvest;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Sales\Enums\SaleType;
 use App\Domains\StockMovements\Models\StockMovement;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -13,6 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sale extends Model
 {
+    use Attachable;
+    use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [

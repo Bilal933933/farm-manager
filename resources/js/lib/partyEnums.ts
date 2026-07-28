@@ -24,6 +24,14 @@ export const PARTY_CATEGORY_TONE: Record<string, string> = {
   تاجر: 'orange',
 };
 
+export const PARTY_CATEGORY_AVATAR: Record<string, { gradient: string; icon: string }> = {
+  مؤجر: { gradient: 'from-amber-100 to-amber-200', icon: 'home' },
+  مستأجر: { gradient: 'from-blue-100 to-blue-200', icon: 'user' },
+  مزارع: { gradient: 'from-emerald-100 to-emerald-200', icon: 'sprout' },
+  'متجر مستلزمات زراعية': { gradient: 'from-purple-100 to-purple-200', icon: 'store' },
+  تاجر: { gradient: 'from-orange-100 to-orange-200', icon: 'truck' },
+};
+
 export const CATEGORY_ALLOWED_PAYMENT_TYPES: Record<string, string[]> = {
   مؤجر: ['دفع', 'سلف'],
   مستأجر: ['قبض'],
