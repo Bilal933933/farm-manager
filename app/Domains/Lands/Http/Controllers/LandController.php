@@ -3,6 +3,7 @@
 namespace App\Domains\Lands\Http\Controllers;
 
 use App\Domains\Crops\Models\Crop;
+use App\Domains\Lands\Actions\CalculateFarmerSettlement;
 use App\Domains\Lands\Actions\CalculateSeasonFinancials;
 use App\Domains\Lands\Actions\CreateLand;
 use App\Domains\Lands\Actions\CreateLandContract;
@@ -266,7 +267,7 @@ class LandController extends Controller
         return redirect()->back();
     }
 
-    public function showSeason(Land $land, LandSeason $season, CalculateSeasonFinancials $calculateSeasonFinancials): Response
+    public function showSeason(Land $land, LandSeason $season, CalculateSeasonFinancials $calculateSeasonFinancials, CalculateFarmerSettlement $calculateFarmerSettlement): Response
     {
         $season->load(['crop', 'farmer', 'harvests.sales', 'costs']);
 
@@ -287,6 +288,7 @@ class LandController extends Controller
             'amount' => (float) $c->amount,
             'date' => $c->date->toDateString(),
             'notes' => $c->notes,
+            'borne_by' => $c->borne_by,
         ]);
 
         $sales = $season->harvests->flatMap->sales->map(fn ($s) => [
@@ -309,6 +311,7 @@ class LandController extends Controller
             'costs' => $costs,
             'sales' => $sales,
             'stats' => $calculateSeasonFinancials->forSeason($season),
+            'farmerSettlement' => $calculateFarmerSettlement->forSeason($season),
         ]);
     }
 }

@@ -1,5 +1,5 @@
 import { Link, Head } from '@inertiajs/react';
-import { ArrowRight, DollarSign, TrendingUp, CircleDollarSign, Sprout } from 'lucide-react';
+import { ArrowRight, DollarSign, TrendingUp, CircleDollarSign, Sprout, UserCheck } from 'lucide-react';
 import KpiCards from '@/components/Lands/KpiCards';
 import StatusBadge from '@/components/Lands/StatusBadge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,13 +16,26 @@ interface HarvestData {
 
 interface CostData {
   id: number; type: string; description: string; amount: number;
-  date: string; notes: string | null;
+  date: string; notes: string | null; borne_by?: string;
 }
 
 interface SaleData {
   id: number; date: string; quantity: number; unit_price: number;
   total: number; party: { id: number; name: string } | null;
   payment_type: string; notes: string | null;
+}
+
+interface FarmerSettlement {
+  total_revenue: number;
+  shared_cost: number;
+  farmer_cost: number;
+  owner_cost: number;
+  net_revenue: number;
+  settlement_type: string;
+  share_percentage: number | null;
+  farmer_share: number;
+  owner_share: number;
+  contract_amount: number | null;
 }
 
 interface Props {
@@ -32,8 +45,9 @@ interface Props {
   harvests: HarvestData[];
   costs: CostData[];
   sales: SaleData[];
-  stats: { total_harvest: number; total_sold_qty: number; total_sales: number; total_cost: number; profit: number };
+  stats: { total_harvest: number; total_sold_qty: number; total_sales: number; total_cost: number; shared_cost: number; profit: number };
   farmers: { id: number; name: string }[];
+  farmerSettlement: FarmerSettlement | null;
 }
 
 const cell = 'text-right';
@@ -43,7 +57,7 @@ const nh = `${numCell} ${h}`;
 
 function fmt(n: number) { return n.toLocaleString() }
 
-export default function SeasonShow({ land, season, crop_name, harvests, costs, sales, stats, farmers }: Props) {
+export default function SeasonShow({ land, season, crop_name, harvests, costs, sales, stats, farmers, farmerSettlement }: Props) {
   return (
     <div dir="rtl" className="space-y-6 p-6">
       <Head title={`${crop_name} - ${land.name}`} />
@@ -71,6 +85,56 @@ export default function SeasonShow({ land, season, crop_name, harvests, costs, s
         total_cost: stats.total_cost,
         profit: stats.profit,
       }} />
+
+      {farmerSettlement && (
+        <Card className="border-emerald-200 bg-emerald-50/50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <UserCheck className="h-5 w-5 text-emerald-700" />
+              تسوية المزارع — تقديري
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <div>
+                <p className="text-xs text-stone-500">إجمالي الإيراد</p>
+                <p className="text-lg font-semibold text-stone-900">{fmt(farmerSettlement.total_revenue)}</p>
+              </div>
+              <div>
+                <p className="text-xs text-stone-500">تكاليف مشتركة</p>
+                <p className="text-lg font-semibold text-amber-700">{fmt(farmerSettlement.shared_cost)}</p>
+              </div>
+              <div>
+                <p className="text-xs text-stone-500">صافي الإيراد</p>
+                <p className="text-lg font-semibold text-stone-900">{fmt(farmerSettlement.net_revenue)}</p>
+              </div>
+              <div>
+                <p className="text-xs text-stone-500">نوع التسوية</p>
+                <p className="text-lg font-semibold text-stone-900">
+                  {farmerSettlement.settlement_type === 'نسبة' ? `${farmerSettlement.share_percentage}%` : 'مبلغ ثابت'}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs text-stone-500">تكاليف المزارع</p>
+                <p className="text-lg font-semibold text-rose-700">{fmt(farmerSettlement.farmer_cost)}</p>
+              </div>
+              <div>
+                <p className="text-xs text-stone-500">تكاليف المالك</p>
+                <p className="text-lg font-semibold text-rose-700">{fmt(farmerSettlement.owner_cost)}</p>
+              </div>
+              <div className="rounded-lg bg-emerald-100 p-3">
+                <p className="text-xs text-emerald-700">نصيب المزارع</p>
+                <p className="text-xl font-bold text-emerald-800">{fmt(farmerSettlement.farmer_share)}</p>
+              </div>
+              <div className="rounded-lg bg-blue-100 p-3">
+                <p className="text-xs text-blue-700">نصيب المالك</p>
+                <p className="text-xl font-bold text-blue-800">{fmt(farmerSettlement.owner_share)}</p>
+              </div>
+            </div>
+            <p className="mt-3 text-xs text-stone-400">* هذه التسوية تقديرية وقابلة للتعديل ولم تُرحّل بعد إلى القيود المحاسبية.</p>
+          </CardContent>
+        </Card>
+      )}
 
       <Tabs defaultValue="harvests">
         <TabsList>
@@ -118,25 +182,29 @@ export default function SeasonShow({ land, season, crop_name, harvests, costs, s
                   <TableHead className={h}>التاريخ</TableHead>
                   <TableHead className={h}>النوع</TableHead>
                   <TableHead className={h}>البيان</TableHead>
+                  <TableHead className={h}>يتحمله</TableHead>
                   <TableHead className={nh}>المبلغ</TableHead>
                   <TableHead className={h}>ملاحظات</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {costs.length === 0 ? (
-                  <TableRow><TableCell colSpan={5} className="py-12 text-center text-stone-500">لا توجد تكاليف مسجّلة.</TableCell></TableRow>
+                  <TableRow><TableCell colSpan={6} className="py-12 text-center text-stone-500">لا توجد تكاليف مسجّلة.</TableCell></TableRow>
                 ) : costs.map((c) => (
                   <TableRow key={c.id}>
                     <TableCell className={cell}><DateDisplay date={c.date} /></TableCell>
                     <TableCell className={cell}>{c.type}</TableCell>
                     <TableCell className={cell}>{c.description}</TableCell>
+                    <TableCell className={cell}>
+                      <StatusBadge value={c.borne_by || 'مشترك'} />
+                    </TableCell>
                     <TableCell className={`${numCell} text-amber-700`}>{fmt(c.amount)}</TableCell>
                     <TableCell className="text-sm text-stone-500">{c.notes || '—'}</TableCell>
                   </TableRow>
                 ))}
                 {costs.length > 0 && (
                   <TableRow className="border-t-2 border-stone-300 bg-stone-50 font-semibold">
-                    <TableCell colSpan={3} className={cell}>الإجمالي</TableCell>
+                    <TableCell colSpan={4} className={cell}>الإجمالي</TableCell>
                     <TableCell className={`${numCell} text-amber-700`}>{fmt(stats.total_cost)}</TableCell>
                     <TableCell />
                   </TableRow>
