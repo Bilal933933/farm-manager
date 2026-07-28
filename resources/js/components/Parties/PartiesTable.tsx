@@ -5,12 +5,13 @@ import {
 } from '@/components/ui/table';
 import { ActionsMenu } from '@/components/ui/actions-menu';
 import StatusBadge from '@/components/Lands/StatusBadge';
-import { PARTY_TONE } from '@/lib/partyEnums';
+import { PARTY_TONE, PARTY_CATEGORY_TONE } from '@/lib/partyEnums';
 
 interface Party {
   id: number;
   name: string;
   type: string;
+  category: string | null;
   phone: string | null;
   contracts_count: number;
 }
@@ -25,7 +26,8 @@ export default function PartiesTable({ parties }: PartiesTableProps) {
       <TableHeader>
         <TableRow>
           <TableHead className="text-stone-700 font-semibold text-right">الاسم</TableHead>
-          <TableHead className="text-stone-700 font-semibold text-center w-28">النوع</TableHead>
+          <TableHead className="text-stone-700 font-semibold text-center w-24">النوع</TableHead>
+          <TableHead className="text-stone-700 font-semibold text-center w-36">التصنيف</TableHead>
           <TableHead className="text-stone-700 font-semibold text-center w-36">الهاتف</TableHead>
           <TableHead className="text-stone-700 font-semibold text-center w-24">العقود</TableHead>
           <TableHead className="text-stone-700 font-semibold text-left w-20">إجراءات</TableHead>
@@ -34,7 +36,7 @@ export default function PartiesTable({ parties }: PartiesTableProps) {
       <TableBody>
         {parties.length === 0 ? (
           <TableRow>
-            <TableCell colSpan={5} className="py-16 text-center text-stone-500">
+            <TableCell colSpan={6} className="py-16 text-center text-stone-500">
               <Users className="mx-auto mb-3 h-10 w-10 text-stone-300" />
               لا يوجد أطراف مسجّلون بعد. ابدأ بإضافة أول طرف.
             </TableCell>
@@ -53,6 +55,15 @@ export default function PartiesTable({ parties }: PartiesTableProps) {
               <TableCell className="text-center">
                 <div className="inline-flex justify-center">
                   <StatusBadge value={party.type} toneMap={PARTY_TONE} />
+                </div>
+              </TableCell>
+              <TableCell className="text-center">
+                <div className="inline-flex justify-center">
+                  {party.category ? (
+                    <StatusBadge value={party.category} toneMap={PARTY_CATEGORY_TONE} />
+                  ) : (
+                    <span className="text-stone-300">—</span>
+                  )}
                 </div>
               </TableCell>
               <TableCell className="font-mono text-center whitespace-nowrap" dir="ltr">

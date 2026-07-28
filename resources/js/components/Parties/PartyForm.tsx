@@ -9,11 +9,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { PARTY_TYPES } from '@/lib/partyEnums';
+import { PARTY_TYPES, PARTY_CATEGORIES } from '@/lib/partyEnums';
 
 interface PartyFormData {
   name: string;
   type: string;
+  category: string;
   phone: string;
   email: string;
   national_id: string;
@@ -60,6 +61,24 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
             </SelectContent>
           </Select>
           {errors.type && <p className="text-sm text-rose-600">{errors.type}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="category">التصنيف</Label>
+          <Select value={data.category} onValueChange={(v) => setData('category', v)}>
+            <SelectTrigger id="category">
+              <SelectValue placeholder="اختر التصنيف" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">بدون تصنيف</SelectItem>
+              {PARTY_CATEGORIES.map((c) => (
+                <SelectItem key={c.value} value={c.value}>
+                  {c.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {errors.category && <p className="text-sm text-rose-600">{errors.category}</p>}
         </div>
 
         <div className="space-y-2">

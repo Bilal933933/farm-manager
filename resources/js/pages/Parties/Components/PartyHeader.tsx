@@ -3,6 +3,8 @@ import { ArrowRight, Pencil, Phone, MapPin, Notebook } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import { PARTY_CATEGORY_TONE } from '@/lib/partyEnums';
 import type { Party } from './types';
 
 interface Props {
@@ -27,6 +29,7 @@ export default function PartyHeader({ party }: Props) {
               <Badge variant="secondary" className="rounded-full text-xs font-normal px-3 py-0.5">
                 {party.type === 'فرد' ? 'فرد' : 'شركة'}
               </Badge>
+              {party.category && <StatusBadge value={party.category} toneMap={PARTY_CATEGORY_TONE} />}
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">

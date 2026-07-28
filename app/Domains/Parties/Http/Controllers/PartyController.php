@@ -13,6 +13,7 @@ use App\Domains\Payments\Models\Payment;
 use App\Http\Controllers\Controller;
 use App\Support\Toast\ToastResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -47,7 +48,7 @@ class PartyController extends Controller
 
     public function show(Party $party): Response
     {
-        $party->load(['contracts.land', 'payments', 'purchases.items.product']);
+        $party->load(['contracts.land', 'payments', 'purchases.items.product', 'sales']);
 
         $party->purchases->each(function ($purchase) {
             $purchase->setAttribute('items_total', $purchase->items->sum(fn ($item) => $item->quantity * $item->unit_price));
@@ -57,7 +58,7 @@ class PartyController extends Controller
         $totalContractAmount = (float) $party->contracts()->sum('amount');
 
         $totalPaidTo = (float) Payment::where('party_id', $party->id)
-            ->where('type', PaymentType::Payment)
+            ->whereIn('type', [PaymentType::Payment, PaymentType::Advance])
             ->sum('amount');
 
         $totalReceivedFrom = (float) Payment::where('party_id', $party->id)
@@ -66,6 +67,10 @@ class PartyController extends Controller
 
         $netBalance = $totalContractAmount - $totalPaidTo + $totalReceivedFrom;
 
+        $totalPurchases = $party->purchases->sum(fn ($p) => $p->items->sum(fn ($item) => $item->quantity * $item->unit_price));
+
+        $totalSales = (float) $party->sales()->sum(DB::raw('quantity * unit_price'));
+
         return Inertia::render('Parties/Show', [
             'party' => $party,
             'summary' => [
@@ -73,6 +78,8 @@ class PartyController extends Controller
                 'totalPaidTo' => $totalPaidTo,
                 'totalReceivedFrom' => $totalReceivedFrom,
                 'netBalance' => $netBalance,
+                'totalPurchases' => $totalPurchases,
+                'totalSales' => $totalSales,
             ],
         ]);
     }

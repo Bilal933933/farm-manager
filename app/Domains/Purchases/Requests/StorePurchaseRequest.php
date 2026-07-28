@@ -2,6 +2,8 @@
 
 namespace App\Domains\Purchases\Requests;
 
+use App\Domains\Parties\Enums\PartyCategory;
+use App\Domains\Parties\Models\Party;
 use App\Domains\Purchases\Enums\PaymentType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -24,6 +26,22 @@ class StorePurchaseRequest extends FormRequest
             'items.*.product_id' => ['required', 'exists:products,id'],
             'items.*.quantity' => ['required', 'numeric', 'min:0.01'],
             'items.*.unit_price' => ['required', 'numeric', 'min:0'],
+        ];
+    }
+
+    public function after(): array
+    {
+        return [
+            function () {
+                $party = Party::find($this->party_id);
+                if (! $party || ! $party->category) {
+                    return;
+                }
+
+                if ($party->category !== PartyCategory::Supplier) {
+                    $this->validator->errors()->add('party_id', 'لا يمكن إجراء مشتريات من طرف تصنيفه "'.$party->category->value.'". المشتريات متاحة فقط لأطراف تصنيف "متجر مستلزمات زراعية".');
+                }
+            },
         ];
     }
 

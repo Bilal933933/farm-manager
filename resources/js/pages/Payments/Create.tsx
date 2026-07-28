@@ -6,6 +6,7 @@ import PaymentForm from '@/components/Payments/PaymentForm';
 interface Party {
   id: number;
   name: string;
+  category: string | null;
 }
 
 interface Contract {

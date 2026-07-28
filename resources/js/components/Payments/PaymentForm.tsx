@@ -10,10 +10,12 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { PAYMENT_TYPES } from '@/lib/paymentEnums';
+import { CATEGORY_ALLOWED_PAYMENT_TYPES } from '@/lib/partyEnums';
 
 interface Party {
   id: number;
   name: string;
+  category: string | null;
 }
 
 interface Contract {
@@ -49,6 +51,11 @@ interface PaymentFormProps {
 export default function PaymentForm({ data, setData, errors, processing, onSubmit, submitLabel, parties, contracts = [] }: PaymentFormProps) {
   const partyContracts = contracts.filter((c) => c.party.id === Number(data.party_id));
 
+  const selectedParty = parties.find((p) => p.id === Number(data.party_id));
+  const allowedTypes = selectedParty?.category
+    ? PAYMENT_TYPES.filter((t) => (CATEGORY_ALLOWED_PAYMENT_TYPES[selectedParty.category] ?? []).includes(t.value))
+    : PAYMENT_TYPES;
+
   function handleContractChange(contractId: string) {
     setData('contract_id', contractId);
     if (contractId) {
@@ -59,15 +66,18 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
     }
   }
 
+  function handlePartyChange(v: string) {
+    setData('party_id', v);
+    setData('contract_id', '');
+    setData('type', '');
+  }
+
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="party_id">الطرف</Label>
-          <Select value={data.party_id} onValueChange={(v) => {
-            setData('party_id', v);
-            setData('contract_id', '');
-          }}>
+          <Select value={data.party_id} onValueChange={handlePartyChange}>
             <SelectTrigger id="party_id">
               <SelectValue placeholder="اختر الطرف" />
             </SelectTrigger>
@@ -109,11 +119,15 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
               <SelectValue placeholder="اختر" />
             </SelectTrigger>
             <SelectContent>
-              {PAYMENT_TYPES.map((t) => (
-                <SelectItem key={t.value} value={t.value}>
-                  {t.label}
-                </SelectItem>
-              ))}
+              {allowedTypes.length > 0 ? (
+                allowedTypes.map((t) => (
+                  <SelectItem key={t.value} value={t.value}>
+                    {t.label}
+                  </SelectItem>
+                ))
+              ) : (
+                <SelectItem value="" disabled>اختر الطرف أولاً</SelectItem>
+              )}
             </SelectContent>
           </Select>
           {errors.type && <p className="text-sm text-rose-600">{errors.type}</p>}

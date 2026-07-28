@@ -7,6 +7,7 @@ export default function Create() {
   const { data, setData, post, processing, errors } = useForm({
     name: '',
     type: 'فرد',
+    category: '',
     phone: '',
     email: '',
     national_id: '',

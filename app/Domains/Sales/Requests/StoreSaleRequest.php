@@ -2,6 +2,8 @@
 
 namespace App\Domains\Sales\Requests;
 
+use App\Domains\Parties\Enums\PartyCategory;
+use App\Domains\Parties\Models\Party;
 use App\Domains\Sales\Enums\SaleType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -23,6 +25,22 @@ class StoreSaleRequest extends FormRequest
             'date' => ['required', 'date'],
             'payment_type' => ['required', Rule::enum(SaleType::class)],
             'notes' => ['nullable', 'string'],
+        ];
+    }
+
+    public function after(): array
+    {
+        return [
+            function () {
+                $party = Party::find($this->party_id);
+                if (! $party || ! $party->category) {
+                    return;
+                }
+
+                if ($party->category !== PartyCategory::Merchant) {
+                    $this->validator->errors()->add('party_id', 'لا يمكن إجراء بيع لطرف تصنيفه "'.$party->category->value.'". المبيعات متاحة فقط لأطراف تصنيف "تاجر".');
+                }
+            },
         ];
     }
 }

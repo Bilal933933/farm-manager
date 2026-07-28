@@ -8,6 +8,7 @@ interface Party {
   id: number;
   name: string;
   type: string;
+  category: string | null;
   phone: string | null;
   contracts_count: number;
 }

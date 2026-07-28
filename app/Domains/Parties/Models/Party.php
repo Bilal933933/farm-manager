@@ -3,8 +3,10 @@
 namespace App\Domains\Parties\Models;
 
 use App\Domains\Lands\Models\LandContract;
+use App\Domains\Parties\Enums\PartyCategory;
 use App\Domains\Payments\Models\Payment;
 use App\Domains\Purchases\Models\Purchase;
+use App\Domains\Sales\Models\Sale;
 use Database\Factories\PartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,12 +20,20 @@ class Party extends Model
     protected $fillable = [
         'name',
         'type',
+        'category',
         'phone',
         'email',
         'national_id',
         'address',
         'notes',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'category' => PartyCategory::class,
+        ];
+    }
 
     public function contracts()
     {
@@ -38,5 +48,10 @@ class Party extends Model
     public function purchases()
     {
         return $this->hasMany(Purchase::class);
+    }
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
     }
 }

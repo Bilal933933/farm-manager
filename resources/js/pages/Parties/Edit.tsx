@@ -7,6 +7,7 @@ interface Party {
   id: number;
   name: string;
   type: string;
+  category: string | null;
   phone: string | null;
   email: string | null;
   national_id: string | null;
@@ -22,6 +23,7 @@ export default function Edit({ party }: EditProps) {
   const { data, setData, put, processing, errors } = useForm({
     name: party.name ?? '',
     type: party.type,
+    category: party.category ?? '',
     phone: party.phone ?? '',
     email: party.email ?? '',
     national_id: party.national_id ?? '',

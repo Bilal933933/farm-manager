@@ -44,10 +44,19 @@ export interface Purchase {
   items: PurchaseItem[];
 }
 
+export interface Sale {
+  id: number;
+  date: string;
+  quantity: string;
+  unit_price: string;
+  total?: number;
+}
+
 export interface Party {
   id: number;
   name: string;
   type: string;
+  category: string | null;
   phone: string | null;
   email: string | null;
   national_id: string | null;
@@ -56,6 +65,7 @@ export interface Party {
   contracts?: Contract[];
   payments?: Payment[];
   purchases?: Purchase[];
+  sales?: Sale[];
 }
 
 export interface FinancialSummary {
@@ -63,6 +73,8 @@ export interface FinancialSummary {
   totalPaidTo: number;
   totalReceivedFrom: number;
   netBalance: number;
+  totalPurchases?: number;
+  totalSales?: number;
 }
 
 export function currency(value: number): string {
