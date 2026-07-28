@@ -18,7 +18,19 @@ $lands = [
 ];
 
 // ──────────────────────────────────────────────
-// 2. Seasons (5 لكل أرض: 2022صيفي, 2022شتوي, 2023صيفي, 2023شتوي, 2024صيفي)
+// 2. Parties
+// ──────────────────────────────────────────────
+$parties = [
+    ['ref' => 'party_reyyan',       'name' => 'مؤسسة الريان للأسمدة',       'type' => 'شركة', 'phone' => '01001234567', 'address' => 'المنصورة - شارع الجمهورية',         'notes' => 'مورد أسمدة رئيسي'],
+    ['ref' => 'party_nour',         'name' => 'شركة النور للمبيدات',        'type' => 'شركة', 'phone' => '01009876543', 'address' => 'طنطا - شارع البحر',                'notes' => 'مورد مبيدات'],
+    ['ref' => 'party_trader',       'name' => 'تاجر الخضار أحمد علي',      'type' => 'فرد',  'phone' => '01201112233', 'address' => 'كفر الشيخ - سوق الخضار',            'notes' => 'عميل دائم لبيع المحاصيل'],
+    ['ref' => 'party_wholesale',    'name' => 'سوق الجملة بكفر الشيخ',     'type' => 'شركة', 'phone' => '0473221456',  'address' => 'كفر الشيخ - المنطقة الصناعية',      'notes' => 'سوق جملة لبيع المنتجات الزراعية'],
+    ['ref' => 'party_owner1',       'name' => 'السيد محمد جابر',           'type' => 'فرد',  'phone' => '01005554433', 'address' => 'كفر الشيخ - مركز بيلا',             'notes' => 'مالك أرض السلام وأرض الترعة'],
+    ['ref' => 'party_owner2',       'name' => 'شركة التنمية الزراعية',     'type' => 'شركة', 'phone' => '01007778899', 'address' => 'القاهرة - مدينة نصر',               'notes' => 'شركة استثمار زراعي - مالكة أرض النيل ومزرعة الوادي'],
+];
+
+// ──────────────────────────────────────────────
+// 3. Seasons (5 لكل أرض: 2022صيفي, 2022شتوي, 2023صيفي, 2023شتوي, 2024صيفي)
 // ──────────────────────────────────────────────
 $seasonDefs = [
     ['year' => 2022, 'period' => 'صيفي', 'crop' => 'بطيخ أحمر', 'plant_m' => 3,  'plant_d' => 1,  'harvest_m' => 6,  'harvest_d' => 15, 'expected_cost' => 150000],
@@ -51,34 +63,90 @@ foreach ($lands as $li => $land) {
 }
 
 // ──────────────────────────────────────────────
-// 3. Contracts (2 لكل أرض)
+// 4. Contracts — now linked to land-owner parties
 // ──────────────────────────────────────────────
-$contractParties = ['مؤسسة الريان للأسمدة', 'سوق الجملة بكفر الشيخ'];
-$contracts = [];
-foreach ($lands as $li => $land) {
-    $startYear = 2022 + $li;
-    $contracts[] = [
-        'land_ref' => $land['ref'],
-        'party_name' => $contractParties[0],
+$contracts = [
+    // أرض السلام → إيجار from السيد محمد جابر
+    [
+        'ref' => 'ctr_salam',
+        'land_ref' => 'land_salam',
+        'party_ref' => 'party_owner1',
         'type' => 'إيجار',
-        'start_date' => "$startYear-01-01",
-        'end_date' => ($startYear + 2).'-12-31',
-        'amount' => round(5000 * $land['area'] * (0.9 + mt_rand(0, 20) / 100), -2),
-        'notes' => 'عقد إيجار أرض '.$land['name'],
-    ];
-    $contracts[] = [
-        'land_ref' => $land['ref'],
-        'party_name' => $contractParties[1],
+        'start_date' => '2024-01-01',
+        'end_date' => '2026-12-31',
+        'amount' => 186000,
+        'notes' => 'عقد إيجار أرض السلام - 5,166 جنيه للدونم سنوياً',
+    ],
+    // أرض الترعة → إيجار from السيد محمد جابر
+    [
+        'ref' => 'ctr_tar3a',
+        'land_ref' => 'land_tar3a',
+        'party_ref' => 'party_owner1',
         'type' => 'إيجار',
-        'start_date' => ($startYear + 1).'-06-01',
-        'end_date' => ($startYear + 3).'-05-31',
-        'amount' => round(4000 * $land['area'] * (0.9 + mt_rand(0, 20) / 100), -2),
-        'notes' => 'عقد إيجار تكميلي',
-    ];
-}
+        'start_date' => '2024-01-01',
+        'end_date' => '2026-12-31',
+        'amount' => 120000,
+        'notes' => 'عقد إيجار أرض الترعة - 5,000 جنيه للدونم سنوياً',
+    ],
+    // أرض النيل → إيجار from شركة التنمية الزراعية
+    [
+        'ref' => 'ctr_nile',
+        'land_ref' => 'land_nile',
+        'party_ref' => 'party_owner2',
+        'type' => 'إيجار',
+        'start_date' => '2024-01-01',
+        'end_date' => '2026-12-31',
+        'amount' => 225000,
+        'notes' => 'عقد إيجار أرض النيل - 5,000 جنيه للدونم سنوياً',
+    ],
+    // مزرعة الوادي → إيجار from شركة التنمية الزراعية
+    [
+        'ref' => 'ctr_wadi',
+        'land_ref' => 'land_wadi',
+        'party_ref' => 'party_owner2',
+        'type' => 'إيجار',
+        'start_date' => '2024-01-01',
+        'end_date' => '2026-12-31',
+        'amount' => 350000,
+        'notes' => 'عقد إيجار مزرعة الوادي - 4,667 جنيه للدونم سنوياً',
+    ],
+    // حقل الأمل → تملك from شركة التنمية الزراعية (تقسيط)
+    [
+        'ref' => 'ctr_amal',
+        'land_ref' => 'land_amal',
+        'party_ref' => 'party_owner2',
+        'type' => 'تملك',
+        'start_date' => '2024-01-01',
+        'end_date' => '2028-12-31',
+        'amount' => 800000,
+        'notes' => 'عقد تملك حقل الأمل بالتقسيط - 80,000 جنيه سنوياً لمدة 10 سنوات',
+    ],
+];
 
 // ──────────────────────────────────────────────
-// 4. Costs (25 لكل موسم × 25 موسم = 625)
+// 5. Payments linked to contracts
+// ──────────────────────────────────────────────
+$payments = [
+    // Payments to السيد محمد جابر for أرض السلام lease (186,000 total — 100,000 paid so far, 86,000 remaining)
+    ['party_ref' => 'party_owner1', 'contract_ref' => 'ctr_salam', 'type' => 'دفع', 'date' => '2024-01-15', 'amount' => 50000, 'notes' => 'دفعة إيجار أرض السلام - مقدمة العقد'],
+    ['party_ref' => 'party_owner1', 'contract_ref' => 'ctr_salam', 'type' => 'دفع', 'date' => '2024-07-01', 'amount' => 25000, 'notes' => 'دفعة إيجار أرض السلام - الدفعة الثانية'],
+    ['party_ref' => 'party_owner1', 'contract_ref' => 'ctr_salam', 'type' => 'دفع', 'date' => '2025-01-10', 'amount' => 25000, 'notes' => 'دفعة إيجار أرض السلام - السنة الثانية'],
+
+    // Payments to السيد محمد جابر for أرض الترعة lease (120,000 — fully paid)
+    ['party_ref' => 'party_owner1', 'contract_ref' => 'ctr_tar3a', 'type' => 'دفع', 'date' => '2024-01-20', 'amount' => 120000, 'notes' => 'دفعة إيجار أرض الترعة - كامل المبلغ'],
+
+    // Payments to شركة التنمية الزراعية for أرض النيل lease (225,000 — 80,000 paid, 145,000 remaining)
+    ['party_ref' => 'party_owner2', 'contract_ref' => 'ctr_nile', 'type' => 'دفع', 'date' => '2024-02-01', 'amount' => 80000, 'notes' => 'دفعة إيجار أرض النيل - مقدمة'],
+
+    // Payment to شركة التنمية الزراعية for حقل الأمل installment (800,000 — 150,000 paid, 650,000 remaining)
+    ['party_ref' => 'party_owner2', 'contract_ref' => 'ctr_amal', 'type' => 'دفع', 'date' => '2024-03-01', 'amount' => 150000, 'notes' => 'دفعة تملك حقل الأمل - القسط الأول'],
+
+    // Receipt from سوق الجملة (sale payment — no contract)
+    ['party_ref' => 'party_wholesale', 'contract_ref' => null, 'type' => 'قبض', 'date' => '2024-06-30', 'amount' => 200000, 'notes' => 'مقبوضات من سوق الجملة - بيع محصول البطيخ'],
+];
+
+// ──────────────────────────────────────────────
+// 6. Costs (25 لكل موسم × 25 موسم = 625)
 // ──────────────────────────────────────────────
 $costTemplates = [
     ['type' => 'بذور',     'desc' => 'بذور المحصول',                                    'min' => 8000,  'max' => 25000],
@@ -109,7 +177,6 @@ $costTemplates = [
 ];
 
 $costs = [];
-$cropNames = ['بطيخ أحمر', 'قمح صلب'];
 foreach ($seasons as $si => $season) {
     $plantTs = strtotime($season['planting_date']);
     $harvestTs = strtotime($season['harvest_date']);
@@ -129,11 +196,6 @@ foreach ($seasons as $si => $season) {
             $desc = $tmpl['desc'];
         }
 
-        // ربط التكلفة بنصف الإيجار السنوي لكل موسم
-        if ($tmpl['type'] === 'إيجار') {
-            continue; // سنضيف الإيجار لاحقاً
-        }
-
         $costs[] = [
             'season_ref' => $season['ref'],
             'type' => $tmpl['type'],
@@ -145,26 +207,7 @@ foreach ($seasons as $si => $season) {
 }
 
 // ──────────────────────────────────────────────
-// 5. إضافة تكاليف الإيجار (نصف الإيجار السنوي لكل موسم)
-// ──────────────────────────────────────────────
-$annualRentByLand = [];
-foreach ($lands as $land) {
-    $annualRentByLand[$land['ref']] = round(8000 * $land['area'] * (0.9 + mt_rand(0, 20) / 100), -2);
-}
-foreach ($seasons as $season) {
-    $annualRent = $annualRentByLand[$season['land_ref']] ?? 0;
-    $rentShare = round($annualRent / 2, 2); // نصف الإيجار السنوي لكل موسم
-    $costs[] = [
-        'season_ref' => $season['ref'],
-        'type' => 'إيجار',
-        'description' => 'نصيب الموسم من الإيجار السنوي للأرض',
-        'amount' => $rentShare,
-        'date' => $season['planting_date'],
-    ];
-}
-
-// ──────────────────────────────────────────────
-// 6. Harvests (1-2 لكل موسم × 25 = ~35)
+// 7. Harvests (1-2 لكل موسم)
 // ──────────────────────────────────────────────
 $harvests = [];
 foreach ($seasons as $si => $season) {
@@ -182,12 +225,9 @@ foreach ($seasons as $si => $season) {
 }
 
 // ──────────────────────────────────────────────
-// 7. Sales (5 لكل حصاد × ~35 = ~175)
+// 8. Sales (5 per harvest)
 // ──────────────────────────────────────────────
-$parties = [
-    'سوق الجملة بكفر الشيخ',
-    'تاجر الخضار أحمد علي',
-];
+$buyerParties = ['party_wholesale', 'party_trader'];
 $paymentTypes = ['نقدي', 'آجل'];
 $sales = [];
 foreach ($harvests as $hi => $harvest) {
@@ -205,7 +245,7 @@ foreach ($harvests as $hi => $harvest) {
 
         $sales[] = [
             'harvest_ref' => $harvest['ref'],
-            'party_name' => $parties[mt_rand(0, count($parties) - 1)],
+            'party_ref' => $buyerParties[mt_rand(0, count($buyerParties) - 1)],
             'quantity' => $qty,
             'unit_price' => mt_rand(3500, 5200),
             'date' => date('Y-m-d', strtotime($harvest['date']) + $s * mt_rand(2, 7) * 86400),
@@ -219,8 +259,10 @@ foreach ($harvests as $hi => $harvest) {
 // ──────────────────────────────────────────────
 $files = [
     'lands.json' => $lands,
+    'parties.json' => $parties,
     'seasons.json' => $seasons,
     'contracts.json' => $contracts,
+    'payments.json' => $payments,
     'costs.json' => $costs,
     'harvests.json' => $harvests,
     'sales.json' => $sales,
@@ -233,4 +275,4 @@ foreach ($files as $filename => $data) {
     echo "✓ $filename — ".count($data)." records\n";
 }
 
-echo "\n✅ Done — generated ".(count($lands) + count($seasons) + count($contracts) + count($costs) + count($harvests) + count($sales)).' total records in '.count($files)." files.\n";
+echo "\n✅ Done — generated ".(count($lands) + count($parties) + count($seasons) + count($contracts) + count($payments) + count($costs) + count($harvests) + count($sales)).' total records in '.count($files)." files.\n";

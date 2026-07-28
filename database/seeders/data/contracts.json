@@ -1,92 +1,52 @@
 [
     {
+        "ref": "ctr_salam",
         "land_ref": "land_salam",
-        "party_name": "مؤسسة الريان للأسمدة",
-        "type": "إيجار",
-        "start_date": "2022-01-01",
-        "end_date": "2024-12-31",
-        "amount": 64200,
-        "notes": "عقد إيجار أرض أرض السلام"
-    },
-    {
-        "land_ref": "land_salam",
-        "party_name": "سوق الجملة بكفر الشيخ",
-        "type": "إيجار",
-        "start_date": "2023-06-01",
-        "end_date": "2025-05-31",
-        "amount": 50400,
-        "notes": "عقد إيجار تكميلي"
-    },
-    {
-        "land_ref": "land_tar3a",
-        "party_name": "مؤسسة الريان للأسمدة",
-        "type": "إيجار",
-        "start_date": "2023-01-01",
-        "end_date": "2025-12-31",
-        "amount": 37600,
-        "notes": "عقد إيجار أرض أرض الترعة"
-    },
-    {
-        "land_ref": "land_tar3a",
-        "party_name": "سوق الجملة بكفر الشيخ",
-        "type": "إيجار",
-        "start_date": "2024-06-01",
-        "end_date": "2026-05-31",
-        "amount": 35200,
-        "notes": "عقد إيجار تكميلي"
-    },
-    {
-        "land_ref": "land_nile",
-        "party_name": "مؤسسة الريان للأسمدة",
+        "party_ref": "party_owner1",
         "type": "إيجار",
         "start_date": "2024-01-01",
         "end_date": "2026-12-31",
-        "amount": 69000,
-        "notes": "عقد إيجار أرض أرض النيل"
+        "amount": 186000,
+        "notes": "عقد إيجار أرض السلام - 5,166 جنيه للدونم سنوياً"
     },
     {
+        "ref": "ctr_tar3a",
+        "land_ref": "land_tar3a",
+        "party_ref": "party_owner1",
+        "type": "إيجار",
+        "start_date": "2024-01-01",
+        "end_date": "2026-12-31",
+        "amount": 120000,
+        "notes": "عقد إيجار أرض الترعة - 5,000 جنيه للدونم سنوياً"
+    },
+    {
+        "ref": "ctr_nile",
         "land_ref": "land_nile",
-        "party_name": "سوق الجملة بكفر الشيخ",
+        "party_ref": "party_owner2",
         "type": "إيجار",
-        "start_date": "2025-06-01",
-        "end_date": "2027-05-31",
-        "amount": 63600,
-        "notes": "عقد إيجار تكميلي"
+        "start_date": "2024-01-01",
+        "end_date": "2026-12-31",
+        "amount": 225000,
+        "notes": "عقد إيجار أرض النيل - 5,000 جنيه للدونم سنوياً"
     },
     {
+        "ref": "ctr_wadi",
         "land_ref": "land_wadi",
-        "party_name": "مؤسسة الريان للأسمدة",
+        "party_ref": "party_owner2",
         "type": "إيجار",
-        "start_date": "2025-01-01",
-        "end_date": "2027-12-31",
-        "amount": 128800,
-        "notes": "عقد إيجار أرض مزرعة الوادي"
+        "start_date": "2024-01-01",
+        "end_date": "2026-12-31",
+        "amount": 350000,
+        "notes": "عقد إيجار مزرعة الوادي - 4,667 جنيه للدونم سنوياً"
     },
     {
-        "land_ref": "land_wadi",
-        "party_name": "سوق الجملة بكفر الشيخ",
-        "type": "إيجار",
-        "start_date": "2026-06-01",
-        "end_date": "2028-05-31",
-        "amount": 95000,
-        "notes": "عقد إيجار تكميلي"
-    },
-    {
+        "ref": "ctr_amal",
         "land_ref": "land_amal",
-        "party_name": "مؤسسة الريان للأسمدة",
-        "type": "إيجار",
-        "start_date": "2026-01-01",
+        "party_ref": "party_owner2",
+        "type": "تملك",
+        "start_date": "2024-01-01",
         "end_date": "2028-12-31",
-        "amount": 46000,
-        "notes": "عقد إيجار أرض حقل الأمل"
-    },
-    {
-        "land_ref": "land_amal",
-        "party_name": "سوق الجملة بكفر الشيخ",
-        "type": "إيجار",
-        "start_date": "2027-06-01",
-        "end_date": "2029-05-31",
-        "amount": 42000,
-        "notes": "عقد إيجار تكميلي"
+        "amount": 800000,
+        "notes": "عقد تملك حقل الأمل بالتقسيط - 80,000 جنيه سنوياً لمدة 10 سنوات"
     }
 ]

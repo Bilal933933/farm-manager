@@ -2,6 +2,7 @@
 
 namespace App\Domains\Payments\Models;
 
+use App\Domains\Lands\Models\LandContract;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Enums\PaymentType as PaymentTypeEnum;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,7 @@ class Payment extends Model
 
     protected $fillable = [
         'party_id',
+        'contract_id',
         'type',
         'date',
         'amount',
@@ -35,6 +37,11 @@ class Payment extends Model
     public function party(): BelongsTo
     {
         return $this->belongsTo(Party::class);
+    }
+
+    public function contract(): BelongsTo
+    {
+        return $this->belongsTo(LandContract::class);
     }
 
     public function reference(): MorphTo

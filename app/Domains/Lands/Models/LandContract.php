@@ -3,9 +3,11 @@
 namespace App\Domains\Lands\Models;
 
 use App\Domains\Parties\Models\Party;
+use App\Domains\Payments\Models\Payment;
 use Database\Factories\LandContractFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class LandContract extends Model
@@ -22,6 +24,8 @@ class LandContract extends Model
         'amount',
         'notes',
     ];
+
+    protected $appends = ['paid_amount', 'remaining'];
 
     protected function casts(): array
     {
@@ -40,5 +44,20 @@ class LandContract extends Model
     public function party()
     {
         return $this->belongsTo(Party::class);
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class, 'contract_id');
+    }
+
+    public function getPaidAmountAttribute(): float
+    {
+        return (float) $this->payments()->sum('amount');
+    }
+
+    public function getRemainingAttribute(): float
+    {
+        return max(0, (float) $this->amount - $this->paid_amount);
     }
 }

@@ -1,5 +1,5 @@
-import { router } from '@inertiajs/react';
-import { Pencil, Plus, Search, Trash2 } from 'lucide-react';
+import { Link, router } from '@inertiajs/react';
+import { DollarSign, Pencil, Plus, Search, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import ContractFormDialog from '@/components/Lands/ContractFormDialog';
 import StatusBadge from '@/components/Lands/StatusBadge';
@@ -13,20 +13,20 @@ import {
 } from '@/components/ui/table';
 import type { Contract } from '@/types';
 
-interface Props { contracts: Contract[]; landId: number }
+interface Props { contracts: Contract[]; landId: number; parties: { id: number; name: string; type: string; phone: string | null }[] }
 
 const cell = 'text-right';
 const numCell = 'font-mono text-right tabular-nums';
 const h = 'text-right font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
-export default function ContractsTab({ contracts, landId }: Props) {
+export default function ContractsTab({ contracts, landId, parties }: Props) {
   const [editingContract, setEditingContract] = useState<Contract | null>(null);
 
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <ContractFormDialog landId={landId} trigger={
+        <ContractFormDialog landId={landId} parties={parties} trigger={
           <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
             <Plus className="ms-2 h-4 w-4" /> إضافة عقد
           </Button>
@@ -43,27 +43,35 @@ export default function ContractsTab({ contracts, landId }: Props) {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHead className={h}>الطرف</TableHead>
               <TableHead className={h}>النوع</TableHead>
               <TableHead className={h}>البداية</TableHead>
               <TableHead className={h}>الانتهاء</TableHead>
               <TableHead className={nh}>القيمة</TableHead>
-              <TableHead className={h}>إجراءات</TableHead>
+              <TableHead className={nh}>المتبقي</TableHead>
+              <TableHead className="text-left font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {contracts.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={5} className="py-12 text-center text-stone-500">لا توجد عقود مسجّلة لهذه الأرض بعد.</TableCell>
+                <TableCell colSpan={7} className="py-12 text-center text-stone-500">لا توجد عقود مسجّلة لهذه الأرض بعد.</TableCell>
               </TableRow>
             ) : contracts.map((c) => (
               <TableRow key={c.id} className="border-b border-stone-100 last:border-b-0">
+                <TableCell className={cell}>{c.party?.name ?? '—'}</TableCell>
                 <TableCell className={cell}><StatusBadge value={c.type} /></TableCell>
                 <TableCell className={cell}><DateDisplay date={c.start_date} /></TableCell>
                 <TableCell className={cell}>{c.end_date ? <DateDisplay date={c.end_date} /> : '—'}</TableCell>
                 <TableCell className={numCell}>{c.amount}</TableCell>
+                <TableCell className={numCell}>{c.remaining?.toFixed(2) ?? c.amount}</TableCell>
                 <TableCell className="text-left whitespace-nowrap">
                   <ActionsMenu
                     actions={[
+                      {
+                        label: 'دفعات', icon: DollarSign,
+                        href: route('payments.create', { contract_id: c.id, party_id: c.party_id }),
+                      },
                       {
                         label: 'تعديل', icon: Pencil,
                         onClick: () => setEditingContract(c),
@@ -80,6 +88,7 @@ export default function ContractsTab({ contracts, landId }: Props) {
                   />
                   <ContractFormDialog
                     landId={landId}
+                    parties={parties}
                     contract={editingContract}
                     open={editingContract?.id === c.id}
                     onOpenChange={(open) => {

@@ -10,6 +10,7 @@ class PartiesSeeder extends Seeder
 {
     public function run(): void
     {
+        // Suppliers
         Party::create([
             'name' => 'مؤسسة الريان للأسمدة',
             'type' => PartyType::Company->value,
@@ -26,6 +27,7 @@ class PartiesSeeder extends Seeder
             'notes' => 'مورد مبيدات',
         ]);
 
+        // Buyers
         Party::create([
             'name' => 'تاجر الخضار أحمد علي',
             'type' => PartyType::Individual->value,
@@ -40,6 +42,23 @@ class PartiesSeeder extends Seeder
             'phone' => '0473221456',
             'address' => 'كفر الشيخ - المنطقة الصناعية',
             'notes' => 'سوق جملة لبيع المنتجات الزراعية',
+        ]);
+
+        // Land owners
+        Party::create([
+            'name' => 'السيد محمد جابر',
+            'type' => PartyType::Individual->value,
+            'phone' => '01005554433',
+            'address' => 'كفر الشيخ - مركز بيلا',
+            'notes' => 'مالك أرض السلام وأرض الترعة',
+        ]);
+
+        Party::create([
+            'name' => 'شركة التنمية الزراعية',
+            'type' => PartyType::Company->value,
+            'phone' => '01007778899',
+            'address' => 'القاهرة - مدينة نصر',
+            'notes' => 'شركة استثمار زراعي - مالكة أرض النيل ومزرعة الوادي وحقل الأمل',
         ]);
     }
 }

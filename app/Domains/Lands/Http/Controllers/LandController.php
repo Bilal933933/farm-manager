@@ -22,6 +22,7 @@ use App\Domains\Lands\Requests\StoreLandContractRequest;
 use App\Domains\Lands\Requests\StoreLandRequest;
 use App\Domains\Lands\Requests\StoreLandSeasonRequest;
 use App\Domains\Lands\Requests\UpdateLandRequest;
+use App\Domains\Parties\Models\Party;
 use App\Domains\Products\Enums\ProductStatus;
 use App\Domains\Products\Models\Product;
 use App\Domains\Purchases\Models\PurchaseItem;
@@ -64,7 +65,7 @@ class LandController extends Controller
 
     public function show(Land $land, CalculateSeasonFinancials $calculateSeasonFinancials): Response
     {
-        $land->load(['contracts', 'seasons.crop']);
+        $land->load(['contracts.party', 'seasons.crop']);
 
         $activeSeason = $land->seasons->firstWhere('status', 'نشط');
 
@@ -86,6 +87,7 @@ class LandController extends Controller
             'totalHarvest' => $totalHarvest,
             'costsCount' => $costsCount,
             'revenuesCount' => $revenuesCount,
+            'parties' => Party::orderBy('name')->get(['id', 'name', 'type', 'phone']),
 
             'crops' => Inertia::defer(fn () => Crop::orderBy('name')->get(), 'seasons'),
 

@@ -16,8 +16,19 @@ interface Party {
   name: string;
 }
 
+interface Contract {
+  id: number;
+  type: string;
+  amount: number;
+  paid_amount: number;
+  remaining: number;
+  party: { id: number; name: string };
+  land: { id: number; name: string };
+}
+
 interface PaymentFormData {
   party_id: string;
+  contract_id: string;
   type: string;
   date: string;
   amount: string;
@@ -32,15 +43,31 @@ interface PaymentFormProps {
   onSubmit: (e: React.FormEvent) => void;
   submitLabel: string;
   parties: Party[];
+  contracts?: Contract[];
 }
 
-export default function PaymentForm({ data, setData, errors, processing, onSubmit, submitLabel, parties }: PaymentFormProps) {
+export default function PaymentForm({ data, setData, errors, processing, onSubmit, submitLabel, parties, contracts = [] }: PaymentFormProps) {
+  const partyContracts = contracts.filter((c) => c.party.id === Number(data.party_id));
+
+  function handleContractChange(contractId: string) {
+    setData('contract_id', contractId);
+    if (contractId) {
+      const contract = contracts.find((c) => c.id === Number(contractId));
+      if (contract) {
+        setData('type', contract.type === 'إيجار' ? 'قبض' : 'دفع');
+      }
+    }
+  }
+
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="party_id">الطرف</Label>
-          <Select value={data.party_id} onValueChange={(v) => setData('party_id', v)}>
+          <Select value={data.party_id} onValueChange={(v) => {
+            setData('party_id', v);
+            setData('contract_id', '');
+          }}>
             <SelectTrigger id="party_id">
               <SelectValue placeholder="اختر الطرف" />
             </SelectTrigger>
@@ -53,6 +80,26 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
             </SelectContent>
           </Select>
           {errors.party_id && <p className="text-sm text-rose-600">{errors.party_id}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="contract_id">العقد (اختياري)</Label>
+          <Select value={data.contract_id} onValueChange={handleContractChange}>
+            <SelectTrigger id="contract_id">
+              <SelectValue placeholder="بدون عقد" />
+            </SelectTrigger>
+            <SelectContent>
+              {partyContracts.map((c) => (
+                <SelectItem key={c.id} value={String(c.id)}>
+                  {c.land.name} — {c.type} ({c.remaining.toFixed(2)} متبقي)
+                </SelectItem>
+              ))}
+              {partyContracts.length === 0 && data.party_id && (
+                <SelectItem value="" disabled>لا توجد عقود لهذا الطرف</SelectItem>
+              )}
+            </SelectContent>
+          </Select>
+          {errors.contract_id && <p className="text-sm text-rose-600">{errors.contract_id}</p>}
         </div>
 
         <div className="space-y-2">

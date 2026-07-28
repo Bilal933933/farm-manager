@@ -1,131 +1,90 @@
 import { Head, Link } from '@inertiajs/react';
-import { ArrowRight, Pencil } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { DateDisplay } from '@/components/ui/date-display';
-import { Card, CardContent } from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
-
-interface Land {
-  id: number;
-  name: string;
-}
-
-interface Contract {
-  id: number;
-  land_id: number;
-  land?: Land | null;
-  type: string;
-  start_date: string;
-  end_date: string | null;
-  amount: string;
-}
-
-interface Party {
-  id: number;
-  name: string;
-  type: string;
-  phone: string | null;
-  email: string | null;
-  national_id: string | null;
-  address: string | null;
-  notes: string | null;
-  contracts?: Contract[];
-}
+import { ArrowRight, FileText, Wallet, ShoppingCart } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import PartyHeader from './Components/PartyHeader';
+import PartyFinancialSummary from './Components/PartyFinancialSummary';
+import PartyContractsTable from './Components/PartyContractsTable';
+import PartyPaymentsTable from './Components/PartyPaymentsTable';
+import PartyPurchasesTable from './Components/PartyPurchasesTable';
+import type { Party, FinancialSummary } from './Components/types';
 
 interface ShowProps {
   party: Party;
+  summary: FinancialSummary;
 }
 
-export default function Show({ party }: ShowProps) {
+export default function Show({ party, summary }: ShowProps) {
+  const contractsCount = party.contracts?.length ?? 0;
+  const paymentsCount = party.payments?.length ?? 0;
+  const purchasesCount = party.purchases?.length ?? 0;
+
   return (
     <div dir="rtl" className="mx-auto max-w-4xl space-y-6 p-6">
       <Head title={party.name} />
 
       <Link
         href={route('parties.index')}
-        className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800"
+        className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
       >
         <ArrowRight className="h-4 w-4" />
         العودة إلى الأطراف
       </Link>
 
-      <Card className="border-stone-200">
-        <CardContent className="flex flex-wrap items-start justify-between gap-4 p-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-semibold text-stone-900">{party.name}</h1>
-              <StatusBadge value={party.type} />
-            </div>
-            <div className="space-y-1 text-sm text-stone-500">
-              {party.phone && <p dir="ltr" className="font-mono">{party.phone}</p>}
-              {party.email && <p dir="ltr" className="font-mono">{party.email}</p>}
-              {party.national_id && <p className="font-mono">الرقم القومي: {party.national_id}</p>}
-              {party.address && <p>{party.address}</p>}
-            </div>
-            {party.notes && <p className="max-w-xl text-sm text-stone-500">{party.notes}</p>}
-          </div>
-          <Button variant="outline" asChild>
-            <Link href={route('parties.edit', party.id)}>
-              <Pencil className="ms-2 h-4 w-4" />
-              تعديل البيانات
-            </Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <PartyHeader party={party} />
+      <PartyFinancialSummary summary={summary} />
 
-      <div className="space-y-3">
-        <h2 className="text-lg font-medium text-stone-900">
-          العقود المرتبطة ({party.contracts?.length ?? 0})
-        </h2>
-        <Card className="border-stone-200">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-right">الأرض</TableHead>
-                <TableHead className="text-right">النوع</TableHead>
-                <TableHead className="text-right">البداية</TableHead>
-                <TableHead className="text-right">الانتهاء</TableHead>
-                <TableHead className="text-right">القيمة</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {(party.contracts ?? []).length === 0 && (
-                <TableRow>
-                  <TableCell colSpan={5} className="py-8 text-center text-stone-500">
-                    لا توجد عقود مرتبطة بهذا الطرف بعد.
-                  </TableCell>
-                </TableRow>
-              )}
-              {(party.contracts ?? []).map((contract) => (
-                <TableRow key={contract.id}>
-                  <TableCell className="font-medium">
-                    <Link
-                      href={route('lands.show', contract.land_id)}
-                      className="hover:text-emerald-700 hover:underline"
-                    >
-                      {contract.land?.name ?? '—'}
-                    </Link>
-                  </TableCell>
-                  <TableCell>
-                    <StatusBadge value={contract.type} />
-                  </TableCell>
-                  <TableCell className="font-mono"><DateDisplay date={contract.start_date} /></TableCell>
-                  <TableCell className="font-mono">{contract.end_date ? <DateDisplay date={contract.end_date} /> : '—'}</TableCell>
-                  <TableCell className="font-mono">{contract.amount}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Card>
-      </div>
+      <Tabs defaultValue="contracts" dir="rtl" className="w-full">
+        <TabsList className="w-full justify-start bg-stone-100 p-1 rounded-lg gap-0">
+          <TabsTrigger
+            value="contracts"
+            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
+          >
+            <FileText className="h-4 w-4" />
+            العقود
+            {contractsCount > 0 && (
+              <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
+                {contractsCount}
+              </span>
+            )}
+          </TabsTrigger>
+          <TabsTrigger
+            value="payments"
+            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
+          >
+            <Wallet className="h-4 w-4" />
+            المدفوعات
+            {paymentsCount > 0 && (
+              <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
+                {paymentsCount}
+              </span>
+            )}
+          </TabsTrigger>
+          <TabsTrigger
+            value="purchases"
+            className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-md px-4 py-1.5"
+          >
+            <ShoppingCart className="h-4 w-4" />
+            المشتريات
+            {purchasesCount > 0 && (
+              <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-700 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-800">
+                {purchasesCount}
+              </span>
+            )}
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="contracts" className="mt-6">
+          <PartyContractsTable contracts={party.contracts ?? []} />
+        </TabsContent>
+
+        <TabsContent value="payments" className="mt-6">
+          <PartyPaymentsTable payments={party.payments ?? []} />
+        </TabsContent>
+
+        <TabsContent value="purchases" className="mt-6">
+          <PartyPurchasesTable purchases={party.purchases ?? []} />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

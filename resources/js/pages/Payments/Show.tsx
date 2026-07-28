@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Pencil } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
 import StatusBadge from '@/components/Lands/StatusBadge';
@@ -10,12 +11,23 @@ interface Party {
   name: string;
 }
 
+interface Contract {
+  id: number;
+  type: string;
+  amount: number;
+  paid_amount: number;
+  remaining: number;
+  land: { id: number; name: string };
+  party: { id: number; name: string };
+}
+
 interface Payment {
   id: number;
   type: string;
   date: string;
   amount: string;
   party: Party | null;
+  contract: Contract | null;
   notes: string | null;
 }
 
@@ -24,9 +36,11 @@ interface ShowProps {
 }
 
 export default function Show({ payment }: ShowProps) {
+  const isLinkedToContract = Boolean(payment.contract);
+
   return (
     <div dir="rtl" className="mx-auto max-w-3xl space-y-6 p-6">
-      <Head title={`${payment.type} - ${payment.party?.name}`} />
+      <Head title={`${payment.type === 'دفع' ? 'دفعة' : 'مقبوض'} - ${payment.party?.name}`} />
 
       <Link
         href={route('payments.index')}
@@ -58,9 +72,36 @@ export default function Show({ payment }: ShowProps) {
               <span className="text-stone-400">الطرف: </span>
               <span className="font-medium">{payment.party?.name ?? '—'}</span>
             </div>
+            {isLinkedToContract && (
+              <>
+                <div>
+                  <span className="text-stone-400">الأرض: </span>
+                  <Link href={route('lands.show', payment.contract!.land.id)} className="font-medium hover:text-emerald-700 hover:underline">
+                    {payment.contract!.land.name}
+                  </Link>
+                </div>
+                <div>
+                  <span className="text-stone-400">العقد: </span>
+                  <span className="font-medium">{payment.contract!.type}</span>
+                </div>
+                <div>
+                  <span className="text-stone-400">المتبقي: </span>
+                  <span className="font-mono font-semibold">{payment.contract!.remaining.toFixed(2)}</span>
+                </div>
+              </>
+            )}
           </div>
 
           {payment.notes && <p className="mt-4 text-sm text-stone-500">{payment.notes}</p>}
+
+          <div className="mt-6 flex items-center gap-3 border-t border-stone-100 pt-6">
+            <Button variant="outline" size="sm" asChild>
+              <Link href={route('payments.edit', payment.id)}>
+                <Pencil className="ms-2 h-4 w-4" />
+                تعديل الدفعة
+              </Link>
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>

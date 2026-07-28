@@ -3,6 +3,8 @@
 namespace App\Domains\Parties\Models;
 
 use App\Domains\Lands\Models\LandContract;
+use App\Domains\Payments\Models\Payment;
+use App\Domains\Purchases\Models\Purchase;
 use Database\Factories\PartyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,5 +28,15 @@ class Party extends Model
     public function contracts()
     {
         return $this->hasMany(LandContract::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
     }
 }

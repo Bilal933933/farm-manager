@@ -28,10 +28,12 @@ interface Contract {
   end_date?: string;
   amount?: string;
   notes?: string;
+  party_id?: number | null;
 }
 
 interface ContractFormDialogProps {
   landId: number;
+  parties: { id: number; name: string; type: string; phone: string | null }[];
   contract?: Contract | null;
   trigger: ReactNode;
   open?: boolean;
@@ -43,11 +45,12 @@ function toDateInputValue(dateStr?: string): string {
   return dateStr.split('T')[0];
 }
 
-export default function ContractFormDialog({ landId, contract = null, trigger, open, onOpenChange }: ContractFormDialogProps) {
+export default function ContractFormDialog({ landId, parties, contract = null, trigger, open, onOpenChange }: ContractFormDialogProps) {
   const isEditing = Boolean(contract);
 
   const { data, setData, post, put, processing, errors, reset } = useForm({
     land_id: landId,
+    party_id: contract?.party_id?.toString() ?? '',
     type: contract?.type ?? 'إيجار',
     start_date: toDateInputValue(contract?.start_date),
     end_date: toDateInputValue(contract?.end_date),
@@ -73,6 +76,23 @@ export default function ContractFormDialog({ landId, contract = null, trigger, o
         </DialogHeader>
 
         <form onSubmit={submit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="party_id">الطرف</Label>
+            <Select value={data.party_id} onValueChange={(v) => setData('party_id', v)}>
+              <SelectTrigger id="party_id">
+                <SelectValue placeholder="اختر الطرف..." />
+              </SelectTrigger>
+              <SelectContent>
+                {parties.map((p) => (
+                  <SelectItem key={p.id} value={p.id.toString()}>
+                    {p.name} ({p.type})
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.party_id && <p className="text-sm text-rose-600">{errors.party_id}</p>}
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="contract_type">نوع العقد</Label>
             <Select value={data.type} onValueChange={(v) => setData('type', v)}>

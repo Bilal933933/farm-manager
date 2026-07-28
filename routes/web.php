@@ -41,7 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('purchases', PurchaseController::class)->only(['index', 'create', 'store', 'show']);
 
-    Route::resource('payments', PaymentController::class)->only(['index', 'create', 'store', 'show']);
+    Route::resource('payments', PaymentController::class)->only(['index', 'create', 'store', 'show', 'edit', 'update']);
 
     Route::get('ledger', [LedgerController::class, 'index'])->name('ledger.index');
 

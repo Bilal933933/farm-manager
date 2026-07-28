@@ -18,35 +18,41 @@ interface Contract {
   land: { id: number; name: string };
 }
 
-interface CreateProps {
-  parties: Party[];
-  contracts: Contract[];
-  initialPartyId?: string;
-  initialContractId?: string;
+interface Payment {
+  id: number;
+  party_id: number;
+  contract_id: number | null;
+  type: string;
+  date: string;
+  amount: string;
+  notes: string | null;
+  party: Party | null;
 }
 
-export default function Create({ parties, contracts, initialPartyId = '', initialContractId = '' }: CreateProps) {
-  const initialType = initialContractId
-    ? contracts.find((c) => c.id === Number(initialContractId))?.type === 'إيجار' ? 'قبض' : 'دفع'
-    : '';
+interface EditProps {
+  payment: Payment;
+  parties: Party[];
+  contracts: Contract[];
+}
 
-  const { data, setData, post, processing, errors } = useForm({
-    party_id: initialPartyId,
-    contract_id: initialContractId,
-    type: initialType,
-    date: new Date().toISOString().slice(0, 10),
-    amount: '',
-    notes: '',
+export default function Edit({ payment, parties, contracts }: EditProps) {
+  const { data, setData, put, processing, errors } = useForm({
+    party_id: String(payment.party_id),
+    contract_id: payment.contract_id ? String(payment.contract_id) : '',
+    type: payment.type,
+    date: payment.date.slice(0, 10),
+    amount: payment.amount,
+    notes: payment.notes ?? '',
   });
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('payments.store'));
+    put(route('payments.update', payment.id));
   }
 
   return (
     <div dir="rtl" className="mx-auto max-w-3xl space-y-6 p-6">
-      <Head title="تسجيل جديد" />
+      <Head title={`تعديل - ${payment.party?.name}`} />
 
       <Link
         href={route('payments.index')}
@@ -58,7 +64,7 @@ export default function Create({ parties, contracts, initialPartyId = '', initia
 
       <Card className="border-stone-200">
         <CardHeader>
-          <CardTitle className="text-xl">تسجيل دفع أو قبض</CardTitle>
+          <CardTitle className="text-xl">تعديل الدفعة</CardTitle>
         </CardHeader>
         <CardContent>
           <PaymentForm
@@ -67,7 +73,7 @@ export default function Create({ parties, contracts, initialPartyId = '', initia
             errors={errors}
             processing={processing}
             onSubmit={submit}
-            submitLabel="حفظ"
+            submitLabel="حفظ التعديلات"
             parties={parties}
             contracts={contracts}
           />

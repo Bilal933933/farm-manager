@@ -5,18 +5,26 @@ namespace App\Domains\Payments\Actions;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
+use App\Domains\Ledger\Models\LedgerEntry;
 use App\Domains\Payments\Models\Payment;
 
-class RecordPayment
+class UpdatePayment
 {
     public function __construct(
         private RecordLedgerEntry $recordLedgerEntry,
     ) {}
 
-    public function execute(array $data): Payment
+    public function execute(Payment $payment, array $data): Payment
     {
-        $payment = Payment::create($data);
+        $payment->update($data);
 
+        $this->syncLedgerEntry($payment, $data);
+
+        return $payment;
+    }
+
+    private function syncLedgerEntry(Payment $payment, array $data): void
+    {
         if (! empty($data['contract_id'])) {
             $contract = LandContract::find($data['contract_id']);
             $direction = $contract?->type === 'إيجار'
@@ -32,16 +40,14 @@ class RecordPayment
             $label = $data['type'] === 'دفع' ? 'دفعة' : 'مقبوض';
         }
 
-        $this->recordLedgerEntry->execute([
-            'date' => $data['date'],
-            'direction' => $direction,
-            'amount' => $data['amount'],
-            'description' => $label,
-            'party_id' => $data['party_id'],
-            'reference_type' => Payment::class,
-            'reference_id' => $payment->id,
-        ]);
-
-        return $payment;
+        LedgerEntry::where('reference_type', Payment::class)
+            ->where('reference_id', $payment->id)
+            ->update([
+                'date' => $data['date'],
+                'direction' => $direction,
+                'amount' => $data['amount'],
+                'description' => $label,
+                'party_id' => $data['party_id'],
+            ]);
     }
 }

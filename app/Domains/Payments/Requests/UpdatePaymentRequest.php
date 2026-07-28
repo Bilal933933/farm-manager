@@ -6,7 +6,7 @@ use App\Domains\Payments\Enums\PaymentType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StorePaymentRequest extends FormRequest
+class UpdatePaymentRequest extends FormRequest
 {
     public function authorize(): bool
     {

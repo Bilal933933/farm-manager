@@ -81,7 +81,7 @@ return costs;
               <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-16">البيان</TableHead>
               <TableHead className={nh}>المبلغ</TableHead>
               <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-16">ملاحظات</TableHead>
-              <TableHead className={h}>إجراءات</TableHead>
+              <TableHead className="text-left font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

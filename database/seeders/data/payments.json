@@ -1,0 +1,58 @@
+[
+    {
+        "party_ref": "party_owner1",
+        "contract_ref": "ctr_salam",
+        "type": "دفع",
+        "date": "2024-01-15",
+        "amount": 50000,
+        "notes": "دفعة إيجار أرض السلام - مقدمة العقد"
+    },
+    {
+        "party_ref": "party_owner1",
+        "contract_ref": "ctr_salam",
+        "type": "دفع",
+        "date": "2024-07-01",
+        "amount": 25000,
+        "notes": "دفعة إيجار أرض السلام - الدفعة الثانية"
+    },
+    {
+        "party_ref": "party_owner1",
+        "contract_ref": "ctr_salam",
+        "type": "دفع",
+        "date": "2025-01-10",
+        "amount": 25000,
+        "notes": "دفعة إيجار أرض السلام - السنة الثانية"
+    },
+    {
+        "party_ref": "party_owner1",
+        "contract_ref": "ctr_tar3a",
+        "type": "دفع",
+        "date": "2024-01-20",
+        "amount": 120000,
+        "notes": "دفعة إيجار أرض الترعة - كامل المبلغ"
+    },
+    {
+        "party_ref": "party_owner2",
+        "contract_ref": "ctr_nile",
+        "type": "دفع",
+        "date": "2024-02-01",
+        "amount": 80000,
+        "notes": "دفعة إيجار أرض النيل - مقدمة"
+    },
+    {
+        "party_ref": "party_owner2",
+        "contract_ref": "ctr_amal",
+        "type": "دفع",
+        "date": "2024-03-01",
+        "amount": 150000,
+        "notes": "دفعة تملك حقل الأمل - القسط الأول"
+    },
+    {
+        "party_ref": "party_wholesale",
+        "contract_ref": null,
+        "type": "قبض",
+        "date": "2024-06-30",
+        "amount": 200000,
+        "notes": "مقبوضات من سوق الجملة - بيع محصول البطيخ"
+    }
+]

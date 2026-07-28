@@ -10,6 +10,7 @@ use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Models\Party;
+use App\Domains\Payments\Actions\RecordPayment;
 use App\Domains\Sales\Actions\CreateSale;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,7 @@ class LandsSeeder extends Seeder
     public function run(
         RecordHarvest $recordHarvest,
         CreateSale $createSale,
+        RecordPayment $recordPayment,
         CalculateSeasonFinancials $calculateSeasonFinancials,
     ): void {
         $dataDir = __DIR__.'/data';
@@ -25,11 +27,20 @@ class LandsSeeder extends Seeder
         $landsData = json_decode(file_get_contents("$dataDir/lands.json"), true);
         $seasonsData = json_decode(file_get_contents("$dataDir/seasons.json"), true);
         $contractsData = json_decode(file_get_contents("$dataDir/contracts.json"), true);
+        $paymentsData = json_decode(file_get_contents("$dataDir/payments.json"), true);
         $costsData = json_decode(file_get_contents("$dataDir/costs.json"), true);
         $harvestsData = json_decode(file_get_contents("$dataDir/harvests.json"), true);
         $salesData = json_decode(file_get_contents("$dataDir/sales.json"), true);
+        $partiesData = json_decode(file_get_contents("$dataDir/parties.json"), true);
 
         $cropByName = Crop::pluck('id', 'name');
+
+        // Map party_ref → name
+        $partyRefToName = [];
+        foreach ($partiesData as $p) {
+            $partyRefToName[$p['ref']] = $p['name'];
+        }
+
         $partyByName = Party::pluck('id', 'name');
 
         // ──────────────────────────────────────
@@ -71,20 +82,45 @@ class LandsSeeder extends Seeder
         // ──────────────────────────────────────
         // 3. Contracts
         // ──────────────────────────────────────
+        $contractByRef = [];
         foreach ($contractsData as $item) {
-            LandContract::create([
+            $partyName = $partyRefToName[$item['party_ref']] ?? null;
+            $contract = LandContract::create([
                 'land_id' => $landByRef[$item['land_ref']]->id,
-                'party_id' => $partyByName[$item['party_name']] ?? null,
+                'party_id' => $partyName ? ($partyByName[$partyName] ?? null) : null,
                 'type' => $item['type'],
                 'start_date' => $item['start_date'],
                 'end_date' => $item['end_date'],
                 'amount' => $item['amount'],
                 'notes' => $item['notes'] ?? null,
             ]);
+            $contractByRef[$item['ref']] = $contract;
         }
 
         // ──────────────────────────────────────
-        // 4. Costs (directly — skip Actions for speed)
+        // 4. Payments (linked to contracts)
+        // ──────────────────────────────────────
+        foreach ($paymentsData as $item) {
+            $partyName = $partyRefToName[$item['party_ref']] ?? null;
+            $partyId = $partyName ? ($partyByName[$partyName] ?? null) : null;
+            $contractId = ! empty($item['contract_ref']) ? ($contractByRef[$item['contract_ref']]?->id ?? null) : null;
+
+            if (! $partyId) {
+                continue;
+            }
+
+            $recordPayment->execute([
+                'party_id' => $partyId,
+                'contract_id' => $contractId,
+                'type' => $item['type'],
+                'date' => $item['date'],
+                'amount' => $item['amount'],
+                'notes' => $item['notes'] ?? null,
+            ]);
+        }
+
+        // ──────────────────────────────────────
+        // 5. Costs (directly — skip Actions for speed)
         // ──────────────────────────────────────
         $costChunks = array_chunk($costsData, 100);
         foreach ($costChunks as $chunk) {
@@ -111,7 +147,7 @@ class LandsSeeder extends Seeder
         }
 
         // ──────────────────────────────────────
-        // 5. Harvests + Sales
+        // 6. Harvests + Sales
         // ──────────────────────────────────────
         foreach ($harvestsData as $item) {
             $season = $seasonByRef[$item['season_ref']] ?? null;
@@ -128,7 +164,8 @@ class LandsSeeder extends Seeder
 
             $harvestSales = array_filter($salesData, fn ($s) => $s['harvest_ref'] === $item['ref']);
             foreach ($harvestSales as $saleItem) {
-                $partyId = $partyByName[$saleItem['party_name']] ?? null;
+                $partyName = $partyRefToName[$saleItem['party_ref']] ?? null;
+                $partyId = $partyName ? ($partyByName[$partyName] ?? null) : null;
                 if (! $partyId) {
                     continue;
                 }
@@ -145,7 +182,7 @@ class LandsSeeder extends Seeder
         }
 
         // ──────────────────────────────────────
-        // 6. Recalculate all season financials
+        // 7. Recalculate all season financials
         // ──────────────────────────────────────
         foreach ($seasonByRef as $season) {
             $calculateSeasonFinancials->forSeason($season);

@@ -26,6 +26,7 @@ interface ShowProps {
   products?: StockProductOption[];
   costsCount: number;
   revenuesCount: number;
+  parties?: { id: number; name: string; type: string; phone: string | null }[];
 }
 
 function getCropName(s: Season): string {
@@ -40,7 +41,7 @@ return (s.crop as Crop).name;
   return 'موسم';
 }
 
-export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount }: ShowProps) {
+export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount, parties }: ShowProps) {
   const [selectedSeasonId, setSelectedSeasonId] = useState<number | null>(activeSeason?.id ?? null);
 
   const seasons = (land.seasons ?? []);
@@ -82,7 +83,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
         </div>
       )}
 
-      <Tabs defaultValue="seasons">
+      <Tabs defaultValue="seasons" dir="rtl">
         <TabsList>
           <TabsTrigger value="seasons">المواسم الزراعية ({seasons.length})</TabsTrigger>
           <TabsTrigger value="costs">التكاليف ({costsCount})</TabsTrigger>
@@ -131,7 +132,7 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
         </TabsContent>
 
         <TabsContent value="contracts">
-          <ContractsTab contracts={land.contracts ?? []} landId={land.id} />
+          <ContractsTab contracts={land.contracts ?? []} landId={land.id} parties={parties ?? []} />
         </TabsContent>
       </Tabs>
     </div>

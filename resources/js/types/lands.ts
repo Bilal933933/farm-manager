@@ -66,6 +66,10 @@ export interface Contract {
   start_date: string;
   end_date?: string;
   amount: string;
+  paid_amount?: number;
+  remaining?: number;
+  party_id?: number | null;
+  party?: { id: number; name: string; type: string } | null;
 }
 
 export interface Land {
