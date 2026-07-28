@@ -1,8 +1,9 @@
-﻿إضافة حساب تسوية الفلاح (CalculateFarmerSettlement) وتحسين عرض الموسم
+﻿إعادة توليد بيانات Seeders مع أرقام واقعية + تحسين إدارة المواسم
 
-- إضافة CalculateFarmerSettlement: يحسب صافي المستحق للفلاح بناءً على
-  نسبة العقد (ربع/ثلث/نصف) من صافي الأرباح بعد خصم التكاليف
-- ربط CalculateFarmerSettlement مع LandController@show
-- إضافة حقل settlement إلى StoreLandContractRequest
-- إزالة الهجرة المنفصلة add_crop_fields (مدمجة في الأصلية)
-- تحسين SeasonShow بعرض حقل التسوية والحالة المالية
+- إعادة توليد costs.json, sales.json, harvests.json, seasons.json
+  بأرقام مالية واقعية ومتسقة مع العقود والأطراف
+- إضافة نسبة العقد (contract_share) إلى LandContract وعرضها في الفورم
+- إضافة حقلي actual_revenue و actual_profit إلى StoreLandSeasonRequest
+- ربط CalculateSeasonFinancials مع عرض الموسم بعد التحديث
+- تحسين SeasonFormDialog بعرض total_revenue, total_costs, profit تلقائياً
+- إضافة رابط land.show في LandController@show

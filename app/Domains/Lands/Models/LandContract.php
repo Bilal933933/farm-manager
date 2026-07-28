@@ -61,6 +61,10 @@ class LandContract extends Model
 
     public function getRemainingAttribute(): float
     {
+        if ($this->type === 'مزارع' && $this->settlement_type === 'نسبة') {
+            return 0;
+        }
+
         return max(0, (float) $this->amount - $this->paid_amount);
     }
 }

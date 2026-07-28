@@ -15,6 +15,7 @@ export interface Season {
   status: string;
   notes?: string;
   farmer_id?: number | null;
+  farmer_contract_id?: number | null;
   farmer?: { id: number; name: string } | null;
   harvests?: { id: number; date: string; quantity: string }[];
 }

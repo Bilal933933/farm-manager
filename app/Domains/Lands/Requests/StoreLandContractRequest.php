@@ -51,7 +51,9 @@ class StoreLandContractRequest extends FormRequest
                 : ['nullable', 'numeric', 'min:0', 'max:100'],
             'start_date' => ['required', 'date'],
             'end_date' => ['nullable', 'date', 'after_or_equal:start_date'],
-            'amount' => ['required', 'numeric', 'min:0'],
+            'amount' => $type === 'مزارع' && $this->input('settlement_type') === 'نسبة'
+                ? ['nullable', 'numeric', 'min:0']
+                : ['required', 'numeric', 'min:0'],
             'notes' => ['nullable', 'string'],
         ];
     }

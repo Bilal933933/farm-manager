@@ -13,6 +13,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { CostData, Crop, Land, SaleData, Season, SeasonStats, StockProductOption } from '@/types';
 
+interface FarmerContract {
+  id: number;
+  party_id: number;
+  party?: { id: number; name: string };
+  settlement_type: string;
+  share_percentage: string | null;
+}
+
 interface ShowProps {
   land: Land;
   crops?: Crop[];
@@ -28,6 +36,7 @@ interface ShowProps {
   revenuesCount: number;
   parties?: { id: number; name: string; type: string; phone: string | null }[];
   farmers?: { id: number; name: string }[];
+  farmerContracts?: FarmerContract[];
 }
 
 function getCropName(s: Season): string {
@@ -42,7 +51,7 @@ return (s.crop as Crop).name;
   return 'موسم';
 }
 
-export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount, parties, farmers }: ShowProps) {
+export default function Show({ land, crops, activeSeason, seasonStats, overallSales, overallCosts, totalHarvest, sales, costs, products, costsCount, revenuesCount, parties, farmers, farmerContracts }: ShowProps) {
   const [selectedSeasonId, setSelectedSeasonId] = useState<number | null>(activeSeason?.id ?? null);
 
   const seasons = (land.seasons ?? []);
@@ -93,13 +102,13 @@ export default function Show({ land, crops, activeSeason, seasonStats, overallSa
         </TabsList>
 
         <TabsContent value="seasons">
-          <Deferred data={['crops', 'seasonStats', 'farmers']} fallback={
+          <Deferred data={['crops', 'seasonStats', 'farmers', 'farmerContracts']} fallback={
             <div className="flex items-center justify-center py-16 text-stone-400">
               <div className="ms-2 h-6 w-6 animate-spin rounded-full border-2 border-emerald-600 border-t-transparent" />
               جاري تحميل المواسم...
             </div>
           }>
-            <SeasonsTab seasons={seasons} seasonStats={seasonStats!} crops={crops!} farmers={farmers} landId={land.id} />
+            <SeasonsTab seasons={seasons} seasonStats={seasonStats!} crops={crops!} farmers={farmers} farmerContracts={farmerContracts} landId={land.id} />
           </Deferred>
         </TabsContent>
 

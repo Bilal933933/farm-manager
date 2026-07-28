@@ -51,6 +51,10 @@ class StoreLandSeasonRequest extends FormRequest
                     }
                 },
             ],
+            'farmer_contract_id' => [
+                'nullable',
+                'exists:land_contracts,id',
+            ],
             'status' => [
                 'required',
                 Rule::enum(SeasonStatus::class),

@@ -190,8 +190,22 @@ $costTemplates = [
     ['type' => 'حصاد',      'desc' => 'آلات حصاد - تأجير',                        'min' => 5000,  'max' => 12000, 'product' => null],
 ];
 
+$borneByMap = [
+    'بذور' => 'مشترك',
+    'أسمدة' => 'مشترك',
+    'مبيدات' => 'مشترك',
+    'ري' => 'مشترك',
+    'نقل' => 'مشترك',
+    'خدمات' => 'مشترك',
+    'أخرى' => 'مشترك',
+    'عمالة' => 'مزارع',
+    'حصاد' => 'مزارع',
+    'صيانة' => 'مالك',
+];
+
 $costs = [];
 foreach ($seasons as $si => $season) {
+    $isFarmerLand = $season['land_ref'] === 'land_wadi';
     $plantTs = strtotime($season['planting_date']);
     $harvestTs = strtotime($season['harvest_date']);
     $seasonDays = max(1, ($harvestTs - $plantTs) / 86400);
@@ -211,6 +225,8 @@ foreach ($seasons as $si => $season) {
             $desc = $tmpl['desc'];
         }
 
+        $borne_by = $isFarmerLand ? ($borneByMap[$tmpl['type']] ?? 'مشترك') : 'مشترك';
+
         $costs[] = [
             'season_ref' => $season['ref'],
             'type' => $tmpl['type'],
@@ -220,6 +236,7 @@ foreach ($seasons as $si => $season) {
             'product_ref' => $tmpl['product'],
             'crop_ref' => $season['crop'],
             'date' => date('Y-m-d', $dateTs),
+            'borne_by' => $borne_by,
         ];
     }
 }

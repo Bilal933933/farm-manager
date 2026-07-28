@@ -24,9 +24,17 @@ interface Farmer {
   name: string;
 }
 
+interface FarmerContract {
+  id: number;
+  party_id: number;
+  party?: { id: number; name: string };
+  settlement_type: string;
+  share_percentage: string | null;
+}
+
 interface Props {
   seasons: Season[]; seasonStats: Record<number, SeasonStats>;
-  crops: Crop[]; farmers?: Farmer[]; landId: number;
+  crops: Crop[]; farmers?: Farmer[]; farmerContracts?: FarmerContract[]; landId: number;
 }
 
 function getCropName(s: Season): string {
@@ -54,13 +62,13 @@ const numCell = 'font-mono text-right tabular-nums';
 const h = 'text-right font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200';
 const nh = `${numCell} ${h}`;
 
-export default function SeasonsTab({ seasons, seasonStats, crops, farmers, landId }: Props) {
+export default function SeasonsTab({ seasons, seasonStats, crops, farmers, farmerContracts, landId }: Props) {
   const [editingSeason, setEditingSeason] = useState<Season | null>(null);
 
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <SeasonFormDialog landId={landId} crops={crops} farmers={farmers} trigger={
+        <SeasonFormDialog landId={landId} crops={crops} farmers={farmers} farmerContracts={farmerContracts} trigger={
           <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
             <Plus className="ms-2 h-4 w-4" /> إضافة موسم
           </Button>
@@ -146,6 +154,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, farmers, landI
                       season={editingSeason}
                       crops={crops}
                       farmers={farmers}
+                      farmerContracts={farmerContracts}
                       open={editingSeason?.id === s.id}
                       onOpenChange={(open) => {
  if (!open) {

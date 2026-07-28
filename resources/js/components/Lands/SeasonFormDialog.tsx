@@ -18,6 +18,14 @@ interface Farmer {
   name: string;
 }
 
+interface FarmerContract {
+  id: number;
+  party_id: number;
+  party?: { id: number; name: string };
+  settlement_type: string;
+  share_percentage: string | null;
+}
+
 interface SeasonFormData {
   land_id: number;
   crop_id: string;
@@ -29,6 +37,7 @@ interface SeasonFormData {
   status: string;
   notes: string;
   farmer_id: string;
+  farmer_contract_id: string;
 }
 
 interface SeasonFormDialogProps {
@@ -37,6 +46,7 @@ interface SeasonFormDialogProps {
   trigger: ReactNode;
   crops: Crop[];
   farmers?: Farmer[];
+  farmerContracts?: FarmerContract[];
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
@@ -49,7 +59,7 @@ return '';
   return dateStr.split('T')[0];
 }
 
-export default function SeasonFormDialog({ landId, season = null, trigger, crops, farmers, open, onOpenChange }: SeasonFormDialogProps) {
+export default function SeasonFormDialog({ landId, season = null, trigger, crops, farmers, farmerContracts, open, onOpenChange }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
   const initialCrop = season?.crop && typeof season.crop === 'object'
@@ -67,6 +77,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
     status: season?.status ?? 'قادم',
     notes: season?.notes ?? '',
     farmer_id: String(season?.farmer_id ?? ''),
+    farmer_contract_id: String(season?.farmer_contract_id ?? ''),
   });
 
   function submit(e: React.FormEvent) {
@@ -158,7 +169,10 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
 
           <div className="space-y-2">
             <Label htmlFor="farmer_id">المزارع (اختياري)</Label>
-            <Select value={data.farmer_id} onValueChange={(v) => setData('farmer_id', v)}>
+            <Select value={data.farmer_id} onValueChange={(v) => {
+              setData('farmer_id', v);
+              setData('farmer_contract_id', '');
+            }}>
               <SelectTrigger id="farmer_id">
                 <SelectValue placeholder="اختر المزارع" />
               </SelectTrigger>
@@ -170,6 +184,27 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
             </Select>
             {errors.farmer_id && <p className="text-sm text-rose-600">{errors.farmer_id}</p>}
           </div>
+
+          {data.farmer_id && (
+            <div className="space-y-2">
+              <Label htmlFor="farmer_contract_id">عقد المزارعة</Label>
+              <Select value={data.farmer_contract_id} onValueChange={(v) => setData('farmer_contract_id', v)}>
+                <SelectTrigger id="farmer_contract_id">
+                  <SelectValue placeholder="اختر العقد (اختياري)" />
+                </SelectTrigger>
+                <SelectContent>
+                  {farmerContracts
+                    ?.filter((fc) => String(fc.party_id) === data.farmer_id)
+                    .map((fc) => (
+                      <SelectItem key={fc.id} value={String(fc.id)}>
+                        {fc.party?.name ?? `مزارعة #${fc.id}`} — {fc.settlement_type}{fc.share_percentage ? ` ${fc.share_percentage}%` : ''}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+              {errors.farmer_contract_id && <p className="text-sm text-rose-600">{errors.farmer_contract_id}</p>}
+            </div>
+          )}
 
           <div className="space-y-2">
             <Label htmlFor="season_status">الحالة</Label>

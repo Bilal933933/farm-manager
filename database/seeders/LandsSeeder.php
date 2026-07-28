@@ -151,6 +151,7 @@ class LandsSeeder extends Seeder
                     'crop_id' => $cropId,
                     'product_id' => $productId,
                     'quantity' => $item['qty'] ?? null,
+                    'borne_by' => $item['borne_by'] ?? 'مشترك',
                     'type' => $item['type'],
                     'description' => $item['description'],
                     'amount' => $item['amount'],

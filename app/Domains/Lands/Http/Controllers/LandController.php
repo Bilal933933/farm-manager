@@ -14,6 +14,7 @@ use App\Domains\Lands\Actions\DeleteLandSeason;
 use App\Domains\Lands\Actions\UpdateLand;
 use App\Domains\Lands\Actions\UpdateLandContract;
 use App\Domains\Lands\Actions\UpdateLandSeason;
+use App\Domains\Lands\Enums\ContractType;
 use App\Domains\Lands\Models\Cost;
 use App\Domains\Lands\Models\Harvest;
 use App\Domains\Lands\Models\Land;
@@ -92,6 +93,8 @@ class LandController extends Controller
             'parties' => Party::orderBy('name')->get(['id', 'name', 'type', 'phone']),
 
             'farmers' => Inertia::defer(fn () => Party::where('category', PartyCategory::Farmer->value)->orderBy('name')->get(['id', 'name', 'phone']), 'seasons'),
+
+            'farmerContracts' => Inertia::defer(fn () => LandContract::where('type', ContractType::Farmer->value)->where('land_id', $land->id)->with('party')->get(['id', 'party_id', 'settlement_type', 'share_percentage']), 'seasons'),
 
             'crops' => Inertia::defer(fn () => Crop::orderBy('name')->get(), 'seasons'),
 

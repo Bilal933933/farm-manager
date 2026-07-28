@@ -17,7 +17,7 @@ class LandContractFactory extends Factory
         return [
             'land_id' => Land::factory(),
             'party_id' => Party::factory()->lessor(),
-            'type' => fake()->randomElement(ContractType::cases())->value,
+            'type' => ContractType::Lessor->value,
             'start_date' => '2024-01-01',
             'end_date' => '2026-12-31',
             'amount' => fake()->randomFloat(2, 50000, 500000),

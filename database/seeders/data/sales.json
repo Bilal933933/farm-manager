@@ -1,1602 +1,1602 @@
 [
     {
         "harvest_ref": "land_salam_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 64.67,
+        "unit_price": 4595,
+        "date": "2022-07-02",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 24.89,
-        "unit_price": 4346,
-        "date": "2022-06-27",
+        "quantity": 73.65,
+        "unit_price": 3682,
+        "date": "2022-06-29",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 67.2,
-        "unit_price": 3948,
-        "date": "2022-06-29",
+        "quantity": 77.33,
+        "unit_price": 3962,
+        "date": "2022-07-10",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 40.77,
-        "unit_price": 3655,
-        "date": "2022-07-10",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_salam_2022_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 17.4,
-        "unit_price": 3940,
+        "quantity": 21.54,
+        "unit_price": 3922,
         "date": "2022-07-23",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 98.62,
-        "unit_price": 4294,
-        "date": "2022-07-20",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 54.1,
-        "unit_price": 3838,
-        "date": "2022-07-12",
+        "quantity": 122.08,
+        "unit_price": 3718,
+        "date": "2022-07-30",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 24.15,
-        "unit_price": 3663,
+        "quantity": 27.85,
+        "unit_price": 3953,
         "date": "2022-07-09",
-        "payment_type": "آجل"
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 20.22,
-        "unit_price": 4346,
-        "date": "2022-07-20",
-        "payment_type": "آجل"
+        "quantity": 44.18,
+        "unit_price": 3659,
+        "date": "2022-07-17",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 21.23,
-        "unit_price": 3783,
+        "quantity": 22.72,
+        "unit_price": 3971,
+        "date": "2022-07-20",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 15.45,
+        "unit_price": 3856,
         "date": "2022-07-21",
-        "payment_type": "آجل"
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 39.42,
-        "unit_price": 3844,
-        "date": "2022-07-20",
+        "quantity": 75.44,
+        "unit_price": 4873,
+        "date": "2022-07-30",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 51.15,
+        "unit_price": 5178,
+        "date": "2023-05-01",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2022_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 46.6,
+        "unit_price": 4441,
+        "date": "2023-04-29",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 90.59,
-        "unit_price": 3575,
-        "date": "2023-04-30",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2022_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 62.51,
-        "unit_price": 4449,
-        "date": "2023-05-03",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2022_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 27.83,
-        "unit_price": 4268,
+        "quantity": 39.15,
+        "unit_price": 4844,
         "date": "2023-05-04",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 24.49,
-        "unit_price": 3534,
-        "date": "2023-05-15",
+        "party_ref": "party_trader",
+        "quantity": 22.09,
+        "unit_price": 4007,
+        "date": "2023-05-11",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2022_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 86.82,
-        "unit_price": 3598,
-        "date": "2023-05-05",
+        "quantity": 125.17,
+        "unit_price": 4068,
+        "date": "2023-05-30",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 27.86,
-        "unit_price": 3727,
-        "date": "2023-07-02",
-        "payment_type": "نقدي"
+        "quantity": 39.04,
+        "unit_price": 4586,
+        "date": "2023-07-04",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 51.08,
-        "unit_price": 4719,
-        "date": "2023-07-14",
-        "payment_type": "نقدي"
+        "quantity": 65.59,
+        "unit_price": 3506,
+        "date": "2023-07-08",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 45.98,
-        "unit_price": 3637,
+        "party_ref": "party_trader",
+        "quantity": 19.51,
+        "unit_price": 4742,
         "date": "2023-07-09",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 36.48,
-        "unit_price": 4844,
-        "date": "2023-07-24",
+        "party_ref": "party_wholesale",
+        "quantity": 29.97,
+        "unit_price": 3651,
+        "date": "2023-07-28",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 70.8,
-        "unit_price": 4213,
-        "date": "2023-07-30",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 43.97,
-        "unit_price": 4928,
-        "date": "2023-07-17",
+        "quantity": 89.91,
+        "unit_price": 3659,
+        "date": "2023-07-15",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 89.14,
-        "unit_price": 4742,
-        "date": "2023-07-22",
+        "quantity": 60.78,
+        "unit_price": 3669,
+        "date": "2023-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 96.9,
+        "unit_price": 4210,
+        "date": "2023-07-20",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 34.39,
-        "unit_price": 4084,
-        "date": "2023-07-28",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 46.91,
-        "unit_price": 4972,
-        "date": "2023-07-18",
-        "payment_type": "نقدي"
+        "quantity": 28.79,
+        "unit_price": 4357,
+        "date": "2023-07-19",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2023_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 99.69,
-        "unit_price": 3791,
+        "quantity": 18.14,
+        "unit_price": 3825,
+        "date": "2023-07-26",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2023_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 133.03,
+        "unit_price": 4637,
         "date": "2023-07-25",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_salam_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 25.66,
-        "unit_price": 4541,
-        "date": "2024-05-02",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_salam_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 43.88,
-        "unit_price": 4118,
-        "date": "2024-05-12",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 43.03,
-        "unit_price": 5107,
-        "date": "2024-05-21",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2023_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 41.77,
-        "unit_price": 4652,
-        "date": "2024-05-28",
+        "quantity": 107.67,
+        "unit_price": 5172,
+        "date": "2024-05-05",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2023_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 102.27,
-        "unit_price": 4802,
-        "date": "2024-06-04",
+        "quantity": 27.17,
+        "unit_price": 4793,
+        "date": "2024-05-10",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 61.83,
+        "unit_price": 4671,
+        "date": "2024-05-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 22.8,
+        "unit_price": 4907,
+        "date": "2024-05-08",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2023_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 97.21,
+        "unit_price": 4492,
+        "date": "2024-05-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 64.73,
+        "unit_price": 3797,
+        "date": "2024-07-07",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_salam_2024_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 52.25,
-        "unit_price": 3751,
-        "date": "2024-07-11",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2024_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 20.47,
-        "unit_price": 4418,
+        "quantity": 27.6,
+        "unit_price": 4705,
         "date": "2024-07-17",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 44.71,
+        "unit_price": 3855,
+        "date": "2024-07-20",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2024_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 17.19,
-        "unit_price": 3829,
-        "date": "2024-07-14",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_salam_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 13.54,
-        "unit_price": 4824,
-        "date": "2024-07-13",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_salam_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 76.73,
-        "unit_price": 5030,
-        "date": "2024-07-25",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_salam_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 93.94,
-        "unit_price": 3889,
-        "date": "2024-07-21",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2024_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 62,
-        "unit_price": 3510,
-        "date": "2024-07-25",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_salam_2024_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 25.27,
-        "unit_price": 3658,
+        "quantity": 57.02,
+        "unit_price": 4355,
         "date": "2024-08-02",
         "payment_type": "آجل"
     },
     {
+        "harvest_ref": "land_salam_2024_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 146.64,
+        "unit_price": 4497,
+        "date": "2024-07-20",
+        "payment_type": "آجل"
+    },
+    {
         "harvest_ref": "land_salam_2024_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 19.96,
-        "unit_price": 4348,
-        "date": "2024-08-08",
+        "quantity": 53.98,
+        "unit_price": 4022,
+        "date": "2024-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 15.04,
+        "unit_price": 4096,
+        "date": "2024-07-23",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 19.6,
+        "unit_price": 3855,
+        "date": "2024-08-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 13.12,
+        "unit_price": 5007,
+        "date": "2024-07-27",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_salam_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 75.11,
-        "unit_price": 4007,
-        "date": "2024-08-19",
+        "quantity": 52.48,
+        "unit_price": 3872,
+        "date": "2024-08-09",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 23.28,
+        "unit_price": 3629,
+        "date": "2022-06-29",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2022_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 49.6,
-        "unit_price": 4849,
-        "date": "2022-06-28",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2022_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 23.95,
-        "unit_price": 4414,
-        "date": "2022-07-01",
+        "quantity": 40.05,
+        "unit_price": 3507,
+        "date": "2022-07-09",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2022_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 20.44,
-        "unit_price": 4527,
+        "quantity": 12.36,
+        "unit_price": 4634,
         "date": "2022-07-04",
-        "payment_type": "آجل"
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_tar3a_2022_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 10.5,
-        "unit_price": 5100,
+        "quantity": 24.47,
+        "unit_price": 4509,
+        "date": "2022-07-15",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 66.16,
+        "unit_price": 4536,
+        "date": "2022-07-20",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 23.72,
+        "unit_price": 4586,
+        "date": "2022-07-08",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 19.45,
+        "unit_price": 4163,
+        "date": "2022-07-09",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2022_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 13.29,
+        "unit_price": 5014,
         "date": "2022-07-11",
         "payment_type": "نقدي"
     },
     {
-        "harvest_ref": "land_tar3a_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 37.21,
-        "unit_price": 4518,
-        "date": "2022-07-05",
-        "payment_type": "آجل"
-    },
-    {
         "harvest_ref": "land_tar3a_2022_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 46.76,
-        "unit_price": 4459,
-        "date": "2022-07-12",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_tar3a_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 17.09,
-        "unit_price": 3517,
-        "date": "2022-07-19",
+        "quantity": 14.31,
+        "unit_price": 5085,
+        "date": "2022-07-29",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_tar3a_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 14.01,
-        "unit_price": 4236,
-        "date": "2022-07-17",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 14.04,
-        "unit_price": 4483,
-        "date": "2022-07-17",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2022_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 49.8,
-        "unit_price": 3760,
-        "date": "2022-07-30",
+        "quantity": 60.99,
+        "unit_price": 3773,
+        "date": "2022-07-20",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 82.66,
-        "unit_price": 4347,
-        "date": "2023-04-30",
-        "payment_type": "نقدي"
+        "quantity": 14.64,
+        "unit_price": 4368,
+        "date": "2023-05-01",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 15.35,
-        "unit_price": 4951,
+        "quantity": 34.35,
+        "unit_price": 5064,
         "date": "2023-05-03",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2022_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 33.16,
-        "unit_price": 3919,
-        "date": "2023-05-13",
+        "party_ref": "party_wholesale",
+        "quantity": 25.54,
+        "unit_price": 5187,
+        "date": "2023-05-04",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 29.4,
-        "unit_price": 4809,
-        "date": "2023-05-03",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 75.59,
-        "unit_price": 5134,
-        "date": "2023-05-20",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 25.9,
-        "unit_price": 4471,
-        "date": "2023-07-04",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2023_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 40.47,
-        "unit_price": 3642,
-        "date": "2023-07-04",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2023_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 22.36,
-        "unit_price": 3906,
-        "date": "2023-07-15",
+        "quantity": 7.59,
+        "unit_price": 5158,
+        "date": "2023-05-23",
         "payment_type": "آجل"
     },
     {
+        "harvest_ref": "land_tar3a_2022_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 39.85,
+        "unit_price": 5109,
+        "date": "2023-05-10",
+        "payment_type": "نقدي"
+    },
+    {
         "harvest_ref": "land_tar3a_2023_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 6.36,
-        "unit_price": 4198,
+        "quantity": 33.27,
+        "unit_price": 5031,
+        "date": "2023-07-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 11.69,
+        "unit_price": 3725,
         "date": "2023-07-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 12.52,
+        "unit_price": 5069,
+        "date": "2023-07-06",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 57.28,
-        "unit_price": 4625,
-        "date": "2023-07-15",
+        "quantity": 18.41,
+        "unit_price": 3581,
+        "date": "2023-07-24",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 47.33,
+        "unit_price": 5121,
+        "date": "2023-07-30",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 67.28,
-        "unit_price": 4363,
-        "date": "2023-07-16",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 32.49,
-        "unit_price": 3858,
-        "date": "2023-07-14",
+        "quantity": 34.59,
+        "unit_price": 3828,
+        "date": "2023-07-17",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_tar3a_2023_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 20.34,
-        "unit_price": 3772,
-        "date": "2023-07-19",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2023_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 20.2,
-        "unit_price": 4778,
-        "date": "2023-08-07",
+        "quantity": 37.81,
+        "unit_price": 5043,
+        "date": "2023-07-18",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 51.93,
-        "unit_price": 3753,
-        "date": "2023-08-04",
-        "payment_type": "نقدي"
+        "quantity": 31.13,
+        "unit_price": 4170,
+        "date": "2023-07-28",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 21.27,
+        "unit_price": 4217,
+        "date": "2023-07-30",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 67.34,
+        "unit_price": 4589,
+        "date": "2023-08-14",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 33.25,
-        "unit_price": 3719,
-        "date": "2024-05-04",
-        "payment_type": "نقدي"
+        "quantity": 57.47,
+        "unit_price": 4372,
+        "date": "2024-05-02",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 23.76,
-        "unit_price": 4940,
-        "date": "2024-05-14",
-        "payment_type": "نقدي"
+        "quantity": 40.89,
+        "unit_price": 4456,
+        "date": "2024-05-08",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 29.38,
-        "unit_price": 4860,
-        "date": "2024-05-21",
-        "payment_type": "نقدي"
+        "quantity": 23.31,
+        "unit_price": 4648,
+        "date": "2024-05-06",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 24.45,
-        "unit_price": 3558,
-        "date": "2024-05-28",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_tar3a_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 47.47,
-        "unit_price": 4882,
+        "quantity": 33.79,
+        "unit_price": 4268,
         "date": "2024-05-20",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2023_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 65.58,
+        "unit_price": 3933,
+        "date": "2024-05-30",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_tar3a_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 34.45,
-        "unit_price": 4913,
-        "date": "2024-07-12",
+        "party_ref": "party_trader",
+        "quantity": 32.85,
+        "unit_price": 4548,
+        "date": "2024-07-09",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 32.29,
-        "unit_price": 4782,
+        "quantity": 23.37,
+        "unit_price": 4473,
+        "date": "2024-07-17",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 19.63,
+        "unit_price": 3702,
+        "date": "2024-07-23",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 12.62,
+        "unit_price": 3907,
         "date": "2024-07-13",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_tar3a_2024_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 9.96,
-        "unit_price": 4585,
-        "date": "2024-07-17",
+        "quantity": 37.87,
+        "unit_price": 4682,
+        "date": "2024-08-04",
         "payment_type": "نقدي"
     },
     {
-        "harvest_ref": "land_tar3a_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 18.27,
-        "unit_price": 3698,
-        "date": "2024-07-17",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_tar3a_2024_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 54.81,
-        "unit_price": 3688,
-        "date": "2024-07-15",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_tar3a_2024_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 21.34,
-        "unit_price": 5084,
-        "date": "2024-07-18",
-        "payment_type": "آجل"
-    },
-    {
         "harvest_ref": "land_tar3a_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 21.87,
-        "unit_price": 4297,
+        "quantity": 73.11,
+        "unit_price": 4636,
         "date": "2024-07-19",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_tar3a_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 54.38,
+        "unit_price": 3929,
+        "date": "2024-07-21",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2024_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 13.99,
-        "unit_price": 3697,
-        "date": "2024-07-27",
+        "quantity": 20.2,
+        "unit_price": 3603,
+        "date": "2024-07-24",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_tar3a_2024_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 10.93,
-        "unit_price": 4844,
-        "date": "2024-07-27",
-        "payment_type": "آجل"
+        "quantity": 9.69,
+        "unit_price": 4980,
+        "date": "2024-08-12",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_tar3a_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 57.37,
-        "unit_price": 4226,
-        "date": "2024-07-25",
+        "quantity": 71.1,
+        "unit_price": 3969,
+        "date": "2024-08-19",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 81.12,
-        "unit_price": 4834,
-        "date": "2022-06-29",
+        "quantity": 113.14,
+        "unit_price": 3530,
+        "date": "2022-06-28",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 87.34,
-        "unit_price": 4186,
-        "date": "2022-07-01",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_nile_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 47.47,
-        "unit_price": 4624,
-        "date": "2022-07-10",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 40.28,
-        "unit_price": 4957,
-        "date": "2022-07-23",
+        "quantity": 40.29,
+        "unit_price": 4147,
+        "date": "2022-07-09",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 81.79,
-        "unit_price": 4442,
-        "date": "2022-07-10",
+        "quantity": 61.35,
+        "unit_price": 4037,
+        "date": "2022-07-16",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 18.02,
+        "unit_price": 4362,
+        "date": "2022-07-07",
         "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 132.18,
+        "unit_price": 4780,
+        "date": "2022-07-05",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 48.02,
-        "unit_price": 5066,
+        "quantity": 76.74,
+        "unit_price": 4340,
         "date": "2022-07-08",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 55.71,
-        "unit_price": 4246,
+        "quantity": 40.81,
+        "unit_price": 3976,
         "date": "2022-07-11",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 43.64,
-        "unit_price": 5035,
-        "date": "2022-07-17",
-        "payment_type": "آجل"
+        "party_ref": "party_trader",
+        "quantity": 43.94,
+        "unit_price": 4726,
+        "date": "2022-07-20",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 14.84,
-        "unit_price": 4261,
-        "date": "2022-08-02",
-        "payment_type": "آجل"
+        "quantity": 56.2,
+        "unit_price": 4572,
+        "date": "2022-07-13",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2022_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 77.91,
-        "unit_price": 5089,
+        "party_ref": "party_trader",
+        "quantity": 131.12,
+        "unit_price": 4628,
         "date": "2022-07-25",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 35.89,
-        "unit_price": 4634,
-        "date": "2023-05-02",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2022_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 37.75,
-        "unit_price": 4318,
-        "date": "2023-05-09",
+        "quantity": 65.62,
+        "unit_price": 4243,
+        "date": "2023-04-27",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 80.85,
-        "unit_price": 4908,
-        "date": "2023-05-13",
+        "quantity": 81.46,
+        "unit_price": 3893,
+        "date": "2023-04-29",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2022_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 51.27,
+        "unit_price": 4612,
+        "date": "2023-05-07",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2022_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 24.05,
-        "unit_price": 4787,
+        "party_ref": "party_wholesale",
+        "quantity": 21.68,
+        "unit_price": 5021,
         "date": "2023-05-11",
-        "payment_type": "نقدي"
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 147.77,
-        "unit_price": 4910,
-        "date": "2023-05-25",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2023_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 54.37,
-        "unit_price": 4543,
-        "date": "2023-07-04",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2023_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 90.96,
-        "unit_price": 3624,
-        "date": "2023-07-06",
+        "quantity": 92.45,
+        "unit_price": 5178,
+        "date": "2023-05-10",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 57.3,
-        "unit_price": 4893,
-        "date": "2023-07-06",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_nile_2023_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 51.74,
-        "unit_price": 4579,
-        "date": "2023-07-08",
+        "quantity": 64.33,
+        "unit_price": 5097,
+        "date": "2023-07-07",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2023_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 163.83,
-        "unit_price": 5188,
-        "date": "2023-07-30",
+        "quantity": 30.88,
+        "unit_price": 3967,
+        "date": "2023-07-14",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 40.76,
+        "unit_price": 4942,
+        "date": "2023-07-15",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 40.85,
+        "unit_price": 4228,
+        "date": "2023-07-24",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 144.81,
+        "unit_price": 4376,
+        "date": "2023-07-15",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2023_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 37.61,
-        "unit_price": 3563,
+        "party_ref": "party_trader",
+        "quantity": 92.74,
+        "unit_price": 3691,
         "date": "2023-07-16",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 71.09,
-        "unit_price": 4745,
-        "date": "2023-07-18",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 82.9,
-        "unit_price": 3665,
-        "date": "2023-07-31",
+        "quantity": 64.39,
+        "unit_price": 5134,
+        "date": "2023-07-24",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2023_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 59.05,
-        "unit_price": 4927,
+        "quantity": 57.45,
+        "unit_price": 4730,
+        "date": "2023-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 25.66,
+        "unit_price": 5084,
         "date": "2023-07-30",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 125.48,
-        "unit_price": 5070,
-        "date": "2023-07-20",
+        "party_ref": "party_wholesale",
+        "quantity": 90.98,
+        "unit_price": 4513,
+        "date": "2023-08-09",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 26.33,
-        "unit_price": 4932,
+        "party_ref": "party_trader",
+        "quantity": 66.59,
+        "unit_price": 4971,
         "date": "2024-05-05",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2023_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 80.58,
-        "unit_price": 4745,
-        "date": "2024-05-14",
+        "quantity": 65.13,
+        "unit_price": 4830,
+        "date": "2024-05-12",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 31.51,
+        "unit_price": 3747,
+        "date": "2024-05-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2023_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 33.85,
+        "unit_price": 4271,
+        "date": "2024-05-24",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 53.19,
-        "unit_price": 3531,
-        "date": "2024-05-21",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_nile_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 36.13,
-        "unit_price": 4742,
-        "date": "2024-05-28",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 67.11,
-        "unit_price": 4420,
+        "quantity": 120.02,
+        "unit_price": 4886,
         "date": "2024-05-15",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 49.73,
-        "unit_price": 5140,
-        "date": "2024-07-11",
+        "quantity": 98.04,
+        "unit_price": 4975,
+        "date": "2024-07-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 29.41,
+        "unit_price": 3709,
+        "date": "2024-07-09",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2024_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 41.77,
-        "unit_price": 3899,
-        "date": "2024-07-13",
-        "payment_type": "نقدي"
+        "quantity": 26.47,
+        "unit_price": 4602,
+        "date": "2024-07-20",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 45.27,
+        "unit_price": 4054,
+        "date": "2024-07-25",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_nile_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 15.71,
-        "unit_price": 3968,
-        "date": "2024-07-20",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 26.87,
-        "unit_price": 4745,
-        "date": "2024-07-13",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2024_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 114.55,
-        "unit_price": 5000,
-        "date": "2024-07-20",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2024_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 66.51,
-        "unit_price": 4860,
-        "date": "2024-07-19",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2024_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 45.22,
-        "unit_price": 5172,
+        "quantity": 192.97,
+        "unit_price": 3772,
         "date": "2024-07-25",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_nile_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 18.26,
-        "unit_price": 4359,
-        "date": "2024-07-30",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 14.79,
-        "unit_price": 4033,
-        "date": "2024-08-04",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_nile_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 63.05,
-        "unit_price": 3928,
-        "date": "2024-08-04",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 136.23,
-        "unit_price": 3705,
-        "date": "2022-07-02",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 152.98,
-        "unit_price": 5032,
-        "date": "2022-07-05",
+        "quantity": 38.96,
+        "unit_price": 4686,
+        "date": "2024-07-20",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 49.87,
+        "unit_price": 4224,
+        "date": "2024-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 30.73,
+        "unit_price": 3827,
+        "date": "2024-08-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 20.31,
+        "unit_price": 4288,
+        "date": "2024-08-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_nile_2024_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 54.92,
+        "unit_price": 4790,
+        "date": "2024-08-14",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 169.01,
-        "unit_price": 3621,
-        "date": "2022-07-10",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 116.66,
-        "unit_price": 4261,
-        "date": "2022-07-15",
-        "payment_type": "نقدي"
+        "party_ref": "party_wholesale",
+        "quantity": 144.28,
+        "unit_price": 3824,
+        "date": "2022-06-30",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 226.47,
-        "unit_price": 5092,
-        "date": "2022-07-15",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 70.08,
-        "unit_price": 4099,
+        "quantity": 46.81,
+        "unit_price": 3795,
         "date": "2022-07-09",
         "payment_type": "آجل"
     },
     {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 92.69,
+        "unit_price": 4755,
+        "date": "2022-07-13",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 52.63,
+        "unit_price": 4741,
+        "date": "2022-07-23",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 197.97,
+        "unit_price": 4651,
+        "date": "2022-07-10",
+        "payment_type": "آجل"
+    },
+    {
         "harvest_ref": "land_wadi_2022_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 55.96,
-        "unit_price": 3874,
-        "date": "2022-07-11",
+        "quantity": 171.6,
+        "unit_price": 3540,
+        "date": "2022-07-12",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 120.33,
+        "unit_price": 4716,
+        "date": "2022-07-13",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 52.43,
-        "unit_price": 3813,
-        "date": "2022-07-20",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 67.64,
-        "unit_price": 3926,
+        "quantity": 24.43,
+        "unit_price": 4769,
         "date": "2022-07-17",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 254.44,
-        "unit_price": 4195,
-        "date": "2022-08-09",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 83.47,
-        "unit_price": 4893,
-        "date": "2023-04-28",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2022_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 70.11,
-        "unit_price": 4427,
-        "date": "2023-05-09",
+        "quantity": 50.57,
+        "unit_price": 4400,
+        "date": "2022-07-21",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 169.32,
+        "unit_price": 4454,
+        "date": "2022-07-20",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 77.3,
-        "unit_price": 4168,
+        "quantity": 111.42,
+        "unit_price": 3635,
+        "date": "2023-05-02",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 46.1,
+        "unit_price": 4650,
+        "date": "2023-05-07",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2022_شتوي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 111.91,
+        "unit_price": 3672,
         "date": "2023-05-16",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 55.25,
-        "unit_price": 4134,
-        "date": "2023-05-07",
+        "party_ref": "party_trader",
+        "quantity": 70.5,
+        "unit_price": 3920,
+        "date": "2023-05-03",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 235.55,
-        "unit_price": 3966,
-        "date": "2023-05-20",
+        "quantity": 190.62,
+        "unit_price": 4300,
+        "date": "2023-05-30",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 90.88,
+        "unit_price": 3701,
+        "date": "2023-07-07",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 82.51,
-        "unit_price": 5064,
-        "date": "2023-07-05",
-        "payment_type": "آجل"
+        "quantity": 110.93,
+        "unit_price": 4049,
+        "date": "2023-07-08",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 49.51,
-        "unit_price": 4674,
+        "quantity": 56.57,
+        "unit_price": 4218,
         "date": "2023-07-06",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 33.67,
-        "unit_price": 3571,
-        "date": "2023-07-06",
-        "payment_type": "آجل"
+        "party_ref": "party_trader",
+        "quantity": 52.48,
+        "unit_price": 4740,
+        "date": "2023-07-20",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 50.95,
-        "unit_price": 5072,
-        "date": "2023-07-16",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_wadi_2023_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 113.41,
-        "unit_price": 4326,
-        "date": "2023-07-10",
+        "quantity": 223.74,
+        "unit_price": 4827,
+        "date": "2023-08-04",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 147.44,
-        "unit_price": 5076,
-        "date": "2023-07-13",
+        "quantity": 60.19,
+        "unit_price": 4858,
+        "date": "2023-07-15",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 72.19,
-        "unit_price": 4882,
-        "date": "2023-07-18",
+        "quantity": 21.34,
+        "unit_price": 3905,
+        "date": "2023-07-24",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 46.1,
+        "unit_price": 4671,
+        "date": "2023-07-28",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 86.63,
-        "unit_price": 4918,
-        "date": "2023-07-22",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_wadi_2023_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 58.62,
-        "unit_price": 4376,
-        "date": "2023-07-22",
+        "quantity": 49.63,
+        "unit_price": 4645,
+        "date": "2023-07-26",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 143.52,
-        "unit_price": 4348,
-        "date": "2023-07-25",
+        "quantity": 96.34,
+        "unit_price": 5185,
+        "date": "2023-08-14",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2023_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 116.68,
+        "unit_price": 4321,
+        "date": "2024-05-02",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 174.06,
-        "unit_price": 4009,
+        "quantity": 105.47,
+        "unit_price": 5136,
         "date": "2024-05-04",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 122.38,
-        "unit_price": 5027,
-        "date": "2024-05-04",
-        "payment_type": "آجل"
+        "quantity": 65.58,
+        "unit_price": 4035,
+        "date": "2024-05-15",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2023_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 96.68,
-        "unit_price": 4268,
-        "date": "2024-05-18",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_wadi_2023_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 112.74,
-        "unit_price": 5181,
+        "quantity": 54.89,
+        "unit_price": 4716,
         "date": "2024-05-20",
-        "payment_type": "نقدي"
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2023_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 250.94,
-        "unit_price": 5084,
-        "date": "2024-05-30",
-        "payment_type": "آجل"
+        "quantity": 164.68,
+        "unit_price": 4271,
+        "date": "2024-06-04",
+        "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 236.88,
-        "unit_price": 4813,
+        "quantity": 180.87,
+        "unit_price": 4417,
         "date": "2024-07-10",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 71.85,
-        "unit_price": 3753,
-        "date": "2024-07-15",
+        "quantity": 113.84,
+        "unit_price": 3910,
+        "date": "2024-07-09",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 48.14,
+        "unit_price": 3917,
+        "date": "2024-07-14",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 52.9,
-        "unit_price": 4975,
-        "date": "2024-07-11",
+        "quantity": 69.79,
+        "unit_price": 5002,
+        "date": "2024-07-17",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 72.75,
-        "unit_price": 5077,
-        "date": "2024-08-02",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_wadi_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 355.22,
-        "unit_price": 3597,
-        "date": "2024-07-15",
+        "quantity": 135.46,
+        "unit_price": 3994,
+        "date": "2024-07-25",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 121.72,
+        "unit_price": 3869,
+        "date": "2024-07-18",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 147.77,
-        "unit_price": 4907,
+        "quantity": 40.75,
+        "unit_price": 4685,
         "date": "2024-07-19",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 93.59,
-        "unit_price": 5117,
-        "date": "2024-07-29",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_wadi_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 108.56,
-        "unit_price": 3972,
-        "date": "2024-07-24",
+        "quantity": 124.69,
+        "unit_price": 4374,
+        "date": "2024-08-02",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_wadi_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 69.1,
-        "unit_price": 4974,
-        "date": "2024-07-27",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_wadi_2024_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 196.68,
-        "unit_price": 3604,
-        "date": "2024-08-04",
+        "quantity": 82.29,
+        "unit_price": 3831,
+        "date": "2024-08-12",
         "payment_type": "آجل"
     },
     {
-        "harvest_ref": "land_amal_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 29.56,
-        "unit_price": 4155,
-        "date": "2022-06-27",
+        "harvest_ref": "land_wadi_2024_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 159.75,
+        "unit_price": 4964,
+        "date": "2024-07-25",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2022_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 38.27,
-        "unit_price": 4467,
+        "quantity": 54.26,
+        "unit_price": 4747,
+        "date": "2022-06-29",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 49.92,
+        "unit_price": 4652,
+        "date": "2022-07-03",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 28.41,
+        "unit_price": 4149,
+        "date": "2022-07-04",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h1",
+        "party_ref": "party_wholesale",
+        "quantity": 34.68,
+        "unit_price": 5189,
         "date": "2022-07-07",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 42.19,
-        "unit_price": 4988,
-        "date": "2022-07-07",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 39.68,
-        "unit_price": 3552,
-        "date": "2022-07-19",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2022_صيفي_h1",
-        "party_ref": "party_trader",
-        "quantity": 119.03,
-        "unit_price": 5126,
+        "party_ref": "party_wholesale",
+        "quantity": 104.05,
+        "unit_price": 5160,
+        "date": "2022-07-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 55.74,
+        "unit_price": 4586,
+        "date": "2022-07-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 60.81,
+        "unit_price": 4625,
+        "date": "2022-07-13",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 50.62,
+        "unit_price": 4574,
         "date": "2022-07-20",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2022_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 22.6,
+        "unit_price": 4272,
+        "date": "2022-07-13",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2022_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 41.27,
-        "unit_price": 4082,
-        "date": "2022-07-11",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 36.32,
-        "unit_price": 4352,
-        "date": "2022-07-19",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 32.19,
-        "unit_price": 5176,
-        "date": "2022-07-11",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_amal_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 33.8,
-        "unit_price": 3986,
-        "date": "2022-07-29",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2022_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 62.78,
-        "unit_price": 3533,
-        "date": "2022-07-25",
+        "quantity": 75.67,
+        "unit_price": 4347,
+        "date": "2022-08-09",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2022_شتوي_h1",
         "party_ref": "party_trader",
-        "quantity": 37.26,
-        "unit_price": 3629,
-        "date": "2023-04-28",
-        "payment_type": "نقدي"
+        "quantity": 25.76,
+        "unit_price": 4855,
+        "date": "2023-04-30",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 52.79,
-        "unit_price": 4917,
-        "date": "2023-05-09",
+        "party_ref": "party_trader",
+        "quantity": 37.09,
+        "unit_price": 4217,
+        "date": "2023-05-01",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2022_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 46.74,
+        "unit_price": 4123,
+        "date": "2023-05-16",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 50.67,
-        "unit_price": 4199,
-        "date": "2023-05-04",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_amal_2022_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 19.38,
-        "unit_price": 4996,
-        "date": "2023-05-23",
+        "quantity": 14.8,
+        "unit_price": 4743,
+        "date": "2023-05-03",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2022_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 88.3,
-        "unit_price": 3547,
-        "date": "2023-05-20",
+        "quantity": 133.21,
+        "unit_price": 3532,
+        "date": "2023-05-25",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 22.23,
-        "unit_price": 4920,
-        "date": "2023-07-04",
+        "quantity": 22.96,
+        "unit_price": 3504,
+        "date": "2023-07-03",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 28.97,
-        "unit_price": 4572,
-        "date": "2023-07-14",
+        "party_ref": "party_trader",
+        "quantity": 23.98,
+        "unit_price": 4634,
+        "date": "2023-07-10",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 29.1,
-        "unit_price": 3650,
+        "quantity": 19.9,
+        "unit_price": 4780,
         "date": "2023-07-06",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 6.79,
-        "unit_price": 4928,
+        "quantity": 20.4,
+        "unit_price": 3657,
         "date": "2023-07-08",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 61.1,
-        "unit_price": 4104,
-        "date": "2023-07-20",
+        "party_ref": "party_trader",
+        "quantity": 76.76,
+        "unit_price": 4833,
+        "date": "2023-07-25",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 28.47,
-        "unit_price": 4655,
+        "quantity": 50.28,
+        "unit_price": 4688,
         "date": "2023-07-12",
-        "payment_type": "نقدي"
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 27.15,
+        "unit_price": 4790,
+        "date": "2023-07-24",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 22.78,
-        "unit_price": 4571,
+        "quantity": 14.3,
+        "unit_price": 3575,
+        "date": "2023-07-28",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_صيفي_h2",
+        "party_ref": "party_trader",
+        "quantity": 10.54,
+        "unit_price": 4254,
         "date": "2023-07-22",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 10.02,
-        "unit_price": 3780,
-        "date": "2023-07-19",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2023_صيفي_h2",
-        "party_ref": "party_trader",
-        "quantity": 17.03,
-        "unit_price": 4557,
-        "date": "2023-07-30",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2023_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 64.05,
-        "unit_price": 3559,
-        "date": "2023-08-09",
+        "quantity": 77.31,
+        "unit_price": 4888,
+        "date": "2023-08-14",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 40.5,
-        "unit_price": 3723,
-        "date": "2024-05-02",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_amal_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 43.74,
-        "unit_price": 4957,
+        "party_ref": "party_trader",
+        "quantity": 28.37,
+        "unit_price": 3674,
         "date": "2024-05-04",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2023_شتوي_h1",
-        "party_ref": "party_trader",
-        "quantity": 22.47,
-        "unit_price": 3661,
-        "date": "2024-05-15",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2023_شتوي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 31.61,
-        "unit_price": 4533,
-        "date": "2024-05-20",
+        "quantity": 19.29,
+        "unit_price": 4549,
+        "date": "2024-05-04",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2023_شتوي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 64.18,
-        "unit_price": 3525,
-        "date": "2024-05-20",
+        "party_ref": "party_trader",
+        "quantity": 23.55,
+        "unit_price": 4133,
+        "date": "2024-05-18",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 16.96,
+        "unit_price": 3927,
+        "date": "2024-05-16",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2023_شتوي_h1",
+        "party_ref": "party_trader",
+        "quantity": 53.69,
+        "unit_price": 4071,
+        "date": "2024-05-10",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 38.19,
+        "unit_price": 5191,
+        "date": "2024-07-07",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 51.61,
+        "unit_price": 3799,
+        "date": "2024-07-19",
+        "payment_type": "آجل"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h1",
+        "party_ref": "party_trader",
+        "quantity": 29.28,
+        "unit_price": 4034,
+        "date": "2024-07-23",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2024_صيفي_h1",
         "party_ref": "party_wholesale",
-        "quantity": 57.26,
-        "unit_price": 4519,
-        "date": "2024-07-11",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 52.15,
-        "unit_price": 4087,
+        "quantity": 23.06,
+        "unit_price": 5159,
         "date": "2024-07-13",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 23.27,
-        "unit_price": 4572,
-        "date": "2024-07-20",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2024_صيفي_h1",
         "party_ref": "party_trader",
-        "quantity": 14.01,
-        "unit_price": 4539,
-        "date": "2024-07-21",
-        "payment_type": "نقدي"
-    },
-    {
-        "harvest_ref": "land_amal_2024_صيفي_h1",
-        "party_ref": "party_wholesale",
-        "quantity": 73.53,
-        "unit_price": 4388,
-        "date": "2024-08-09",
-        "payment_type": "نقدي"
+        "quantity": 130.66,
+        "unit_price": 3709,
+        "date": "2024-07-15",
+        "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 51.84,
-        "unit_price": 5058,
-        "date": "2024-07-19",
+        "party_ref": "party_trader",
+        "quantity": 32.77,
+        "unit_price": 3669,
+        "date": "2024-07-18",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 38.59,
-        "unit_price": 4886,
+        "quantity": 48.17,
+        "unit_price": 4663,
         "date": "2024-07-19",
         "payment_type": "آجل"
     },
     {
         "harvest_ref": "land_amal_2024_صيفي_h2",
         "party_ref": "party_trader",
-        "quantity": 33.39,
-        "unit_price": 4782,
+        "quantity": 16.1,
+        "unit_price": 3922,
         "date": "2024-08-02",
-        "payment_type": "آجل"
-    },
-    {
-        "harvest_ref": "land_amal_2024_صيفي_h2",
-        "party_ref": "party_wholesale",
-        "quantity": 11.18,
-        "unit_price": 5123,
-        "date": "2024-07-27",
         "payment_type": "نقدي"
     },
     {
         "harvest_ref": "land_amal_2024_صيفي_h2",
         "party_ref": "party_wholesale",
-        "quantity": 100.62,
-        "unit_price": 4768,
-        "date": "2024-08-14",
+        "quantity": 16.16,
+        "unit_price": 4930,
+        "date": "2024-08-08",
+        "payment_type": "نقدي"
+    },
+    {
+        "harvest_ref": "land_amal_2024_صيفي_h2",
+        "party_ref": "party_wholesale",
+        "quantity": 91.6,
+        "unit_price": 4958,
+        "date": "2024-08-09",
         "payment_type": "نقدي"
     }
 ]
