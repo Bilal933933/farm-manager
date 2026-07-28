@@ -13,6 +13,8 @@ return new class extends Migration
             $table->foreignId('land_id')->constrained()->cascadeOnDelete();
             $table->foreignId('land_season_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('crop_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('product_id')->nullable()->constrained()->nullOnDelete();
+            $table->decimal('quantity', 10, 2)->nullable()->after('product_id');
             $table->string('type');
             $table->text('description');
             $table->decimal('amount', 12, 2);

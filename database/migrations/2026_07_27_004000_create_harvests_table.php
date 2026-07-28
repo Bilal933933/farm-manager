@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('land_season_id')->constrained()->cascadeOnDelete();
             $table->date('date');
+            $table->string('name')->nullable()->after('date');
             $table->decimal('quantity', 10, 2);
             $table->text('notes')->nullable();
             $table->timestamps();

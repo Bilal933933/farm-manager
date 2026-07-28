@@ -14,11 +14,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('category');
             $table->string('unit');
-            $table->string('status');
+            $table->string('status')->default('نشط');
             $table->integer('display_order')->default(0);
+            $table->decimal('last_purchase_price', 10, 2)->nullable()->after('display_order');
             $table->text('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('category');
+            $table->index('status');
         });
     }
 

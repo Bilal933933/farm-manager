@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
+            $table->string('category')->nullable()->after('type');
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('national_id')->nullable()->unique();
@@ -19,6 +20,8 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('category');
         });
     }
 
