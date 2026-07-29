@@ -3,6 +3,7 @@
 namespace App\Domains\Lands\Models;
 
 use App\Domains\Crops\Models\Crop;
+use App\Domains\Lands\Enums\CostBearer;
 use App\Domains\Products\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,12 @@ class Cost extends Model
     use HasFactory;
     use SoftDeletes;
 
+    /*
+     * Deletion strategy:
+     * - land_season_id: cascadeOnDelete (season owns the cost)
+     * - crop_id, product_id: nullOnDelete (reference only, cost survives)
+     */
+
     protected $fillable = ['land_id', 'land_season_id', 'crop_id', 'product_id', 'quantity', 'borne_by', 'type', 'description', 'amount', 'date', 'notes'];
 
     protected function casts(): array
@@ -21,6 +28,7 @@ class Cost extends Model
         return [
             'amount' => 'decimal:2',
             'quantity' => 'decimal:2',
+            'borne_by' => CostBearer::class,
             'date' => 'date',
         ];
     }

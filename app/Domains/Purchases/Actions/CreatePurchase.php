@@ -2,6 +2,7 @@
 
 namespace App\Domains\Purchases\Actions;
 
+use App\Domains\Common\Enums\ReferenceType;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
 use App\Domains\Products\Models\Product;
@@ -46,7 +47,7 @@ class CreatePurchase
                     'quantity' => $item['quantity'],
                     'unit_price' => $item['unit_price'],
                     'movement_date' => $data['date'],
-                    'reference_type' => Purchase::class,
+                    'reference_type' => ReferenceType::Purchase->value,
                     'reference_id' => $purchase->id,
                     'land_id' => $data['land_id'] ?? null,
                     'land_season_id' => $data['land_season_id'] ?? null,
@@ -64,7 +65,7 @@ class CreatePurchase
                     'amount' => $itemsTotal,
                     'description' => 'مشتريات آجلة فاتورة #'.$purchase->id,
                     'party_id' => $data['party_id'],
-                    'reference_type' => Purchase::class,
+                    'reference_type' => ReferenceType::Purchase->value,
                     'reference_id' => $purchase->id,
                 ]);
             }

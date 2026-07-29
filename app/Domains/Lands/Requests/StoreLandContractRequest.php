@@ -45,10 +45,10 @@ class StoreLandContractRequest extends FormRequest
             'type' => ['required', Rule::enum(ContractType::class)],
             'settlement_type' => $type === 'مزارع'
                 ? ['required', 'string', 'in:ثابت,نسبة']
-                : ['nullable', 'string', 'in:ثابت,نسبة'],
+                : ['prohibited', 'string', 'in:ثابت,نسبة'],
             'share_percentage' => $type === 'مزارع'
                 ? ['required_if:settlement_type,نسبة', 'nullable', 'numeric', 'min:0', 'max:100']
-                : ['nullable', 'numeric', 'min:0', 'max:100'],
+                : ['prohibited', 'numeric', 'min:0', 'max:100'],
             'start_date' => ['required', 'date'],
             'end_date' => ['nullable', 'date', 'after_or_equal:start_date'],
             'amount' => $type === 'مزارع' && $this->input('settlement_type') === 'نسبة'

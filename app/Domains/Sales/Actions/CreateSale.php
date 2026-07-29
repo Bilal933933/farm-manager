@@ -2,6 +2,7 @@
 
 namespace App\Domains\Sales\Actions;
 
+use App\Domains\Common\Enums\ReferenceType;
 use App\Domains\Lands\Actions\CalculateSeasonFinancials;
 use App\Domains\Lands\Models\Harvest;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
@@ -30,7 +31,7 @@ class CreateSale
                 'amount' => $totalAmount,
                 'description' => 'بيع محصول',
                 'party_id' => $data['party_id'],
-                'reference_type' => Sale::class,
+                'reference_type' => ReferenceType::Sale->value,
                 'reference_id' => $sale->id,
             ]);
 

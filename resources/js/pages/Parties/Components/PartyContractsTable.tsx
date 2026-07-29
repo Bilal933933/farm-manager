@@ -69,9 +69,15 @@ export default function PartyContractsTable({ contracts }: Props) {
                 <TableCell className="font-mono tabular-nums text-sm py-3">
                   {contract.end_date ? <DateDisplay date={contract.end_date} /> : <span className="text-stone-400">—</span>}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums font-medium py-3">{currency(Number(contract.amount))}</TableCell>
+                <TableCell className="font-mono tabular-nums font-medium py-3">
+                  {contract.type === 'مزارع' && contract.settlement_type === 'نسبة'
+                    ? <span className="text-stone-400">—</span>
+                    : currency(Number(contract.amount))}
+                </TableCell>
                 <TableCell className="font-mono tabular-nums py-3">
-                  {contract.remaining !== undefined && contract.remaining > 0 ? (
+                  {contract.type === 'مزارع' && contract.settlement_type === 'نسبة' ? (
+                    <span className="text-xs text-stone-500">نسبة من المحصول</span>
+                  ) : contract.remaining !== undefined && contract.remaining > 0 ? (
                     <span className="text-amber-700">{currency(contract.remaining)}</span>
                   ) : contract.remaining === 0 ? (
                     <span className="text-emerald-600 text-xs font-medium">مسدد</span>

@@ -2,6 +2,7 @@
 
 namespace App\Domains\Payments\Actions;
 
+use App\Domains\Common\Enums\ReferenceType;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
@@ -46,7 +47,7 @@ class UpdatePayment
             $label = $data['type'] === 'دفع' ? 'دفعة' : 'مقبوض';
         }
 
-        LedgerEntry::where('reference_type', Payment::class)
+        LedgerEntry::where('reference_type', ReferenceType::Payment->value)
             ->where('reference_id', $payment->id)
             ->update([
                 'date' => $data['date'],

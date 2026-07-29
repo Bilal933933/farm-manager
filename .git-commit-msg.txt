@@ -1,9 +1,22 @@
-﻿إعادة توليد بيانات Seeders مع أرقام واقعية + تحسين إدارة المواسم
+﻿إضافة CostBearer enum + مقيّدات CHECK + تحسين العقود والتكاليف والاختبارات
 
-- إعادة توليد costs.json, sales.json, harvests.json, seasons.json
-  بأرقام مالية واقعية ومتسقة مع العقود والأطراف
-- إضافة نسبة العقد (contract_share) إلى LandContract وعرضها في الفورم
-- إضافة حقلي actual_revenue و actual_profit إلى StoreLandSeasonRequest
-- ربط CalculateSeasonFinancials مع عرض الموسم بعد التحديث
-- تحسين SeasonFormDialog بعرض total_revenue, total_costs, profit تلقائياً
-- إضافة رابط land.show في LandController@show
+إضافة CostBearer:
+- إنشاء CostBearer enum (Owner/Partner/Shared) لتحديد جهة تحمل التكلفة
+- إضافة حقل cost_bearer إلى Cost model
+- إضافة هجرة add_party_foreign_to_land_contracts مع مقيّدات CHECK للتأكد من صحة
+  reference_type في land_contracts، payments، costs، sales، stock_movements
+
+تحسين العقود:
+- تحديث ContractsTab لعرض اسم الطرف (landlord) بدلاً من مجرد party_id
+- تحديث PartyContractsTable لربط العقد مع Land.show
+- إضافة landlord_name إلى أنواع الـ Party
+
+تحسين المدفوعات والمشتريات والمبيعات:
+- تحديث RecordPayment و UpdatePayment: استخدام updateOrCreate للـ LedgerEntry
+- تحديث CreatePurchase و CreateSale: استخدام updateOrCreate للـ StockMovement
+- تحديث ConsumeProductForSeason: ربط الحركة المخزنية بالمنتج (product_id)
+
+تحسينات عامة:
+- إضافة AppServiceProvider مع تسجيل الـ Observer للـ Cost model
+- تحديث LandTest بإضافة 6 اختبارات جديدة لتغطية الحالات المالية والتكاليف والعقود
+- إضافة مجلد Common مع هيكلة مشتركة

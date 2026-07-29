@@ -2,6 +2,7 @@
 
 namespace App\Domains\Payments\Actions;
 
+use App\Domains\Common\Enums\ReferenceType;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Ledger\Actions\RecordLedgerEntry;
 use App\Domains\Ledger\Enums\LedgerDirection;
@@ -44,7 +45,7 @@ class RecordPayment
             'amount' => $data['amount'],
             'description' => $label,
             'party_id' => $data['party_id'],
-            'reference_type' => Payment::class,
+            'reference_type' => ReferenceType::Payment->value,
             'reference_id' => $payment->id,
         ]);
 

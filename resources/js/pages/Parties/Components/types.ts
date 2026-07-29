@@ -13,6 +13,8 @@ export interface Contract {
   amount: string;
   paid_amount?: number;
   remaining?: number;
+  settlement_type?: string | null;
+  share_percentage?: string | null;
 }
 
 export interface Payment {

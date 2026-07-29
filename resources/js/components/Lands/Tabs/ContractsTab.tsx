@@ -63,8 +63,14 @@ export default function ContractsTab({ contracts, landId, parties }: Props) {
                 <TableCell className={cell}><StatusBadge value={c.type} /></TableCell>
                 <TableCell className={cell}><DateDisplay date={c.start_date} /></TableCell>
                 <TableCell className={cell}>{c.end_date ? <DateDisplay date={c.end_date} /> : '—'}</TableCell>
-                <TableCell className={numCell}>{c.amount}</TableCell>
-                <TableCell className={numCell}>{c.remaining?.toFixed(2) ?? c.amount}</TableCell>
+                <TableCell className={numCell}>
+                  {c.type === 'مزارع' && c.settlement_type === 'نسبة' ? '—' : c.amount}
+                </TableCell>
+                <TableCell className={numCell}>
+                  {c.type === 'مزارع' && c.settlement_type === 'نسبة'
+                    ? <span className="text-xs text-stone-500">نسبة من المحصول</span>
+                    : c.remaining?.toFixed(2) ?? c.amount}
+                </TableCell>
                 <TableCell className="text-left whitespace-nowrap">
                   <ActionsMenu
                     actions={[
