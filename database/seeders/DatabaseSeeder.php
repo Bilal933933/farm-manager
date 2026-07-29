@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             PartiesSeeder::class,
             LandsSeeder::class,
             DemoFarmSeeder::class,
+            FarmerTestSeeder::class,
         ]);
     }
 }

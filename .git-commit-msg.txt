@@ -1,22 +1,19 @@
-﻿إضافة CostBearer enum + مقيّدات CHECK + تحسين العقود والتكاليف والاختبارات
+﻿إضافة عرض تسوية الفلاحين في صفحة الطرف + تحسين المدفوعات
 
-إضافة CostBearer:
-- إنشاء CostBearer enum (Owner/Partner/Shared) لتحديد جهة تحمل التكلفة
-- إضافة حقل cost_bearer إلى Cost model
-- إضافة هجرة add_party_foreign_to_land_contracts مع مقيّدات CHECK للتأكد من صحة
-  reference_type في land_contracts، payments، costs، sales، stock_movements
+إضافة Farmer Settlements:
+- إنشاء PartyFarmerSettlements.tsx لعرض جدول تسويات الفلاحين
+- إنشاء PartyFarmerView.tsx لعرض مخصص للفلاح مع العقود والتسويات
+- إنشاء SummarizeFarmerFinancials Action لتجميع البيانات المالية للفلاح
+- إنشاء SummarizeFarmerSettlements Action لحساب صافي المستحقات لكل عقد
+- إضافة خيار عرض "الفلاحون" في PartyController@show
+- تحديث types.ts بإضافة FarmerSettlement و FarmerContract واجهات
 
-تحسين العقود:
-- تحديث ContractsTab لعرض اسم الطرف (landlord) بدلاً من مجرد party_id
-- تحديث PartyContractsTable لربط العقد مع Land.show
-- إضافة landlord_name إلى أنواع الـ Party
-
-تحسين المدفوعات والمشتريات والمبيعات:
-- تحديث RecordPayment و UpdatePayment: استخدام updateOrCreate للـ LedgerEntry
-- تحديث CreatePurchase و CreateSale: استخدام updateOrCreate للـ StockMovement
-- تحديث ConsumeProductForSeason: ربط الحركة المخزنية بالمنتج (product_id)
+تحسين المدفوعات:
+- إضافة land_season_id إلى Payments لربط الدفع بالموسم مباشرة
+- تحديث Payment model مع العلاقة belongsTo LandSeason
+- إضافة هجرة add_land_season_id_to_payments_table
 
 تحسينات عامة:
-- إضافة AppServiceProvider مع تسجيل الـ Observer للـ Cost model
-- تحديث LandTest بإضافة 6 اختبارات جديدة لتغطية الحالات المالية والتكاليف والعقود
-- إضافة مجلد Common مع هيكلة مشتركة
+- تحديث DatabaseSeeder لتشغيل FarmerTestSeeder
+- إضافة FarmerTestSeeder لبيانات اختبار الفلاحين
+- تحديث CalculateFarmerSettlement بتحسين الحسابات ومعالجة الأرباح الفعلية

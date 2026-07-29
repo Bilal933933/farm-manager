@@ -3,6 +3,7 @@
 namespace App\Domains\Payments\Models;
 
 use App\Domains\Lands\Models\LandContract;
+use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Enums\PaymentType as PaymentTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,6 +20,7 @@ class Payment extends Model
     protected $fillable = [
         'party_id',
         'contract_id',
+        'land_season_id',
         'type',
         'date',
         'amount',
@@ -44,6 +46,11 @@ class Payment extends Model
     public function contract(): BelongsTo
     {
         return $this->belongsTo(LandContract::class);
+    }
+
+    public function landSeason(): BelongsTo
+    {
+        return $this->belongsTo(LandSeason::class);
     }
 
     public function reference(): MorphTo

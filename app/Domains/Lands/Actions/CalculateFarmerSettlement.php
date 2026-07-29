@@ -53,6 +53,9 @@ class CalculateFarmerSettlement
             return null;
         }
 
+        $farmerShareNet = $farmerShare - $farmerCost;
+        $ownerShareNet = $ownerShare - $ownerCost;
+
         return [
             'total_revenue' => round($totalRevenue, 2),
             'shared_cost' => round($sharedCost, 2),
@@ -63,6 +66,8 @@ class CalculateFarmerSettlement
             'share_percentage' => $contract->share_percentage ? (float) $contract->share_percentage : null,
             'farmer_share' => round($farmerShare, 2),
             'owner_share' => round($ownerShare, 2),
+            'farmer_share_net' => round($farmerShareNet, 2),
+            'owner_share_net' => round($ownerShareNet, 2),
             'contract_amount' => $contract->settlement_type === 'ثابت' ? (float) $contract->amount : null,
         ];
     }

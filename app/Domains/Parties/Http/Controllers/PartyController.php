@@ -4,7 +4,9 @@ namespace App\Domains\Parties\Http\Controllers;
 
 use App\Domains\Parties\Actions\CreateParty;
 use App\Domains\Parties\Actions\DeleteParty;
+use App\Domains\Parties\Actions\SummarizeFarmerFinancials;
 use App\Domains\Parties\Actions\UpdateParty;
+use App\Domains\Parties\Enums\PartyCategory;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Parties\Requests\StorePartyRequest;
 use App\Domains\Parties\Requests\UpdatePartyRequest;
@@ -71,6 +73,10 @@ class PartyController extends Controller
 
         $totalSales = (float) $party->sales()->sum(DB::raw('quantity * unit_price'));
 
+        $farmerFinancials = $party->category === PartyCategory::Farmer
+            ? app(SummarizeFarmerFinancials::class)->execute($party)
+            : null;
+
         return Inertia::render('Parties/Show', [
             'party' => $party,
             'summary' => [
@@ -81,6 +87,7 @@ class PartyController extends Controller
                 'totalPurchases' => $totalPurchases,
                 'totalSales' => $totalSales,
             ],
+            'farmerFinancials' => $farmerFinancials,
         ]);
     }
 

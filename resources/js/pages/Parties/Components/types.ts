@@ -79,6 +79,61 @@ export interface FinancialSummary {
   totalSales?: number;
 }
 
+export interface FarmerSettlementSeason {
+  season_id: number;
+  land_name: string;
+  planting_date: string;
+  harvest_date: string | null;
+  settlement_type: string;
+  share_percentage: number | null;
+  total_revenue: number;
+  shared_cost: number;
+  farmer_cost: number;
+  owner_cost: number;
+  net_revenue: number;
+  farmer_share: number;
+  owner_share: number;
+  farmer_share_net: number;
+  owner_share_net: number;
+  contract_amount: number | null;
+}
+
+export interface FarmerSettlementSummary {
+  total_farmer_share_net: number;
+  total_owner_share_net: number;
+  total_farmer_cost: number;
+  total_owner_cost: number;
+  settlements_count: number;
+  settlements: FarmerSettlementSeason[];
+}
+
+export interface FarmerSeasonFinancials {
+  season_id: number;
+  land_name: string;
+  planting_date: string;
+  harvest_date: string | null;
+  settlement_type: string;
+  share_percentage: number | null;
+  total_revenue: number;
+  shared_cost: number;
+  farmer_cost: number;
+  farmer_share: number;
+  farmer_share_net: number;
+  advances: number;
+  profit: number;
+}
+
+export interface FarmerFinancials {
+  total_revenue: number;
+  total_shared_cost: number;
+  total_farmer_share: number;
+  total_farmer_share_net: number;
+  total_advances: number;
+  total_profit: number;
+  seasons_count: number;
+  seasons: FarmerSeasonFinancials[];
+}
+
 export function currency(value: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }

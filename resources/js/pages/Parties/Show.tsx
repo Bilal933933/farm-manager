@@ -7,14 +7,33 @@ import PartyContractsTable from './Components/PartyContractsTable';
 import PartyPaymentsTable from './Components/PartyPaymentsTable';
 import PartyPurchasesTable from './Components/PartyPurchasesTable';
 import PartySalesTable from './Components/PartySalesTable';
-import type { Party, FinancialSummary } from './Components/types';
+import PartyFarmerView from './Components/PartyFarmerView';
+import type { Party, FinancialSummary, FarmerFinancials } from './Components/types';
 
 interface ShowProps {
   party: Party;
   summary: FinancialSummary;
+  farmerFinancials?: FarmerFinancials | null;
 }
 
-export default function Show({ party, summary }: ShowProps) {
+export default function Show({ party, summary, farmerFinancials }: ShowProps) {
+  if (farmerFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartyFarmerView farmerFinancials={farmerFinancials} />
+      </div>
+    );
+  }
+
   const showContracts = party.category === 'مؤجر' || party.category === 'مستأجر' || !party.category;
   const showPayments = true;
   const showPurchases = party.category === 'متجر مستلزمات زراعية' || !party.category;
