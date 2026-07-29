@@ -3,6 +3,7 @@
 namespace App\Domains\Payments\Http\Controllers;
 
 use App\Domains\Lands\Models\LandContract;
+use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Actions\RecordPayment;
 use App\Domains\Payments\Actions\UpdatePayment;
@@ -44,9 +45,19 @@ class PaymentController extends Controller
             'land' => ['id' => $c->land->id, 'name' => $c->land->name],
         ]);
 
+        $seasons = LandSeason::with('land')
+            ->whereNotNull('farmer_id')
+            ->get()
+            ->map(fn ($s) => [
+                'id' => $s->id,
+                'farmer_id' => $s->farmer_id,
+                'label' => $s->land->name.' - '.$s->crop,
+            ]);
+
         return Inertia::render('Payments/Create', [
             'parties' => Party::orderBy('name')->get(),
             'contracts' => $contracts,
+            'seasons' => $seasons,
             'initialPartyId' => $request->query('party_id', ''),
             'initialContractId' => $request->query('contract_id', ''),
         ]);
@@ -74,7 +85,7 @@ class PaymentController extends Controller
 
     public function edit(Payment $payment): Response
     {
-        $payment->load('party', 'contract.land');
+        $payment->load('party', 'contract.land', 'landSeason');
 
         $contracts = LandContract::with('party', 'land')->get()->map(fn ($c) => [
             'id' => $c->id,
@@ -86,10 +97,20 @@ class PaymentController extends Controller
             'land' => ['id' => $c->land->id, 'name' => $c->land->name],
         ]);
 
+        $seasons = LandSeason::with('land')
+            ->whereNotNull('farmer_id')
+            ->get()
+            ->map(fn ($s) => [
+                'id' => $s->id,
+                'farmer_id' => $s->farmer_id,
+                'label' => $s->land->name.' - '.$s->crop,
+            ]);
+
         return Inertia::render('Payments/Edit', [
             'payment' => $payment,
             'parties' => Party::orderBy('name')->get(),
             'contracts' => $contracts,
+            'seasons' => $seasons,
         ]);
     }
 

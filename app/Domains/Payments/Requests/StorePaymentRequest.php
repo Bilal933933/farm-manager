@@ -20,6 +20,7 @@ class StorePaymentRequest extends FormRequest
         return [
             'party_id' => ['required', 'exists:parties,id'],
             'contract_id' => ['nullable', 'exists:land_contracts,id'],
+            'land_season_id' => ['nullable', 'exists:land_seasons,id'],
             'type' => ['required', Rule::enum(PaymentType::class)],
             'date' => ['required', 'date'],
             'amount' => ['required', 'numeric', 'min:0.01'],

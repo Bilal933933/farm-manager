@@ -6,6 +6,7 @@ import PaymentForm from '@/components/Payments/PaymentForm';
 interface Party {
   id: number;
   name: string;
+  category: string | null;
 }
 
 interface Contract {
@@ -18,10 +19,17 @@ interface Contract {
   land: { id: number; name: string };
 }
 
+interface Season {
+  id: number;
+  farmer_id: number;
+  label: string;
+}
+
 interface Payment {
   id: number;
   party_id: number;
   contract_id: number | null;
+  land_season_id: number | null;
   type: string;
   date: string;
   amount: string;
@@ -33,12 +41,14 @@ interface EditProps {
   payment: Payment;
   parties: Party[];
   contracts: Contract[];
+  seasons: Season[];
 }
 
-export default function Edit({ payment, parties, contracts }: EditProps) {
+export default function Edit({ payment, parties, contracts, seasons }: EditProps) {
   const { data, setData, put, processing, errors } = useForm({
     party_id: String(payment.party_id),
     contract_id: payment.contract_id ? String(payment.contract_id) : '',
+    land_season_id: payment.land_season_id ? String(payment.land_season_id) : '',
     type: payment.type,
     date: payment.date.slice(0, 10),
     amount: payment.amount,
@@ -76,6 +86,7 @@ export default function Edit({ payment, parties, contracts }: EditProps) {
             submitLabel="حفظ التعديلات"
             parties={parties}
             contracts={contracts}
+            seasons={seasons}
           />
         </CardContent>
       </Card>

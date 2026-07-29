@@ -5,6 +5,10 @@ namespace App\Domains\Parties\Http\Controllers;
 use App\Domains\Parties\Actions\CreateParty;
 use App\Domains\Parties\Actions\DeleteParty;
 use App\Domains\Parties\Actions\SummarizeFarmerFinancials;
+use App\Domains\Parties\Actions\SummarizeLesseeFinancials;
+use App\Domains\Parties\Actions\SummarizeLessorFinancials;
+use App\Domains\Parties\Actions\SummarizeMerchantFinancials;
+use App\Domains\Parties\Actions\SummarizeSupplierFinancials;
 use App\Domains\Parties\Actions\UpdateParty;
 use App\Domains\Parties\Enums\PartyCategory;
 use App\Domains\Parties\Models\Party;
@@ -73,9 +77,20 @@ class PartyController extends Controller
 
         $totalSales = (float) $party->sales()->sum(DB::raw('quantity * unit_price'));
 
-        $farmerFinancials = $party->category === PartyCategory::Farmer
-            ? app(SummarizeFarmerFinancials::class)->execute($party)
-            : null;
+        $farmerFinancials = null;
+        $lessorFinancials = null;
+        $lesseeFinancials = null;
+        $supplierFinancials = null;
+        $merchantFinancials = null;
+
+        match ($party->category) {
+            PartyCategory::Farmer => $farmerFinancials = app(SummarizeFarmerFinancials::class)->execute($party),
+            PartyCategory::Lessor => $lessorFinancials = app(SummarizeLessorFinancials::class)->execute($party),
+            PartyCategory::Lessee => $lesseeFinancials = app(SummarizeLesseeFinancials::class)->execute($party),
+            PartyCategory::Supplier => $supplierFinancials = app(SummarizeSupplierFinancials::class)->execute($party),
+            PartyCategory::Merchant => $merchantFinancials = app(SummarizeMerchantFinancials::class)->execute($party),
+            default => null,
+        };
 
         return Inertia::render('Parties/Show', [
             'party' => $party,
@@ -88,6 +103,10 @@ class PartyController extends Controller
                 'totalSales' => $totalSales,
             ],
             'farmerFinancials' => $farmerFinancials,
+            'lessorFinancials' => $lessorFinancials,
+            'lesseeFinancials' => $lesseeFinancials,
+            'supplierFinancials' => $supplierFinancials,
+            'merchantFinancials' => $merchantFinancials,
         ]);
     }
 

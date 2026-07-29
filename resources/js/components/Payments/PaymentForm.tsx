@@ -28,9 +28,16 @@ interface Contract {
   land: { id: number; name: string };
 }
 
+interface Season {
+  id: number;
+  farmer_id: number;
+  label: string;
+}
+
 interface PaymentFormData {
   party_id: string;
   contract_id: string;
+  land_season_id: string;
   type: string;
   date: string;
   amount: string;
@@ -46,15 +53,19 @@ interface PaymentFormProps {
   submitLabel: string;
   parties: Party[];
   contracts?: Contract[];
+  seasons?: Season[];
 }
 
-export default function PaymentForm({ data, setData, errors, processing, onSubmit, submitLabel, parties, contracts = [] }: PaymentFormProps) {
+export default function PaymentForm({ data, setData, errors, processing, onSubmit, submitLabel, parties, contracts = [], seasons = [] }: PaymentFormProps) {
   const partyContracts = contracts.filter((c) => c.party.id === Number(data.party_id));
 
   const selectedParty = parties.find((p) => p.id === Number(data.party_id));
   const allowedTypes = selectedParty?.category
     ? PAYMENT_TYPES.filter((t) => (CATEGORY_ALLOWED_PAYMENT_TYPES[selectedParty.category] ?? []).includes(t.value))
     : PAYMENT_TYPES;
+
+  const isFarmer = selectedParty?.category === 'مزارع';
+  const farmerSeasons = seasons.filter((s) => s.farmer_id === Number(data.party_id));
 
   function handleContractChange(contractId: string) {
     setData('contract_id', contractId);
@@ -113,6 +124,25 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
           </Select>
           {errors.contract_id && <p className="text-sm text-rose-600">{errors.contract_id}</p>}
         </div>
+
+        {isFarmer && (
+          <div className="space-y-2">
+            <Label htmlFor="land_season_id">الموسم (للمزارع)</Label>
+            <Select value={data.land_season_id} onValueChange={(v) => setData('land_season_id', v)}>
+              <SelectTrigger id="land_season_id">
+                <SelectValue placeholder="اختر الموسم" />
+              </SelectTrigger>
+              <SelectContent>
+                {farmerSeasons.map((s) => (
+                  <SelectItem key={s.id} value={String(s.id)}>
+                    {s.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.land_season_id && <p className="text-sm text-rose-600">{errors.land_season_id}</p>}
+          </div>
+        )}
 
         <div className="space-y-2">
           <Label htmlFor="type">النوع</Label>

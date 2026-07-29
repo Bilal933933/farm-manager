@@ -134,6 +134,58 @@ export interface FarmerFinancials {
   seasons: FarmerSeasonFinancials[];
 }
 
+export interface LessorContractFinancials {
+  contract_id: number;
+  land_name: string;
+  contract_amount: number;
+  paid: number;
+  remaining: number;
+}
+
+export interface LessorFinancials {
+  total_rent_amount: number;
+  total_paid: number;
+  total_remaining: number;
+  contracts: LessorContractFinancials[];
+}
+
+export interface LesseeFinancials {
+  total_rent_amount: number;
+  total_paid: number;
+  total_remaining: number;
+  contracts: LessorContractFinancials[];
+}
+
+export interface SupplierPurchaseFinancials {
+  purchase_id: number;
+  date: string;
+  purchase_total: number;
+  paid: number;
+  remaining: number;
+}
+
+export interface SupplierFinancials {
+  total_purchases_amount: number;
+  total_paid: number;
+  total_remaining: number;
+  purchases: SupplierPurchaseFinancials[];
+}
+
+export interface MerchantSaleFinancials {
+  sale_id: number;
+  date: string;
+  sale_total: number;
+  received: number;
+  remaining: number;
+}
+
+export interface MerchantFinancials {
+  total_sales_amount: number;
+  total_received: number;
+  total_due: number;
+  sales: MerchantSaleFinancials[];
+}
+
 export function currency(value: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }

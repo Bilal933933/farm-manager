@@ -19,14 +19,21 @@ interface Contract {
   land: { id: number; name: string };
 }
 
+interface Season {
+  id: number;
+  farmer_id: number;
+  label: string;
+}
+
 interface CreateProps {
   parties: Party[];
   contracts: Contract[];
+  seasons: Season[];
   initialPartyId?: string;
   initialContractId?: string;
 }
 
-export default function Create({ parties, contracts, initialPartyId = '', initialContractId = '' }: CreateProps) {
+export default function Create({ parties, contracts, seasons, initialPartyId = '', initialContractId = '' }: CreateProps) {
   const initialContract = initialContractId ? contracts.find((c) => c.id === Number(initialContractId)) : null;
   const initialType = initialContract
     ? initialContract.type === 'مؤجر' ? 'دفع' : initialContract.type === 'مستأجر' ? 'قبض' : ''
@@ -35,6 +42,7 @@ export default function Create({ parties, contracts, initialPartyId = '', initia
   const { data, setData, post, processing, errors } = useForm({
     party_id: initialPartyId,
     contract_id: initialContractId,
+    land_season_id: '',
     type: initialType,
     date: new Date().toISOString().slice(0, 10),
     amount: '',
@@ -72,6 +80,7 @@ export default function Create({ parties, contracts, initialPartyId = '', initia
             submitLabel="حفظ"
             parties={parties}
             contracts={contracts}
+            seasons={seasons}
           />
         </CardContent>
       </Card>

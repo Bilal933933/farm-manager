@@ -34,7 +34,7 @@ export default function PartyFarmerView({ farmerFinancials }: Props) {
 
         <Card className="border-stone-200 shadow-sm">
           <CardContent className="p-5">
-            <p className="text-xs text-stone-500">إجمالي السلف (تكاليف + دفعات)</p>
+            <p className="text-xs text-stone-500">إجمالي السلف (دفعات)</p>
             <p className="mt-1 font-mono tabular-nums text-2xl font-bold text-rose-700">
               {currency(farmerFinancials.total_advances)}
             </p>

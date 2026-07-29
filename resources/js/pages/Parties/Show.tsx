@@ -8,15 +8,23 @@ import PartyPaymentsTable from './Components/PartyPaymentsTable';
 import PartyPurchasesTable from './Components/PartyPurchasesTable';
 import PartySalesTable from './Components/PartySalesTable';
 import PartyFarmerView from './Components/PartyFarmerView';
-import type { Party, FinancialSummary, FarmerFinancials } from './Components/types';
+import PartyLessorView from './Components/PartyLessorView';
+import PartyLesseeView from './Components/PartyLesseeView';
+import PartySupplierView from './Components/PartySupplierView';
+import PartyMerchantView from './Components/PartyMerchantView';
+import type { Party, FinancialSummary, FarmerFinancials, LessorFinancials, LesseeFinancials, SupplierFinancials, MerchantFinancials } from './Components/types';
 
 interface ShowProps {
   party: Party;
   summary: FinancialSummary;
   farmerFinancials?: FarmerFinancials | null;
+  lessorFinancials?: LessorFinancials | null;
+  lesseeFinancials?: LesseeFinancials | null;
+  supplierFinancials?: SupplierFinancials | null;
+  merchantFinancials?: MerchantFinancials | null;
 }
 
-export default function Show({ party, summary, farmerFinancials }: ShowProps) {
+export default function Show({ party, summary, farmerFinancials, lessorFinancials, lesseeFinancials, supplierFinancials, merchantFinancials }: ShowProps) {
   if (farmerFinancials) {
     return (
       <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
@@ -30,6 +38,74 @@ export default function Show({ party, summary, farmerFinancials }: ShowProps) {
         </Link>
         <PartyHeader party={party} />
         <PartyFarmerView farmerFinancials={farmerFinancials} />
+      </div>
+    );
+  }
+
+  if (lessorFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartyLessorView lessorFinancials={lessorFinancials} />
+      </div>
+    );
+  }
+
+  if (lesseeFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartyLesseeView lesseeFinancials={lesseeFinancials} />
+      </div>
+    );
+  }
+
+  if (supplierFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartySupplierView supplierFinancials={supplierFinancials} />
+      </div>
+    );
+  }
+
+  if (merchantFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartyMerchantView merchantFinancials={merchantFinancials} />
       </div>
     );
   }
