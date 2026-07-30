@@ -16,29 +16,12 @@ class StoreLandSeasonRequest extends FormRequest
         return true;
     }
 
-    protected function prepareForValidation(): void
-    {
-        $crop = $this->crop;
-
-        if (is_array($crop)) {
-            $crop = $crop['name'] ?? null;
-        } elseif (is_object($crop)) {
-            $crop = $crop->name ?? null;
-        }
-
-        $this->merge([
-            'crop_id' => $this->crop_id ?: null,
-            'crop' => is_string($crop) ? $crop : (is_null($crop) ? null : (string) $crop),
-        ]);
-    }
-
     public function rules(): array
     {
         return [
             'land_id' => ['required', 'exists:lands,id'],
             'crop_id' => ['nullable', 'exists:crops,id'],
             'cultivated_area' => ['nullable', 'numeric', 'min:0'],
-            'crop' => ['nullable', 'string', 'max:255'],
             'planting_date' => ['required', 'date'],
             'harvest_date' => ['nullable', 'date', 'after_or_equal:planting_date'],
             'expected_cost' => ['nullable', 'numeric', 'min:0'],
@@ -56,8 +39,8 @@ class StoreLandSeasonRequest extends FormRequest
                 'exists:land_contracts,id',
             ],
             'status' => [
-                'required',
-                Rule::enum(SeasonStatus::class),
+                Rule::requiredIf($this->route('season') === null),
+                Rule::in([SeasonStatus::Upcoming->value, SeasonStatus::Active->value]),
                 function ($attribute, $value, $fail) {
                     if ($value !== SeasonStatus::Active->value) {
                         return;

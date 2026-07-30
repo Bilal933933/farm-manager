@@ -28,14 +28,18 @@ export const COST_BORNE_BY = [
 export const SEASON_STATUSES = [
   { value: 'قادم', label: 'قادم' },
   { value: 'نشط', label: 'نشط' },
+  { value: 'قيد الحصاد', label: 'قيد الحصاد' },
   { value: 'منتهي', label: 'منتهي' },
+  { value: 'ملغي', label: 'ملغي' },
 ];
 
 export const STATUS_TONE: Record<string, string> = {
   'نشط': 'emerald',
   'متوقف': 'stone',
   'قادم': 'amber',
+  'قيد الحصاد': 'yellow',
   'منتهي': 'stone',
+  'ملغي': 'rose',
   'مؤجر': 'sky',
   'مستأجر': 'violet',
   'مزارع': 'amber',

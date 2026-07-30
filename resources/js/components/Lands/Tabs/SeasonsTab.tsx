@@ -42,10 +42,6 @@ function getCropName(s: Season): string {
 return s.crop_obj.name;
 }
 
-  if (typeof s.crop === 'string') {
-return s.crop;
-}
-
   if (s.crop && typeof s.crop === 'object' && 'name' in s.crop) {
 return (s.crop as Crop).name;
 }

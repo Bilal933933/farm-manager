@@ -3,18 +3,23 @@
 namespace App\Domains\Lands\Http\Controllers;
 
 use App\Domains\Crops\Models\Crop;
+use App\Domains\Lands\Actions\BeginHarvestAction;
 use App\Domains\Lands\Actions\CalculateFarmerSettlement;
 use App\Domains\Lands\Actions\CalculateSeasonFinancials;
+use App\Domains\Lands\Actions\CancelSeasonAction;
+use App\Domains\Lands\Actions\CompleteSeasonAction;
 use App\Domains\Lands\Actions\CreateLand;
 use App\Domains\Lands\Actions\CreateLandContract;
 use App\Domains\Lands\Actions\CreateLandSeason;
 use App\Domains\Lands\Actions\DeleteLand;
 use App\Domains\Lands\Actions\DeleteLandContract;
 use App\Domains\Lands\Actions\DeleteLandSeason;
+use App\Domains\Lands\Actions\StartSeasonAction;
 use App\Domains\Lands\Actions\UpdateLand;
 use App\Domains\Lands\Actions\UpdateLandContract;
 use App\Domains\Lands\Actions\UpdateLandSeason;
 use App\Domains\Lands\Enums\ContractType;
+use App\Domains\Lands\Enums\SeasonStatus;
 use App\Domains\Lands\Models\Cost;
 use App\Domains\Lands\Models\Harvest;
 use App\Domains\Lands\Models\Land;
@@ -70,7 +75,7 @@ class LandController extends Controller
     {
         $land->load(['contracts.party', 'seasons.crop', 'seasons.farmer']);
 
-        $activeSeason = $land->seasons->firstWhere('status', 'نشط');
+        $activeSeason = $land->seasons->firstWhere('status', SeasonStatus::Active);
 
         $allSeasonIds = $land->seasons->pluck('id');
         $totalHarvest = (float) Harvest::whereIn('land_season_id', $allSeasonIds)->sum('quantity');
@@ -108,7 +113,7 @@ class LandController extends Controller
                 $seasonCosts = $land->seasons->flatMap(fn ($s) => $s->costs->map(fn ($c) => [
                     'id' => $c->id,
                     'season_id' => $s->id,
-                    'crop_name' => $s->relationLoaded('crop') && $s->getRelation('crop') ? $s->getRelation('crop')->name : $s->getAttribute('crop'),
+                    'crop_name' => $s->crop?->name ?? '—',
                     'type' => $c->type,
                     'description' => $c->description,
                     'amount' => (float) $c->amount,
@@ -270,6 +275,50 @@ class LandController extends Controller
         return redirect()->back();
     }
 
+    public function startSeason(LandSeason $season, StartSeasonAction $action): RedirectResponse
+    {
+        $this->executeWithToast(
+            fn () => $action->execute($season, request('planting_date')),
+            'تم بدء الموسم بنجاح',
+            'حدث خطأ أثناء بدء الموسم',
+        );
+
+        return redirect()->back();
+    }
+
+    public function beginHarvest(LandSeason $season, BeginHarvestAction $action): RedirectResponse
+    {
+        $this->executeWithToast(
+            fn () => $action->execute($season),
+            'تم بدء الحصاد بنجاح',
+            'حدث خطأ أثناء بدء الحصاد',
+        );
+
+        return redirect()->back();
+    }
+
+    public function completeSeason(LandSeason $season, CompleteSeasonAction $action): RedirectResponse
+    {
+        $this->executeWithToast(
+            fn () => $action->execute($season),
+            'تم إغلاق الموسم بنجاح',
+            'حدث خطأ أثناء إغلاق الموسم',
+        );
+
+        return redirect()->back();
+    }
+
+    public function cancelSeason(LandSeason $season, CancelSeasonAction $action): RedirectResponse
+    {
+        $this->executeWithToast(
+            fn () => $action->execute($season),
+            'تم إلغاء الموسم بنجاح',
+            'حدث خطأ أثناء إلغاء الموسم',
+        );
+
+        return redirect()->back();
+    }
+
     public function showSeason(Land $land, LandSeason $season, CalculateSeasonFinancials $calculateSeasonFinancials, CalculateFarmerSettlement $calculateFarmerSettlement): Response
     {
         $season->load(['crop', 'farmer', 'harvests.sales', 'costs']);
@@ -309,7 +358,7 @@ class LandController extends Controller
             'land' => $land->only(['id', 'name']),
             'season' => $season,
             'farmers' => Party::where('category', PartyCategory::Farmer->value)->orderBy('name')->get(['id', 'name']),
-            'crop_name' => $season->relationLoaded('crop') && $season->getRelation('crop') ? $season->getRelation('crop')->name : $season->getAttribute('crop'),
+            'crop_name' => $season->crop?->name ?? '—',
             'harvests' => $harvests,
             'costs' => $costs,
             'sales' => $sales,

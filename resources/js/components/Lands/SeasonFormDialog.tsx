@@ -30,7 +30,6 @@ interface SeasonFormData {
   land_id: number;
   crop_id: string;
   cultivated_area: string;
-  crop: string;
   planting_date: string;
   harvest_date: string;
   expected_cost: string;
@@ -62,15 +61,10 @@ return '';
 export default function SeasonFormDialog({ landId, season = null, trigger, crops, farmers, farmerContracts, open, onOpenChange }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
-  const initialCrop = season?.crop && typeof season.crop === 'object'
-    ? (season.crop as { name?: string }).name ?? ''
-    : String(season?.crop ?? '');
-
   const { data, setData, post, put, processing, errors, reset } = useForm<SeasonFormData>({
     land_id: landId,
     crop_id: String(season?.crop_id ?? ''),
     cultivated_area: season?.cultivated_area ?? '',
-    crop: initialCrop,
     planting_date: toDateInputValue(season?.planting_date),
     harvest_date: toDateInputValue(season?.harvest_date),
     expected_cost: season?.expected_cost ?? '',

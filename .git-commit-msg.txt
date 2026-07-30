@@ -1,18 +1,24 @@
-﻿إضافة عروض مخصصة للأطراف حسب دورهم + تحسين إدارة المدفوعات
+﻿إضافة دورة حياة الموسم (بدء/إلغاء/إكمال/حصاد) + تحسين هيكلة التكاليف
 
-عروض الأطراف المخصصة:
-- إنشاء 4 عروض منفصلة حسب نوع الطرف:
-  - PartySupplierView (مورد): يعرض المشتريات الحالية والمدفوعات المسددة
-  - PartyMerchantView (تاجر): يعرض المبيعات والمدفوعات المستلمة
-  - PartyLessorView (مؤجر): يعرض العقود كطرف مؤجر مع المدفوعات المستلمة
-  - PartyLesseeView (مستأجر): يعرض العقود كطرف مستأجر مع المدفوعات المسددة
-- إنشاء 4 Actions مالية مخصصة: SummarizeSupplierFinancials,
-  SummarizeMerchantFinancials, SummarizeLessorFinancials, SummarizeLesseeFinancials
-- تحديث PartyController لعرض العرض المناسب حسب category الطرف
-- تحديث types.ts بجميع الواجهات المطلوبة لكل نوع
+دورة حياة الموسم:
+- إضافة StartSeasonAction لبدء الموسم (تغيير الحالة إلى نشط)
+- إضافة CompleteSeasonAction لإكمال الموسم (تحديث completed_at + حساب الأرباح)
+- إضافة CancelSeasonAction لإلغاء الموسم
+- إضافة BeginHarvestAction لبدء مرحلة الحصاد
+- تحديث SeasonStatus enum بإضافة Cancelled
+- إضافة هجرة completed_at إلى land_seasons
+- إضافة SeasonLifecycleTest مع 5 اختبارات للدورة الكاملة
 
-تحسين المدفوعات:
-- إضافة حقل party_id إلى PaymentForm لاختيار الطرف
-- ربط الدفع بالطرف (party_id) في StorePaymentRequest و UpdatePaymentRequest
-- تحديث PaymentController لدعم تمرير party_id
-- تحسين Create و Edit لتمرير قائمة الأطراف المتاحة
+تحسين التكاليف:
+- حذف CalculateActualCost (مدمج مع CalculateSeasonFinancials)
+- تبسيط CreateCost و UpdateCost بحذف الـ observer logic الزائد
+- حذف DeleteCost بالكامل (نقل المنطق إلى CostController)
+- تحديث CostController لاستخدام calculate مباشرة
+- إضافة هجرة لحذف عمود crop من land_seasons (انتقال كامل إلى LandSeason.crop_id)
+- تحديث StoreLandSeasonRequest و CreateLandSeason لاستخدام crop_id فقط
+
+تحسينات عامة:
+- ربط Crop.completed_at مع دورة حياة الموسم
+- تحديث LandController بإضافة طرق season-start, season-complete, season-cancel
+- تحديث LandSeason مع completed_at و scope نشط
+- تحديث الروابط في web.php لإضافة مسارات الموسم

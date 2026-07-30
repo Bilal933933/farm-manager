@@ -40,8 +40,8 @@ interface ShowProps {
 }
 
 function getCropName(s: Season): string {
-  if (typeof s.crop === 'string') {
-return s.crop;
+  if (s.crop_obj?.name) {
+return s.crop_obj.name;
 }
 
   if (s.crop && typeof s.crop === 'object' && 'name' in s.crop) {

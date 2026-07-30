@@ -4,7 +4,7 @@ import CostForm from '@/components/Lands/CostForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { CostData } from '@/types';
 
-interface SeasonOption { id: number; land_id: number; crop: string; planting_date: string; land: { id: number; name: string } }
+interface SeasonOption { id: number; land_id: number; crop?: { name: string } | null; planting_date: string; land: { id: number; name: string } }
 interface EditProps { cost: CostData; lands: { id: number; name: string }[]; seasons: SeasonOption[] }
 
 export default function Edit({ cost, lands, seasons }: EditProps) {
@@ -21,7 +21,7 @@ export default function Edit({ cost, lands, seasons }: EditProps) {
 
   const filteredSeasons = seasons
     .filter((s) => s.land_id.toString() === data.land_id)
-    .map((s) => ({ id: s.id, name: `${s.crop} — ${s.land.name}` }));
+    .map((s) => ({ id: s.id, name: `${s.crop?.name ?? '—'} — ${s.land.name}` }));
 
   function submit(e: React.FormEvent) {
     e.preventDefault();

@@ -28,6 +28,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('lands/seasons/{season}', [LandController::class, 'updateSeason'])->name('lands.seasons.update');
     Route::delete('lands/seasons/{season}', [LandController::class, 'destroySeason'])->name('lands.seasons.destroy');
 
+    Route::post('lands/seasons/{season}/start', [LandController::class, 'startSeason'])->name('lands.seasons.start');
+    Route::post('lands/seasons/{season}/begin-harvest', [LandController::class, 'beginHarvest'])->name('lands.seasons.begin-harvest');
+    Route::post('lands/seasons/{season}/complete', [LandController::class, 'completeSeason'])->name('lands.seasons.complete');
+    Route::post('lands/seasons/{season}/cancel', [LandController::class, 'cancelSeason'])->name('lands.seasons.cancel');
+
     Route::resource('costs', CostController::class);
 
     Route::resource('parties', PartyController::class);

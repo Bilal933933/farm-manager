@@ -35,7 +35,7 @@ class StockMovementController extends Controller
 
         $lands = Land::with(['seasons' => function ($q) {
             $q->whereIn('status', ['نشط', 'قادم'])->orderBy('planting_date', 'desc');
-        }])->orderBy('name')->get();
+        }, 'seasons.crop'])->orderBy('name')->get();
 
         return Inertia::render('StockMovements/Index', [
             'movements' => $movements,

@@ -8,7 +8,7 @@ export interface Season {
   crop_id?: number | null;
   crop_obj?: Crop | null;
   cultivated_area?: string;
-  crop: string | Crop;
+  crop?: Crop | null;
   planting_date: string;
   harvest_date?: string;
   expected_cost?: string;

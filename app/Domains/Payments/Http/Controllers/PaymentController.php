@@ -45,13 +45,13 @@ class PaymentController extends Controller
             'land' => ['id' => $c->land->id, 'name' => $c->land->name],
         ]);
 
-        $seasons = LandSeason::with('land')
+        $seasons = LandSeason::with('land', 'crop')
             ->whereNotNull('farmer_id')
             ->get()
             ->map(fn ($s) => [
                 'id' => $s->id,
                 'farmer_id' => $s->farmer_id,
-                'label' => $s->land->name.' - '.$s->crop,
+                'label' => $s->land->name.' - '.($s->crop?->name ?? '—'),
             ]);
 
         return Inertia::render('Payments/Create', [
@@ -97,13 +97,13 @@ class PaymentController extends Controller
             'land' => ['id' => $c->land->id, 'name' => $c->land->name],
         ]);
 
-        $seasons = LandSeason::with('land')
+        $seasons = LandSeason::with('land', 'crop')
             ->whereNotNull('farmer_id')
             ->get()
             ->map(fn ($s) => [
                 'id' => $s->id,
                 'farmer_id' => $s->farmer_id,
-                'label' => $s->land->name.' - '.$s->crop,
+                'label' => $s->land->name.' - '.($s->crop?->name ?? '—'),
             ]);
 
         return Inertia::render('Payments/Edit', [

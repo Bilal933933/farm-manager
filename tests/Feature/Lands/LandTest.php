@@ -101,21 +101,22 @@ test('season can be shown', function () {
 });
 
 test('season can be updated', function () {
-    $season = LandSeason::factory()->create();
+    $season = LandSeason::factory()->create(['status' => 'قادم']);
 
     $this->put(route('lands.seasons.update', $season), [
         'land_id' => $season->land_id,
         'crop_id' => $season->crop_id,
         'planting_date' => '2025-04-01',
         'cultivated_area' => 10,
-        'status' => $season->status,
+        'notes' => 'محدث',
     ])->assertSessionHasNoErrors();
 
     expect($season->fresh()->planting_date->format('Y-m-d'))->toBe('2025-04-01');
+    expect($season->fresh()->notes)->toBe('محدث');
 });
 
 test('season can be deleted', function () {
-    $season = LandSeason::factory()->create();
+    $season = LandSeason::factory()->create(['status' => 'قادم']);
 
     $this->delete(route('lands.seasons.destroy', $season))
         ->assertRedirect();

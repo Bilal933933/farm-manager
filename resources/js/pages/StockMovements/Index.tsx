@@ -47,7 +47,7 @@ interface StockMovement {
 interface LandOption {
   id: number;
   name: string;
-  seasons: { id: number; crop: string; planting_date: string }[];
+  seasons: { id: number; crop?: { name: string } | null; planting_date: string }[];
 }
 
 interface IndexProps {
@@ -199,7 +199,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                       </SelectTrigger>
                       <SelectContent>
                         {selectedLandSeasons.map((s) => (
-                          <SelectItem key={s.id} value={s.id.toString()}>{s.crop} — {s.planting_date}</SelectItem>
+                          <SelectItem key={s.id} value={s.id.toString()}>{s.crop?.name ?? '—'} — {s.planting_date}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>

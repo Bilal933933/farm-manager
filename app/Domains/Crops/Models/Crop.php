@@ -5,8 +5,10 @@ namespace App\Domains\Crops\Models;
 use App\Domains\Crops\Enums\CropCategory;
 use App\Domains\Crops\Enums\CropSeason;
 use App\Domains\Crops\Enums\CropUnit;
+use App\Domains\Lands\Models\LandSeason;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Crop extends Model
@@ -29,5 +31,10 @@ class Crop extends Model
             'unit' => CropUnit::class,
             'typical_season' => CropSeason::class,
         ];
+    }
+
+    public function landSeasons(): HasMany
+    {
+        return $this->hasMany(LandSeason::class);
     }
 }

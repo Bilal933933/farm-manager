@@ -2,20 +2,21 @@
 
 namespace App\Domains\Lands\Actions;
 
-use App\Domains\Crops\Models\Crop;
+use App\Domains\Lands\Enums\SeasonStatus;
 use App\Domains\Lands\Models\LandSeason;
 
 class UpdateLandSeason
 {
     public function execute(LandSeason $season, array $data): LandSeason
     {
-        if (blank($data['crop'] ?? null) && ! blank($data['crop_id'] ?? null)) {
-            $crop = Crop::find($data['crop_id']);
-            $data['crop'] = $crop?->name;
+        if (in_array($season->status, [SeasonStatus::Completed, SeasonStatus::Cancelled], true)) {
+            throw new \RuntimeException('لا يمكن تعديل موسم في حالة "منتهي" أو "ملغي".');
         }
+
+        unset($data['status']);
 
         $season->update($data);
 
-        return $season;
+        return $season->fresh();
     }
 }

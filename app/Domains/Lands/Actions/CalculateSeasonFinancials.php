@@ -14,20 +14,13 @@ class CalculateSeasonFinancials
     {
         $season->loadMissing(['harvests']);
 
-        $totalHarvest = (float) $season->harvests->sum('quantity');
-
         $harvestIds = $season->harvests->pluck('id');
+        $totalHarvest = (float) $season->harvests->sum('quantity');
         $totalSoldQty = (float) Sale::whereIn('harvest_id', $harvestIds)->sum('quantity');
         $totalSales = (float) Sale::whereIn('harvest_id', $harvestIds)->sum(DB::raw('quantity * unit_price'));
         $totalCost = (float) Cost::where('land_season_id', $season->id)->sum('amount');
         $sharedCost = (float) Cost::where('land_season_id', $season->id)->where('borne_by', 'مشترك')->sum('amount');
         $profit = $totalSales - $totalCost;
-
-        $season->update([
-            'actual_cost' => $totalCost,
-            'actual_revenue' => $totalSales,
-            'actual_profit' => $profit,
-        ]);
 
         return [
             'total_harvest' => $totalHarvest,

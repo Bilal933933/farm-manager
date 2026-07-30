@@ -3,7 +3,9 @@
 namespace App\Domains\Lands\Models;
 
 use App\Domains\Crops\Models\Crop;
+use App\Domains\Lands\Enums\SeasonStatus;
 use App\Domains\Parties\Models\Party;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,7 +17,7 @@ class LandSeason extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'crop', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'actual_revenue', 'actual_profit', 'status', 'notes', 'farmer_id', 'farmer_contract_id'];
+    protected $fillable = ['land_id', 'crop_id', 'cultivated_area', 'planting_date', 'harvest_date', 'expected_cost', 'actual_cost', 'actual_revenue', 'actual_profit', 'completed_at', 'status', 'notes', 'farmer_id', 'farmer_contract_id'];
 
     protected function casts(): array
     {
@@ -27,7 +29,16 @@ class LandSeason extends Model
             'actual_revenue' => 'decimal:2',
             'actual_profit' => 'decimal:2',
             'cultivated_area' => 'decimal:2',
+            'completed_at' => 'datetime',
+            'status' => SeasonStatus::class,
         ];
+    }
+
+    public function actualProfit(): Attribute
+    {
+        return Attribute::make(
+            get: fn (?float $value) => $value ?? (($this->actual_revenue ?? 0) - ($this->actual_cost ?? 0)),
+        );
     }
 
     public function land(): BelongsTo

@@ -55,7 +55,7 @@ class CostController extends Controller
     {
         return Inertia::render('Costs/Create', [
             'lands' => Land::orderBy('name')->get(['id', 'name']),
-            'seasons' => LandSeason::orderBy('planting_date', 'desc')->with('land:id,name')->get(['id', 'land_id', 'crop', 'planting_date']),
+            'seasons' => LandSeason::orderBy('planting_date', 'desc')->with('land:id,name', 'crop:id,name')->get(['id', 'land_id', 'crop_id', 'planting_date']),
             'crops' => Crop::orderBy('name')->get(['id', 'name']),
         ]);
     }
@@ -87,7 +87,7 @@ class CostController extends Controller
         return Inertia::render('Costs/Edit', [
             'cost' => $cost,
             'lands' => Land::orderBy('name')->get(['id', 'name']),
-            'seasons' => LandSeason::orderBy('planting_date', 'desc')->with('land:id,name')->get(['id', 'land_id', 'crop', 'planting_date']),
+            'seasons' => LandSeason::orderBy('planting_date', 'desc')->with('land:id,name', 'crop:id,name')->get(['id', 'land_id', 'crop_id', 'planting_date']),
             'crops' => Crop::orderBy('name')->get(['id', 'name']),
         ]);
     }
