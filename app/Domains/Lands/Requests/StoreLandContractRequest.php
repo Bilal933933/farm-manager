@@ -37,7 +37,7 @@ class StoreLandContractRequest extends FormRequest
                         default => null,
                     };
 
-                    if ($expectedCategory && $party?->category !== $expectedCategory) {
+                    if ($expectedCategory && $party?->category?->value !== $expectedCategory) {
                         $fail("فئة الطرف يجب أن تكون \"{$expectedCategory}\" لهذا النوع من العقود.");
                     }
                 },
