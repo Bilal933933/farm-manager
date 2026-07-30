@@ -1,0 +1,1 @@
+var e=[{value:`دفع`,label:`دفع`},{value:`قبض`,label:`قبض`},{value:`سلف`,label:`سلف`}],t={دفع:`rose`,قبض:`emerald`,سلف:`amber`};export{t as n,e as t};

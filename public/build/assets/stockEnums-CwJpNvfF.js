@@ -1,0 +1,1 @@
+var e=[{value:`داخل`,label:`داخل`},{value:`خارج`,label:`خارج`}],t=[{value:`شراء`,label:`شراء`},{value:`صرف`,label:`صرف للموسم`},{value:`جرد`,label:`جرد`},{value:`إتلاف`,label:`إتلاف`},{value:`مرتجع`,label:`مرتجع`},{value:`تصحيح`,label:`تصحيح`}],n={داخل:`emerald`,خارج:`rose`};export{e as n,n as r,t};
