@@ -97,7 +97,23 @@ class LandController extends Controller
             'revenuesCount' => $revenuesCount,
             'parties' => Party::orderBy('name')->get(['id', 'name', 'type', 'phone']),
 
-            'farmers' => Inertia::defer(fn () => Party::where('category', PartyCategory::Farmer->value)->orderBy('name')->get(['id', 'name', 'phone']), 'seasons'),
+            'farmers' => Inertia::defer(function () use ($land): array {
+                $contractedFarmerIds = LandContract::where('land_id', $land->id)
+                    ->where('type', ContractType::Farmer->value)
+                    ->pluck('party_id');
+
+                $seasonFarmerIds = LandSeason::where('land_id', $land->id)
+                    ->whereNotNull('farmer_id')
+                    ->pluck('farmer_id');
+
+                $farmerIds = $contractedFarmerIds->merge($seasonFarmerIds)->unique()->values();
+
+                return Party::where('category', PartyCategory::Farmer->value)
+                    ->whereIn('id', $farmerIds)
+                    ->orderBy('name')
+                    ->get(['id', 'name', 'phone'])
+                    ->all();
+            }, 'seasons'),
 
             'farmerContracts' => Inertia::defer(fn () => LandContract::where('type', ContractType::Farmer->value)->where('land_id', $land->id)->with('party')->get(['id', 'party_id', 'settlement_type', 'share_percentage']), 'seasons'),
 
@@ -354,16 +370,19 @@ class LandController extends Controller
             'notes' => $s->notes,
         ])->sortByDesc('date')->values();
 
+        $financials = $calculateSeasonFinancials->forSeason($season);
+
         return Inertia::render('Lands/SeasonShow', [
             'land' => $land->only(['id', 'name']),
             'season' => $season,
             'farmers' => Party::where('category', PartyCategory::Farmer->value)->orderBy('name')->get(['id', 'name']),
+            'parties' => Party::where('category', PartyCategory::Merchant->value)->orderBy('name')->get(['id', 'name']),
             'crop_name' => $season->crop?->name ?? '—',
             'harvests' => $harvests,
             'costs' => $costs,
             'sales' => $sales,
-            'stats' => $calculateSeasonFinancials->forSeason($season),
-            'farmerSettlement' => $calculateFarmerSettlement->forSeason($season),
+            'stats' => $financials,
+            'farmerSettlement' => $calculateFarmerSettlement->forSeason($season, $financials),
         ]);
     }
 }

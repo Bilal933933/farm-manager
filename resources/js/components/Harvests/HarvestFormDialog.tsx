@@ -1,8 +1,6 @@
 import { useForm } from '@inertiajs/react';
+import type { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Dialog,
   DialogContent,
@@ -11,14 +9,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import type { ReactNode } from 'react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 interface HarvestFormDialogProps {
   landSeasonId: number;
   trigger: ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
-export default function HarvestFormDialog({ landSeasonId, trigger }: HarvestFormDialogProps) {
+export default function HarvestFormDialog({ landSeasonId, trigger, open, onOpenChange }: HarvestFormDialogProps) {
   const { data, setData, post, processing, errors, reset } = useForm({
     land_season_id: landSeasonId,
     date: '',
@@ -27,13 +29,23 @@ export default function HarvestFormDialog({ landSeasonId, trigger }: HarvestForm
     notes: '',
   });
 
+  const formError = (errors as Record<string, string>)['form'];
+
+  function handleOpenChange(next: boolean) {
+    if (next) {
+      reset();
+    }
+
+    onOpenChange?.(next);
+  }
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
     post(route('harvests.store'), { onSuccess: () => reset() });
   }
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent dir="rtl" className="sm:max-w-md">
         <DialogHeader>
@@ -41,6 +53,12 @@ export default function HarvestFormDialog({ landSeasonId, trigger }: HarvestForm
         </DialogHeader>
 
         <form onSubmit={submit} className="space-y-4">
+          {formError && (
+            <div className="rounded-lg border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+              {formError}
+            </div>
+          )}
+
           <div className="space-y-2">
             <Label htmlFor="harvest_name">اسم الحصاد</Label>
             <Input

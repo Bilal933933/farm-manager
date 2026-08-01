@@ -4,6 +4,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
 import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import { Movement } from '../Types/product';
 import { movementTypeIcons, reasonIcons, movementTypeColors } from '../Utils/movementConfig';
 
@@ -65,9 +66,7 @@ export default function StockMovementsTable({ movements, category }: StockMoveme
                     <TableCell className="font-mono tabular-nums text-stone-600 whitespace-nowrap">
                       {m.unit_price != null ? `${m.unit_price.toLocaleString()} ج.م` : '—'}
                     </TableCell>
-                    <TableCell className="max-w-xs truncate text-xs text-stone-500">
-                      {m.notes || '—'}
-                    </TableCell>
+                    <TableCell><DetailCell text={m.notes} title="ملاحظات" className="text-xs text-stone-500" /></TableCell>
                   </TableRow>
                 );
               })}

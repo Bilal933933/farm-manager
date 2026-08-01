@@ -1,7 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
-import { Plus, Wallet, Pencil } from 'lucide-react';
+import { Eye, Plus, Pencil, Wallet } from 'lucide-react';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import { Card } from '@/components/ui/card';
 import {
   Table,
@@ -96,18 +98,14 @@ export default function Index({ payments }: IndexProps) {
                   <StatusBadge value={p.type} toneMap={TYPE_TONE} />
                 </TableCell>
                 <TableCell className="font-mono">{p.amount}</TableCell>
-                <TableCell className="text-sm text-stone-500">{p.notes || '—'}</TableCell>
+                <TableCell><DetailCell text={p.notes} title="ملاحظات" className="text-sm text-stone-500" /></TableCell>
                 <TableCell className="text-left">
-                  <div className="flex items-center justify-end gap-1">
-                    <Button variant="ghost" size="sm" asChild>
-                      <Link href={route('payments.show', p.id)}>عرض</Link>
-                    </Button>
-                    <Button variant="ghost" size="sm" asChild>
-                      <Link href={route('payments.edit', p.id)}>
-                        <Pencil className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
+                  <ActionsMenu
+                    actions={[
+                      { label: 'عرض', icon: Eye, href: route('payments.show', p.id) },
+                      { label: 'تعديل', icon: Pencil, href: route('payments.edit', p.id) },
+                    ]}
+                  />
                 </TableCell>
               </TableRow>
             ))}

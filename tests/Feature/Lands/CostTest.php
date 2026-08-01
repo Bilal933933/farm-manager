@@ -34,7 +34,7 @@ test('cost can be stored', function () {
         'amount' => 5000,
         'date' => '2025-03-15',
     ])->assertSessionHasNoErrors()
-        ->assertRedirect(route('costs.index'));
+        ->assertRedirect();
 
     expect(Cost::where('description', 'سماد يوريا')->exists())->toBeTrue();
 });

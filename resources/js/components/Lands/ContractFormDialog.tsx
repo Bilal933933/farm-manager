@@ -1,16 +1,6 @@
-import { type ReactNode } from 'react';
 import { useForm } from '@inertiajs/react';
+import type {ReactNode} from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import {
   Dialog,
   DialogContent,
@@ -19,6 +9,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { CONTRACT_TYPES, SETTLEMENT_TYPES } from '@/lib/landEnums';
 
 interface Contract {
@@ -43,7 +43,10 @@ interface ContractFormDialogProps {
 }
 
 function toDateInputValue(dateStr?: string): string {
-  if (!dateStr) return '';
+  if (!dateStr) {
+return '';
+}
+
   return dateStr.split('T')[0];
 }
 
@@ -66,6 +69,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
+
     if (isEditing) {
       put(route('lands.contracts.update', contract!.id), { onSuccess: () => reset() });
     } else {

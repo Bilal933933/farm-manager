@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { ArrowDownUp, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Dialog,
@@ -326,7 +327,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                       <TableCell>{m.reason}</TableCell>
                       <TableCell className="font-mono">{m.quantity}</TableCell>
                       <TableCell className="font-mono">{m.unit_price ? Number(m.unit_price).toLocaleString() : '—'}</TableCell>
-                      <TableCell className="text-sm text-stone-500">{m.notes || '—'}</TableCell>
+                      <TableCell><DetailCell text={m.notes} title="ملاحظات" className="text-sm text-stone-500" /></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

@@ -2,6 +2,8 @@
 
 namespace App\Domains\Lands\Models;
 
+use App\Domains\Lands\Enums\ContractType;
+use App\Domains\Lands\Enums\SettlementType;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Models\Payment;
 use Database\Factories\LandContractFactory;
@@ -61,7 +63,7 @@ class LandContract extends Model
 
     public function getRemainingAttribute(): float
     {
-        if ($this->type === 'مزارع' && $this->settlement_type === 'نسبة') {
+        if ($this->type === ContractType::Farmer->value && $this->settlement_type === SettlementType::Percentage->value) {
             return 0;
         }
 

@@ -53,6 +53,34 @@ test('land show page renders', function () {
         ->assertInertia(fn ($page) => $page->component('Lands/Show'));
 });
 
+test('land show exposes only farmers with a contract on that land', function () {
+    $land = Land::factory()->create();
+    $otherLand = Land::factory()->create();
+    $farmer = Party::factory()->farmer()->create();
+    $otherFarmer = Party::factory()->farmer()->create();
+
+    LandContract::factory()->farmer()->create(['land_id' => $land->id, 'party_id' => $farmer->id]);
+
+    $this->get(route('lands.show', $land), [
+        'X-Inertia-Partial-Component' => 'Lands/Show',
+        'X-Inertia-Partial-Data' => 'farmers',
+    ])->assertInertia(fn ($page) => $page->where('farmers', function ($farmers) use ($farmer, $otherFarmer) {
+        $ids = collect($farmers)->pluck('id');
+
+        return $ids->contains($farmer->id) && ! $ids->contains($otherFarmer->id);
+    }));
+});
+
+test('land show exposes no farmers when the land has no farmer contracts', function () {
+    $land = Land::factory()->create();
+    Party::factory()->farmer()->create();
+
+    $this->get(route('lands.show', $land), [
+        'X-Inertia-Partial-Component' => 'Lands/Show',
+        'X-Inertia-Partial-Data' => 'farmers',
+    ])->assertInertia(fn ($page) => $page->where('farmers', fn ($farmers) => count($farmers) === 0));
+});
+
 test('land can be updated', function () {
     $land = Land::factory()->create();
 
@@ -98,6 +126,20 @@ test('season can be shown', function () {
 
     $this->get(route('lands.seasons.show', [$season->land, $season]))
         ->assertInertia(fn ($page) => $page->component('Lands/SeasonShow'));
+});
+
+test('season show exposes merchant parties for sale dialog', function () {
+    $season = LandSeason::factory()->create();
+    $merchant = Party::factory()->merchant()->create();
+    $farmer = Party::factory()->farmer()->create();
+
+    $this->get(route('lands.seasons.show', [$season->land, $season]))
+        ->assertInertia(fn ($page) => $page->component('Lands/SeasonShow')
+            ->where('parties', function ($parties) use ($merchant, $farmer) {
+                $ids = collect($parties)->pluck('id');
+
+                return $ids->contains($merchant->id) && ! $ids->contains($farmer->id);
+            }));
 });
 
 test('season can be updated', function () {
@@ -153,6 +195,26 @@ test('contract can be updated', function () {
     expect((float) $contract->fresh()->amount)->toBe(200000.0);
 });
 
+test('farmer contract update keeps amount when blank is submitted', function () {
+    $contract = LandContract::factory()->farmer()->create([
+        'settlement_type' => 'نسبة',
+        'share_percentage' => 40,
+        'amount' => 0,
+    ]);
+
+    $this->put(route('lands.contracts.update', $contract), [
+        'land_id' => $contract->land_id,
+        'type' => 'مزارع',
+        'settlement_type' => 'نسبة',
+        'share_percentage' => 50,
+        'start_date' => '2025-01-01',
+        'amount' => '',
+    ])->assertSessionHasNoErrors();
+
+    expect((float) $contract->fresh()->amount)->toBe(0.0);
+    expect((float) $contract->fresh()->share_percentage)->toBe(50.0);
+});
+
 test('contract can be deleted', function () {
     $contract = LandContract::factory()->create();
 
@@ -176,6 +238,23 @@ test('farmer contract with percentage does not require amount', function () {
     ])->assertSessionHasNoErrors();
 
     expect($land->contracts()->count())->toBe(1);
+});
+
+test('farmer contract with percentage stores zero amount when amount is blank', function () {
+    $land = Land::factory()->create();
+
+    $this->post(route('lands.contracts.store'), [
+        'land_id' => $land->id,
+        'type' => 'مزارع',
+        'settlement_type' => 'نسبة',
+        'share_percentage' => 30,
+        'start_date' => '2025-01-01',
+        'amount' => '',
+    ])->assertSessionHasNoErrors();
+
+    $contract = $land->contracts()->first();
+
+    expect((float) $contract->amount)->toBe(0.0);
 });
 
 test('farmer contract with fixed amount does require amount', function () {
@@ -250,6 +329,74 @@ test('season can be stored with farmer_contract_id', function () {
     expect((int) $season->farmer_contract_id)->toBe($contract->id);
 });
 
+// ─── Seasons: contract consistency ─────────────────
+
+test('season rejects farmer contract from another land', function () {
+    $land = Land::factory()->create();
+    $otherLand = Land::factory()->create();
+    $farmer = Party::factory()->farmer()->create();
+    $contract = LandContract::factory()->farmer()->create(['land_id' => $otherLand->id, 'party_id' => $farmer->id]);
+
+    $this->post(route('lands.seasons.store'), [
+        'land_id' => $land->id,
+        'crop_id' => Crop::factory()->create()->id,
+        'planting_date' => '2025-03-01',
+        'farmer_id' => $farmer->id,
+        'farmer_contract_id' => $contract->id,
+        'status' => 'نشط',
+    ])->assertSessionHasErrors('farmer_contract_id');
+
+    expect($land->seasons()->count())->toBe(0);
+});
+
+test('season rejects non-farmer contract', function () {
+    $land = Land::factory()->create();
+    $lessor = Party::factory()->lessor()->create();
+    $contract = LandContract::factory()->lessor()->create(['land_id' => $land->id, 'party_id' => $lessor->id]);
+
+    $this->post(route('lands.seasons.store'), [
+        'land_id' => $land->id,
+        'crop_id' => Crop::factory()->create()->id,
+        'planting_date' => '2025-03-01',
+        'farmer_contract_id' => $contract->id,
+        'status' => 'نشط',
+    ])->assertSessionHasErrors('farmer_contract_id');
+});
+
+test('season rejects farmer contract for a different farmer', function () {
+    $land = Land::factory()->create();
+    $farmer = Party::factory()->farmer()->create();
+    $otherFarmer = Party::factory()->farmer()->create();
+    $contract = LandContract::factory()->farmer()->create(['land_id' => $land->id, 'party_id' => $otherFarmer->id]);
+
+    $this->post(route('lands.seasons.store'), [
+        'land_id' => $land->id,
+        'crop_id' => Crop::factory()->create()->id,
+        'planting_date' => '2025-03-01',
+        'farmer_id' => $farmer->id,
+        'farmer_contract_id' => $contract->id,
+        'status' => 'نشط',
+    ])->assertSessionHasErrors('farmer_contract_id');
+});
+
+test('season update rejects farmer contract from another land', function () {
+    $land = Land::factory()->create();
+    $otherLand = Land::factory()->create();
+    $farmer = Party::factory()->farmer()->create();
+    $contract = LandContract::factory()->farmer()->create(['land_id' => $otherLand->id, 'party_id' => $farmer->id]);
+    $season = LandSeason::factory()->create(['land_id' => $land->id, 'status' => 'قادم']);
+
+    $this->put(route('lands.seasons.update', $season), [
+        'land_id' => $land->id,
+        'crop_id' => $season->crop_id,
+        'planting_date' => '2025-03-01',
+        'farmer_id' => $farmer->id,
+        'farmer_contract_id' => $contract->id,
+    ])->assertSessionHasErrors('farmer_contract_id');
+
+    expect((int) $season->fresh()->farmer_contract_id)->toBe(0);
+});
+
 // ─── CalculateFarmerSettlement ────────────────────────
 
 test('CalculateFarmerSettlement returns null when no farmer linked', function () {
@@ -294,6 +441,20 @@ test('CalculateFarmerSettlement returns correct values for percentage contract',
         'amount' => 1000,
     ]);
 
+    Cost::factory()->create([
+        'land_id' => $land->id,
+        'land_season_id' => $season->id,
+        'borne_by' => 'مزارع',
+        'amount' => 100,
+    ]);
+
+    Cost::factory()->create([
+        'land_id' => $land->id,
+        'land_season_id' => $season->id,
+        'borne_by' => 'مالك',
+        'amount' => 50,
+    ]);
+
     $result = app(CalculateFarmerSettlement::class)->forSeason($season);
 
     expect($result)->not->toBeNull();
@@ -302,4 +463,72 @@ test('CalculateFarmerSettlement returns correct values for percentage contract',
     expect((float) $result['net_revenue'])->toBe(4000.0);
     expect((float) $result['farmer_share'])->toBe(1000.0);
     expect((float) $result['owner_share'])->toBe(3000.0);
+    expect((float) $result['farmer_share_net'])->toBe(900.0);
+    expect((float) $result['owner_share_net'])->toBe(2950.0);
+    expect($result['is_deficit'])->toBeFalse();
+});
+
+test('CalculateFarmerSettlement returns correct values for fixed contract', function () {
+    $land = Land::factory()->create();
+    $farmer = Party::factory()->farmer()->create();
+    $contract = LandContract::factory()->farmer()->create([
+        'land_id' => $land->id,
+        'party_id' => $farmer->id,
+        'settlement_type' => 'ثابت',
+        'amount' => 800,
+    ]);
+
+    $season = LandSeason::factory()->create([
+        'land_id' => $land->id,
+        'farmer_id' => $farmer->id,
+        'farmer_contract_id' => $contract->id,
+    ]);
+
+    $harvest = Harvest::factory()->create([
+        'land_season_id' => $season->id,
+        'quantity' => 100,
+    ]);
+
+    Sale::factory()->create([
+        'harvest_id' => $harvest->id,
+        'quantity' => 100,
+        'unit_price' => 20,
+    ]);
+
+    Cost::factory()->create([
+        'land_id' => $land->id,
+        'land_season_id' => $season->id,
+        'borne_by' => 'مشترك',
+        'amount' => 1500,
+    ]);
+
+    $result = app(CalculateFarmerSettlement::class)->forSeason($season);
+
+    expect($result)->not->toBeNull();
+    expect((float) $result['total_revenue'])->toBe(2000.0);
+    expect((float) $result['net_revenue'])->toBe(500.0);
+    expect((float) $result['farmer_share'])->toBe(800.0);
+    expect((float) $result['owner_share'])->toBe(-300.0);
+    expect((float) $result['contract_amount'])->toBe(800.0);
+    expect($result['is_deficit'])->toBeTrue();
+});
+
+test('CalculateFarmerSettlement returns null when contract party does not match season farmer', function () {
+    $land = Land::factory()->create();
+    $contractFarmer = Party::factory()->farmer()->create();
+    $seasonFarmer = Party::factory()->farmer()->create();
+    $contract = LandContract::factory()->farmer()->create([
+        'land_id' => $land->id,
+        'party_id' => $contractFarmer->id,
+    ]);
+
+    $season = LandSeason::factory()->create([
+        'land_id' => $land->id,
+        'farmer_id' => $seasonFarmer->id,
+        'farmer_contract_id' => $contract->id,
+    ]);
+
+    $result = app(CalculateFarmerSettlement::class)->forSeason($season);
+
+    expect($result)->toBeNull();
 });

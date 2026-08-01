@@ -1,4 +1,4 @@
-import { Link, router } from '@inertiajs/react';
+import { router } from '@inertiajs/react';
 import { DollarSign, Pencil, Plus, Search, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import ContractFormDialog from '@/components/Lands/ContractFormDialog';
@@ -98,10 +98,10 @@ export default function ContractsTab({ contracts, landId, parties }: Props) {
                     contract={editingContract}
                     open={editingContract?.id === c.id}
                     onOpenChange={(open) => {
- if (!open) {
-setEditingContract(null);
-} 
-}}
+                      if (!open) {
+  setEditingContract(null); 
+}
+                    }}
                     trigger={<span />}
                   />
                 </TableCell>

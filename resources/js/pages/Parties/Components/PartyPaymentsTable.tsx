@@ -1,5 +1,6 @@
 import { Wallet } from 'lucide-react';
 import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import {
   Table,
   TableBody,
@@ -55,7 +56,7 @@ export default function PartyPaymentsTable({ payments }: Props) {
                   <StatusBadge value={payment.type} toneMap={TYPE_TONE} />
                 </TableCell>
                 <TableCell className="font-mono tabular-nums font-medium py-3">{currency(Number(payment.amount))}</TableCell>
-                <TableCell className="text-stone-500 text-sm py-3">{payment.notes ?? <span className="text-stone-300">—</span>}</TableCell>
+                <TableCell className="py-3"><DetailCell text={payment.notes} title="ملاحظات" className="text-stone-500 text-sm" /></TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -32,9 +32,10 @@ interface CostFormProps {
   lands?: Option[];
   seasons?: Option[];
   hideLand?: boolean;
+  hideSeason?: boolean;
 }
 
-export default function CostForm({ data, setData, errors, processing, onSubmit, submitLabel, lands, seasons, hideLand }: CostFormProps) {
+export default function CostForm({ data, setData, errors, processing, onSubmit, submitLabel, lands, seasons, hideLand, hideSeason }: CostFormProps) {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
@@ -110,7 +111,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           {errors.date && <p className="text-sm text-rose-600">{errors.date}</p>}
         </div>
 
-        {seasons && (
+        {seasons && !hideSeason && (
           <div className="space-y-2">
             <Label htmlFor="land_season_id">الموسم</Label>
             <Select value={data.land_season_id} onValueChange={(v) => setData('land_season_id', v)}>

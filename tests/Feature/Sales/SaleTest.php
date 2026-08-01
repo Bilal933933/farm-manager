@@ -34,7 +34,7 @@ test('sale can be stored', function () {
         'date' => '2025-06-15',
         'payment_type' => 'نقدي',
     ])->assertSessionHasNoErrors()
-        ->assertRedirect(route('sales.index'));
+        ->assertRedirect();
 
     expect(Sale::where('party_id', $party->id)->exists())->toBeTrue();
 });

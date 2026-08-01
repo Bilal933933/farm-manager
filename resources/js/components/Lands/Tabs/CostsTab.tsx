@@ -3,11 +3,11 @@ import { Package, Pencil, Plus, Search, Trash2 } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import ConsumeStockDialog from '@/components/Lands/ConsumeStockDialog';
 import CostFormDialog from '@/components/Lands/CostFormDialog';
-import NotesDialog from '@/components/Lands/NotesDialog';
 import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import { Input } from '@/components/ui/input';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
@@ -78,9 +78,9 @@ return costs;
               <TableHead className={h}>التاريخ</TableHead>
               <TableHead className={h}>المحصول</TableHead>
               <TableHead className={h}>النوع</TableHead>
-              <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-16">البيان</TableHead>
+              <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200">البيان</TableHead>
               <TableHead className={nh}>المبلغ</TableHead>
-              <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-16">ملاحظات</TableHead>
+              <TableHead className="text-center font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200">ملاحظات</TableHead>
               <TableHead className="text-left font-semibold text-stone-700 bg-stone-100 border-b-2 border-stone-200 w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
@@ -95,11 +95,11 @@ return costs;
                 <TableCell className={cell}>{c.crop_name}</TableCell>
                 <TableCell className={cell}>{c.type}</TableCell>
                 <TableCell className={cell}>
-                  <NotesDialog text={c.description} title="البيان" />
+                  <DetailCell text={c.description} title="البيان" />
                 </TableCell>
                 <TableCell className={`${numCell} text-amber-700`}>{fmt(c.amount)}</TableCell>
                 <TableCell className="text-center">
-                  {c.notes ? <NotesDialog text={c.notes} title="ملاحظات" /> : <span className="text-stone-300">—</span>}
+                  <DetailCell text={c.notes} title="ملاحظات" />
                 </TableCell>
                 <TableCell className="text-left whitespace-nowrap">
                   <ActionsMenu

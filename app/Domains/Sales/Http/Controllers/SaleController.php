@@ -50,7 +50,7 @@ class SaleController extends Controller
             'حدث خطأ أثناء تسجيل البيع',
         );
 
-        return redirect()->route('sales.index');
+        return redirect()->back();
     }
 
     public function show(Sale $sale): Response

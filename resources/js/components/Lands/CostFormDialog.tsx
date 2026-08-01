@@ -13,14 +13,16 @@ interface Props {
   seasons?: { id: number; name: string }[];
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  initialSeasonId?: number | null;
+  hideSeason?: boolean;
 }
 
-export default function CostFormDialog({ landId, cost = null, trigger, seasons = [], open, onOpenChange }: Props) {
+export default function CostFormDialog({ landId, cost = null, trigger, seasons = [], open, onOpenChange, initialSeasonId = null, hideSeason = false }: Props) {
   const isEditing = Boolean(cost);
 
   const { data, setData, post, put, processing, errors, reset } = useForm({
     land_id: landId.toString(),
-    land_season_id: cost?.land_season_id?.toString() ?? '',
+    land_season_id: cost?.land_season_id?.toString() ?? (initialSeasonId ? initialSeasonId.toString() : ''),
     type: cost?.type ?? 'أخرى',
     description: cost?.description ?? '',
     amount: cost?.amount?.toString() ?? '',
@@ -54,6 +56,7 @@ export default function CostFormDialog({ landId, cost = null, trigger, seasons =
           onSubmit={submit}
           submitLabel={isEditing ? 'حفظ التغييرات' : 'إضافة'}
           hideLand
+          hideSeason={hideSeason}
           seasons={seasons}
         />
       </DialogContent>

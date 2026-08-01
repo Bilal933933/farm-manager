@@ -3,6 +3,7 @@
 namespace App\Domains\Lands\Requests;
 
 use App\Domains\Lands\Enums\SeasonStatus;
+use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Enums\PartyCategory;
 use App\Domains\Parties\Models\Party;
@@ -37,6 +38,34 @@ class StoreLandSeasonRequest extends FormRequest
             'farmer_contract_id' => [
                 'nullable',
                 'exists:land_contracts,id',
+                function ($attribute, $value, $fail) {
+                    if (! $value) {
+                        return;
+                    }
+
+                    $contract = LandContract::find($value);
+
+                    if (! $contract) {
+                        $fail('عقد المزارعة المحدد غير موجود.');
+
+                        return;
+                    }
+
+                    if ($contract->type !== 'مزارع') {
+                        $fail('الطرف المحدد ليس عقد مزارعة.');
+
+                        return;
+                    }
+
+                    if ($contract->land_id !== (int) $this->input('land_id')) {
+                        $fail('عقد المزارعة المحدد لا ينتمي إلى هذه الأرض.');
+                    }
+
+                    $farmerId = $this->input('farmer_id');
+                    if ($farmerId && (int) $contract->party_id !== (int) $farmerId) {
+                        $fail('عقد المزارعة المحدد لا يخص المزارع المختار.');
+                    }
+                },
             ],
             'status' => [
                 Rule::requiredIf($this->route('season') === null),

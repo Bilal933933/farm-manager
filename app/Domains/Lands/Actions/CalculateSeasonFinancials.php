@@ -2,6 +2,7 @@
 
 namespace App\Domains\Lands\Actions;
 
+use App\Domains\Lands\Enums\CostBearer;
 use App\Domains\Lands\Models\Cost;
 use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandSeason;
@@ -19,7 +20,7 @@ class CalculateSeasonFinancials
         $totalSoldQty = (float) Sale::whereIn('harvest_id', $harvestIds)->sum('quantity');
         $totalSales = (float) Sale::whereIn('harvest_id', $harvestIds)->sum(DB::raw('quantity * unit_price'));
         $totalCost = (float) Cost::where('land_season_id', $season->id)->sum('amount');
-        $sharedCost = (float) Cost::where('land_season_id', $season->id)->where('borne_by', 'مشترك')->sum('amount');
+        $sharedCost = (float) Cost::where('land_season_id', $season->id)->where('borne_by', CostBearer::Shared->value)->sum('amount');
         $profit = $totalSales - $totalCost;
 
         return [

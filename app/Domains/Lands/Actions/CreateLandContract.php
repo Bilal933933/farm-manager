@@ -8,6 +8,8 @@ class CreateLandContract
 {
     public function execute(array $data): LandContract
     {
+        $data['amount'] = $data['amount'] ?? 0;
+
         return LandContract::create($data);
     }
 }

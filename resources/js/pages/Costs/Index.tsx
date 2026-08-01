@@ -3,6 +3,7 @@ import { Eye, Pencil, Plus, ListOrdered, Trash2, Wallet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import { ActionsMenu } from '@/components/ui/actions-menu';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
@@ -85,7 +86,7 @@ export default function Index({ costs, summary }: IndexProps) {
                 <TableCell><DateDisplay date={c.date} /></TableCell>
                 <TableCell>{c.land?.name ?? '—'}</TableCell>
                 <TableCell>{c.type}</TableCell>
-                <TableCell className="max-w-xs truncate">{c.description}</TableCell>
+                <TableCell><DetailCell text={c.description} title="البيان" /></TableCell>
                 <TableCell className="text-left font-mono tabular-nums text-amber-700">{fmt(c.amount)}</TableCell>
                 <TableCell className="text-left whitespace-nowrap">
                   <ActionsMenu

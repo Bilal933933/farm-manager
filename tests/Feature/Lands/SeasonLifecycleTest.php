@@ -264,6 +264,33 @@ test('POST start season returns error for invalid transition', function () {
     expect($season->fresh()->status)->toBe(SeasonStatus::Completed);
 });
 
+test('POST harvests.store creates harvest for active season', function () {
+    $season = LandSeason::factory()->create(['status' => SeasonStatus::Active]);
+
+    $this->post(route('harvests.store'), [
+        'land_season_id' => $season->id,
+        'date' => '2025-04-02',
+        'name' => 'حصاد اختبار',
+        'quantity' => 50,
+    ])->assertSessionHasNoErrors()
+        ->assertRedirect();
+
+    expect(Harvest::where('land_season_id', $season->id)->count())->toBe(1);
+});
+
+test('POST harvests.store fails without creating a harvest for non-active season', function () {
+    $season = LandSeason::factory()->create(['status' => SeasonStatus::Upcoming]);
+
+    $this->post(route('harvests.store'), [
+        'land_season_id' => $season->id,
+        'date' => '2025-04-02',
+        'name' => 'حصاد اختبار',
+        'quantity' => 50,
+    ])->assertSessionHasErrors('form');
+
+    expect(Harvest::where('land_season_id', $season->id)->count())->toBe(0);
+});
+
 // ─── Store Season request status restriction ──────
 
 test('cannot create season with Harvesting status via request', function () {

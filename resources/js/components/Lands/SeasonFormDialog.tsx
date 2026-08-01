@@ -1,4 +1,5 @@
 import { useForm } from '@inertiajs/react';
+import { useEffect } from 'react';
 import type {ReactNode} from 'react';
 import { Button } from '@/components/ui/button';
 import {
@@ -73,6 +74,23 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
     farmer_id: String(season?.farmer_id ?? ''),
     farmer_contract_id: String(season?.farmer_contract_id ?? ''),
   });
+
+  useEffect(() => {
+    if (open && season) {
+      setData({
+        land_id: landId,
+        crop_id: String(season.crop_id ?? ''),
+        cultivated_area: season.cultivated_area ?? '',
+        planting_date: toDateInputValue(season.planting_date),
+        harvest_date: toDateInputValue(season.harvest_date),
+        expected_cost: season.expected_cost ?? '',
+        status: season.status ?? 'قادم',
+        notes: season.notes ?? '',
+        farmer_id: String(season.farmer_id ?? ''),
+        farmer_contract_id: String(season.farmer_contract_id ?? ''),
+      });
+    }
+  }, [open, season, landId, setData]);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();

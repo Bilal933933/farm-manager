@@ -2,6 +2,7 @@ import { Link, router } from '@inertiajs/react';
 import { Eye, Pencil, Trash2 } from 'lucide-react';
 import StatusBadge from '@/components/Lands/StatusBadge';
 import { ActionsMenu } from '@/components/ui/actions-menu';
+import DetailCell from '@/components/ui/detail-cell';
 import { TableCell, TableRow } from '@/components/ui/table';
 import type { Land } from '@/types';
 
@@ -17,7 +18,7 @@ export default function LandTableRow({ land }: Props) {
           {land.name}
         </Link>
       </TableCell>
-      <TableCell className="text-stone-500">{land.location || '—'}</TableCell>
+      <TableCell><DetailCell text={land.location} title="الموقع" className="text-stone-500" /></TableCell>
       <TableCell className="font-mono whitespace-nowrap">{land.area} {land.area_unit}</TableCell>
       <TableCell>
         <StatusBadge value={land.status} />

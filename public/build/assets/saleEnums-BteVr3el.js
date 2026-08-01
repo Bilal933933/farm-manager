@@ -1,0 +1,1 @@
+var e=[{value:`نقدي`,label:`نقدي`},{value:`آجل`,label:`آجل`}];export{e as t};

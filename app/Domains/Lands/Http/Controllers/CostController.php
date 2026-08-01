@@ -68,7 +68,7 @@ class CostController extends Controller
             'حدث خطأ أثناء إضافة التكلفة',
         );
 
-        return redirect()->route('costs.index');
+        return redirect()->back();
     }
 
     public function show(Cost $cost): Response

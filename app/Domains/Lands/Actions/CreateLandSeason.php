@@ -13,8 +13,20 @@ class CreateLandSeason
         if (! empty($data['farmer_contract_id'])) {
             $contract = LandContract::find($data['farmer_contract_id']);
 
-            if (! $contract || $contract->land_id !== (int) ($data['land_id'] ?? 0)) {
+            if (! $contract) {
+                throw new \InvalidArgumentException('عقد المزارعة المحدد غير موجود.');
+            }
+
+            if ($contract->type !== 'مزارع') {
+                throw new \InvalidArgumentException('العقد المحدد ليس عقد مزارعة.');
+            }
+
+            if ($contract->land_id !== (int) ($data['land_id'] ?? 0)) {
                 throw new \InvalidArgumentException('عقد المزارعة المحدد لا ينتمي إلى هذه الأرض.');
+            }
+
+            if (! empty($data['farmer_id']) && (int) $contract->party_id !== (int) $data['farmer_id']) {
+                throw new \InvalidArgumentException('عقد المزارعة المحدد لا يخص المزارع المختار.');
             }
         }
 

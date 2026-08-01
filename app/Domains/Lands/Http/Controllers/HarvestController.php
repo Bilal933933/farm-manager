@@ -14,11 +14,15 @@ class HarvestController extends Controller
 
     public function store(StoreHarvestRequest $request, RecordHarvest $action): RedirectResponse
     {
-        $this->executeWithToast(
+        $succeeded = $this->executeWithToast(
             fn () => $action->execute($request->validated()),
             'تم تسجيل الحصاد بنجاح',
             'حدث خطأ أثناء تسجيل الحصاد',
         );
+
+        if (! $succeeded) {
+            return redirect()->back()->withErrors(['form' => 'حدث خطأ أثناء تسجيل الحصاد. تأكد من أن الموسم في حالة "نشط" أو "قيد الحصاد".']);
+        }
 
         return redirect()->back();
     }
