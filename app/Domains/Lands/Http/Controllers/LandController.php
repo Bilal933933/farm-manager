@@ -95,7 +95,7 @@ class LandController extends Controller
             'totalHarvest' => $totalHarvest,
             'costsCount' => $costsCount,
             'revenuesCount' => $revenuesCount,
-            'parties' => Party::orderBy('name')->get(['id', 'name', 'type', 'phone']),
+            'parties' => Party::orderBy('name')->get(['id', 'name', 'type', 'category', 'phone']),
 
             'farmers' => Inertia::defer(function () use ($land): array {
                 $contractedFarmerIds = LandContract::where('land_id', $land->id)

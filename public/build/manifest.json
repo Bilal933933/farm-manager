@@ -53,6 +53,17 @@
       "_landEnums-DkmjjYui.js"
     ]
   },
+  "_NaqootForm-B07SvoDu.js": {
+    "file": "assets/NaqootForm-B07SvoDu.js",
+    "name": "NaqootForm",
+    "imports": [
+      "_jsx-runtime-07t3JwPe.js",
+      "_textarea-BAubjmFc.js",
+      "_button-BI08YOy2.js",
+      "_input-CcNHYVJJ.js",
+      "_label-C2qZ7HGp.js"
+    ]
+  },
   "_PartyForm-DNptmmRV.js": {
     "file": "assets/PartyForm-DNptmmRV.js",
     "name": "PartyForm",
@@ -452,6 +463,13 @@
     "file": "assets/fonts-BJRfngpw.css",
     "src": "_fonts-BJRfngpw.css"
   },
+  "_gift-Kr-HJtoa.js": {
+    "file": "assets/gift-Kr-HJtoa.js",
+    "name": "gift",
+    "imports": [
+      "_createLucideIcon-CqOPp61w.js"
+    ]
+  },
   "_heading-Co2svK5a.js": {
     "file": "assets/heading-Co2svK5a.js",
     "name": "heading",
@@ -577,6 +595,13 @@
   "_scroll-text-BuC4G9hv.js": {
     "file": "assets/scroll-text-BuC4G9hv.js",
     "name": "scroll-text",
+    "imports": [
+      "_createLucideIcon-CqOPp61w.js"
+    ]
+  },
+  "_search-D4vNRegR.js": {
+    "file": "assets/search-D4vNRegR.js",
+    "name": "search",
     "imports": [
       "_createLucideIcon-CqOPp61w.js"
     ]
@@ -726,7 +751,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-DOQFO0lm.css",
+    "file": "assets/app-Bwz_B1ex.css",
     "name": "app",
     "names": [
       "app.css"
@@ -735,7 +760,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-D2kvrsx1.js",
+    "file": "assets/app-DgKc-uAT.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -757,6 +782,7 @@
       "_book-open-DRcPaOLR.js",
       "_building-2-DBP1LdvZ.js",
       "_dollar-sign-DbgBqQGi.js",
+      "_gift-Kr-HJtoa.js",
       "_package-ddnM9Y3x.js",
       "_scroll-text-BuC4G9hv.js",
       "_shopping-cart-astKcTm8.js",
@@ -788,6 +814,9 @@
       "resources/js/pages/Lands/SeasonShow.tsx",
       "resources/js/pages/Lands/Show.tsx",
       "resources/js/pages/Ledger/Index.tsx",
+      "resources/js/pages/Naqoot/Create.tsx",
+      "resources/js/pages/Naqoot/Edit.tsx",
+      "resources/js/pages/Naqoot/Index.tsx",
       "resources/js/pages/Parties/Components/PartyContractsTable.tsx",
       "resources/js/pages/Parties/Components/PartyFarmerSettlements.tsx",
       "resources/js/pages/Parties/Components/PartyFarmerView.tsx",
@@ -1045,14 +1074,13 @@
     ]
   },
   "resources/js/pages/Lands/Show.tsx": {
-    "file": "assets/Show-B5DVYvCt.js",
+    "file": "assets/Show-CzUXpAX2.js",
     "name": "Show",
     "src": "resources/js/pages/Lands/Show.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_jsx-runtime-07t3JwPe.js",
       "_dist-CMlgHHB9.js",
-      "_createLucideIcon-CqOPp61w.js",
       "_arrow-right-CLqgsXRI.js",
       "_textarea-BAubjmFc.js",
       "_circle-dollar-sign-BBiPURL0.js",
@@ -1062,6 +1090,7 @@
       "_package-ddnM9Y3x.js",
       "_pencil-BMhgcKAR.js",
       "_plus-wEHs_rGL.js",
+      "_search-D4vNRegR.js",
       "_sprout-M3rS0QL6.js",
       "_trash-2-Cx6SP3I_.js",
       "_trending-up-DvFEWFpH.js",
@@ -1093,6 +1122,57 @@
       "_detail-cell-CJVhDbtL.js",
       "_table-BtHOE2AW.js",
       "_StatusBadge-DbHe577m.js"
+    ]
+  },
+  "resources/js/pages/Naqoot/Create.tsx": {
+    "file": "assets/Create-o5HQoGFz.js",
+    "name": "Create",
+    "src": "resources/js/pages/Naqoot/Create.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-07t3JwPe.js",
+      "_dist-CMlgHHB9.js",
+      "_arrow-right-CLqgsXRI.js",
+      "_card-CGKIwy_a.js",
+      "_NaqootForm-B07SvoDu.js"
+    ]
+  },
+  "resources/js/pages/Naqoot/Edit.tsx": {
+    "file": "assets/Edit-BPruFikR.js",
+    "name": "Edit",
+    "src": "resources/js/pages/Naqoot/Edit.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-07t3JwPe.js",
+      "_dist-CMlgHHB9.js",
+      "_arrow-right-CLqgsXRI.js",
+      "_card-CGKIwy_a.js",
+      "_NaqootForm-B07SvoDu.js"
+    ]
+  },
+  "resources/js/pages/Naqoot/Index.tsx": {
+    "file": "assets/Index-BMgNwBf3.js",
+    "name": "Index",
+    "src": "resources/js/pages/Naqoot/Index.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-07t3JwPe.js",
+      "_dist-CMlgHHB9.js",
+      "_utils-BNhDZxi-.js",
+      "_createLucideIcon-CqOPp61w.js",
+      "_actions-menu-D9lUOklE.js",
+      "_gift-Kr-HJtoa.js",
+      "_pencil-BMhgcKAR.js",
+      "_plus-wEHs_rGL.js",
+      "_search-D4vNRegR.js",
+      "_trash-2-Cx6SP3I_.js",
+      "_button-BI08YOy2.js",
+      "_input-CcNHYVJJ.js",
+      "_card-CGKIwy_a.js",
+      "_date-display-BQGB6Jh2.js",
+      "_table-BtHOE2AW.js",
+      "_badge-Ca4Al1N5.js",
+      "_tabs-CEe-aRP6.js"
     ]
   },
   "resources/js/pages/Parties/Components/PartyContractsTable.tsx": {
@@ -1389,7 +1469,7 @@
     ]
   },
   "resources/js/pages/Payments/Show.tsx": {
-    "file": "assets/Show-CfrM72iR2.js",
+    "file": "assets/Show-CfrM72iR.js",
     "name": "Show",
     "src": "resources/js/pages/Payments/Show.tsx",
     "isDynamicEntry": true,

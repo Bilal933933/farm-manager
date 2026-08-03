@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/table';
 import type { Contract } from '@/types';
 
-interface Props { contracts: Contract[]; landId: number; parties: { id: number; name: string; type: string; phone: string | null }[] }
+interface Props { contracts: Contract[]; landId: number; parties: { id: number; name: string; type: string; category?: string | null; phone: string | null }[] }
 
 const cell = 'text-right';
 const numCell = 'font-mono text-right tabular-nums';

@@ -5,6 +5,7 @@ use App\Domains\Lands\Http\Controllers\CostController;
 use App\Domains\Lands\Http\Controllers\HarvestController;
 use App\Domains\Lands\Http\Controllers\LandController;
 use App\Domains\Ledger\Http\Controllers\LedgerController;
+use App\Domains\Naqoot\Http\Controllers\NaqootController;
 use App\Domains\Parties\Http\Controllers\PartyController;
 use App\Domains\Payments\Http\Controllers\PaymentController;
 use App\Domains\Products\Http\Controllers\ProductController;
@@ -51,6 +52,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('ledger', [LedgerController::class, 'index'])->name('ledger.index');
 
     Route::resource('crops', CropController::class);
+
+    Route::resource('naqoot', NaqootController::class)->except(['show']);
 
     Route::resource('harvests', HarvestController::class)->only(['store']);
 

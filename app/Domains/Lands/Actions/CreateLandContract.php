@@ -8,8 +8,19 @@ class CreateLandContract
 {
     public function execute(array $data): LandContract
     {
-        $data['amount'] = $data['amount'] ?? 0;
+        $data = $this->normalize($data);
 
         return LandContract::create($data);
+    }
+
+    private function normalize(array $data): array
+    {
+        foreach ($data as $key => $value) {
+            $data[$key] = $value === '' ? null : $value;
+        }
+
+        $data['amount'] = $data['amount'] ?? 0;
+
+        return $data;
     }
 }

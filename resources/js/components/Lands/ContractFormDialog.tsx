@@ -35,12 +35,18 @@ interface Contract {
 
 interface ContractFormDialogProps {
   landId: number;
-  parties: { id: number; name: string; type: string; phone: string | null }[];
+  parties: { id: number; name: string; type: string; category?: string | null; phone: string | null }[];
   contract?: Contract | null;
   trigger: ReactNode;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
+
+const CATEGORY_BY_TYPE: Record<string, string> = {
+  مؤجر: 'مؤجر',
+  مستأجر: 'مستأجر',
+  مزارع: 'مزارع',
+};
 
 function toDateInputValue(dateStr?: string): string {
   if (!dateStr) {
@@ -67,13 +73,36 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
 
   const isFarmerContract = data.type === 'مزارع';
 
+  const expectedCategory = CATEGORY_BY_TYPE[data.type];
+  const availableParties = expectedCategory
+    ? parties.filter((p) => p.category === expectedCategory)
+    : parties;
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
 
     if (isEditing) {
-      put(route('lands.contracts.update', contract!.id), { onSuccess: () => reset() });
+      console.log('PUT Contract request →', route('lands.contracts.update', contract!.id), data);
+      put(route('lands.contracts.update', contract!.id), {
+        preserveScroll: true,
+        onStart: () => console.log('PUT Contract start'),
+        onError: (errors) => console.error('PUT Contract error →', errors),
+        onSuccess: (page) => {
+          console.log('PUT Contract success →', page.props);
+          reset();
+        },
+      });
     } else {
-      post(route('lands.contracts.store'), { onSuccess: () => reset() });
+      console.log('POST Contract request →', route('lands.contracts.store'), data);
+      post(route('lands.contracts.store'), {
+        preserveScroll: true,
+        onStart: () => console.log('POST Contract start'),
+        onError: (errors) => console.error('POST Contract error →', errors),
+        onSuccess: (page) => {
+          console.log('POST Contract success →', page.props);
+          reset();
+        },
+      });
     }
   }
 
@@ -93,9 +122,9 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
                 <SelectValue placeholder="اختر الطرف..." />
               </SelectTrigger>
               <SelectContent>
-                {parties.map((p) => (
+                {availableParties.map((p) => (
                   <SelectItem key={p.id} value={p.id.toString()}>
-                    {p.name} ({p.type})
+                    {p.name} ({p.category ?? p.type})
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -105,7 +134,10 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
 
           <div className="space-y-2">
             <Label htmlFor="contract_type">نوع العقد</Label>
-            <Select value={data.type} onValueChange={(v) => setData('type', v)}>
+            <Select value={data.type} onValueChange={(v) => {
+              setData('type', v);
+              setData('party_id', '');
+            }}>
               <SelectTrigger id="contract_type">
                 <SelectValue />
               </SelectTrigger>

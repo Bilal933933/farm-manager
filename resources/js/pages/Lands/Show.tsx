@@ -34,7 +34,7 @@ interface ShowProps {
   products?: StockProductOption[];
   costsCount: number;
   revenuesCount: number;
-  parties?: { id: number; name: string; type: string; phone: string | null }[];
+  parties?: { id: number; name: string; type: string; category?: string | null; phone: string | null }[];
   farmers?: { id: number; name: string }[];
   farmerContracts?: FarmerContract[];
 }

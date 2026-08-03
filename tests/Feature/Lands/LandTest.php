@@ -310,6 +310,54 @@ test('non-farmer contract rejects share_percentage', function () {
     ])->assertSessionHasErrors('share_percentage');
 });
 
+test('lessor contract store succeeds with empty strings for optional fields', function () {
+    $land = Land::factory()->create();
+    $party = Party::factory()->lessor()->create();
+
+    $this->post(route('lands.contracts.store'), [
+        'land_id' => $land->id,
+        'party_id' => $party->id,
+        'type' => 'مؤجر',
+        'settlement_type' => '',
+        'share_percentage' => '',
+        'start_date' => '2025-01-01',
+        'end_date' => '',
+        'amount' => '22222',
+        'notes' => '',
+    ])->assertSessionHasNoErrors();
+
+    $contract = $land->contracts()->first();
+
+    expect($contract)->not->toBeNull();
+    expect($contract->party_id)->toBe($party->id);
+    expect($contract->settlement_type)->toBeNull();
+    expect($contract->share_percentage)->toBeNull();
+    expect($contract->end_date)->toBeNull();
+    expect((float) $contract->amount)->toBe(22222.0);
+});
+
+test('lessor contract update succeeds with empty strings for optional fields', function () {
+    $contract = LandContract::factory()->lessor()->create();
+
+    $this->put(route('lands.contracts.update', $contract), [
+        'land_id' => $contract->land_id,
+        'type' => 'مؤجر',
+        'settlement_type' => '',
+        'share_percentage' => '',
+        'start_date' => '2025-01-01',
+        'end_date' => '',
+        'amount' => '300000',
+        'notes' => '',
+    ])->assertSessionHasNoErrors();
+
+    $contract = $contract->fresh();
+
+    expect($contract->settlement_type)->toBeNull();
+    expect($contract->share_percentage)->toBeNull();
+    expect($contract->end_date)->toBeNull();
+    expect((float) $contract->amount)->toBe(300000.0);
+});
+
 test('season can be stored with farmer_contract_id', function () {
     $land = Land::factory()->create();
     $crop = Crop::factory()->create();
