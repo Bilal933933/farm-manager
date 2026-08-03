@@ -1,8 +1,8 @@
 import { ScrollText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
-  Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,
-} from '@/components/ui/dialog';
+  HoverCard, HoverCardContent, HoverCardTrigger,
+} from '@/components/ui/hover-card';
 
 interface DetailCellProps {
   text?: string | null;
@@ -22,26 +22,26 @@ export default function DetailCell({
   }
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
+    <HoverCard openDelay={200} closeDelay={100}>
+      <HoverCardTrigger asChild>
         <Button
           variant="ghost"
           size="sm"
           className="p-2 text-stone-400 hover:bg-stone-100 hover:text-stone-600"
-          title={normalized}
         >
           <ScrollText className="h-4 w-4 shrink-0" />
           <span className="sr-only">عرض {title}</span>
         </Button>
-      </DialogTrigger>
-      <DialogContent dir="rtl" className="max-w-lg">
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-        </DialogHeader>
+      </HoverCardTrigger>
+      <HoverCardContent
+        align="start"
+        sideOffset={6}
+        className="max-w-xs max-h-56 overflow-y-auto whitespace-normal break-words"
+      >
         <p className="whitespace-pre-wrap text-sm leading-relaxed text-stone-700">
           {normalized}
         </p>
-      </DialogContent>
-    </Dialog>
+      </HoverCardContent>
+    </HoverCard>
   );
 }
