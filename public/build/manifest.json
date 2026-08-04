@@ -781,7 +781,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-DnpkTrRb.css",
+    "file": "assets/app-BdlYoy2m.css",
     "name": "app",
     "names": [
       "app.css"
@@ -790,7 +790,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-us7SMuYb.js",
+    "file": "assets/app-CfbOBc2o.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -1799,7 +1799,7 @@
     ]
   },
   "resources/js/pages/auth/login.tsx": {
-    "file": "assets/login-D374X2Q5.js",
+    "file": "assets/login-nN-gDdu7.js",
     "name": "login",
     "src": "resources/js/pages/auth/login.tsx",
     "isDynamicEntry": true,
@@ -1823,7 +1823,7 @@
     ]
   },
   "resources/js/pages/auth/register.tsx": {
-    "file": "assets/register-CHsDDtFz.js",
+    "file": "assets/register-Bn8hdwxx.js",
     "name": "register",
     "src": "resources/js/pages/auth/register.tsx",
     "isDynamicEntry": true,
