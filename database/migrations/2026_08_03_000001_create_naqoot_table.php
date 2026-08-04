@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('naqoot', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('location')->nullable();
             $table->date('date');
             $table->decimal('amount', 10, 2);
             $table->string('direction');

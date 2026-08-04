@@ -13,6 +13,7 @@ const DIRECTIONS = [
 
 interface NaqootFormData {
   name: string;
+  location: string;
   date: string;
   amount: string;
   direction: string;
@@ -41,6 +42,17 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
             placeholder="مثال: أحمد محمد"
           />
           {errors.name && <p className="text-sm text-rose-600">{errors.name}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="location">المكان / المنطقة</Label>
+          <Input
+            id="location"
+            value={data.location}
+            onChange={(e) => setData('location', e.target.value)}
+            placeholder="مثال: الرياض"
+          />
+          {errors.location && <p className="text-sm text-rose-600">{errors.location}</p>}
         </div>
 
         <div className="space-y-2">

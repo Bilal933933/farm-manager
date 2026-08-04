@@ -17,6 +17,7 @@ class UpdateNaqootRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
+            'location' => ['nullable', 'string', 'max:255'],
             'date' => ['required', 'date'],
             'amount' => ['required', 'numeric', 'min:0.01'],
             'direction' => ['required', Rule::enum(NaqootDirection::class)],

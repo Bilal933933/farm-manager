@@ -17,6 +17,7 @@ class NaqootFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'location' => fake()->city(),
             'date' => fake()->date(),
             'amount' => fake()->randomFloat(2, 50, 5000),
             'direction' => fake()->randomElement(NaqootDirection::cases())->value,

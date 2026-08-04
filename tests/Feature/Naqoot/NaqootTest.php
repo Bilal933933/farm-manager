@@ -14,6 +14,7 @@ beforeEach(function () {
 test('naqoot can be created for us', function () {
     $this->post(route('naqoot.store'), [
         'name' => 'أحمد محمد',
+        'location' => 'الرياض',
         'date' => '2026-08-01',
         'amount' => '1000',
         'direction' => NaqootDirection::ForUs->value,
@@ -23,7 +24,8 @@ test('naqoot can be created for us', function () {
     $naqoot = Naqoot::where('name', 'أحمد محمد')->first();
 
     expect($naqoot)->not->toBeNull()
-        ->and($naqoot->direction->value)->toBe(NaqootDirection::ForUs->value);
+        ->and($naqoot->direction->value)->toBe(NaqootDirection::ForUs->value)
+        ->and($naqoot->location)->toBe('الرياض');
 });
 
 test('naqoot can be created on us', function () {
@@ -43,6 +45,7 @@ test('naqoot can be updated', function () {
 
     $this->put(route('naqoot.update', $naqoot), [
         'name' => 'اسم معدل',
+        'location' => 'جدة',
         'date' => '2026-08-03',
         'amount' => '750',
         'direction' => NaqootDirection::OnUs->value,
@@ -53,6 +56,7 @@ test('naqoot can be updated', function () {
 
     expect($fresh->name)->toBe('اسم معدل')
         ->and($fresh->amount)->toBe('750.00')
+        ->and($fresh->location)->toBe('جدة')
         ->and($fresh->direction->value)->toBe(NaqootDirection::OnUs->value);
 });
 

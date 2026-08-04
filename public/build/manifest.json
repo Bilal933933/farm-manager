@@ -53,8 +53,8 @@
       "_landEnums-C4xprruO.js"
     ]
   },
-  "_NaqootForm-D0b0sZpl.js": {
-    "file": "assets/NaqootForm-D0b0sZpl.js",
+  "_NaqootForm-0voBEI0k.js": {
+    "file": "assets/NaqootForm-0voBEI0k.js",
     "name": "NaqootForm",
     "imports": [
       "_jsx-runtime-07t3JwPe.js",
@@ -790,7 +790,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-CfbOBc2o.js",
+    "file": "assets/app-DbTI1zky.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -1157,7 +1157,7 @@
     ]
   },
   "resources/js/pages/Naqoot/Create.tsx": {
-    "file": "assets/Create-DJiWvfjQ.js",
+    "file": "assets/Create-CwpB9aOx.js",
     "name": "Create",
     "src": "resources/js/pages/Naqoot/Create.tsx",
     "isDynamicEntry": true,
@@ -1166,11 +1166,11 @@
       "_dist-CMlgHHB9.js",
       "_arrow-right-CLqgsXRI.js",
       "_card-CGKIwy_a.js",
-      "_NaqootForm-D0b0sZpl.js"
+      "_NaqootForm-0voBEI0k.js"
     ]
   },
   "resources/js/pages/Naqoot/Edit.tsx": {
-    "file": "assets/Edit-CVH80Q0k.js",
+    "file": "assets/Edit-X155BiRC.js",
     "name": "Edit",
     "src": "resources/js/pages/Naqoot/Edit.tsx",
     "isDynamicEntry": true,
@@ -1179,11 +1179,11 @@
       "_dist-CMlgHHB9.js",
       "_arrow-right-CLqgsXRI.js",
       "_card-CGKIwy_a.js",
-      "_NaqootForm-D0b0sZpl.js"
+      "_NaqootForm-0voBEI0k.js"
     ]
   },
   "resources/js/pages/Naqoot/Index.tsx": {
-    "file": "assets/Index-ix_Uc-YT.js",
+    "file": "assets/Index-CY92ty_1.js",
     "name": "Index",
     "src": "resources/js/pages/Naqoot/Index.tsx",
     "isDynamicEntry": true,

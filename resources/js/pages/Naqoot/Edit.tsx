@@ -11,6 +11,7 @@ interface EditProps {
 export default function Edit({ naqoot }: EditProps) {
   const { data, setData, put, processing, errors } = useForm({
     name: naqoot.name,
+    location: naqoot.location ?? '',
     date: naqoot.date,
     amount: naqoot.amount.toString(),
     direction: naqoot.direction,

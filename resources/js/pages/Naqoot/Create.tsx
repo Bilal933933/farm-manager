@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 export default function Create() {
   const { data, setData, post, processing, errors } = useForm({
     name: '',
+    location: '',
     date: '',
     amount: '',
     direction: 'لنا',

@@ -132,6 +132,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
             <TableRow>
               <TableHead className="text-stone-700 font-semibold text-right">التاريخ</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">الاسم</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">المكان / المنطقة</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">الاتجاه</TableHead>
               <TableHead className="text-stone-700 font-semibold text-left font-mono tabular-nums">المبلغ</TableHead>
               <TableHead className="text-stone-700 font-semibold text-left w-20">إجراءات</TableHead>
@@ -140,7 +141,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={5} className="py-16 text-center text-stone-500">
+                <TableCell colSpan={6} className="py-16 text-center text-stone-500">
                   لا توجد نقوط مسجّلة {query.trim() !== '' ? 'مطابقة للبحث' : 'بعد'}.
                 </TableCell>
               </TableRow>
@@ -151,6 +152,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
                 <TableRow key={n.id} className="hover:bg-stone-50 transition-colors even:bg-stone-50/50">
                   <TableCell><DateDisplay date={n.date} /></TableCell>
                   <TableCell className="font-medium text-stone-900">{n.name}</TableCell>
+                  <TableCell className="text-stone-500">{n.location || '—'}</TableCell>
                   <TableCell>
                     <Badge className={isForUs ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}>
                       {isForUs ? 'لنا' : 'علينا'}

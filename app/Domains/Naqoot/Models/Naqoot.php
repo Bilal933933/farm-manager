@@ -17,6 +17,7 @@ class Naqoot extends Model
 
     protected $fillable = [
         'name',
+        'location',
         'date',
         'amount',
         'direction',
