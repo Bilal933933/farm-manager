@@ -221,6 +221,45 @@ test('any payment type is allowed for party without category', function () {
     expect(session()->has('errors'))->toBeFalse();
 });
 
+// ─── Amanat (deposit holders) Payment Type Validation ──────
+
+test('payment type "دفع" is allowed for amanat party', function () {
+    $party = Party::factory()->amanat()->create();
+
+    $this->post(route('payments.store'), [
+        'party_id' => $party->id,
+        'type' => PaymentType::Payment->value,
+        'date' => '2026-01-01',
+        'amount' => '1000',
+    ]);
+
+    expect(session()->has('errors'))->toBeFalse();
+});
+
+test('payment type "قبض" is allowed for amanat party', function () {
+    $party = Party::factory()->amanat()->create();
+
+    $this->post(route('payments.store'), [
+        'party_id' => $party->id,
+        'type' => PaymentType::Receipt->value,
+        'date' => '2026-01-01',
+        'amount' => '1000',
+    ]);
+
+    expect(session()->has('errors'))->toBeFalse();
+});
+
+test('payment type "سلف" is rejected for amanat party', function () {
+    $party = Party::factory()->amanat()->create();
+
+    $this->post(route('payments.store'), [
+        'party_id' => $party->id,
+        'type' => PaymentType::Advance->value,
+        'date' => '2026-01-01',
+        'amount' => '1000',
+    ])->assertSessionHasErrors('type');
+});
+
 // ─── Purchase Validation Against Category ───────────────────
 
 test('purchase is rejected for non-supplier party', function () {

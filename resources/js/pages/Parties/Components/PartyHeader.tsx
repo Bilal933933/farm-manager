@@ -1,10 +1,10 @@
 import { Link } from '@inertiajs/react';
-import { Pencil, Phone, MapPin, Notebook, Building2, User, Home, Sprout, Store, Truck } from 'lucide-react';
+import { Pencil, Phone, MapPin, Notebook, Building2, User, Home, Sprout, Store, Truck, Vault } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { PARTY_CATEGORY_TONE, PARTY_CATEGORY_AVATAR } from '@/lib/partyEnums';
 import type { Party } from './types';
 
@@ -14,6 +14,7 @@ const CATEGORY_ICONS: Record<string, typeof Home> = {
   مزارع: Sprout,
   'متجر مستلزمات زراعية': Store,
   تاجر: Truck,
+  أمانات: Vault,
 };
 
 interface Props {

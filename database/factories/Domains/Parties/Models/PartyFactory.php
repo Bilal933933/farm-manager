@@ -68,4 +68,11 @@ class PartyFactory extends Factory
             'category' => PartyCategory::Merchant->value,
         ]);
     }
+
+    public function amanat(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'category' => PartyCategory::Amanat->value,
+        ]);
+    }
 }

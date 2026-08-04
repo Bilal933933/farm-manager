@@ -4,6 +4,6 @@ namespace App\Domains\Lands\Enums;
 
 enum AreaUnit: string
 {
-    case Donum = 'دونم';
+    case Faddan = 'فدان';
     case Hectare = 'هكتار';
 }

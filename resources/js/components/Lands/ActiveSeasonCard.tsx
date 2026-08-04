@@ -44,7 +44,7 @@ return null;
           <div>
             <p className="text-xs text-stone-500">المساحة المزروعة</p>
             <p className="mt-0.5 font-mono font-semibold text-stone-900">
-              {activeSeason.cultivated_area || '—'} {areaUnit === 'دونم' ? 'دونم' : ''}
+              {activeSeason.cultivated_area || '—'} {areaUnit === 'فدان' ? 'فدان' : ''}
             </p>
           </div>
           {activeSeason.planting_date && (

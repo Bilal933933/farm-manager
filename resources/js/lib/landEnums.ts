@@ -1,5 +1,5 @@
 export const AREA_UNITS = [
-  { value: 'دونم', label: 'دونم' },
+  { value: 'فدان', label: 'فدان' },
   { value: 'هكتار', label: 'هكتار' },
 ];
 

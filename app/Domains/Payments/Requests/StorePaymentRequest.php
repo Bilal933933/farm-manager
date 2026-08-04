@@ -40,6 +40,7 @@ class StorePaymentRequest extends FormRequest
                 $allowed = match ($party->category) {
                     PartyCategory::Lessor, PartyCategory::Supplier, PartyCategory::Farmer => [PaymentType::Payment, PaymentType::Advance],
                     PartyCategory::Lessee, PartyCategory::Merchant => [PaymentType::Receipt],
+                    PartyCategory::Amanat => [PaymentType::Payment, PaymentType::Receipt],
                     default => [PaymentType::Payment, PaymentType::Receipt, PaymentType::Advance],
                 };
 

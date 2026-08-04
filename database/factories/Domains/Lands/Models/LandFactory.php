@@ -17,7 +17,7 @@ class LandFactory extends Factory
             'name' => fake()->unique()->company().' مزرعة',
             'location' => fake()->address(),
             'area' => fake()->randomFloat(2, 5, 50),
-            'area_unit' => fake()->randomElement([AreaUnit::Donum->value, AreaUnit::Hectare->value]),
+            'area_unit' => fake()->randomElement([AreaUnit::Faddan->value, AreaUnit::Hectare->value]),
             'status' => LandStatus::Active->value,
         ];
     }

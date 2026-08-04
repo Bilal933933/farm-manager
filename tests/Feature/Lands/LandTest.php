@@ -33,7 +33,7 @@ test('land can be stored', function () {
     $this->post(route('lands.store'), [
         'name' => 'أرض اختبار',
         'area' => 10,
-        'area_unit' => 'دونم',
+        'area_unit' => 'فدان',
         'status' => LandStatus::Active->value,
     ])->assertSessionHasNoErrors()
         ->assertRedirect(route('lands.index'));

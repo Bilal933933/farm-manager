@@ -1,18 +1,19 @@
 import { Head, Link } from '@inertiajs/react';
-import { ArrowRight, FileText, Wallet, ShoppingCart, Store, Truck } from 'lucide-react';
+import { ArrowRight, FileText, Wallet, Store, Truck } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import PartyHeader from './Components/PartyHeader';
-import PartyFinancialSummary from './Components/PartyFinancialSummary';
+import PartyAmanatView from './Components/PartyAmanatView';
 import PartyContractsTable from './Components/PartyContractsTable';
+import PartyFarmerView from './Components/PartyFarmerView';
+import PartyFinancialSummary from './Components/PartyFinancialSummary';
+import PartyHeader from './Components/PartyHeader';
+import PartyLesseeView from './Components/PartyLesseeView';
+import PartyLessorView from './Components/PartyLessorView';
+import PartyMerchantView from './Components/PartyMerchantView';
 import PartyPaymentsTable from './Components/PartyPaymentsTable';
 import PartyPurchasesTable from './Components/PartyPurchasesTable';
 import PartySalesTable from './Components/PartySalesTable';
-import PartyFarmerView from './Components/PartyFarmerView';
-import PartyLessorView from './Components/PartyLessorView';
-import PartyLesseeView from './Components/PartyLesseeView';
 import PartySupplierView from './Components/PartySupplierView';
-import PartyMerchantView from './Components/PartyMerchantView';
-import type { Party, FinancialSummary, FarmerFinancials, LessorFinancials, LesseeFinancials, SupplierFinancials, MerchantFinancials } from './Components/types';
+import type { Party, FinancialSummary, FarmerFinancials, LessorFinancials, LesseeFinancials, SupplierFinancials, MerchantFinancials, AmanatFinancials } from './Components/types';
 
 interface ShowProps {
   party: Party;
@@ -22,9 +23,10 @@ interface ShowProps {
   lesseeFinancials?: LesseeFinancials | null;
   supplierFinancials?: SupplierFinancials | null;
   merchantFinancials?: MerchantFinancials | null;
+  amanatFinancials?: AmanatFinancials | null;
 }
 
-export default function Show({ party, summary, farmerFinancials, lessorFinancials, lesseeFinancials, supplierFinancials, merchantFinancials }: ShowProps) {
+export default function Show({ party, summary, farmerFinancials, lessorFinancials, lesseeFinancials, supplierFinancials, merchantFinancials, amanatFinancials }: ShowProps) {
   if (farmerFinancials) {
     return (
       <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
@@ -106,6 +108,23 @@ export default function Show({ party, summary, farmerFinancials, lessorFinancial
         </Link>
         <PartyHeader party={party} />
         <PartyMerchantView merchantFinancials={merchantFinancials} />
+      </div>
+    );
+  }
+
+  if (amanatFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartyAmanatView amanatFinancials={amanatFinancials} payments={party.payments ?? []} />
       </div>
     );
   }

@@ -186,6 +186,12 @@ export interface MerchantFinancials {
   sales: MerchantSaleFinancials[];
 }
 
+export interface AmanatFinancials {
+  total_deposited: number;
+  total_returned: number;
+  total_remaining: number;
+}
+
 export function currency(value: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }

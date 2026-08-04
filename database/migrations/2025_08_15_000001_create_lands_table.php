@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('location')->nullable();
             $table->decimal('area', 10, 2);
-            $table->string('area_unit', 20)->default('دونم');
+            $table->string('area_unit', 20)->default('فدان');
             $table->string('status', 50)->default('نشط');
             $table->text('notes')->nullable();
             $table->timestamps();

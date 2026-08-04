@@ -8,7 +8,7 @@ export default function Create() {
     name: '',
     location: '',
     area: '',
-    area_unit: 'دونم',
+    area_unit: 'فدان',
     status: 'نشط',
     notes: '',
   });
