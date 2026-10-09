@@ -42,10 +42,20 @@ class CostController extends Controller
             ->selectRaw('COUNT(*) as count, COALESCE(SUM(amount), 0) as total_amount')
             ->first();
 
+        $seasons = LandSeason::with('land:id,name', 'crop:id,name')
+            ->orderBy('planting_date', 'desc')
+            ->get(['id', 'land_id', 'crop_id', 'planting_date'])
+            ->map(fn ($s) => [
+                'id' => $s->id,
+                'land_id' => $s->land_id,
+                'label' => $s->land->name.' - '.($s->crop?->name ?? $s->planting_date->format('Y-m-d')),
+            ]);
+
         return Inertia::render('Costs/Index', [
             'costs' => $costs,
             'summary' => $summary,
             'lands' => Land::orderBy('name')->get(['id', 'name']),
+            'seasons' => $seasons,
             'crops' => Crop::orderBy('name')->get(['id', 'name']),
             'filters' => $filters,
         ]);

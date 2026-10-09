@@ -1,4 +1,5 @@
 import { Wallet } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { DateDisplay } from '@/components/ui/date-display';
 import DetailCell from '@/components/ui/detail-cell';
 import {
@@ -9,7 +10,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { TYPE_TONE } from '@/lib/paymentEnums';
 import type { Payment } from './types';
 import { currency } from './types';

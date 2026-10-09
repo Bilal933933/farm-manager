@@ -1,10 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight, Pencil, Sprout, Ruler, Calendar } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import StatusBadge from '@/components/Lands/StatusBadge';
 
 const CATEGORY_GRADIENT: Record<string, string> = {
   'محاصيل حقلية': 'from-amber-100 to-amber-200',
@@ -83,7 +82,7 @@ export default function Show({ crop }: ShowProps) {
 
             <Button variant="outline" size="sm" asChild className="shrink-0 shadow-sm">
               <Link href={route('crops.edit', crop.id)}>
-                <Pencil className="ms-2 h-4 w-4" />
+                <Pencil className="h-4 w-4" />
                 تعديل
               </Link>
             </Button>

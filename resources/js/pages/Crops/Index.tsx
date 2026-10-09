@@ -72,7 +72,7 @@ export default function Index({ crops }: IndexProps) {
         </div>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('crops.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             إضافة محصول
           </Link>
         </Button>

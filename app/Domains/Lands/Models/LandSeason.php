@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property SeasonStatus $status
+ */
 class LandSeason extends Model
 {
     use HasFactory;
@@ -41,31 +44,37 @@ class LandSeason extends Model
         );
     }
 
+    /** @return BelongsTo<Land, $this> */
     public function land(): BelongsTo
     {
         return $this->belongsTo(Land::class);
     }
 
+    /** @return BelongsTo<Crop, $this> */
     public function crop(): BelongsTo
     {
         return $this->belongsTo(Crop::class);
     }
 
+    /** @return BelongsTo<Party, $this> */
     public function farmer(): BelongsTo
     {
         return $this->belongsTo(Party::class, 'farmer_id');
     }
 
+    /** @return BelongsTo<LandContract, $this> */
     public function farmerContract(): BelongsTo
     {
         return $this->belongsTo(LandContract::class, 'farmer_contract_id');
     }
 
+    /** @return HasMany<Harvest, $this> */
     public function harvests(): HasMany
     {
         return $this->hasMany(Harvest::class);
     }
 
+    /** @return HasMany<Cost, $this> */
     public function costs(): HasMany
     {
         return $this->hasMany(Cost::class);

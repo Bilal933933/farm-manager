@@ -1,4 +1,4 @@
-import type { StatusTone } from '@/components/Lands/StatusBadge';
+import type { StatusTone } from '@/lib/landEnums';
 
 export const PRODUCT_CATEGORIES = [
   { value: 'سماد', label: 'سماد' },

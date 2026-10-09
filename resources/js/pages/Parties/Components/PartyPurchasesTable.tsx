@@ -1,4 +1,5 @@
 import { Store } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { DateDisplay } from '@/components/ui/date-display';
 import {
   Table,
@@ -8,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import type { Purchase } from './types';
 import { currency } from './types';
 

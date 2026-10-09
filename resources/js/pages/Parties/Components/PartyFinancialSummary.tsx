@@ -1,7 +1,6 @@
 import { Landmark, ArrowLeftRight, Wallet, TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import type { FinancialSummary } from './types';
 import { currency } from './types';
 
@@ -9,9 +8,15 @@ interface Props {
   summary: FinancialSummary;
 }
 
-function BalanceIcon({ settled, creditor, hasContracts }: { settled: boolean; creditor: boolean; hasContracts: boolean }) {
-  if (settled) return <Minus className="h-5 w-5 text-emerald-500" />;
-  if (creditor) return <TrendingUp className="h-5 w-5 text-amber-500" />;
+function BalanceIcon({ settled, creditor }: { settled: boolean; creditor: boolean }) {
+  if (settled) {
+return <Minus className="h-5 w-5 text-emerald-500" />;
+}
+
+  if (creditor) {
+return <TrendingUp className="h-5 w-5 text-amber-500" />;
+}
+
   return <TrendingDown className="h-5 w-5 text-rose-500" />;
 }
 
@@ -26,8 +31,14 @@ export default function PartyFinancialSummary({ summary }: Props) {
     : 0;
 
   const balanceLabel = () => {
-    if (isSettled) return 'مسدد بالكامل';
-    if (hasContracts) return isCreditor ? 'المبلغ المتبقي للطرف' : 'المبلغ المطلوب من الطرف';
+    if (isSettled) {
+return 'مسدد بالكامل';
+}
+
+    if (hasContracts) {
+return isCreditor ? 'المبلغ المتبقي للطرف' : 'المبلغ المطلوب من الطرف';
+}
+
     return 'الرصيد الحالي';
   };
 
@@ -93,7 +104,7 @@ export default function PartyFinancialSummary({ summary }: Props) {
               <Wallet className="h-4 w-4" />
               <span className="text-xs font-medium">صافي الرصيد</span>
             </div>
-            <BalanceIcon settled={isSettled} creditor={isCreditor} hasContracts={hasContracts} />
+            <BalanceIcon settled={isSettled} creditor={isCreditor} />
           </div>
 
           <div className="flex items-center gap-2">

@@ -1,10 +1,10 @@
 import { Link, router } from '@inertiajs/react';
 import { Eye, Pencil, Trash2, Users } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import { ActionsMenu } from '@/components/ui/actions-menu';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { PARTY_TONE, PARTY_CATEGORY_TONE } from '@/lib/partyEnums';
 
 interface Party {

@@ -1,9 +1,11 @@
+import type { StatusTone } from '@/lib/landEnums';
+
 export const PARTY_TYPES = [
   { value: 'فرد', label: 'فرد' },
   { value: 'شركة', label: 'شركة' },
 ];
 
-export const PARTY_TONE: Record<string, string> = {
+export const PARTY_TONE: Record<string, StatusTone> = {
   فرد: 'sky',
   شركة: 'violet',
 };
@@ -17,13 +19,13 @@ export const PARTY_CATEGORIES = [
   { value: 'أمانات', label: 'أمانات' },
 ];
 
-export const PARTY_CATEGORY_TONE: Record<string, string> = {
+export const PARTY_CATEGORY_TONE: Record<string, StatusTone> = {
   مؤجر: 'amber',
-  مستأجر: 'blue',
-  مزارع: 'green',
-  'متجر مستلزمات زراعية': 'purple',
-  تاجر: 'orange',
-  أمانات: 'sky',
+  مستأجر: 'sky',
+  مزارع: 'emerald',
+  'متجر مستلزمات زراعية': 'violet',
+  تاجر: 'rose',
+  أمانات: 'stone',
 };
 
 export const PARTY_CATEGORY_AVATAR: Record<string, { gradient: string; icon: string }> = {

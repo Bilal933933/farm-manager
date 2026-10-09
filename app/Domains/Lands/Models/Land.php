@@ -22,16 +22,19 @@ class Land extends Model
         ];
     }
 
+    /** @return HasMany<LandContract, $this> */
     public function contracts(): HasMany
     {
         return $this->hasMany(LandContract::class);
     }
 
+    /** @return HasMany<LandSeason, $this> */
     public function seasons(): HasMany
     {
         return $this->hasMany(LandSeason::class);
     }
 
+    /** @return HasMany<Cost, $this> */
     public function costs(): HasMany
     {
         return $this->hasMany(Cost::class);

@@ -1,5 +1,6 @@
 import { Link } from '@inertiajs/react';
 import { Eye, FileText } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Button } from '@/components/ui/button';
 import { DateDisplay } from '@/components/ui/date-display';
 import {
@@ -10,7 +11,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import type { Contract } from './types';
 import { currency } from './types';
 

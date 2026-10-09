@@ -1,13 +1,13 @@
 import { Head, Link } from '@inertiajs/react';
 import { Eye, Plus, ShoppingCart } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
-import { DateDisplay } from '@/components/ui/date-display';
 import { Card } from '@/components/ui/card';
+import { DateDisplay } from '@/components/ui/date-display';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import { ActionsMenu } from '@/components/ui/actions-menu';
-import StatusBadge from '@/components/Lands/StatusBadge';
 
 interface Party {
   id: number;
@@ -39,7 +39,7 @@ export default function Index({ purchases }: IndexProps) {
         </div>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('purchases.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             فاتورة شراء جديدة
           </Link>
         </Button>

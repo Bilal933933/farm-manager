@@ -28,11 +28,13 @@ class Harvest extends Model
         ];
     }
 
+    /** @return BelongsTo<LandSeason, $this> */
     public function landSeason(): BelongsTo
     {
         return $this->belongsTo(LandSeason::class);
     }
 
+    /** @return HasMany<Sale, $this> */
     public function sales(): HasMany
     {
         return $this->hasMany(Sale::class);

@@ -1,7 +1,6 @@
 import { Badge } from '@/components/ui/badge';
-import { STATUS_TONE } from '@/lib/landEnums';
-
-export type StatusTone = 'emerald' | 'amber' | 'stone' | 'sky' | 'violet' | 'rose';
+import { STATUS_TONE  } from '@/lib/landEnums';
+import type {StatusTone} from '@/lib/landEnums';
 
 const TONE_CLASSES: Record<string, string> = {
   emerald: 'bg-emerald-50 text-emerald-700 border-emerald-200',

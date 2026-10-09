@@ -33,11 +33,13 @@ export const SEASON_STATUSES = [
   { value: 'ملغي', label: 'ملغي' },
 ];
 
-export const STATUS_TONE: Record<string, string> = {
+export type StatusTone = 'emerald' | 'amber' | 'stone' | 'sky' | 'violet' | 'rose';
+
+export const STATUS_TONE: Record<string, StatusTone> = {
   'نشط': 'emerald',
   'متوقف': 'stone',
   'قادم': 'amber',
-  'قيد الحصاد': 'yellow',
+  'قيد الحصاد': 'sky',
   'منتهي': 'stone',
   'ملغي': 'rose',
   'مؤجر': 'sky',

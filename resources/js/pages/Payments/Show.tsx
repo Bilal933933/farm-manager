@@ -1,10 +1,10 @@
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight, Pencil, Landmark, Calendar, User, Building } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { TYPE_TONE } from '@/lib/paymentEnums';
 
 interface Party {
@@ -142,7 +142,7 @@ export default function Show({ payment }: ShowProps) {
           <div className="mt-6 flex items-center gap-3 border-t border-stone-100 pt-6">
             <Button variant="outline" size="sm" asChild className="shadow-sm">
               <Link href={route('payments.edit', payment.id)}>
-                <Pencil className="ms-2 h-4 w-4" />
+                <Pencil className="h-4 w-4" />
                 تعديل الدفعة
               </Link>
             </Button>

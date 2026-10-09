@@ -2,12 +2,14 @@
 
 namespace App\Domains\Payments\Http\Controllers;
 
+use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Models\Party;
 use App\Domains\Payments\Actions\RecordPayment;
 use App\Domains\Payments\Actions\UpdatePayment;
 use App\Domains\Payments\Models\Payment;
+use App\Domains\Payments\Requests\ListPaymentRequest;
 use App\Domains\Payments\Requests\StorePaymentRequest;
 use App\Domains\Payments\Requests\UpdatePaymentRequest;
 use App\Http\Controllers\Controller;
@@ -21,15 +23,35 @@ class PaymentController extends Controller
 {
     use ToastResponse;
 
-    public function index(): Response
+    public function index(ListPaymentRequest $request): Response
     {
-        $payments = Payment::with('party', 'contract.land')
+        $filters = $request->validated();
+
+        $payments = Payment::with('party', 'contract.land', 'landSeason.land')
+            ->when($filters['land_season_id'] ?? null, fn ($q, $v) => $q->where('land_season_id', $v))
+            ->when($filters['land_id'] ?? null, fn ($q, $v) => $q->where(function ($q) use ($v) {
+                $q->where('land_season_id', function ($sub) use ($v) {
+                    $sub->select('id')->from('land_seasons')->whereColumn('land_seasons.id', 'payments.land_season_id')->where('land_id', $v);
+                })->orWhereHas('contract', fn ($q) => $q->where('land_id', $v));
+            }))
             ->orderBy('date', 'desc')
             ->orderBy('created_at', 'desc')
             ->get();
 
+        $seasons = LandSeason::with('land:id,name', 'crop:id,name')
+            ->orderBy('planting_date', 'desc')
+            ->get(['id', 'land_id', 'crop_id', 'planting_date'])
+            ->map(fn ($s) => [
+                'id' => $s->id,
+                'land_id' => $s->land_id,
+                'label' => $s->land->name.' - '.($s->crop?->name ?? $s->planting_date->format('Y-m-d')),
+            ]);
+
         return Inertia::render('Payments/Index', [
             'payments' => $payments,
+            'lands' => Land::orderBy('name')->get(['id', 'name']),
+            'seasons' => $seasons,
+            'filters' => $filters,
         ]);
     }
 
