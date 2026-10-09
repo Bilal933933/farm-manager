@@ -1,11 +1,13 @@
-import { useState } from 'react';
 import { Head, Link } from '@inertiajs/react';
 import { Plus, ImageIcon } from 'lucide-react';
+import { useState } from 'react';
+import StatusBadge from '@/components/Lands/StatusBadge';
+import SeasonFilter from '@/components/Filters/SeasonFilter';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
-import { Card, CardContent } from '@/components/ui/card';
 import {
-  Dialog, DialogContent, DialogTitle, DialogTrigger,
+  Dialog, DialogContent, DialogTitle,
 } from '@/components/ui/dialog';
 import {
   Table,
@@ -15,6 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import type { LandOption, SeasonOption, SeasonFilterValues } from '@/types/filters';
 
 interface Attachment {
   id: number;
@@ -43,9 +46,12 @@ interface Sale {
 
 interface IndexProps {
   sales: Sale[];
+  lands: LandOption[];
+  seasons: SeasonOption[];
+  filters: SeasonFilterValues;
 }
 
-export default function Index({ sales }: IndexProps) {
+export default function Index({ sales, lands, seasons, filters }: IndexProps) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   return (
@@ -56,11 +62,13 @@ export default function Index({ sales }: IndexProps) {
         <h1 className="text-2xl font-semibold text-stone-900">المبيعات</h1>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('sales.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             إضافة بيع
           </Link>
         </Button>
       </div>
+
+      <SeasonFilter lands={lands} seasons={seasons} filters={filters} routeName="sales.index" />
 
       <Card className="border-stone-200">
         <Table>
@@ -73,14 +81,15 @@ export default function Index({ sales }: IndexProps) {
               <TableHead className="text-right">الكمية</TableHead>
               <TableHead className="text-right">سعر الوحدة</TableHead>
               <TableHead className="text-right">الإجمالي</TableHead>
-              <TableHead className="text-right">نوع الدفع</TableHead>
+              <TableHead className="text-center">نوع الدفع</TableHead>
               <TableHead className="text-center">اسكرين شوت</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {sales.length === 0 && (
               <TableRow>
-                <TableCell colSpan={9} className="py-8 text-center text-stone-500">
+                <TableCell colSpan={9} className="py-16 text-center text-stone-500">
+                  <ImageIcon className="mx-auto mb-3 h-10 w-10 text-stone-300" />
                   لا توجد مبيعات مسجّلة بعد.
                 </TableCell>
               </TableRow>
@@ -98,10 +107,10 @@ export default function Index({ sales }: IndexProps) {
                   <TableCell>{sale.harvest?.land_season?.crop?.name || '—'}</TableCell>
                   <TableCell>{sale.harvest?.land_season?.land?.name || '—'}</TableCell>
                   <TableCell>{sale.party?.name || '—'}</TableCell>
-                  <TableCell className="font-mono">{sale.quantity}</TableCell>
-                  <TableCell className="font-mono">{sale.unit_price}</TableCell>
-                  <TableCell className="font-mono">{sale.total.toFixed(2)}</TableCell>
-                  <TableCell>{sale.payment_type}</TableCell>
+                  <TableCell className="font-mono tabular-nums">{sale.quantity}</TableCell>
+                  <TableCell className="font-mono tabular-nums">{sale.unit_price}</TableCell>
+                  <TableCell className="font-mono tabular-nums">{sale.total.toFixed(2)}</TableCell>
+                  <TableCell className="text-center"><StatusBadge value={sale.payment_type} /></TableCell>
                   <TableCell className="text-center">
                     {screenshot ? (
                       <button
@@ -122,7 +131,11 @@ export default function Index({ sales }: IndexProps) {
         </Table>
       </Card>
 
-      <Dialog open={!!previewUrl} onOpenChange={(open) => { if (!open) setPreviewUrl(null); }}>
+      <Dialog open={!!previewUrl} onOpenChange={(open) => {
+ if (!open) {
+setPreviewUrl(null);
+} 
+}}>
         <DialogContent className="max-w-3xl">
           <DialogTitle className="sr-only">اسكرين شوت</DialogTitle>
           {previewUrl && (

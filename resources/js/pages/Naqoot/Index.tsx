@@ -53,7 +53,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
         </div>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('naqoot.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             إضافة نقوط
           </Link>
         </Button>
@@ -67,7 +67,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
             </div>
             <div className="min-w-0">
               <p className="truncate text-xs text-stone-500">لنا (استلمنا)</p>
-              <p className="mt-0.5 text-xl font-bold text-stone-900">{fmt(summary.totalForUs)}</p>
+              <p className="mt-0.5 font-mono tabular-nums text-xl font-bold text-stone-900">{fmt(summary.totalForUs)}</p>
               <p className="mt-0.5 text-xs text-stone-400">{summary.countForUs} نقطة</p>
             </div>
           </CardContent>
@@ -79,7 +79,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
             </div>
             <div className="min-w-0">
               <p className="truncate text-xs text-stone-500">علينا (دفعنا)</p>
-              <p className="mt-0.5 text-xl font-bold text-stone-900">{fmt(summary.totalOnUs)}</p>
+              <p className="mt-0.5 font-mono tabular-nums text-xl font-bold text-stone-900">{fmt(summary.totalOnUs)}</p>
               <p className="mt-0.5 text-xs text-stone-400">{summary.countOnUs} نقطة</p>
             </div>
           </CardContent>
@@ -94,7 +94,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
             </div>
             <div className="min-w-0">
               <p className="truncate text-xs text-stone-500">الصافي (لنا − علينا)</p>
-              <p className={cn('mt-0.5 text-xl font-bold', summary.net >= 0 ? 'text-sky-700' : 'text-rose-700')}>
+              <p className={cn('mt-0.5 font-mono tabular-nums text-xl font-bold', summary.net >= 0 ? 'text-sky-700' : 'text-rose-700')}>
                 {fmt(summary.net)}
               </p>
             </div>
@@ -134,7 +134,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
               <TableHead className="text-stone-700 font-semibold text-right">الاسم</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">المكان / المنطقة</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">الاتجاه</TableHead>
-              <TableHead className="text-stone-700 font-semibold text-left font-mono tabular-nums">المبلغ</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right font-mono tabular-nums">المبلغ</TableHead>
               <TableHead className="text-stone-700 font-semibold text-left w-20">إجراءات</TableHead>
             </TableRow>
           </TableHeader>
@@ -142,6 +142,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
             {filtered.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="py-16 text-center text-stone-500">
+                  <Gift className="mx-auto mb-3 h-10 w-10 text-stone-300" />
                   لا توجد نقوط مسجّلة {query.trim() !== '' ? 'مطابقة للبحث' : 'بعد'}.
                 </TableCell>
               </TableRow>
@@ -159,7 +160,7 @@ export default function Index({ naqoot, summary }: IndexProps) {
                     </Badge>
                   </TableCell>
                   <TableCell className={cn(
-                    'text-left font-mono tabular-nums',
+                    'text-right font-mono tabular-nums',
                     isForUs ? 'text-emerald-700' : 'text-amber-700',
                   )}>
                     {fmt(Number(n.amount))}

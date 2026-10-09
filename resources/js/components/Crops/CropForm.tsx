@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -9,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { CROP_CATEGORIES, CROP_UNITS, CROP_SEASONS } from '@/lib/cropEnums';
 
 interface CropFormData {
@@ -34,8 +34,9 @@ export default function CropForm({ data, setData, errors, processing, onSubmit, 
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="name">اسم المحصول</Label>
-          <Input
-            id="name"
+            <Input
+              id="name"
+              aria-invalid={!!errors.name}
             value={data.name}
             onChange={(e) => setData('name', e.target.value)}
             placeholder="أرز، قمح، بطيخ..."
@@ -46,7 +47,7 @@ export default function CropForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2">
           <Label htmlFor="category">التصنيف</Label>
           <Select value={data.category} onValueChange={(v) => setData('category', v)}>
-            <SelectTrigger id="category">
+              <SelectTrigger id="category" aria-invalid={!!errors.category}>
               <SelectValue placeholder="اختر التصنيف" />
             </SelectTrigger>
             <SelectContent>
@@ -63,7 +64,7 @@ export default function CropForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2">
           <Label htmlFor="unit">وحدة الإنتاج</Label>
           <Select value={data.unit} onValueChange={(v) => setData('unit', v)}>
-            <SelectTrigger id="unit">
+              <SelectTrigger id="unit" aria-invalid={!!errors.unit}>
               <SelectValue placeholder="اختر" />
             </SelectTrigger>
             <SelectContent>
@@ -80,7 +81,7 @@ export default function CropForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2">
           <Label htmlFor="typical_season">الموسم المعتاد (اختياري)</Label>
           <Select value={data.typical_season} onValueChange={(v) => setData('typical_season', v)}>
-            <SelectTrigger id="typical_season">
+              <SelectTrigger id="typical_season" aria-invalid={!!errors.typical_season}>
               <SelectValue placeholder="غير محدد" />
             </SelectTrigger>
             <SelectContent>

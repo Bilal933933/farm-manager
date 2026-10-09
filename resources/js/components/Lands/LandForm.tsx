@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -9,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { AREA_UNITS, LAND_STATUSES } from '@/lib/landEnums';
 
 interface LandFormData {
@@ -37,6 +37,7 @@ export default function LandForm({ data, setData, errors, processing, onSubmit, 
           <Label htmlFor="name">اسم الأرض</Label>
           <Input
             id="name"
+            aria-invalid={!!errors.name}
             value={data.name}
             onChange={(e) => setData('name', e.target.value)}
             placeholder="مثال: قطعة الوادي الشمالية"
@@ -48,6 +49,7 @@ export default function LandForm({ data, setData, errors, processing, onSubmit, 
           <Label htmlFor="location">الموقع</Label>
           <Input
             id="location"
+            aria-invalid={!!errors.location}
             value={data.location ?? ''}
             onChange={(e) => setData('location', e.target.value)}
             placeholder="مثال: قرب طريق الواحة، الجيزة"
@@ -59,6 +61,7 @@ export default function LandForm({ data, setData, errors, processing, onSubmit, 
           <Label htmlFor="area">المساحة</Label>
           <Input
             id="area"
+            aria-invalid={!!errors.area}
             type="number"
             step="0.01"
             min="0"
@@ -73,7 +76,7 @@ export default function LandForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2">
           <Label htmlFor="area_unit">وحدة المساحة</Label>
           <Select value={data.area_unit} onValueChange={(v) => setData('area_unit', v)}>
-            <SelectTrigger id="area_unit">
+            <SelectTrigger id="area_unit" aria-invalid={!!errors.area_unit}>
               <SelectValue placeholder="اختر الوحدة" />
             </SelectTrigger>
             <SelectContent>
@@ -90,7 +93,7 @@ export default function LandForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="status">الحالة</Label>
           <Select value={data.status} onValueChange={(v) => setData('status', v)}>
-            <SelectTrigger id="status" className="sm:w-64">
+            <SelectTrigger id="status" className="sm:w-64" aria-invalid={!!errors.status}>
               <SelectValue placeholder="اختر الحالة" />
             </SelectTrigger>
             <SelectContent>

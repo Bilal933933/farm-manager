@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -9,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { PRODUCT_CATEGORIES, PRODUCT_UNITS, PRODUCT_STATUSES } from '@/lib/productEnums';
 
 interface ProductFormData {
@@ -38,6 +38,7 @@ export default function ProductForm({ data, setData, errors, processing, onSubmi
           <Label htmlFor="code">الكود</Label>
           <Input
             id="code"
+            aria-invalid={!!errors.code}
             className="font-mono"
             dir="ltr"
             value={data.code}
@@ -51,6 +52,7 @@ export default function ProductForm({ data, setData, errors, processing, onSubmi
           <Label htmlFor="display_order">ترتيب العرض</Label>
           <Input
             id="display_order"
+            aria-invalid={!!errors.display_order}
             type="number"
             min="0"
             className="font-mono"
@@ -64,6 +66,7 @@ export default function ProductForm({ data, setData, errors, processing, onSubmi
           <Label htmlFor="name">اسم الصنف</Label>
           <Input
             id="name"
+            aria-invalid={!!errors.name}
             value={data.name}
             onChange={(e) => setData('name', e.target.value)}
             placeholder="اسم المنتج"
@@ -74,7 +77,7 @@ export default function ProductForm({ data, setData, errors, processing, onSubmi
         <div className="space-y-2">
           <Label htmlFor="category">التصنيف</Label>
           <Select value={data.category} onValueChange={(v) => setData('category', v)}>
-            <SelectTrigger id="category">
+            <SelectTrigger id="category" aria-invalid={!!errors.category}>
               <SelectValue placeholder="اختر التصنيف" />
             </SelectTrigger>
             <SelectContent>
@@ -91,7 +94,7 @@ export default function ProductForm({ data, setData, errors, processing, onSubmi
         <div className="space-y-2">
           <Label htmlFor="unit">الوحدة</Label>
           <Select value={data.unit} onValueChange={(v) => setData('unit', v)}>
-            <SelectTrigger id="unit">
+            <SelectTrigger id="unit" aria-invalid={!!errors.unit}>
               <SelectValue placeholder="اختر الوحدة" />
             </SelectTrigger>
             <SelectContent>
@@ -108,7 +111,7 @@ export default function ProductForm({ data, setData, errors, processing, onSubmi
         <div className="space-y-2">
           <Label htmlFor="status">الحالة</Label>
           <Select value={data.status} onValueChange={(v) => setData('status', v)}>
-            <SelectTrigger id="status">
+            <SelectTrigger id="status" aria-invalid={!!errors.status}>
               <SelectValue placeholder="اختر الحالة" />
             </SelectTrigger>
             <SelectContent>

@@ -35,7 +35,7 @@ export default function LandHeader({ land }: LandHeaderProps) {
           </div>
           <Button variant="outline" size="sm" asChild className="shrink-0 self-start">
             <Link href={route('lands.edit', land.id)}>
-              <Pencil className="ms-1.5 h-3.5 w-3.5" />
+              <Pencil className="h-3.5 w-3.5" />
               تعديل
             </Link>
           </Button>

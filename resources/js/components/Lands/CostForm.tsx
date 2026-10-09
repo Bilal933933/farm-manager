@@ -43,7 +43,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           <div className="space-y-2">
             <Label htmlFor="land_id">الأرض</Label>
             <Select value={data.land_id} onValueChange={(v) => setData('land_id', v)}>
-              <SelectTrigger id="land_id">
+              <SelectTrigger id="land_id" aria-invalid={!!errors.land_id}>
                 <SelectValue placeholder="اختر الأرض" />
               </SelectTrigger>
               <SelectContent>
@@ -59,7 +59,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2">
           <Label htmlFor="type">نوع التكلفة</Label>
           <Select value={data.type} onValueChange={(v) => setData('type', v)}>
-            <SelectTrigger id="type">
+            <SelectTrigger id="type" aria-invalid={!!errors.type}>
               <SelectValue placeholder="اختر النوع" />
             </SelectTrigger>
             <SelectContent>
@@ -74,7 +74,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
         <div className="space-y-2">
           <Label htmlFor="borne_by">يتحملها</Label>
           <Select value={data.borne_by ?? 'مشترك'} onValueChange={(v) => setData('borne_by', v)}>
-            <SelectTrigger id="borne_by">
+            <SelectTrigger id="borne_by" aria-invalid={!!errors.borne_by}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -90,6 +90,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           <Label htmlFor="amount">المبلغ</Label>
           <Input
             id="amount"
+            aria-invalid={!!errors.amount}
             type="number"
             step="0.01"
             min="0"
@@ -104,6 +105,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           <Label htmlFor="date">التاريخ</Label>
           <Input
             id="date"
+            aria-invalid={!!errors.date}
             type="date"
             value={data.date}
             onChange={(e) => setData('date', e.target.value)}
@@ -115,7 +117,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           <div className="space-y-2">
             <Label htmlFor="land_season_id">الموسم</Label>
             <Select value={data.land_season_id} onValueChange={(v) => setData('land_season_id', v)}>
-              <SelectTrigger id="land_season_id">
+              <SelectTrigger id="land_season_id" aria-invalid={!!errors.land_season_id}>
                 <SelectValue placeholder="اختر الموسم" />
               </SelectTrigger>
               <SelectContent>
@@ -148,6 +150,7 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           value={data.notes ?? ''}
           onChange={(e) => setData('notes', e.target.value)}
         />
+        {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
       </div>
 
       <div className="flex justify-start gap-3 border-t border-stone-200 pt-6">

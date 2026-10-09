@@ -170,12 +170,12 @@ export default function Show({ party, summary, farmerFinancials, lessorFinancial
               <TabsTrigger
                 key={tab.key}
                 value={tab.key}
-                className="flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-lg px-4 py-2 text-sm transition-all"
+                className="group flex items-center gap-2 data-[state=active]:bg-white data-[state=active]:shadow-sm rounded-lg px-4 py-2 text-sm transition-all"
               >
                 <tab.icon className="h-4 w-4" />
                 <span className="hidden sm:inline">{tab.label}</span>
                 {tab.count > 0 && (
-                  <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-600 data-[state=active]:bg-emerald-100 data-[state=active]:text-emerald-700">
+                  <span className="inline-flex items-center justify-center h-5 min-w-5 px-1.5 text-xs font-medium rounded-full bg-stone-200 text-stone-600 group-data-[state=active]:bg-emerald-100 group-data-[state=active]:text-emerald-700">
                     {tab.count}
                   </span>
                 )}

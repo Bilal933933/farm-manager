@@ -48,7 +48,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
         <div className="space-y-2">
           <Label htmlFor="product_id">المنتج</Label>
           <Select value={data.product_id} onValueChange={onProductChange}>
-            <SelectTrigger id="product_id">
+            <SelectTrigger id="product_id" aria-invalid={!!errors.product_id}>
               <SelectValue placeholder="اختر المنتج" />
             </SelectTrigger>
             <SelectContent>
@@ -63,7 +63,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
         <div className="space-y-2">
           <Label htmlFor="land_season_id">الموسم</Label>
           <Select value={data.land_season_id} onValueChange={(v) => setData('land_season_id', v)}>
-            <SelectTrigger id="land_season_id">
+            <SelectTrigger id="land_season_id" aria-invalid={!!errors.land_season_id}>
               <SelectValue placeholder="اختر الموسم" />
             </SelectTrigger>
             <SelectContent>
@@ -79,6 +79,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
           <Label htmlFor="quantity">الكمية {selectedProduct ? `(${selectedProduct.unit})` : ''}</Label>
           <Input
             id="quantity"
+            aria-invalid={!!errors.quantity}
             type="number"
             step="0.01"
             min="0"
@@ -93,6 +94,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
           <Label htmlFor="unit_price">سعر الوحدة</Label>
           <Input
             id="unit_price"
+            aria-invalid={!!errors.unit_price}
             type="number"
             step="0.01"
             min="0"
@@ -110,6 +112,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
           <Label htmlFor="date">التاريخ</Label>
           <Input
             id="date"
+            aria-invalid={!!errors.date}
             type="date"
             value={data.date}
             onChange={(e) => setData('date', e.target.value)}
@@ -119,7 +122,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
 
         <div className="space-y-2">
           <Label>إجمالي التكلفة</Label>
-          <p className="font-mono text-lg font-semibold text-amber-700">{total.toLocaleString()}</p>
+          <p className="font-mono tabular-nums text-lg font-semibold text-amber-700">{total.toLocaleString()}</p>
         </div>
       </div>
 
@@ -131,6 +134,7 @@ export default function ConsumeStockForm({ data, setData, errors, processing, on
           value={data.notes ?? ''}
           onChange={(e) => setData('notes', e.target.value)}
         />
+        {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
       </div>
 
       <div className="flex justify-start gap-3 border-t border-stone-200 pt-6">

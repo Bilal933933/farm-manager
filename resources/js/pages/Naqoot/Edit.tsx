@@ -20,7 +20,7 @@ export default function Edit({ naqoot }: EditProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('naqoot.update', naqoot.id));
+    put(route('naqoot.update', naqoot.id), { preserveState: 'errors' });
   }
 
   return (

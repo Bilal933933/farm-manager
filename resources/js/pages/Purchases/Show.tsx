@@ -1,8 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
-import { ArrowRight, Store, Calendar, CreditCard, Package, DollarSign, ClipboardList, Barcode } from 'lucide-react';
+import { ArrowRight, Store, Calendar, CreditCard, Package, ClipboardList, Barcode } from 'lucide-react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { DateDisplay } from '@/components/ui/date-display';
 import { Card, CardContent } from '@/components/ui/card';
+import { DateDisplay } from '@/components/ui/date-display';
 import {
   Table,
   TableBody,
@@ -11,7 +12,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { TYPE_TONE } from '@/lib/stockEnums';
 
 interface Party {
@@ -164,9 +164,9 @@ export default function Show({ purchase }: ShowProps) {
                         <span className="font-medium text-stone-800">{item.product?.name ?? '—'}</span>
                       </div>
                     </TableCell>
-                    <TableCell className="font-mono py-3">{item.quantity}</TableCell>
-                    <TableCell className="font-mono py-3">{currency(parseFloat(item.unit_price))}</TableCell>
-                    <TableCell className="font-mono font-medium py-3">
+                    <TableCell className="font-mono tabular-nums py-3">{item.quantity}</TableCell>
+                    <TableCell className="font-mono tabular-nums py-3">{currency(parseFloat(item.unit_price))}</TableCell>
+                    <TableCell className="font-mono tabular-nums font-medium py-3">
                       {currency(parseFloat(item.quantity) * parseFloat(item.unit_price))}
                     </TableCell>
                   </TableRow>
@@ -178,7 +178,7 @@ export default function Show({ purchase }: ShowProps) {
           <div className="flex justify-end mt-4 pt-4 border-t border-stone-200">
             <div className="flex items-center gap-3">
               <span className="text-sm text-stone-500">الإجمالي:</span>
-              <span className="font-mono text-xl font-bold text-purple-700">{currency(purchase.items_total ?? 0)}</span>
+              <span className="font-mono tabular-nums text-xl font-bold text-purple-700">{currency(purchase.items_total ?? 0)}</span>
             </div>
           </div>
         </CardContent>

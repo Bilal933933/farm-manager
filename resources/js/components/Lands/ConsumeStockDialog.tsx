@@ -27,7 +27,7 @@ export default function ConsumeStockDialog({ trigger, products, seasons }: Props
   function submit(e: React.FormEvent) {
     e.preventDefault();
 
-    post(route('stock.consume'), { onSuccess: () => reset() });
+    post(route('stock.consume'), { preserveState: 'errors', onSuccess: () => reset() });
   }
 
   return (

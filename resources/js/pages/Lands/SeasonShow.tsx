@@ -169,10 +169,10 @@ export default function SeasonShow({ land, season, crop_name, harvests, costs, s
         <TabsContent value="harvests" className="space-y-4">
           <HarvestFormDialog landSeasonId={season.id} trigger={
             <Button size="sm" className="bg-amber-500 text-white hover:bg-amber-600">
-              <Plus className="ms-2 h-4 w-4" /> إضافة حصاد
+              <Plus className="h-4 w-4" /> إضافة حصاد
             </Button>
           } />
-          <Card className="border-stone-200">
+          <Card className="overflow-hidden border-stone-200">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -205,10 +205,10 @@ export default function SeasonShow({ land, season, crop_name, harvests, costs, s
         <TabsContent value="costs" className="space-y-4">
           <CostFormDialog landId={land.id} initialSeasonId={season.id} hideSeason seasons={[]} trigger={
             <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
-              <Plus className="ms-2 h-4 w-4" /> إضافة تكلفة
+              <Plus className="h-4 w-4" /> إضافة تكلفة
             </Button>
           } />
-          <Card className="border-stone-200">
+          <Card className="overflow-hidden border-stone-200">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -255,11 +255,11 @@ export default function SeasonShow({ land, season, crop_name, harvests, costs, s
             parties={parties}
             trigger={
               <Button size="sm" className="bg-blue-700 hover:bg-blue-800">
-                <Plus className="ms-2 h-4 w-4" /> إضافة بيع
+                <Plus className="h-4 w-4" /> إضافة بيع
               </Button>
             }
           />
-          <Card className="border-stone-200">
+          <Card className="overflow-hidden border-stone-200">
             <Table>
               <TableHeader>
                 <TableRow>

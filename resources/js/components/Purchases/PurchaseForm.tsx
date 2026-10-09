@@ -1,7 +1,7 @@
+import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Plus, Trash2 } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
 import { PAYMENT_TYPES } from '@/lib/purchaseEnums';
 
 interface Party {
@@ -65,6 +65,7 @@ export default function PurchaseForm({ data, setData, errors, processing, onSubm
   const total = data.items.reduce((sum, i) => {
     const qty = parseFloat(i.quantity) || 0;
     const price = parseFloat(i.unit_price) || 0;
+
     return sum + qty * price;
   }, 0);
 
@@ -74,7 +75,7 @@ export default function PurchaseForm({ data, setData, errors, processing, onSubm
         <div className="space-y-2">
           <Label htmlFor="party_id">المورد</Label>
           <Select value={data.party_id} onValueChange={(v) => setData('party_id', v)}>
-            <SelectTrigger id="party_id">
+            <SelectTrigger id="party_id" aria-invalid={!!errors.party_id}>
               <SelectValue placeholder="اختر المورد" />
             </SelectTrigger>
             <SelectContent>
@@ -92,6 +93,7 @@ export default function PurchaseForm({ data, setData, errors, processing, onSubm
           <Label htmlFor="date">التاريخ</Label>
           <Input
             id="date"
+            aria-invalid={!!errors.date}
             type="date"
             className="font-mono"
             value={data.date}
@@ -103,7 +105,7 @@ export default function PurchaseForm({ data, setData, errors, processing, onSubm
         <div className="space-y-2">
           <Label htmlFor="payment_type">نوع الدفع</Label>
           <Select value={data.payment_type} onValueChange={(v) => setData('payment_type', v)}>
-            <SelectTrigger id="payment_type">
+            <SelectTrigger id="payment_type" aria-invalid={!!errors.payment_type}>
               <SelectValue placeholder="اختر" />
             </SelectTrigger>
             <SelectContent>
@@ -122,7 +124,7 @@ export default function PurchaseForm({ data, setData, errors, processing, onSubm
         <div className="flex items-center justify-between">
           <Label className="text-base font-medium">البنود</Label>
           <Button type="button" variant="outline" size="sm" onClick={addItem}>
-            <Plus className="ms-1 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             إضافة بند
           </Button>
         </div>

@@ -41,7 +41,7 @@ export default function HarvestFormDialog({ landSeasonId, trigger, open, onOpenC
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('harvests.store'), { onSuccess: () => reset() });
+    post(route('harvests.store'), { preserveState: 'errors', onSuccess: () => reset() });
   }
 
   return (
@@ -63,6 +63,7 @@ export default function HarvestFormDialog({ landSeasonId, trigger, open, onOpenC
             <Label htmlFor="harvest_name">اسم الحصاد</Label>
             <Input
               id="harvest_name"
+              aria-invalid={!!errors.name}
               value={data.name}
               onChange={(e) => setData('name', e.target.value)}
               placeholder="مثال: حصاد البطيخ الأحمر - الدورة الصيفية"
@@ -70,11 +71,12 @@ export default function HarvestFormDialog({ landSeasonId, trigger, open, onOpenC
             {errors.name && <p className="text-sm text-rose-600">{errors.name}</p>}
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="space-y-2">
               <Label htmlFor="harvest_date">التاريخ</Label>
               <Input
                 id="harvest_date"
+                aria-invalid={!!errors.date}
                 type="date"
                 value={data.date}
                 onChange={(e) => setData('date', e.target.value)}
@@ -85,6 +87,7 @@ export default function HarvestFormDialog({ landSeasonId, trigger, open, onOpenC
               <Label htmlFor="harvest_quantity">الكمية</Label>
               <Input
                 id="harvest_quantity"
+                aria-invalid={!!errors.quantity}
                 type="number"
                 step="0.01"
                 min="0.01"
@@ -103,6 +106,7 @@ export default function HarvestFormDialog({ landSeasonId, trigger, open, onOpenC
           <div className="space-y-2">
             <Label htmlFor="harvest_notes">ملاحظات</Label>
             <Textarea id="harvest_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+            {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
           </div>
 
           <DialogFooter>

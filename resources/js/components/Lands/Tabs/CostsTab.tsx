@@ -53,13 +53,13 @@ return costs;
       <div className="flex items-center gap-4">
         <CostFormDialog landId={landId} seasons={seasons} trigger={
           <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
-            <Plus className="ms-2 h-4 w-4" /> إضافة تكلفة
+            <Plus className="h-4 w-4" /> إضافة تكلفة
           </Button>
         } />
         {products.length > 0 && (
           <ConsumeStockDialog products={products} seasons={seasons} trigger={
             <Button size="sm" variant="outline" className="border-emerald-700 text-emerald-700 hover:bg-emerald-50">
-              <Package className="ms-2 h-4 w-4" /> صرف من المخزون
+              <Package className="h-4 w-4" /> صرف من المخزون
             </Button>
           } />
         )}

@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -9,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { PARTY_TYPES, PARTY_CATEGORIES } from '@/lib/partyEnums';
 
 interface PartyFormData {
@@ -39,6 +39,7 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
           <Label htmlFor="name">الاسم</Label>
           <Input
             id="name"
+            aria-invalid={!!errors.name}
             value={data.name}
             onChange={(e) => setData('name', e.target.value)}
             placeholder="اسم الفرد أو الشركة"
@@ -49,7 +50,7 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
         <div className="space-y-2">
           <Label htmlFor="type">النوع</Label>
           <Select value={data.type} onValueChange={(v) => setData('type', v)}>
-            <SelectTrigger id="type">
+            <SelectTrigger id="type" aria-invalid={!!errors.type}>
               <SelectValue placeholder="اختر النوع" />
             </SelectTrigger>
             <SelectContent>
@@ -66,7 +67,7 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
         <div className="space-y-2">
           <Label htmlFor="category">التصنيف</Label>
           <Select value={data.category} onValueChange={(v) => setData('category', v)}>
-            <SelectTrigger id="category">
+            <SelectTrigger id="category" aria-invalid={!!errors.category}>
               <SelectValue placeholder="اختر التصنيف" />
             </SelectTrigger>
             <SelectContent>
@@ -85,6 +86,7 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
           <Label htmlFor="national_id">الرقم القومي / السجل التجاري</Label>
           <Input
             id="national_id"
+            aria-invalid={!!errors.national_id}
             className="font-mono"
             value={data.national_id ?? ''}
             onChange={(e) => setData('national_id', e.target.value)}
@@ -96,6 +98,7 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
           <Label htmlFor="phone">رقم الهاتف</Label>
           <Input
             id="phone"
+            aria-invalid={!!errors.phone}
             className="font-mono"
             dir="ltr"
             value={data.phone ?? ''}
@@ -109,6 +112,7 @@ export default function PartyForm({ data, setData, errors, processing, onSubmit,
           <Label htmlFor="email">البريد الإلكتروني</Label>
           <Input
             id="email"
+            aria-invalid={!!errors.email}
             type="email"
             dir="ltr"
             value={data.email ?? ''}

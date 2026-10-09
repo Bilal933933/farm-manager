@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ProductForm from '@/components/Products/ProductForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Create() {
   const { data, setData, post, processing, errors } = useForm({
@@ -16,7 +16,7 @@ export default function Create() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('products.store'));
+    post(route('products.store'), { preserveState: 'errors' });
   }
 
   return (

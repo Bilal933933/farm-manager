@@ -1,11 +1,11 @@
 import { Truck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { DateDisplay } from '@/components/ui/date-display';
+import DetailCell from '@/components/ui/detail-cell';
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
-import { DateDisplay } from '@/components/ui/date-display';
-import DetailCell from '@/components/ui/detail-cell';
-import { Movement } from '../Types/product';
+import type { Movement } from '../Types/product';
 import { movementTypeIcons, reasonIcons, movementTypeColors } from '../Utils/movementConfig';
 
 interface StockMovementsTableProps {
@@ -24,7 +24,7 @@ export default function StockMovementsTable({ movements, category }: StockMoveme
 
       <CardContent className="p-0">
         {movements.length === 0 ? (
-          <div className="py-12 text-center text-stone-400">
+          <div className="py-16 text-center text-stone-400">
             <EmptyIcon className="mx-auto mb-2 h-10 w-10 text-stone-300" />
             <p className="text-sm">لا توجد حركات مخزون مسجلة لهذا المنتج</p>
           </div>

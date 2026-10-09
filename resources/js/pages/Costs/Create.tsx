@@ -26,7 +26,7 @@ export default function Create({ lands, seasons }: CreateProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('costs.store'));
+    post(route('costs.store'), { preserveState: 'errors' });
   }
 
   return (

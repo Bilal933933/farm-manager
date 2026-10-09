@@ -25,7 +25,7 @@ export default function Edit({ cost, lands, seasons }: EditProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('costs.update', cost.id));
+    put(route('costs.update', cost.id), { preserveState: 'errors' });
   }
 
   return (

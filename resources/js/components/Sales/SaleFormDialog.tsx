@@ -59,7 +59,7 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('sales.store'), { onSuccess: () => reset() });
+    post(route('sales.store'), { preserveState: 'errors', onSuccess: () => reset() });
   }
 
   const total = parseFloat(data.quantity || '0') * parseFloat(data.unit_price || '0');
@@ -86,11 +86,11 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="harvest_id">الحصاد</Label>
               <Select value={data.harvest_id} onValueChange={(v) => setData('harvest_id', v)}>
-                <SelectTrigger id="harvest_id">
+                <SelectTrigger id="harvest_id" aria-invalid={!!errors.harvest_id}>
                   <SelectValue placeholder={harvests.length > 0 ? 'اختر الحصاد' : 'سجّل حصادًا أولاً'} />
                 </SelectTrigger>
                 <SelectContent>
@@ -107,7 +107,7 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
             <div className="space-y-2">
               <Label htmlFor="party_id">المشتري</Label>
               <Select value={data.party_id} onValueChange={(v) => setData('party_id', v)}>
-                <SelectTrigger id="party_id">
+                <SelectTrigger id="party_id" aria-invalid={!!errors.party_id}>
                   <SelectValue placeholder="اختر المشتري" />
                 </SelectTrigger>
                 <SelectContent>
@@ -120,11 +120,12 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="sale_date">التاريخ</Label>
               <Input
                 id="sale_date"
+                aria-invalid={!!errors.date}
                 type="date"
                 value={data.date}
                 onChange={(e) => setData('date', e.target.value)}
@@ -134,7 +135,7 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
             <div className="space-y-2">
               <Label htmlFor="payment_type">نوع الدفع</Label>
               <Select value={data.payment_type} onValueChange={(v) => setData('payment_type', v)}>
-                <SelectTrigger id="payment_type">
+                <SelectTrigger id="payment_type" aria-invalid={!!errors.payment_type}>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -147,11 +148,12 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="sale_quantity">الكمية</Label>
               <Input
                 id="sale_quantity"
+                aria-invalid={!!errors.quantity}
                 type="number"
                 step="0.01"
                 min="0.01"
@@ -165,6 +167,7 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
               <Label htmlFor="unit_price">سعر الوحدة</Label>
               <Input
                 id="unit_price"
+                aria-invalid={!!errors.unit_price}
                 type="number"
                 step="0.01"
                 min="0"
@@ -179,13 +182,14 @@ export default function SaleFormDialog({ land, landSeasonId, harvests, parties, 
           {total > 0 && (
             <div className="rounded-lg bg-stone-50 p-3 text-center">
               <p className="text-sm text-stone-500">الإجمالي</p>
-              <p className="font-mono text-xl font-semibold text-stone-900">{total.toFixed(2)}</p>
+              <p className="font-mono tabular-nums text-xl font-semibold text-stone-900">{total.toFixed(2)}</p>
             </div>
           )}
 
           <div className="space-y-2">
             <Label htmlFor="sale_notes">ملاحظات</Label>
             <Textarea id="sale_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+            {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
           </div>
 
           <DialogFooter>

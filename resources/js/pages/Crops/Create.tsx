@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import CropForm from '@/components/Crops/CropForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Create() {
   const { data, setData, post, processing, errors } = useForm({
@@ -14,7 +14,7 @@ export default function Create() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('crops.store'));
+    post(route('crops.store'), { preserveState: 'errors' });
   }
 
   return (

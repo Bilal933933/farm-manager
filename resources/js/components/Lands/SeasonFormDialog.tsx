@@ -11,6 +11,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { snapshotDialogForm, usePersistentDialogForm } from '@/hooks/use-persistent-dialog-form';
 import { SEASON_STATUSES } from '@/lib/landEnums';
 import type { Crop, Season } from '@/types';
 
@@ -62,7 +63,7 @@ return '';
 export default function SeasonFormDialog({ landId, season = null, trigger, crops, farmers, farmerContracts, open, onOpenChange }: SeasonFormDialogProps) {
   const isEditing = Boolean(season);
 
-  const { data, setData, post, put, processing, errors, reset } = useForm<SeasonFormData>({
+  const { data, setData, post, put, processing, errors, reset, setError } = useForm<SeasonFormData>({
     land_id: landId,
     crop_id: String(season?.crop_id ?? ''),
     cultivated_area: season?.cultivated_area ?? '',
@@ -92,18 +93,29 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
     }
   }, [open, season, landId, setData]);
 
+  const storageSlug = `season-form:${season?.id ?? 'new'}`;
+
+  const persistent = usePersistentDialogForm({
+    slug: storageSlug,
+    fieldKeys: ['crop_id', 'cultivated_area', 'planting_date', 'harvest_date', 'expected_cost', 'farmer_id', 'farmer_contract_id'],
+    data: data as unknown as Record<string, unknown>,
+    setData: (key: string, value: string) => setData(key as never, value as never),
+    setError,
+  });
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
+    snapshotDialogForm(storageSlug, data as unknown as Record<string, unknown>);
 
     if (isEditing) {
-      put(route('lands.seasons.update', season!.id), { onSuccess: () => reset() });
+      put(route('lands.seasons.update', season!.id), { preserveState: 'errors', onSuccess: () => reset() });
     } else {
-      post(route('lands.seasons.store'), { onSuccess: () => reset() });
+      post(route('lands.seasons.store'), { preserveState: 'errors', onSuccess: () => reset() });
     }
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open ?? persistent.open} onOpenChange={onOpenChange ?? persistent.onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent dir="rtl" className="sm:max-w-lg">
         <DialogHeader>
@@ -111,11 +123,11 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
         </DialogHeader>
 
         <form onSubmit={submit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="crop_id">المحصول</Label>
               <Select value={data.crop_id} onValueChange={(v) => setData('crop_id', v)}>
-                <SelectTrigger id="crop_id">
+                <SelectTrigger id="crop_id" aria-invalid={!!errors.crop_id}>
                   <SelectValue placeholder="اختر المحصول" />
                 </SelectTrigger>
                 <SelectContent>
@@ -132,6 +144,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
               <Label htmlFor="cultivated_area">المساحة المزروعة</Label>
               <Input
                 id="cultivated_area"
+                aria-invalid={!!errors.cultivated_area}
                 type="number"
                 step="0.01"
                 min="0"
@@ -143,11 +156,12 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="planting_date">تاريخ الزراعة</Label>
               <Input
                 id="planting_date"
+                aria-invalid={!!errors.planting_date}
                 type="date"
                 value={data.planting_date}
                 onChange={(e) => setData('planting_date', e.target.value)}
@@ -158,6 +172,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
               <Label htmlFor="harvest_date">تاريخ الحصاد المتوقع</Label>
               <Input
                 id="harvest_date"
+                aria-invalid={!!errors.harvest_date}
                 type="date"
                 value={data.harvest_date}
                 onChange={(e) => setData('harvest_date', e.target.value)}
@@ -170,6 +185,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
             <Label htmlFor="expected_cost">التكلفة المتوقعة</Label>
             <Input
               id="expected_cost"
+              aria-invalid={!!errors.expected_cost}
               type="number"
               step="0.01"
               className="font-mono"
@@ -185,7 +201,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
               setData('farmer_id', v);
               setData('farmer_contract_id', '');
             }}>
-              <SelectTrigger id="farmer_id">
+              <SelectTrigger id="farmer_id" aria-invalid={!!errors.farmer_id}>
                 <SelectValue placeholder="اختر المزارع" />
               </SelectTrigger>
               <SelectContent>
@@ -201,7 +217,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
             <div className="space-y-2">
               <Label htmlFor="farmer_contract_id">عقد المزارعة</Label>
               <Select value={data.farmer_contract_id} onValueChange={(v) => setData('farmer_contract_id', v)}>
-                <SelectTrigger id="farmer_contract_id">
+                <SelectTrigger id="farmer_contract_id" aria-invalid={!!errors.farmer_contract_id}>
                   <SelectValue placeholder="اختر العقد (اختياري)" />
                 </SelectTrigger>
                 <SelectContent>
@@ -237,6 +253,7 @@ export default function SeasonFormDialog({ landId, season = null, trigger, crops
           <div className="space-y-2">
             <Label htmlFor="season_notes">ملاحظات</Label>
             <Textarea id="season_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+            {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
           </div>
 
           <DialogFooter>

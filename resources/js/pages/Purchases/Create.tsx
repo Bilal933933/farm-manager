@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import PurchaseForm from '@/components/Purchases/PurchaseForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Party {
   id: number;
@@ -30,7 +30,7 @@ export default function Create({ parties, products }: CreateProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('purchases.store'));
+    post(route('purchases.store'), { preserveState: 'errors' });
   }
 
   return (

@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import ProductForm from '@/components/Products/ProductForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Product {
   id: number;
@@ -31,7 +31,7 @@ export default function Edit({ product }: EditProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('products.update', product.id));
+    put(route('products.update', product.id), { preserveState: 'errors' });
   }
 
   return (

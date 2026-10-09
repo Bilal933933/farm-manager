@@ -24,7 +24,7 @@ export default function Index({ lands }: { lands: Land[] }) {
         </div>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('lands.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             إضافة أرض
           </Link>
         </Button>
@@ -44,8 +44,8 @@ export default function Index({ lands }: { lands: Land[] }) {
               <TableHead className="text-right">الموقع</TableHead>
               <TableHead className="text-right">المساحة</TableHead>
               <TableHead className="text-right">الحالة</TableHead>
-              <TableHead className="text-right">المواسم</TableHead>
-              <TableHead className="text-right">العقود</TableHead>
+              <TableHead className="text-center">المواسم</TableHead>
+              <TableHead className="text-center">العقود</TableHead>
               <TableHead className="text-left">إجراءات</TableHead>
             </TableRow>
           </TableHeader>

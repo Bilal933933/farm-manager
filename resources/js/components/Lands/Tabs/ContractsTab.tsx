@@ -28,7 +28,7 @@ export default function ContractsTab({ contracts, landId, parties }: Props) {
       <div className="flex items-center gap-4">
         <ContractFormDialog landId={landId} parties={parties} trigger={
           <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
-            <Plus className="ms-2 h-4 w-4" /> إضافة عقد
+            <Plus className="h-4 w-4" /> إضافة عقد
           </Button>
         } />
         <div className="mr-auto">

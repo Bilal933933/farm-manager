@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import { Head, Link } from '@inertiajs/react';
 import { ArrowRight, Truck, Calendar, Sprout, MapPin, Package, DollarSign, CreditCard, User, ImageIcon } from 'lucide-react';
+import { useState } from 'react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 interface Attachment {
   id: number;
@@ -73,10 +73,7 @@ export default function Show({ sale }: ShowProps) {
             <div className="space-y-4 flex-1 min-w-0">
               <div className="flex items-center gap-3 flex-wrap">
                 <h1 className="text-2xl font-bold text-stone-900 truncate">بيع #{sale.id}</h1>
-                <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-600">
-                  <CreditCard className="h-3 w-3" />
-                  {sale.payment_type}
-                </span>
+                <StatusBadge value={sale.payment_type} />
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -119,21 +116,21 @@ export default function Show({ sale }: ShowProps) {
                     <Package className="h-3.5 w-3.5" />
                     الكمية
                   </div>
-                  <p className="font-mono text-lg font-bold text-stone-800">{sale.quantity}</p>
+                  <p className="font-mono tabular-nums text-lg font-bold text-stone-800">{sale.quantity}</p>
                 </div>
                 <div className="text-center border-x border-stone-200">
                   <div className="flex items-center justify-center gap-1.5 text-xs text-stone-400 mb-1">
                     <DollarSign className="h-3.5 w-3.5" />
                     سعر الوحدة
                   </div>
-                  <p className="font-mono text-lg font-bold text-stone-800">{Number(sale.unit_price).toLocaleString()}</p>
+                  <p className="font-mono tabular-nums text-lg font-bold text-stone-800">{Number(sale.unit_price).toLocaleString()}</p>
                 </div>
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-1.5 text-xs text-stone-400 mb-1">
                     <DollarSign className="h-3.5 w-3.5" />
                     الإجمالي
                   </div>
-                  <p className="font-mono text-lg font-bold text-teal-700">{currency(sale.total)}</p>
+                  <p className="font-mono tabular-nums text-lg font-bold text-teal-700">{currency(sale.total)}</p>
                 </div>
               </div>
 
@@ -175,7 +172,11 @@ export default function Show({ sale }: ShowProps) {
         </Card>
       )}
 
-      <Dialog open={!!previewUrl} onOpenChange={(open) => { if (!open) setPreviewUrl(null); }}>
+      <Dialog open={!!previewUrl} onOpenChange={(open) => {
+ if (!open) {
+setPreviewUrl(null);
+} 
+}}>
         <DialogContent className="max-w-4xl">
           <DialogTitle className="sr-only">اسكرين شوت</DialogTitle>
           {previewUrl && (

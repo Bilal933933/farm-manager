@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { snapshotDialogForm, usePersistentDialogForm } from '@/hooks/use-persistent-dialog-form';
 import { CONTRACT_TYPES, SETTLEMENT_TYPES } from '@/lib/landEnums';
 
 interface Contract {
@@ -59,7 +60,7 @@ return '';
 export default function ContractFormDialog({ landId, parties, contract = null, trigger, open, onOpenChange }: ContractFormDialogProps) {
   const isEditing = Boolean(contract);
 
-  const { data, setData, post, put, processing, errors, reset } = useForm({
+  const { data, setData, post, put, processing, errors, reset, setError } = useForm({
     land_id: landId,
     party_id: contract?.party_id?.toString() ?? '',
     type: contract?.type ?? 'مؤجر',
@@ -78,13 +79,25 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
     ? parties.filter((p) => p.category === expectedCategory)
     : parties;
 
+  const storageSlug = `contract-form:${contract?.id ?? 'new'}`;
+
+  const persistent = usePersistentDialogForm({
+    slug: storageSlug,
+    fieldKeys: ['party_id', 'type', 'settlement_type', 'share_percentage', 'start_date', 'end_date', 'amount'],
+    data: data as unknown as Record<string, unknown>,
+    setData: (key: string, value: string) => setData(key as never, value as never),
+    setError,
+  });
+
   function submit(e: React.FormEvent) {
     e.preventDefault();
+    snapshotDialogForm(storageSlug, data as unknown as Record<string, unknown>);
 
     if (isEditing) {
       console.log('PUT Contract request →', route('lands.contracts.update', contract!.id), data);
       put(route('lands.contracts.update', contract!.id), {
         preserveScroll: true,
+        preserveState: 'errors',
         onStart: () => console.log('PUT Contract start'),
         onError: (errors) => console.error('PUT Contract error →', errors),
         onSuccess: (page) => {
@@ -96,6 +109,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
       console.log('POST Contract request →', route('lands.contracts.store'), data);
       post(route('lands.contracts.store'), {
         preserveScroll: true,
+        preserveState: 'errors',
         onStart: () => console.log('POST Contract start'),
         onError: (errors) => console.error('POST Contract error →', errors),
         onSuccess: (page) => {
@@ -107,7 +121,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open ?? persistent.open} onOpenChange={onOpenChange ?? persistent.onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent dir="rtl" className="sm:max-w-lg">
         <DialogHeader>
@@ -118,7 +132,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
           <div className="space-y-2">
             <Label htmlFor="party_id">الطرف</Label>
             <Select value={data.party_id} onValueChange={(v) => setData('party_id', v)}>
-              <SelectTrigger id="party_id">
+              <SelectTrigger id="party_id" aria-invalid={!!errors.party_id}>
                 <SelectValue placeholder="اختر الطرف..." />
               </SelectTrigger>
               <SelectContent>
@@ -138,7 +152,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
               setData('type', v);
               setData('party_id', '');
             }}>
-              <SelectTrigger id="contract_type">
+              <SelectTrigger id="contract_type" aria-invalid={!!errors.type}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -153,11 +167,11 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
           </div>
 
           {isFarmerContract && (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="settlement_type">نوع التسوية</Label>
                 <Select value={data.settlement_type} onValueChange={(v) => setData('settlement_type', v)}>
-                  <SelectTrigger id="settlement_type">
+                  <SelectTrigger id="settlement_type" aria-invalid={!!errors.settlement_type}>
                     <SelectValue placeholder="اختر..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -176,6 +190,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
                   <Label htmlFor="share_percentage">نسبة المزارع (%)</Label>
                   <Input
                     id="share_percentage"
+                aria-invalid={!!errors.share_percentage}
                     type="number"
                     step="0.01"
                     min="0"
@@ -190,11 +205,12 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="start_date">تاريخ البداية</Label>
               <Input
                 id="start_date"
+                aria-invalid={!!errors.start_date}
                 type="date"
                 value={data.start_date}
                 onChange={(e) => setData('start_date', e.target.value)}
@@ -205,6 +221,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
               <Label htmlFor="end_date">تاريخ الانتهاء (اختياري)</Label>
               <Input
                 id="end_date"
+                aria-invalid={!!errors.end_date}
                 type="date"
                 value={data.end_date}
                 onChange={(e) => setData('end_date', e.target.value)}
@@ -215,8 +232,9 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
 
           <div className="space-y-2">
             <Label htmlFor="amount">القيمة</Label>
-            <Input
-              id="amount"
+              <Input
+                id="amount"
+                aria-invalid={!!errors.amount}
               type="number"
               step="0.01"
               min="0"
@@ -230,6 +248,7 @@ export default function ContractFormDialog({ landId, parties, contract = null, t
           <div className="space-y-2">
             <Label htmlFor="contract_notes">ملاحظات</Label>
             <Textarea id="contract_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+            {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
           </div>
 
           <DialogFooter>

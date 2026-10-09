@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import PartyForm from '@/components/Parties/PartyForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Party {
   id: number;
@@ -33,7 +33,7 @@ export default function Edit({ party }: EditProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('parties.update', party.id));
+    put(route('parties.update', party.id), { preserveState: 'errors' });
   }
 
   return (

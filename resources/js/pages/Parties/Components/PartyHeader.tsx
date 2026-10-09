@@ -65,9 +65,9 @@ export default function PartyHeader({ party }: Props) {
                   className="rounded-full text-xs font-normal px-3 py-0.5 border"
                 >
                   {party.type === 'فرد' ? (
-                    <><User className="h-3 w-3 ms-1" />فرد</>
+                    <><User className="h-3 w-3" />فرد</>
                   ) : (
-                    <><Building2 className="h-3 w-3 ms-1" />شركة</>
+                    <><Building2 className="h-3 w-3" />شركة</>
                   )}
                 </Badge>
                 {party.category && <StatusBadge value={party.category} toneMap={PARTY_CATEGORY_TONE} />}
@@ -97,7 +97,7 @@ export default function PartyHeader({ party }: Props) {
 
           <Button variant="outline" size="sm" asChild className="shrink-0 shadow-sm">
             <Link href={route('parties.edit', party.id)}>
-              <Pencil className="ms-2 h-4 w-4" />
+              <Pencil className="h-4 w-4" />
               تعديل
             </Link>
           </Button>

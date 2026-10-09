@@ -15,7 +15,7 @@ export default function Create() {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('lands.store'));
+    post(route('lands.store'), { preserveState: 'errors' });
   }
 
   return (

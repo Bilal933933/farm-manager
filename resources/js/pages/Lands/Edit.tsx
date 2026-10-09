@@ -29,7 +29,7 @@ export default function Edit({ land }: EditProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('lands.update', land.id));
+    put(route('lands.update', land.id), { preserveState: 'errors' });
   }
 
   return (

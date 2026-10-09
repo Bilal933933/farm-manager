@@ -1,10 +1,12 @@
 import { Head, Link } from '@inertiajs/react';
 import { Eye, Plus, Pencil, Wallet } from 'lucide-react';
+import SeasonFilter from '@/components/Filters/SeasonFilter';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { ActionsMenu } from '@/components/ui/actions-menu';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
 import DetailCell from '@/components/ui/detail-cell';
-import { Card } from '@/components/ui/card';
 import {
   Table,
   TableBody,
@@ -13,8 +15,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { TYPE_TONE } from '@/lib/paymentEnums';
+import type { LandOption, SeasonOption, SeasonFilterValues } from '@/types/filters';
 
 interface Party {
   id: number;
@@ -37,9 +39,12 @@ interface Payment {
 
 interface IndexProps {
   payments: Payment[];
+  lands: LandOption[];
+  seasons: SeasonOption[];
+  filters: SeasonFilterValues;
 }
 
-export default function Index({ payments }: IndexProps) {
+export default function Index({ payments, lands, seasons, filters }: IndexProps) {
   return (
     <div dir="rtl" className="space-y-6 p-6">
       <Head title="المدفوعات" />
@@ -51,11 +56,13 @@ export default function Index({ payments }: IndexProps) {
         </div>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('payments.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             تسجيل جديد
           </Link>
         </Button>
       </div>
+
+      <SeasonFilter lands={lands} seasons={seasons} filters={filters} routeName="payments.index" />
 
       <Card className="border-stone-200">
         <Table>
@@ -97,7 +104,7 @@ export default function Index({ payments }: IndexProps) {
                 <TableCell>
                   <StatusBadge value={p.type} toneMap={TYPE_TONE} />
                 </TableCell>
-                <TableCell className="font-mono">{p.amount}</TableCell>
+                <TableCell className="font-mono tabular-nums">{p.amount}</TableCell>
                 <TableCell><DetailCell text={p.notes} title="ملاحظات" className="text-sm text-stone-500" /></TableCell>
                 <TableCell className="text-left">
                   <ActionsMenu

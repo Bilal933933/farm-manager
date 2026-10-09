@@ -1,5 +1,7 @@
 import { Head } from '@inertiajs/react';
 import { BookOpen } from 'lucide-react';
+import SeasonFilter from '@/components/Filters/SeasonFilter';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Card } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
 import DetailCell from '@/components/ui/detail-cell';
@@ -11,8 +13,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
 import { DIRECTION_TONE } from '@/lib/ledgerEnums';
+import type { LandOption, SeasonOption, SeasonFilterValues } from '@/types/filters';
 
 interface Party {
   id: number;
@@ -30,9 +32,12 @@ interface LedgerEntry {
 
 interface IndexProps {
   entries: LedgerEntry[];
+  lands: LandOption[];
+  seasons: SeasonOption[];
+  filters: SeasonFilterValues;
 }
 
-export default function Index({ entries }: IndexProps) {
+export default function Index({ entries, lands, seasons, filters }: IndexProps) {
   return (
     <div dir="rtl" className="space-y-6 p-6">
       <Head title="السجل المالي" />
@@ -41,6 +46,8 @@ export default function Index({ entries }: IndexProps) {
         <h1 className="text-2xl font-semibold text-stone-900">السجل المالي</h1>
         <p className="mt-1 text-sm text-stone-500">الحركات المالية الناتجة عن المشتريات والمدفوعات</p>
       </div>
+
+      <SeasonFilter lands={lands} seasons={seasons} filters={filters} routeName="ledger.index" />
 
       <Card className="border-stone-200">
         <Table>
@@ -70,7 +77,7 @@ export default function Index({ entries }: IndexProps) {
                 <TableCell>
                   <StatusBadge value={entry.direction} toneMap={DIRECTION_TONE} />
                 </TableCell>
-                <TableCell className="font-mono">{entry.amount}</TableCell>
+                <TableCell className="font-mono tabular-nums">{entry.amount}</TableCell>
               </TableRow>
             ))}
           </TableBody>

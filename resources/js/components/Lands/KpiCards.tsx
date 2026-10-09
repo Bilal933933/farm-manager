@@ -38,7 +38,7 @@ export default function KpiCards({ stats }: KpiCardsProps) {
             <card.icon className={`h-8 w-8 shrink-0 ${card.iconClass}`} />
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs text-stone-500">{card.label}</p>
-              <p className={`mt-0.5 truncate text-base font-bold sm:text-lg lg:text-xl ${card.valueClass}`}>
+              <p className={`mt-0.5 truncate font-mono tabular-nums text-base font-bold sm:text-lg lg:text-xl ${card.valueClass}`}>
                 <span dir="ltr" className="inline-block">{formatter.format(card.value)}</span>
               </p>
             </div>

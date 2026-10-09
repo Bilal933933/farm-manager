@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Table, TableHeader, TableHead, TableRow, TableBody, TableCell } from '@/components/ui/table';
 import type { FarmerSettlementSummary } from './types';
 import { currency } from './types';
@@ -48,11 +48,11 @@ export default function PartyFarmerSettlements({ farmerSettlement }: Props) {
               <TableHead>الأرض</TableHead>
               <TableHead>تاريخ الزراعة</TableHead>
               <TableHead>نوع التسوية</TableHead>
-              <TableHead className="text-left">الإيراد</TableHead>
-              <TableHead className="text-left">تكاليف مشتركة</TableHead>
-              <TableHead className="text-left">نصيب المزارع</TableHead>
-              <TableHead className="text-left">سلفة المزارع</TableHead>
-              <TableHead className="text-left">صافي المزارع</TableHead>
+              <TableHead className="text-right">الإيراد</TableHead>
+              <TableHead className="text-right">تكاليف مشتركة</TableHead>
+              <TableHead className="text-right">نصيب المزارع</TableHead>
+              <TableHead className="text-right">سلفة المزارع</TableHead>
+              <TableHead className="text-right">صافي المزارع</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -63,19 +63,19 @@ export default function PartyFarmerSettlements({ farmerSettlement }: Props) {
                 <TableCell>
                   {s.settlement_type === 'نسبة' ? `${s.share_percentage}%` : 'مبلغ ثابت'}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left">
+                <TableCell className="font-mono tabular-nums text-right">
                   {currency(s.total_revenue)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-amber-700">
+                <TableCell className="font-mono tabular-nums text-right text-amber-700">
                   {currency(s.shared_cost)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-emerald-700">
+                <TableCell className="font-mono tabular-nums text-right text-emerald-700">
                   {currency(s.farmer_share)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-rose-700">
+                <TableCell className="font-mono tabular-nums text-right text-rose-700">
                   {currency(s.farmer_cost)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left font-semibold">
+                <TableCell className="font-mono tabular-nums text-right font-semibold">
                   {currency(s.farmer_share_net)}
                 </TableCell>
               </TableRow>

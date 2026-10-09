@@ -1,8 +1,8 @@
 import { Head, Link } from '@inertiajs/react';
 import { Plus } from 'lucide-react';
+import PartiesTable from '@/components/Parties/PartiesTable';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import PartiesTable from '@/components/Parties/PartiesTable';
 
 interface Party {
   id: number;
@@ -29,7 +29,7 @@ export default function Index({ parties }: IndexProps) {
         </div>
         <Button asChild className="bg-emerald-700 hover:bg-emerald-800">
           <Link href={route('parties.create')}>
-            <Plus className="ms-2 h-4 w-4" />
+            <Plus className="h-4 w-4" />
             إضافة طرف
           </Link>
         </Button>

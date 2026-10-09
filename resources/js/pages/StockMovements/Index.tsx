@@ -1,10 +1,11 @@
-import { Head, router, useForm } from '@inertiajs/react';
-import { useMemo } from 'react';
+import { Head, useForm } from '@inertiajs/react';
 import { ArrowDownUp, Plus } from 'lucide-react';
+import { useMemo } from 'react';
+import StatusBadge from '@/components/Lands/StatusBadge';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { DateDisplay } from '@/components/ui/date-display';
 import DetailCell from '@/components/ui/detail-cell';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -15,7 +16,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Table,
   TableBody,
@@ -24,7 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import StatusBadge from '@/components/Lands/StatusBadge';
+import { Textarea } from '@/components/ui/textarea';
 import { MOVEMENT_TYPES, MOVEMENT_REASONS, TYPE_TONE } from '@/lib/stockEnums';
 
 interface Product {
@@ -73,7 +73,9 @@ export default function Index({ movements, products, lands }: IndexProps) {
   const showLandSeason = data.type === 'خارج' && data.reason === 'صرف';
 
   const selectedLandSeasons = useMemo(() => {
-    if (!data.land_id) return [];
+    if (!data.land_id) {
+return [];
+}
 
     const land = lands.find((l) => l.id.toString() === data.land_id);
 
@@ -83,6 +85,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
   function submit(e: React.FormEvent) {
     e.preventDefault();
     post(route('stock.store'), {
+      preserveState: 'errors',
       onSuccess: () => {
         reset();
         setData('movement_date', new Date().toISOString().slice(0, 10));
@@ -104,7 +107,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
         <Dialog>
           <DialogTrigger asChild>
             <Button className="bg-emerald-700 hover:bg-emerald-800">
-              <Plus className="ms-2 h-4 w-4" />
+              <Plus className="h-4 w-4" />
               إضافة حركة
             </Button>
           </DialogTrigger>
@@ -116,7 +119,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
               <div className="space-y-2">
                 <Label htmlFor="product_id">الصنف</Label>
                 <Select value={data.product_id} onValueChange={(v) => setData('product_id', v)}>
-                  <SelectTrigger id="product_id">
+                  <SelectTrigger id="product_id" aria-invalid={!!errors.product_id}>
                     <SelectValue placeholder="اختر الصنف" />
                   </SelectTrigger>
                   <SelectContent>
@@ -130,11 +133,11 @@ export default function Index({ movements, products, lands }: IndexProps) {
                 {errors.product_id && <p className="text-sm text-rose-600">{errors.product_id}</p>}
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="type">نوع الحركة</Label>
                   <Select value={data.type} onValueChange={(v) => setData('type', v)}>
-                    <SelectTrigger id="type">
+                    <SelectTrigger id="type" aria-invalid={!!errors.type}>
                       <SelectValue placeholder="اختر" />
                     </SelectTrigger>
                     <SelectContent>
@@ -151,7 +154,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                 <div className="space-y-2">
                   <Label htmlFor="reason">السبب</Label>
                   <Select value={data.reason} onValueChange={(v) => setData('reason', v)}>
-                    <SelectTrigger id="reason">
+                    <SelectTrigger id="reason" aria-invalid={!!errors.reason}>
                       <SelectValue placeholder="اختر" />
                     </SelectTrigger>
                     <SelectContent>
@@ -167,7 +170,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
               </div>
 
               {showLandSeason && (
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="land_id">الأرض</Label>
                     <Select
@@ -176,7 +179,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
  setData('land_id', v); setData('land_season_id', '');
 }}
                     >
-                      <SelectTrigger id="land_id">
+                      <SelectTrigger id="land_id" aria-invalid={!!errors.land_id}>
                         <SelectValue placeholder="اختر الأرض" />
                       </SelectTrigger>
                       <SelectContent>
@@ -195,7 +198,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                       onValueChange={(v) => setData('land_season_id', v)}
                       disabled={!data.land_id}
                     >
-                      <SelectTrigger id="land_season_id">
+                      <SelectTrigger id="land_season_id" aria-invalid={!!errors.land_season_id}>
                         <SelectValue placeholder={data.land_id ? 'اختر الموسم' : 'اختر الأرض أولاً'} />
                       </SelectTrigger>
                       <SelectContent>
@@ -209,11 +212,12 @@ export default function Index({ movements, products, lands }: IndexProps) {
                 </div>
               )}
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="quantity">الكمية</Label>
                     <Input
                       id="quantity"
+                      aria-invalid={!!errors.quantity}
                       type="number"
                       step="0.01"
                       min="0.01"
@@ -228,6 +232,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                     <Label htmlFor="unit_price">سعر الوحدة</Label>
                     <Input
                       id="unit_price"
+                      aria-invalid={!!errors.unit_price}
                       type="number"
                       step="0.01"
                       min="0"
@@ -243,6 +248,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                   <Label htmlFor="movement_date">التاريخ</Label>
                   <Input
                     id="movement_date"
+                    aria-invalid={!!errors.movement_date}
                     type="date"
                     className="font-mono"
                     value={data.movement_date}
@@ -297,7 +303,7 @@ export default function Index({ movements, products, lands }: IndexProps) {
                   )}
                   {productName}
                 </span>
-                <span className="font-mono text-sm">
+                <span className="font-mono tabular-nums text-sm">
                   الرصيد:{' '}
                   <span className={stock >= 0 ? 'text-emerald-700' : 'text-rose-700'}>
                     {stock.toFixed(2)}
@@ -325,8 +331,8 @@ export default function Index({ movements, products, lands }: IndexProps) {
                         <StatusBadge value={m.type} toneMap={TYPE_TONE} />
                       </TableCell>
                       <TableCell>{m.reason}</TableCell>
-                      <TableCell className="font-mono">{m.quantity}</TableCell>
-                      <TableCell className="font-mono">{m.unit_price ? Number(m.unit_price).toLocaleString() : '—'}</TableCell>
+                      <TableCell className="font-mono tabular-nums">{m.quantity}</TableCell>
+                      <TableCell className="font-mono tabular-nums">{m.unit_price ? Number(m.unit_price).toLocaleString() : '—'}</TableCell>
                       <TableCell><DetailCell text={m.notes} title="ملاحظات" className="text-sm text-stone-500" /></TableCell>
                     </TableRow>
                   ))}

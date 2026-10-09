@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import CropForm from '@/components/Crops/CropForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Crop {
   id: number;
@@ -27,7 +27,7 @@ export default function Edit({ crop }: EditProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('crops.update', crop.id));
+    put(route('crops.update', crop.id), { preserveState: 'errors' });
   }
 
   return (

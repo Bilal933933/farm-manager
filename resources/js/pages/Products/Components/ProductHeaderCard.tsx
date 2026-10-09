@@ -3,7 +3,7 @@ import { Pencil } from 'lucide-react';
 import StatusBadge from '@/components/Lands/StatusBadge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Product } from '../Types/product';
+import type { Product } from '../Types/product';
 
 interface ProductHeaderCardProps {
   product: Product;
@@ -13,9 +13,9 @@ export default function ProductHeaderCard({ product }: ProductHeaderCardProps) {
   return (
     <Card className="border-stone-200 shadow-sm">
       <CardContent className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6">
-        <div className="space-y-3">
+        <div className="min-w-0 flex-1 space-y-3">
           <div className="flex items-center gap-3 flex-wrap">
-            <h1 className="text-2xl font-bold text-stone-900">{product.name}</h1>
+            <h1 className="truncate text-2xl font-bold text-stone-900">{product.name}</h1>
             <StatusBadge value={product.status} />
           </div>
 
@@ -59,7 +59,7 @@ export default function ProductHeaderCard({ product }: ProductHeaderCardProps) {
 
           <Button variant="outline" size="sm" asChild className="mt-4 w-full bg-white hover:bg-stone-50">
             <Link href={route('products.edit', product.id)}>
-              <Pencil className="ms-2 h-3.5 w-3.5 text-stone-500" />
+              <Pencil className="h-3.5 w-3.5 text-stone-500" />
               تعديل البيانات
             </Link>
           </Button>

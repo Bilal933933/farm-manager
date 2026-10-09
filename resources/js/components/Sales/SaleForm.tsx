@@ -47,7 +47,7 @@ export default function SaleForm({ harvests, parties, lands }: SaleFormProps) {
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    post(route('sales.store'));
+    post(route('sales.store'), { preserveState: 'errors' });
   }
 
   const total = parseFloat(data.quantity || '0') * parseFloat(data.unit_price || '0');
@@ -86,45 +86,47 @@ return false;
 
   return (
     <form onSubmit={submit} className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="land_id">الأرض</Label>
           <Select value={data.land_id} onValueChange={(v) => {
  setData('land_id', v); setData('land_season_id', ''); setData('harvest_id', ''); 
 }}>
-            <SelectTrigger id="land_id">
+            <SelectTrigger id="land_id" aria-invalid={!!errors.land_id}>
               <SelectValue placeholder="اختر الأرض" />
             </SelectTrigger>
             <SelectContent>
-              {lands.map((l) => (
-                <SelectItem key={l.id} value={l.id.toString()}>{l.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+                        {lands.map((l) => (
+                            <SelectItem key={l.id} value={l.id.toString()}>{l.name}</SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+                {errors.land_id && <p className="text-sm text-rose-600">{errors.land_id}</p>}
+            </div>
 
         <div className="space-y-2">
           <Label htmlFor="land_season_id">الموسم</Label>
           <Select value={data.land_season_id} onValueChange={(v) => {
  setData('land_season_id', v); setData('harvest_id', ''); 
 }}>
-            <SelectTrigger id="land_season_id">
+            <SelectTrigger id="land_season_id" aria-invalid={!!errors.land_season_id}>
               <SelectValue placeholder="اختر الموسم" />
             </SelectTrigger>
             <SelectContent>
-              {seasons.map((s) => (
-                <SelectItem key={s.id} value={s.id.toString()}>{s.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+                    {seasons.map((s) => (
+                        <SelectItem key={s.id} value={s.id.toString()}>{s.name}</SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+            {errors.land_season_id && <p className="text-sm text-rose-600">{errors.land_season_id}</p>}
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="harvest_id">الحصاد</Label>
           <Select value={data.harvest_id} onValueChange={(v) => setData('harvest_id', v)}>
-            <SelectTrigger id="harvest_id">
+            <SelectTrigger id="harvest_id" aria-invalid={!!errors.harvest_id}>
               <SelectValue placeholder={data.land_id ? 'اختر الحصاد' : 'اختر الأرض أولاً'} />
             </SelectTrigger>
             <SelectContent>
@@ -141,7 +143,7 @@ return false;
         <div className="space-y-2">
           <Label htmlFor="party_id">المشتري</Label>
           <Select value={data.party_id} onValueChange={(v) => setData('party_id', v)}>
-            <SelectTrigger id="party_id">
+            <SelectTrigger id="party_id" aria-invalid={!!errors.party_id}>
               <SelectValue placeholder="اختر المشتري" />
             </SelectTrigger>
             <SelectContent>
@@ -156,11 +158,12 @@ return false;
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="sale_date">التاريخ</Label>
           <Input
             id="sale_date"
+            aria-invalid={!!errors.date}
             type="date"
             value={data.date}
             onChange={(e) => setData('date', e.target.value)}
@@ -170,7 +173,7 @@ return false;
         <div className="space-y-2">
           <Label htmlFor="payment_type">نوع الدفع</Label>
           <Select value={data.payment_type} onValueChange={(v) => setData('payment_type', v)}>
-            <SelectTrigger id="payment_type">
+            <SelectTrigger id="payment_type" aria-invalid={!!errors.payment_type}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -185,11 +188,12 @@ return false;
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="sale_quantity">الكمية</Label>
           <Input
             id="sale_quantity"
+            aria-invalid={!!errors.quantity}
             type="number"
             step="0.01"
             min="0.01"
@@ -203,6 +207,7 @@ return false;
           <Label htmlFor="unit_price">سعر الوحدة</Label>
           <Input
             id="unit_price"
+            aria-invalid={!!errors.unit_price}
             type="number"
             step="0.01"
             min="0"
@@ -217,13 +222,14 @@ return false;
       {total > 0 && (
         <div className="rounded-lg bg-stone-50 p-3 text-center">
           <p className="text-sm text-stone-500">الإجمالي</p>
-          <p className="font-mono text-xl font-semibold text-stone-900">{total.toFixed(2)}</p>
+          <p className="font-mono tabular-nums text-xl font-semibold text-stone-900">{total.toFixed(2)}</p>
         </div>
       )}
 
       <div className="space-y-2">
         <Label htmlFor="sale_notes">ملاحظات</Label>
         <Textarea id="sale_notes" rows={3} value={data.notes} onChange={(e) => setData('notes', e.target.value)} />
+        {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
       </div>
 
       <div className="space-y-2">
@@ -231,6 +237,7 @@ return false;
         <div className="flex items-center gap-3">
           <Input
             id="screenshot"
+            aria-invalid={!!errors.screenshot}
             ref={fileRef}
             type="file"
             accept="image/*"
@@ -240,7 +247,13 @@ return false;
           {data.screenshot && (
             <button
               type="button"
-              onClick={() => { setData('screenshot', null); if (fileRef.current) fileRef.current.value = ''; }}
+              onClick={() => {
+ setData('screenshot', null);
+
+ if (fileRef.current) {
+fileRef.current.value = '';
+} 
+}}
               className="text-sm text-rose-600 hover:text-rose-700 shrink-0"
             >
               إزالة

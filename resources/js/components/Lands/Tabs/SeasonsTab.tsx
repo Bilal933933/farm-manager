@@ -66,7 +66,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, farmers, farme
       <div className="flex items-center gap-4">
         <SeasonFormDialog landId={landId} crops={crops} farmers={farmers} farmerContracts={farmerContracts} trigger={
           <Button size="sm" className="bg-emerald-700 hover:bg-emerald-800">
-            <Plus className="ms-2 h-4 w-4" /> إضافة موسم
+            <Plus className="h-4 w-4" /> إضافة موسم
           </Button>
         } />
         <div className="mr-auto">
@@ -117,7 +117,7 @@ export default function SeasonsTab({ seasons, seasonStats, crops, farmers, farme
                   <TableCell className={cell}>{s.cultivated_area || '—'}</TableCell>
                   <TableCell className={cell}>{s.farmer?.name || '—'}</TableCell>
                   <TableCell className={cell}><DateDisplay date={s.planting_date} /></TableCell>
-                  <TableCell className={numCell}>{harvest > 0 ? harvest : '—'}</TableCell>
+                  <TableCell className={numCell}>{harvest > 0 ? fmt(harvest) : '—'}</TableCell>
                   <TableCell className={numCell}>{salesTotal > 0 ? fmt(salesTotal) : '—'}</TableCell>
                   <TableCell className={numCell}>{cost > 0 ? fmt(cost) : '—'}</TableCell>
                   <TableCell className={`${numCell} ${profit >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>

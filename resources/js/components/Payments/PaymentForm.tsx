@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -9,8 +8,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { PAYMENT_TYPES } from '@/lib/paymentEnums';
+import { Textarea } from '@/components/ui/textarea';
 import { CATEGORY_ALLOWED_PAYMENT_TYPES } from '@/lib/partyEnums';
+import { PAYMENT_TYPES } from '@/lib/paymentEnums';
 
 interface Party {
   id: number;
@@ -60,8 +60,9 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
   const partyContracts = contracts.filter((c) => c.party.id === Number(data.party_id));
 
   const selectedParty = parties.find((p) => p.id === Number(data.party_id));
-  const allowedTypes = selectedParty?.category
-    ? PAYMENT_TYPES.filter((t) => (CATEGORY_ALLOWED_PAYMENT_TYPES[selectedParty.category] ?? []).includes(t.value))
+  const selectedCategory = selectedParty?.category ?? null;
+  const allowedTypes = selectedCategory
+    ? PAYMENT_TYPES.filter((t) => (CATEGORY_ALLOWED_PAYMENT_TYPES[selectedCategory] ?? []).includes(t.value))
     : PAYMENT_TYPES;
 
   const isFarmer = selectedParty?.category === 'مزارع';
@@ -69,12 +70,18 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
 
   function handleContractChange(contractId: string) {
     setData('contract_id', contractId);
+
     if (contractId) {
       const contract = contracts.find((c) => c.id === Number(contractId));
+
       if (contract) {
-        if (contract.type === 'مؤجر') setData('type', 'دفع');
-        else if (contract.type === 'مستأجر') setData('type', 'قبض');
-        else setData('type', '');
+        if (contract.type === 'مؤجر') {
+setData('type', 'دفع');
+} else if (contract.type === 'مستأجر') {
+setData('type', 'قبض');
+} else {
+setData('type', '');
+}
       }
     }
   }
@@ -91,7 +98,7 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
         <div className="space-y-2">
           <Label htmlFor="party_id">الطرف</Label>
           <Select value={data.party_id} onValueChange={handlePartyChange}>
-            <SelectTrigger id="party_id">
+            <SelectTrigger id="party_id" aria-invalid={!!errors.party_id}>
               <SelectValue placeholder="اختر الطرف" />
             </SelectTrigger>
             <SelectContent>
@@ -108,7 +115,7 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
         <div className="space-y-2">
           <Label htmlFor="contract_id">العقد (اختياري)</Label>
           <Select value={data.contract_id} onValueChange={handleContractChange}>
-            <SelectTrigger id="contract_id">
+            <SelectTrigger id="contract_id" aria-invalid={!!errors.contract_id}>
               <SelectValue placeholder="بدون عقد" />
             </SelectTrigger>
             <SelectContent>
@@ -129,7 +136,7 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
           <div className="space-y-2">
             <Label htmlFor="land_season_id">الموسم (للمزارع)</Label>
             <Select value={data.land_season_id} onValueChange={(v) => setData('land_season_id', v)}>
-              <SelectTrigger id="land_season_id">
+              <SelectTrigger id="land_season_id" aria-invalid={!!errors.land_season_id}>
                 <SelectValue placeholder="اختر الموسم" />
               </SelectTrigger>
               <SelectContent>
@@ -147,7 +154,7 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
         <div className="space-y-2">
           <Label htmlFor="type">النوع</Label>
           <Select value={data.type} onValueChange={(v) => setData('type', v)}>
-            <SelectTrigger id="type">
+            <SelectTrigger id="type" aria-invalid={!!errors.type}>
               <SelectValue placeholder="اختر" />
             </SelectTrigger>
             <SelectContent>
@@ -169,6 +176,7 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
           <Label htmlFor="date">التاريخ</Label>
           <Input
             id="date"
+            aria-invalid={!!errors.date}
             type="date"
             className="font-mono"
             value={data.date}
@@ -181,6 +189,7 @@ export default function PaymentForm({ data, setData, errors, processing, onSubmi
           <Label htmlFor="amount">المبلغ</Label>
           <Input
             id="amount"
+            aria-invalid={!!errors.amount}
             type="number"
             step="0.01"
             min="0.01"

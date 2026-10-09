@@ -47,18 +47,18 @@ export default function PartyLessorView({ lessorFinancials }: Props) {
           <TableHeader>
             <TableRow>
               <TableHead>الأرض</TableHead>
-              <TableHead className="text-left">إجمالي الإيجار</TableHead>
-              <TableHead className="text-left">المدفوع</TableHead>
-              <TableHead className="text-left">المتبقي</TableHead>
+              <TableHead className="text-right">إجمالي الإيجار</TableHead>
+              <TableHead className="text-right">المدفوع</TableHead>
+              <TableHead className="text-right">المتبقي</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {contracts.map((c) => (
               <TableRow key={c.contract_id}>
                 <TableCell className="font-medium">{c.land_name}</TableCell>
-                <TableCell className="font-mono tabular-nums text-left">{currency(c.contract_amount)}</TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-emerald-700">{currency(c.paid)}</TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-rose-700">{currency(c.remaining)}</TableCell>
+                <TableCell className="font-mono tabular-nums text-right">{currency(c.contract_amount)}</TableCell>
+                <TableCell className="font-mono tabular-nums text-right text-emerald-700">{currency(c.paid)}</TableCell>
+                <TableCell className="font-mono tabular-nums text-right text-rose-700">{currency(c.remaining)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

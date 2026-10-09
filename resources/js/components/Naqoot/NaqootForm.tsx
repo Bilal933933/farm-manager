@@ -37,6 +37,7 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
           <Label htmlFor="name">اسم المنقوط</Label>
           <Input
             id="name"
+            aria-invalid={!!errors.name}
             value={data.name}
             onChange={(e) => setData('name', e.target.value)}
             placeholder="مثال: أحمد محمد"
@@ -48,6 +49,7 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
           <Label htmlFor="location">المكان / المنطقة</Label>
           <Input
             id="location"
+            aria-invalid={!!errors.location}
             value={data.location}
             onChange={(e) => setData('location', e.target.value)}
             placeholder="مثال: الرياض"
@@ -58,7 +60,7 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
         <div className="space-y-2">
           <Label htmlFor="direction">الاتجاه</Label>
           <Select value={data.direction} onValueChange={(v) => setData('direction', v)}>
-            <SelectTrigger id="direction">
+            <SelectTrigger id="direction" aria-invalid={!!errors.direction}>
               <SelectValue placeholder="اختر الاتجاه" />
             </SelectTrigger>
             <SelectContent>
@@ -74,6 +76,7 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
           <Label htmlFor="amount">المبلغ</Label>
           <Input
             id="amount"
+            aria-invalid={!!errors.amount}
             type="number"
             step="0.01"
             min="0"
@@ -88,6 +91,7 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
           <Label htmlFor="date">التاريخ</Label>
           <Input
             id="date"
+            aria-invalid={!!errors.date}
             type="date"
             value={data.date}
             onChange={(e) => setData('date', e.target.value)}
@@ -105,6 +109,7 @@ export default function NaqootForm({ data, setData, errors, processing, onSubmit
           onChange={(e) => setData('notes', e.target.value)}
           placeholder="اختياري"
         />
+        {errors.notes && <p className="text-sm text-rose-600">{errors.notes}</p>}
       </div>
 
       <div className="flex justify-start gap-3 border-t border-stone-200 pt-6">

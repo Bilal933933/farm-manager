@@ -11,7 +11,7 @@ export default function Show({ product }: ShowProps) {
 
       <Link
         href={route('products.index')}
-        className="inline-flex items-center gap-2 text-sm font-medium text-stone-500 hover:text-stone-800 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
       >
         <ArrowRight className="h-4 w-4" />
         <span>العودة إلى المنتجات</span>

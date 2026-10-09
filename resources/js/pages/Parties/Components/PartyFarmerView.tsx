@@ -58,12 +58,12 @@ export default function PartyFarmerView({ farmerFinancials }: Props) {
               <TableHead>الأرض</TableHead>
               <TableHead>تاريخ الزراعة</TableHead>
               <TableHead>نوع التسوية</TableHead>
-              <TableHead className="text-left">الإيراد</TableHead>
-              <TableHead className="text-left">تكاليف مشتركة</TableHead>
-              <TableHead className="text-left">نصيب المزارع</TableHead>
-              <TableHead className="text-left">تكاليف خاصة</TableHead>
-              <TableHead className="text-left">سلف دفعات</TableHead>
-              <TableHead className="text-left">صافي الربح</TableHead>
+              <TableHead className="text-right">الإيراد</TableHead>
+              <TableHead className="text-right">تكاليف مشتركة</TableHead>
+              <TableHead className="text-right">نصيب المزارع</TableHead>
+              <TableHead className="text-right">تكاليف خاصة</TableHead>
+              <TableHead className="text-right">سلف دفعات</TableHead>
+              <TableHead className="text-right">صافي الربح</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -74,22 +74,22 @@ export default function PartyFarmerView({ farmerFinancials }: Props) {
                 <TableCell>
                   {s.settlement_type === 'نسبة' ? `${s.share_percentage ?? 0}%` : 'مبلغ ثابت'}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left">
+                <TableCell className="font-mono tabular-nums text-right">
                   {currency(s.total_revenue)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-amber-700">
+                <TableCell className="font-mono tabular-nums text-right text-amber-700">
                   {currency(s.shared_cost)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-emerald-700">
+                <TableCell className="font-mono tabular-nums text-right text-emerald-700">
                   {currency(s.farmer_share)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-rose-700">
+                <TableCell className="font-mono tabular-nums text-right text-rose-700">
                   {currency(s.farmer_cost)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left text-rose-700">
+                <TableCell className="font-mono tabular-nums text-right text-rose-700">
                   {currency(s.advances)}
                 </TableCell>
-                <TableCell className="font-mono tabular-nums text-left font-bold">
+                <TableCell className="font-mono tabular-nums text-right font-bold">
                   {currency(s.profit)}
                 </TableCell>
               </TableRow>

@@ -29,7 +29,7 @@ export default function OverallKpiCards({ overallSales, overallCosts, totalHarve
             <card.icon className={`h-8 w-8 shrink-0 ${card.iconClass}`} />
             <div className="min-w-0">
               <p className="truncate text-xs text-stone-500">{card.label}</p>
-              <p className={`mt-0.5 text-xl font-bold ${(card as any).valueClass ?? 'text-stone-900'}`}>
+              <p className={`mt-0.5 font-mono tabular-nums text-xl font-bold ${(card as any).valueClass ?? 'text-stone-900'}`}>
                 {card.value.toLocaleString()}
               </p>
             </div>

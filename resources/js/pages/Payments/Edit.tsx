@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import PaymentForm from '@/components/Payments/PaymentForm';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Party {
   id: number;
@@ -57,7 +57,7 @@ export default function Edit({ payment, parties, contracts, seasons }: EditProps
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
-    put(route('payments.update', payment.id));
+    put(route('payments.update', payment.id), { preserveState: 'errors' });
   }
 
   return (
