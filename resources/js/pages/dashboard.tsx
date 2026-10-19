@@ -1,26 +1,44 @@
 import { Head } from '@inertiajs/react';
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
+import ActiveSeasonsTable from '@/components/Dashboard/ActiveSeasonsTable';
+import KpiSection from '@/components/Dashboard/KpiSection';
+import LatestSalesTable from '@/components/Dashboard/LatestSalesTable';
+import PartyBalancesTable from '@/components/Dashboard/PartyBalancesTable';
+import QuickActions from '@/components/Dashboard/QuickActions';
+import type {
+    DashboardPartyBalance,
+    DashboardSale,
+    DashboardSeason,
+    DashboardStats,
+} from '@/types/dashboard';
 
-export default function Dashboard() {
+interface DashboardProps {
+    stats: DashboardStats;
+    activeSeasons: DashboardSeason[];
+    latestSales: DashboardSale[];
+    partyBalances: DashboardPartyBalance[];
+}
+
+export default function Dashboard({ stats, activeSeasons, latestSales, partyBalances }: DashboardProps) {
     return (
-        <>
-            <Head title="Dashboard" />
-            <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="border-sidebar-border/70 dark:border-sidebar-border relative aspect-video overflow-hidden rounded-xl border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="border-sidebar-border/70 dark:border-sidebar-border relative aspect-video overflow-hidden rounded-xl border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="border-sidebar-border/70 dark:border-sidebar-border relative aspect-video overflow-hidden rounded-xl border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
+        <div dir="rtl" className="space-y-6 p-6">
+            <Head title="لوحة التحكم" />
+
+            <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <h1 className="text-2xl font-semibold text-stone-900">لوحة التحكم</h1>
+                    <p className="mt-1 text-sm text-stone-500">نظرة عامة على الأراضي والمواسم والحركة المالية</p>
                 </div>
-                <div className="border-sidebar-border/70 dark:border-sidebar-border relative min-h-[100vh] flex-1 rounded-xl border md:min-h-min">
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                </div>
+                <QuickActions />
             </div>
-        </>
+
+            <KpiSection stats={stats} />
+
+            <ActiveSeasonsTable seasons={activeSeasons} />
+
+            <div className="grid gap-6 lg:grid-cols-2">
+                <LatestSalesTable sales={latestSales} />
+                <PartyBalancesTable balances={partyBalances} />
+            </div>
+        </div>
     );
 }
