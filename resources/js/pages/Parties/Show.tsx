@@ -12,8 +12,9 @@ import PartyMerchantView from './Components/PartyMerchantView';
 import PartyPaymentsTable from './Components/PartyPaymentsTable';
 import PartyPurchasesTable from './Components/PartyPurchasesTable';
 import PartySalesTable from './Components/PartySalesTable';
+import PartyServiceProviderView from './Components/PartyServiceProviderView';
 import PartySupplierView from './Components/PartySupplierView';
-import type { Party, FinancialSummary, FarmerFinancials, LessorFinancials, LesseeFinancials, SupplierFinancials, MerchantFinancials, AmanatFinancials } from './Components/types';
+import type { Party, FinancialSummary, FarmerFinancials, LessorFinancials, LesseeFinancials, SupplierFinancials, MerchantFinancials, AmanatFinancials, ServiceProviderFinancials } from './Components/types';
 
 interface ShowProps {
   party: Party;
@@ -24,9 +25,10 @@ interface ShowProps {
   supplierFinancials?: SupplierFinancials | null;
   merchantFinancials?: MerchantFinancials | null;
   amanatFinancials?: AmanatFinancials | null;
+  serviceProviderFinancials?: ServiceProviderFinancials | null;
 }
 
-export default function Show({ party, summary, farmerFinancials, lessorFinancials, lesseeFinancials, supplierFinancials, merchantFinancials, amanatFinancials }: ShowProps) {
+export default function Show({ party, summary, farmerFinancials, lessorFinancials, lesseeFinancials, supplierFinancials, merchantFinancials, amanatFinancials, serviceProviderFinancials }: ShowProps) {
   if (farmerFinancials) {
     return (
       <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
@@ -125,6 +127,23 @@ export default function Show({ party, summary, farmerFinancials, lessorFinancial
         </Link>
         <PartyHeader party={party} />
         <PartyAmanatView amanatFinancials={amanatFinancials} payments={party.payments ?? []} />
+      </div>
+    );
+  }
+
+  if (serviceProviderFinancials) {
+    return (
+      <div dir="rtl" className="mx-auto max-w-6xl space-y-6 p-4 sm:p-6">
+        <Head title={party.name} />
+        <Link
+          href={route('parties.index')}
+          className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors"
+        >
+          <ArrowRight className="h-4 w-4" />
+          العودة إلى الأطراف
+        </Link>
+        <PartyHeader party={party} />
+        <PartyServiceProviderView serviceProviderFinancials={serviceProviderFinancials} />
       </div>
     );
   }

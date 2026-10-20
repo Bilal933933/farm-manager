@@ -50,6 +50,8 @@ export interface CostData {
   land?: { id: number; name: string } | null;
   land_season?: { id: number } | null;
   crop?: { id: number; name: string } | null;
+  party_id?: number | null;
+  party?: { id: number; name: string } | null;
   borne_by?: string;
 }
 

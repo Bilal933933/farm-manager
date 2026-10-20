@@ -186,6 +186,12 @@ export interface MerchantFinancials {
   sales: MerchantSaleFinancials[];
 }
 
+export interface ServiceProviderFinancials {
+  total_services_amount: number;
+  total_paid: number;
+  total_remaining: number;
+}
+
 export interface AmanatFinancials {
   total_deposited: number;
   total_returned: number;

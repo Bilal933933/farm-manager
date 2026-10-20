@@ -5,10 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { CostData } from '@/types';
 
 interface SeasonOption { id: number; land_id: number; crop?: { name: string } | null; planting_date: string; land: { id: number; name: string } }
-interface EditProps { cost: CostData; lands: { id: number; name: string }[]; seasons: SeasonOption[] }
+interface EditProps { cost: CostData; lands: { id: number; name: string }[]; seasons: SeasonOption[]; providers: { id: number; name: string }[] }
 
-export default function Edit({ cost, lands, seasons }: EditProps) {
+export default function Edit({ cost, lands, seasons, providers }: EditProps) {
   const { data, setData, put, processing, errors } = useForm({
+    party_id: cost.party_id?.toString() ?? '',
     type: cost.type,
     description: cost.description,
     amount: cost.amount.toString(),
@@ -54,6 +55,7 @@ export default function Edit({ cost, lands, seasons }: EditProps) {
             submitLabel="حفظ التعديلات"
             lands={lands}
             seasons={filteredSeasons}
+            providers={providers}
           />
         </CardContent>
       </Card>

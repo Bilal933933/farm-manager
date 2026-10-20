@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Domains\Crops\Models\Crop;
 use App\Domains\Lands\Actions\CalculateSeasonFinancials;
-use App\Domains\Lands\Actions\RecordHarvest;
 use App\Domains\Lands\Models\Cost;
+use App\Domains\Lands\Models\Harvest;
 use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
@@ -18,7 +18,6 @@ use Illuminate\Database\Seeder;
 class LandsSeeder extends Seeder
 {
     public function run(
-        RecordHarvest $recordHarvest,
         CreateSale $createSale,
         RecordPayment $recordPayment,
         CalculateSeasonFinancials $calculateSeasonFinancials,
@@ -74,7 +73,6 @@ class LandsSeeder extends Seeder
                 'land_id' => $landByRef[$item['land_ref']]->id,
                 'crop_id' => $cropId,
                 'cultivated_area' => $item['cultivated_area'],
-                'crop' => $item['crop'],
                 'planting_date' => $item['planting_date'],
                 'harvest_date' => $item['harvest_date'],
                 'expected_cost' => round($item['expected_cost'], 2),
@@ -174,7 +172,7 @@ class LandsSeeder extends Seeder
                 continue;
             }
 
-            $harvest = $recordHarvest->execute([
+            $harvest = Harvest::create([
                 'land_season_id' => $season->id,
                 'name' => $item['name'],
                 'date' => $item['date'],

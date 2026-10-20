@@ -76,6 +76,7 @@ export default function Index({ costs, summary, lands, seasons, filters }: Index
               <TableHead className="text-stone-700 font-semibold text-right">التاريخ</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">الأرض</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">النوع</TableHead>
+              <TableHead className="text-stone-700 font-semibold text-right">مقدّم الخدمة</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right">البيان</TableHead>
               <TableHead className="text-stone-700 font-semibold text-right font-mono tabular-nums">المبلغ</TableHead>
               <TableHead className="text-stone-700 font-semibold text-left w-20">إجراءات</TableHead>
@@ -84,7 +85,7 @@ export default function Index({ costs, summary, lands, seasons, filters }: Index
           <TableBody>
             {costs.data.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="py-16 text-center text-stone-500">
+                <TableCell colSpan={7} className="py-16 text-center text-stone-500">
                   <Wallet className="mx-auto mb-3 h-10 w-10 text-stone-300" />
                   لا توجد تكاليف مسجّلة بعد.
                 </TableCell>
@@ -94,6 +95,7 @@ export default function Index({ costs, summary, lands, seasons, filters }: Index
                 <TableCell><DateDisplay date={c.date} /></TableCell>
                 <TableCell>{c.land?.name ?? '—'}</TableCell>
                 <TableCell>{c.type}</TableCell>
+                <TableCell>{c.party?.name ?? '—'}</TableCell>
                 <TableCell><DetailCell text={c.description} title="البيان" /></TableCell>
                 <TableCell className="text-right font-mono tabular-nums text-amber-700">{fmt(c.amount)}</TableCell>
                 <TableCell className="text-left whitespace-nowrap">

@@ -75,4 +75,11 @@ class PartyFactory extends Factory
             'category' => PartyCategory::Amanat->value,
         ]);
     }
+
+    public function serviceProvider(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'category' => PartyCategory::ServiceProvider->value,
+        ]);
+    }
 }

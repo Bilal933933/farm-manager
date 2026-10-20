@@ -4,6 +4,7 @@ namespace App\Domains\Lands\Models;
 
 use App\Domains\Crops\Models\Crop;
 use App\Domains\Lands\Enums\CostBearer;
+use App\Domains\Parties\Models\Party;
 use App\Domains\Products\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,7 +22,7 @@ class Cost extends Model
      * - crop_id, product_id: nullOnDelete (reference only, cost survives)
      */
 
-    protected $fillable = ['land_id', 'land_season_id', 'crop_id', 'product_id', 'quantity', 'borne_by', 'type', 'description', 'amount', 'date', 'notes'];
+    protected $fillable = ['land_id', 'land_season_id', 'crop_id', 'product_id', 'party_id', 'quantity', 'borne_by', 'type', 'description', 'amount', 'date', 'notes'];
 
     protected function casts(): array
     {
@@ -51,5 +52,10 @@ class Cost extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function provider(): BelongsTo
+    {
+        return $this->belongsTo(Party::class, 'party_id');
     }
 }

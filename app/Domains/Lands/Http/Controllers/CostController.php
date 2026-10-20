@@ -13,8 +13,11 @@ use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Lands\Requests\ListCostRequest;
 use App\Domains\Lands\Requests\StoreCostRequest;
 use App\Domains\Lands\Requests\UpdateCostRequest;
+use App\Domains\Parties\Enums\PartyCategory;
+use App\Domains\Parties\Models\Party;
 use App\Http\Controllers\Controller;
 use App\Support\Toast\ToastResponse;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -32,6 +35,7 @@ class CostController extends Controller
             ->when($filters['land_id'] ?? null, fn ($q, $v) => $q->where('land_id', $v))
             ->when($filters['land_season_id'] ?? null, fn ($q, $v) => $q->where('land_season_id', $v))
             ->when($filters['crop_id'] ?? null, fn ($q, $v) => $q->where('crop_id', $v))
+            ->when($filters['party_id'] ?? null, fn ($q, $v) => $q->where('party_id', $v))
             ->when($filters['type'] ?? null, fn ($q, $v) => $q->where('type', $v))
             ->when($filters['date_from'] ?? null, fn ($q, $v) => $q->whereDate('date', '>=', $v))
             ->when($filters['date_to'] ?? null, fn ($q, $v) => $q->whereDate('date', '<=', $v))
@@ -57,6 +61,7 @@ class CostController extends Controller
             'lands' => Land::orderBy('name')->get(['id', 'name']),
             'seasons' => $seasons,
             'crops' => Crop::orderBy('name')->get(['id', 'name']),
+            'providers' => $this->providers(),
             'filters' => $filters,
         ]);
     }
@@ -67,6 +72,7 @@ class CostController extends Controller
             'lands' => Land::orderBy('name')->get(['id', 'name']),
             'seasons' => LandSeason::orderBy('planting_date', 'desc')->with('land:id,name', 'crop:id,name')->get(['id', 'land_id', 'crop_id', 'planting_date']),
             'crops' => Crop::orderBy('name')->get(['id', 'name']),
+            'providers' => $this->providers(),
         ]);
     }
 
@@ -99,6 +105,7 @@ class CostController extends Controller
             'lands' => Land::orderBy('name')->get(['id', 'name']),
             'seasons' => LandSeason::orderBy('planting_date', 'desc')->with('land:id,name', 'crop:id,name')->get(['id', 'land_id', 'crop_id', 'planting_date']),
             'crops' => Crop::orderBy('name')->get(['id', 'name']),
+            'providers' => $this->providers(),
         ]);
     }
 
@@ -122,5 +129,12 @@ class CostController extends Controller
         );
 
         return redirect()->route('costs.index');
+    }
+
+    private function providers(): Collection
+    {
+        return Party::where('category', PartyCategory::ServiceProvider->value)
+            ->orderBy('name')
+            ->get(['id', 'name']);
     }
 }

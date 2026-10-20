@@ -9,6 +9,7 @@ use App\Domains\Parties\Actions\SummarizeFarmerFinancials;
 use App\Domains\Parties\Actions\SummarizeLesseeFinancials;
 use App\Domains\Parties\Actions\SummarizeLessorFinancials;
 use App\Domains\Parties\Actions\SummarizeMerchantFinancials;
+use App\Domains\Parties\Actions\SummarizeServiceProviderFinancials;
 use App\Domains\Parties\Actions\SummarizeSupplierFinancials;
 use App\Domains\Parties\Actions\UpdateParty;
 use App\Domains\Parties\Enums\PartyCategory;
@@ -84,6 +85,7 @@ class PartyController extends Controller
         $supplierFinancials = null;
         $merchantFinancials = null;
         $amanatFinancials = null;
+        $serviceProviderFinancials = null;
 
         match ($party->category) {
             PartyCategory::Farmer => $farmerFinancials = app(SummarizeFarmerFinancials::class)->execute($party),
@@ -92,6 +94,7 @@ class PartyController extends Controller
             PartyCategory::Supplier => $supplierFinancials = app(SummarizeSupplierFinancials::class)->execute($party),
             PartyCategory::Merchant => $merchantFinancials = app(SummarizeMerchantFinancials::class)->execute($party),
             PartyCategory::Amanat => $amanatFinancials = app(SummarizeAmanatFinancials::class)->execute($party),
+            PartyCategory::ServiceProvider => $serviceProviderFinancials = app(SummarizeServiceProviderFinancials::class)->execute($party),
             default => null,
         };
 
@@ -111,6 +114,7 @@ class PartyController extends Controller
             'supplierFinancials' => $supplierFinancials,
             'merchantFinancials' => $merchantFinancials,
             'amanatFinancials' => $amanatFinancials,
+            'serviceProviderFinancials' => $serviceProviderFinancials,
         ]);
     }
 

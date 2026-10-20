@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { Pencil, Phone, MapPin, Notebook, Building2, User, Home, Sprout, Store, Truck, Vault } from 'lucide-react';
+import { Pencil, Phone, MapPin, Notebook, Building2, User, Home, Sprout, Store, Truck, Vault, Wrench } from 'lucide-react';
 import StatusBadge from '@/components/Lands/StatusBadge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -15,6 +15,7 @@ const CATEGORY_ICONS: Record<string, typeof Home> = {
   'متجر مستلزمات زراعية': Store,
   تاجر: Truck,
   أمانات: Vault,
+  'مقدّم خدمة': Wrench,
 };
 
 interface Props {

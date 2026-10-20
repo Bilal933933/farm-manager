@@ -19,6 +19,7 @@ class ListCostRequest extends FormRequest
             'land_id' => ['nullable', 'exists:lands,id'],
             'land_season_id' => ['nullable', 'exists:land_seasons,id'],
             'crop_id' => ['nullable', 'exists:crops,id'],
+            'party_id' => ['nullable', 'exists:parties,id'],
             'type' => ['nullable', Rule::enum(CostType::class)],
             'date_from' => ['nullable', 'date'],
             'date_to' => ['nullable', 'date', 'after_or_equal:date_from'],

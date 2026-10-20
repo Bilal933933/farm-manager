@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Domains\Lands\Actions\RecordHarvest;
+use App\Domains\Lands\Models\Harvest;
 use App\Domains\Lands\Models\LandContract;
 use App\Domains\Lands\Models\LandSeason;
 use App\Domains\Parties\Enums\PartyCategory;
@@ -18,7 +18,6 @@ class DemoFarmSeeder extends Seeder
     public function run(
         CreatePurchase $createPurchase,
         RecordPayment $recordPayment,
-        RecordHarvest $recordHarvest,
         CreateSale $createSale,
     ): void {
         // ---------------------------------------------------------------
@@ -74,7 +73,7 @@ class DemoFarmSeeder extends Seeder
             ]);
         }
 
-        $harvest = $recordHarvest->execute([
+        $harvest = Harvest::create([
             'land_season_id' => $season->id,
             'date' => '2026-06-20',
             'name' => 'حصاد البطيخ الأحمر - الدورة الصيفية',

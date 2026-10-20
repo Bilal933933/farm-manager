@@ -20,6 +20,7 @@ interface CostFormData {
   date: string;
   notes: string;
   borne_by?: string;
+  party_id?: string;
 }
 
 interface CostFormProps {
@@ -31,11 +32,12 @@ interface CostFormProps {
   submitLabel: string;
   lands?: Option[];
   seasons?: Option[];
+  providers?: Option[];
   hideLand?: boolean;
   hideSeason?: boolean;
 }
 
-export default function CostForm({ data, setData, errors, processing, onSubmit, submitLabel, lands, seasons, hideLand, hideSeason }: CostFormProps) {
+export default function CostForm({ data, setData, errors, processing, onSubmit, submitLabel, lands, seasons, providers, hideLand, hideSeason }: CostFormProps) {
   return (
     <form onSubmit={onSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
@@ -85,6 +87,27 @@ export default function CostForm({ data, setData, errors, processing, onSubmit, 
           </Select>
           {errors.borne_by && <p className="text-sm text-rose-600">{errors.borne_by}</p>}
         </div>
+
+        {providers && providers.length > 0 && (
+          <div className="space-y-2">
+            <Label htmlFor="party_id">مقدّم الخدمة (اختياري)</Label>
+            <Select
+              value={data.party_id || 'none'}
+              onValueChange={(v) => setData('party_id', v === 'none' ? '' : v)}
+            >
+              <SelectTrigger id="party_id" aria-invalid={!!errors.party_id}>
+                <SelectValue placeholder="بدون مقدّم خدمة" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="none">بدون مقدّم خدمة</SelectItem>
+                {providers.map((p) => (
+                  <SelectItem key={p.id} value={p.id.toString()}>{p.name}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.party_id && <p className="text-sm text-rose-600">{errors.party_id}</p>}
+          </div>
+        )}
 
         <div className="space-y-2">
           <Label htmlFor="amount">المبلغ</Label>

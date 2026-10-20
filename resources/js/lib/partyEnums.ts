@@ -17,6 +17,7 @@ export const PARTY_CATEGORIES = [
   { value: 'متجر مستلزمات زراعية', label: 'متجر مستلزمات زراعية' },
   { value: 'تاجر', label: 'تاجر' },
   { value: 'أمانات', label: 'أمانات' },
+  { value: 'مقدّم خدمة', label: 'مقدّم خدمة' },
 ];
 
 export const PARTY_CATEGORY_TONE: Record<string, StatusTone> = {
@@ -26,6 +27,7 @@ export const PARTY_CATEGORY_TONE: Record<string, StatusTone> = {
   'متجر مستلزمات زراعية': 'violet',
   تاجر: 'rose',
   أمانات: 'stone',
+  'مقدّم خدمة': 'amber',
 };
 
 export const PARTY_CATEGORY_AVATAR: Record<string, { gradient: string; icon: string }> = {
@@ -35,6 +37,7 @@ export const PARTY_CATEGORY_AVATAR: Record<string, { gradient: string; icon: str
   'متجر مستلزمات زراعية': { gradient: 'from-purple-100 to-purple-200', icon: 'store' },
   تاجر: { gradient: 'from-orange-100 to-orange-200', icon: 'truck' },
   أمانات: { gradient: 'from-sky-100 to-sky-200', icon: 'vault' },
+  'مقدّم خدمة': { gradient: 'from-amber-100 to-yellow-200', icon: 'wrench' },
 };
 
 export const CATEGORY_ALLOWED_PAYMENT_TYPES: Record<string, string[]> = {
@@ -44,4 +47,5 @@ export const CATEGORY_ALLOWED_PAYMENT_TYPES: Record<string, string[]> = {
   'متجر مستلزمات زراعية': ['دفع', 'سلف'],
   تاجر: ['قبض'],
   أمانات: ['دفع', 'قبض'],
+  'مقدّم خدمة': ['دفع', 'سلف'],
 };

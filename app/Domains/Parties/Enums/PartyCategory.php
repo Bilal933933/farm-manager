@@ -10,4 +10,5 @@ enum PartyCategory: string
     case Supplier = 'متجر مستلزمات زراعية';
     case Merchant = 'تاجر';
     case Amanat = 'أمانات';
+    case ServiceProvider = 'مقدّم خدمة';
 }

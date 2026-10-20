@@ -3,6 +3,7 @@
 use App\Domains\Lands\Models\Cost;
 use App\Domains\Lands\Models\Land;
 use App\Domains\Lands\Models\LandSeason;
+use App\Domains\Parties\Models\Party;
 use App\Models\User;
 
 beforeEach(function () {
@@ -37,6 +38,45 @@ test('cost can be stored', function () {
         ->assertRedirect();
 
     expect(Cost::where('description', 'سماد يوريا')->exists())->toBeTrue();
+});
+
+test('cost can be stored with a service provider', function () {
+    $land = Land::factory()->create();
+    $season = LandSeason::factory()->create();
+    $provider = Party::factory()->serviceProvider()->create();
+
+    $this->post(route('costs.store'), [
+        'land_id' => $land->id,
+        'land_season_id' => $season->id,
+        'party_id' => $provider->id,
+        'type' => 'خدمات',
+        'description' => 'حراثة',
+        'amount' => 3000,
+        'date' => '2025-03-15',
+    ])->assertSessionHasNoErrors()
+        ->assertRedirect();
+
+    $cost = Cost::where('description', 'حراثة')->first();
+
+    expect($cost)->not->toBeNull()
+        ->and($cost->party_id)->toBe($provider->id)
+        ->and($cost->provider->name)->toBe($provider->name);
+});
+
+test('cost index can be filtered by service provider', function () {
+    $provider = Party::factory()->serviceProvider()->create();
+    $other = Party::factory()->serviceProvider()->create();
+
+    Cost::factory()->create(['party_id' => $provider->id]);
+    Cost::factory()->create(['party_id' => $other->id]);
+    Cost::factory()->create(['party_id' => null]);
+
+    $this->get(route('costs.index', ['party_id' => $provider->id]))
+        ->assertInertia(fn ($page) => $page
+            ->component('Costs/Index')
+            ->has('costs.data', 1)
+            ->where('costs.data.0.party_id', $provider->id)
+        );
 });
 
 test('cost validation fails with missing required fields', function () {

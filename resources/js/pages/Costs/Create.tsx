@@ -6,12 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 interface Option { id: number; name: string }
 interface SeasonOption { id: number; land_id: number; crop?: { name: string } | null; planting_date: string; land: Option }
 
-interface CreateProps { lands: Option[]; seasons: SeasonOption[] }
+interface CreateProps { lands: Option[]; seasons: SeasonOption[]; providers: Option[] }
 
-export default function Create({ lands, seasons }: CreateProps) {
+export default function Create({ lands, seasons, providers }: CreateProps) {
   const { data, setData, post, processing, errors } = useForm({
     land_id: lands[0]?.id?.toString() ?? '',
     land_season_id: '',
+    party_id: '',
     type: 'أخرى',
     borne_by: 'مشترك',
     description: '',
@@ -55,6 +56,7 @@ export default function Create({ lands, seasons }: CreateProps) {
             submitLabel="حفظ التكلفة"
             lands={lands}
             seasons={filteredSeasons}
+            providers={providers}
           />
         </CardContent>
       </Card>

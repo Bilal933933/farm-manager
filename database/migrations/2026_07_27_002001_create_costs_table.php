@@ -14,7 +14,8 @@ return new class extends Migration
             $table->foreignId('land_season_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('crop_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('product_id')->nullable()->constrained()->nullOnDelete();
-            $table->decimal('quantity', 10, 2)->nullable()->after('product_id');
+            $table->foreignId('party_id')->nullable()->after('product_id')->constrained()->nullOnDelete();
+            $table->decimal('quantity', 10, 2)->nullable()->after('party_id');
             $table->string('borne_by', 20)->nullable()->default('مشترك')->after('quantity');
             $table->string('type');
             $table->text('description');
